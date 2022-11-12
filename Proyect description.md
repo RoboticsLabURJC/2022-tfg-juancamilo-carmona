@@ -16,6 +16,6 @@ Autonomous driving is something you prabably will end up trying on a real robot.
 For this point I have chosen one of the best robotic frameworks the exists
 For this point I have chosen what probabbly one of the best robotic programing frameworks that exists to the date. Im talking about ROS2, ROS2 is  my favourite robotics aplications developing framework and one that I have a lot of experience working with. The distribution that we will be using in this particular case will be ROS2 foxy
 
-![image](https://user-images.githubusercontent.com/78978326/201485786-7becfe35-36f9-4a0f-badd-5a94aa17223b.png)
+![image](https://user-images.githubusercontent.com/78978326/201485855-9ba84cc0-0c31-4f00-8dab-5fea2217d4b3.png)
 
 
