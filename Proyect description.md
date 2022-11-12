@@ -5,7 +5,7 @@ driving using reinforcement learning. We will study about how a robot interacts 
 
 # Where are we doing this?
 
-We can break up this questions answer on two diferrent parts different: The simulator an the framework
+We can break up this questions answer on two diferrent parts different: **the simulator** and ***the framework***
 
 ## The simulator
 Autonomous driving is something you prabably will end up trying on a real robot. For this simple reason I think it's an accurate decision to work with a realistic simulator. After some research my choice was to use CARLA as my main simulator, CARLA is a very realistic simulator developed in Barcelona and meant to develop, trainin, and validate autonomous system with a really realistic aproach. I think there couldn't be any better choice
