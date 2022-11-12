@@ -13,5 +13,6 @@ As I've mentioned before, ROS2 foxy is the ROS2 distribution we will be working 
 
 
 ## carla_to_ros_bridge
-Now we have both ROS2 and CARLA installed, but how do we make them communicate with each other, how can we make CARLA understand rostopics? 
-fortunately, CARLA developers already thought of this problem and on the CARLA main GitHub page there is a repository called carla_to_ros_bridge, this software translates rostopics so that CARLA can understand them. The carla_to_ros_bridge repo can be found here https://github.com/carla-simulator/ros-bridge
+Now we have both ROS2 and CARLA installed, but how do we make them communicate with each other? how can we make CARLA understand rostopics? 
+fortunately, CARLA developers already thought of this problem and on the CARLA main GitHub page there is a repository called carla_to_ros_bridge, this software translates rostopics so that CARLA can understand them. 
+The carla_to_ros_bridge repo can be found here https://github.com/carla-simulator/ros-bridge
