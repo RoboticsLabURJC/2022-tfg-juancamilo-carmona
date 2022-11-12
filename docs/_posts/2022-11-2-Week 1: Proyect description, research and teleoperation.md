@@ -1,4 +1,4 @@
-# Week 1: Project description and general research.
+# Week 1: Carla installation and comunication with ROS2.
 
 This first week job has been focused mainly on understanding and discussing a good topic to orientate the project and do some general research on it.
 
