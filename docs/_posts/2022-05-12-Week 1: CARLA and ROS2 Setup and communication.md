@@ -1,4 +1,4 @@
-# Week 1: Carla installation and comunication with ROS2.
+# Week 1: CARLA and ROS2 Setup and communication
 
 This first week job has been focused mainly on setting up our hole working enviroment. The main tasks where to install and setup both CARLA and ROS2.
 
