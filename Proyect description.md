@@ -11,3 +11,5 @@ We can break up this questions answer on two diferrent parts different: **the si
 Autonomous driving is something you prabably will end up trying on a real robot. For this simple reason I think it's an accurate decision to work with a realistic simulator. After some research my choice was to use CARLA as my main simulator, CARLA is a very realistic simulator developed in Barcelona and meant to develop, trainin, and validate autonomous system with a really realistic aproach. I think there couldn't be any better choice
 
 ## The Framework
+For this point I have chosen one of the best robotic frameworks the exists
+For this point I have chosen what probabbly one of the best robotic programing frameworks that exists to the date. Im talking about ROS2, ROS2 is  my favourite robotics aplications developing framework and one that I have a lot of experience working with.
