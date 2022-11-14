@@ -15,10 +15,10 @@
 # in the templates via {{ site.myvariable }}.
 
 title: ROBOTICS LAB URJC
-email: lm.lopez.2019@alumnos.urjc.es
-description: "Bitacora for my bachelor's degree final project"
-twitter_username: chuismiguelbots
-github_username: chuismiguel
+email: jc.carmona.2019@alumnos.urjc
+description: "binnacle for my bachelor's degree final project"
+github_username: camilo-0715
+instagram_username: j.camilo.cs
 minimal_mistakes_skin: dark
 search: true
 logo: ./logo.png
@@ -57,7 +57,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Luis Miguel Lopez Martin"
+  name   : "Juan Camilo Carmona Sanchez"
   avatar : "/assets/images/pfp.jpeg"
   bio    : "Software robotics engineer at URJC"
   links:
