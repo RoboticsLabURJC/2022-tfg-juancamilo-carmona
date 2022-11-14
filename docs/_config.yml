@@ -72,10 +72,10 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/chuismiguel"
+      url: "https://github.com/camilo-0715"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/chuismiguelbots"
+      url: "https://twitter.com/camilo_0715"
 
 defaults:
   # _posts
