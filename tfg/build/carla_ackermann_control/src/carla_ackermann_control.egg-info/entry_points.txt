@@ -1,0 +1,3 @@
+[console_scripts]
+carla_ackermann_control_node = carla_ackermann_control.carla_ackermann_control_node:main
+

@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types/rosidl_generator_py/carla_ros_scenario_runner_types/libcarla_ros_scenario_runner_types__python.so" "TARGETS" "carla_ros_scenario_runner_types__python" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")

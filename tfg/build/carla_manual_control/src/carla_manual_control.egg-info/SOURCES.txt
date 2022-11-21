@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+launch/carla_manual_control.launch.py
+resource/carla_manual_control
+src/carla_manual_control/__init__.py
+src/carla_manual_control/carla_manual_control.py
+src/carla_manual_control.egg-info/PKG-INFO
+src/carla_manual_control.egg-info/SOURCES.txt
+src/carla_manual_control.egg-info/dependency_links.txt
+src/carla_manual_control.egg-info/entry_points.txt
+src/carla_manual_control.egg-info/requires.txt
+src/carla_manual_control.egg-info/top_level.txt
+src/carla_manual_control.egg-info/zip-safe

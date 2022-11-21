@@ -1,0 +1,10 @@
+<!-- -->
+<launch>
+  <arg name="role_name" default="ego_vehicle"/>
+
+  <node pkg="carla_teleop" type="carla_teleop.py" name="carla_teleop_$(arg role_name)" output="screen">
+    <param name="role_name" value="$(arg role_name)"/>
+  </node>
+
+</launch>
+

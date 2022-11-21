@@ -1,0 +1,3 @@
+[console_scripts]
+carla_teleop = carla_teleop.carla_teleop:main
+

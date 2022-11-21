@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+config/settings.yaml
+launch/carla_ackermann_control.launch.py
+launch/carla_ros_bridge_with_ackermann_control.launch.py
+resource/carla_ackermann_control
+src/carla_ackermann_control/__init__.py
+src/carla_ackermann_control/carla_ackermann_control_node.py
+src/carla_ackermann_control/carla_control_physics.py
+src/carla_ackermann_control.egg-info/PKG-INFO
+src/carla_ackermann_control.egg-info/SOURCES.txt
+src/carla_ackermann_control.egg-info/dependency_links.txt
+src/carla_ackermann_control.egg-info/entry_points.txt
+src/carla_ackermann_control.egg-info/requires.txt
+src/carla_ackermann_control.egg-info/top_level.txt
+src/carla_ackermann_control.egg-info/zip-safe

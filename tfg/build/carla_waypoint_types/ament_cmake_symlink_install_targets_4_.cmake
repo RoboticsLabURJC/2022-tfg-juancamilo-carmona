@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types/rosidl_generator_py/carla_waypoint_types/carla_waypoint_types_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" "TARGETS" "carla_waypoint_types__rosidl_typesupport_c__pyext" "DESTINATION" "lib/python3.8/site-packages/carla_waypoint_types")

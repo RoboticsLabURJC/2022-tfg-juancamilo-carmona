@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+# EASY-INSTALL-ENTRY-SCRIPT: 'carla-ros-scenario-runner','console_scripts','carla_ros_scenario_runner'
+__requires__ = 'carla-ros-scenario-runner'
+import re
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(
+        load_entry_point('carla-ros-scenario-runner', 'console_scripts', 'carla_ros_scenario_runner')()
+    )

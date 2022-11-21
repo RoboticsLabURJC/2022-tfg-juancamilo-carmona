@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+launch/carla_walker_agent.launch.py
+resource/carla_walker_agent
+src/carla_walker_agent/__init__.py
+src/carla_walker_agent/carla_walker_agent.py
+src/carla_walker_agent.egg-info/PKG-INFO
+src/carla_walker_agent.egg-info/SOURCES.txt
+src/carla_walker_agent.egg-info/dependency_links.txt
+src/carla_walker_agent.egg-info/entry_points.txt
+src/carla_walker_agent.egg-info/requires.txt
+src/carla_walker_agent.egg-info/top_level.txt
+src/carla_walker_agent.egg-info/zip-safe

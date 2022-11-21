@@ -1,0 +1,10 @@
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/install/local.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/install.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/list_install_components.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/rebuild_cache.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/edit_cache.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/test.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/install/strip.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/pcl_recorder_node.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/pcl_recorder_uninstall.dir
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/pcl_recorder/CMakeFiles/uninstall.dir

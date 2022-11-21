@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+# EASY-INSTALL-DEV-SCRIPT: 'rqt-carla-control==0.0.0','rqt_carla_control'
+__requires__ = 'rqt-carla-control==0.0.0'
+__import__('pkg_resources').require('rqt-carla-control==0.0.0')
+__file__ = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/scripts/rqt_carla_control'
+with open(__file__) as f:
+    exec(compile(f.read(), __file__, 'exec'))

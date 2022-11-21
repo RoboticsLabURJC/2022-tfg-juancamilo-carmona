@@ -1,0 +1,3 @@
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types/rosidl_adapter/carla_waypoint_types:msg/CarlaWaypoint.idl
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types/rosidl_adapter/carla_waypoint_types:srv/GetWaypoint.idl
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types/rosidl_adapter/carla_waypoint_types:srv/GetActorWaypoint.idl

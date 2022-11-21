@@ -1,0 +1,10 @@
+{
+  "package_name": "carla_ackermann_msgs",
+  "non_idl_tuples": [
+    "/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs:msg/EgoVehicleControlInfo.msg",
+    "/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs:msg/EgoVehicleControlCurrent.msg",
+    "/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs:msg/EgoVehicleControlMaxima.msg",
+    "/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs:msg/EgoVehicleControlStatus.msg",
+    "/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs:msg/EgoVehicleControlTarget.msg"
+  ]
+}

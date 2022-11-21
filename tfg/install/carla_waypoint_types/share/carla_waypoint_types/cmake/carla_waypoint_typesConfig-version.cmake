@@ -1,0 +1,1 @@
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types/ament_cmake_core/carla_waypoint_typesConfig-version.cmake

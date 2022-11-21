@@ -1,0 +1,124 @@
+[1.279s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:/home/camilo/carla-ros-bridge/install/carla_ad_demo:/home/camilo/carla-ros-bridge/install/rviz_carla_plugin:/home/camilo/carla-ros-bridge/install/pcl_recorder:/home/camilo/carla-ros-bridge/install/carla_waypoint_types:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner_types:/home/camilo/carla-ros-bridge/install/carla_ackermann_msgs:/home/camilo/carla-ros-bridge/install/carla_msgs:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy LD_LIBRARY_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin
+[1.617s] -- The C compiler identification is GNU 9.4.0
+[1.617s] -- The CXX compiler identification is GNU 9.4.0
+[1.617s] -- Check for working C compiler: /usr/bin/cc
+[1.618s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.618s] -- Detecting C compiler ABI info
+[1.618s] -- Detecting C compiler ABI info - done
+[1.618s] -- Detecting C compile features
+[1.618s] -- Detecting C compile features - done
+[1.619s] -- Check for working CXX compiler: /usr/bin/c++
+[1.620s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.622s] -- Detecting CXX compiler ABI info
+[1.691s] -- Detecting CXX compiler ABI info - done
+[1.705s] -- Detecting CXX compile features
+[1.705s] -- Detecting CXX compile features - done
+[1.709s] -- Found ros_environment: 2.5.1 (/opt/ros/foxy/share/ros_environment/cmake)
+[1.711s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.764s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.764s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.012s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.054s] -- Found rviz_common: 8.2.7 (/opt/ros/foxy/share/rviz_common/cmake)
+[2.096s] -- Setting OGRE_DIR to: '/opt/ros/foxy/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[2.101s] -- Found OGRE
+[2.101s] --   static     : OFF
+[2.101s] --   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[2.101s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[2.101s] --   media      : /opt/ros/foxy/opt/rviz_ogre_vendor/share/OGRE/Media
+[2.101s] -- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[2.102s] -- OGRE_LIBRARY_DIRS: /opt/ros/foxy/opt/rviz_ogre_vendor/lib
+[2.102s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[2.102s] -- OGRE_PLUGIN_DIR: /opt/ros/foxy/opt/rviz_ogre_vendor/lib/OGRE
+[2.102s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/foxy/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[2.102s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/foxy/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[2.102s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/foxy/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[2.102s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/foxy/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[2.168s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[2.181s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[2.343s] -- Found X11: /usr/include   
+[2.344s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[2.436s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[2.436s] -- Looking for gethostbyname
+[2.516s] -- Looking for gethostbyname - found
+[2.517s] -- Looking for connect
+[2.597s] -- Looking for connect - found
+[2.597s] -- Looking for remove
+[2.674s] -- Looking for remove - found
+[2.675s] -- Looking for shmat
+[2.753s] -- Looking for shmat - found
+[2.754s] -- Looking for IceConnectionNumber in ICE
+[2.831s] -- Looking for IceConnectionNumber in ICE - found
+[2.837s] -- rviz_ogre_vendor::RenderSystem_GL for IMPORTED_LOCATION_RELEASE: _render_system_gl_static_library_abs-NOTFOUND
+[2.837s] -- rviz_ogre_vendor::RenderSystem_GL for IMPORTED_LOCATION_DEBUG: _render_system_gl_static_library_abs-NOTFOUND
+[2.850s] -- library: libassimp.so.5
+[2.989s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[3.032s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.042s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[3.140s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[3.170s] -- Found FastRTPS: /opt/ros/foxy/include  
+[3.262s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.498s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[3.503s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.506s] -- Looking for pthread.h
+[3.622s] -- Looking for pthread.h - found
+[3.622s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.693s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[3.693s] -- Looking for pthread_create in pthreads
+[3.751s] -- Looking for pthread_create in pthreads - not found
+[3.751s] -- Looking for pthread_create in pthread
+[3.820s] -- Looking for pthread_create in pthread - found
+[3.821s] -- Found Threads: TRUE  
+[4.119s] -- Found Eigen3: TRUE (found version "3.3.7") 
+[4.673s] -- Setting yaml-cpp_DIR to: '/opt/ros/foxy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'
+[4.678s] -- Found carla_msgs: 1.3.0 (/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake)
+[4.929s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[5.077s] -- Found carla_ros_scenario_runner_types: 0.1.0 (/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake)
+[5.440s] -- Configuring done
+[5.565s] -- Generating done
+[5.570s] -- Build files have been written to: /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin
+[5.601s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin' returned '0': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:/home/camilo/carla-ros-bridge/install/carla_ad_demo:/home/camilo/carla-ros-bridge/install/rviz_carla_plugin:/home/camilo/carla-ros-bridge/install/pcl_recorder:/home/camilo/carla-ros-bridge/install/carla_waypoint_types:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner_types:/home/camilo/carla-ros-bridge/install/carla_ackermann_msgs:/home/camilo/carla-ros-bridge/install/carla_msgs:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy LD_LIBRARY_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin
+[5.606s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:/home/camilo/carla-ros-bridge/install/carla_ad_demo:/home/camilo/carla-ros-bridge/install/rviz_carla_plugin:/home/camilo/carla-ros-bridge/install/pcl_recorder:/home/camilo/carla-ros-bridge/install/carla_waypoint_types:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner_types:/home/camilo/carla-ros-bridge/install/carla_ackermann_msgs:/home/camilo/carla-ros-bridge/install/carla_msgs:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy LD_LIBRARY_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin -- -j12 -l12
+[5.679s] [35m[1mScanning dependencies of target rviz_carla_plugin_autogen[0m
+[5.725s] [ 12%] [34m[1mAutomatic MOC for target rviz_carla_plugin[0m
+[6.127s] [ 12%] Built target rviz_carla_plugin_autogen
+[6.138s] [ 25%] [34m[1mGenerating qrc_rviz_carla_plugin.cpp[0m
+[6.153s] [35m[1mScanning dependencies of target rviz_carla_plugin[0m
+[6.265s] [ 37%] [32mBuilding CXX object CMakeFiles/rviz_carla_plugin.dir/src/indicator_widget.cpp.o[0m
+[6.265s] [ 50%] [32mBuilding CXX object CMakeFiles/rviz_carla_plugin.dir/rviz_carla_plugin_autogen/mocs_compilation.cpp.o[0m
+[6.266s] [ 62%] [32mBuilding CXX object CMakeFiles/rviz_carla_plugin.dir/src/drive_widget.cpp.o[0m
+[6.268s] [ 75%] [32mBuilding CXX object CMakeFiles/rviz_carla_plugin.dir/src/carla_control_panel_ROS2.cpp.o[0m
+[6.272s] [ 87%] [32mBuilding CXX object CMakeFiles/rviz_carla_plugin.dir/qrc_rviz_carla_plugin.cpp.o[0m
+[21.888s] [100%] [32m[1mLinking CXX shared library librviz_carla_plugin.so[0m
+[25.222s] [100%] Built target rviz_carla_plugin
+[25.234s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin' returned '0': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:/home/camilo/carla-ros-bridge/install/carla_ad_demo:/home/camilo/carla-ros-bridge/install/rviz_carla_plugin:/home/camilo/carla-ros-bridge/install/pcl_recorder:/home/camilo/carla-ros-bridge/install/carla_waypoint_types:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner_types:/home/camilo/carla-ros-bridge/install/carla_ackermann_msgs:/home/camilo/carla-ros-bridge/install/carla_msgs:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy LD_LIBRARY_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin -- -j12 -l12
+[25.266s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:/home/camilo/carla-ros-bridge/install/carla_ad_demo:/home/camilo/carla-ros-bridge/install/rviz_carla_plugin:/home/camilo/carla-ros-bridge/install/pcl_recorder:/home/camilo/carla-ros-bridge/install/carla_waypoint_types:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner_types:/home/camilo/carla-ros-bridge/install/carla_ackermann_msgs:/home/camilo/carla-ros-bridge/install/carla_msgs:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy LD_LIBRARY_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin
+[25.274s] -- Install configuration: ""
+[25.274s] -- Execute custom install script
+[25.274s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin//plugin_description_ros2.xml
+[25.284s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/library_path.sh
+[25.293s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/library_path.dsv
+[25.303s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/plugin_description_ros2.xml
+[25.304s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/classes/CarlaControl.png
+[25.313s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/pause.png
+[25.323s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/play.png
+[25.333s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/step_once.png
+[25.344s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/ament_index/resource_index/package_run_dependencies/rviz_carla_plugin
+[25.354s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/ament_index/resource_index/parent_prefix_path/rviz_carla_plugin
+[25.363s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/ament_prefix_path.sh
+[25.373s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/ament_prefix_path.dsv
+[25.383s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/path.sh
+[25.393s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/path.dsv
+[25.403s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/local_setup.bash
+[25.413s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/local_setup.sh
+[25.423s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/local_setup.zsh
+[25.433s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/local_setup.dsv
+[25.443s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/package.dsv
+[25.452s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/ament_index/resource_index/packages/rviz_carla_plugin
+[25.462s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/ament_index/resource_index/rviz_common__pluginlib__plugin/rviz_carla_plugin
+[25.471s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/cmake/ament_cmake_export_libraries-extras.cmake
+[25.481s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/cmake/rviz_carla_pluginConfig.cmake
+[25.490s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/cmake/rviz_carla_pluginConfig-version.cmake
+[25.500s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/package.xml
+[25.509s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/lib/librviz_carla_plugin.so
+[25.518s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/lib/librviz_carla_plugin.so" to ""
+[25.524s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin' returned '0': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs:/home/camilo/carla-ros-bridge/install/carla_ad_demo:/home/camilo/carla-ros-bridge/install/rviz_carla_plugin:/home/camilo/carla-ros-bridge/install/pcl_recorder:/home/camilo/carla-ros-bridge/install/carla_waypoint_types:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner_types:/home/camilo/carla-ros-bridge/install/carla_ackermann_msgs:/home/camilo/carla-ros-bridge/install/carla_msgs:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy LD_LIBRARY_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rviz_carla_plugin

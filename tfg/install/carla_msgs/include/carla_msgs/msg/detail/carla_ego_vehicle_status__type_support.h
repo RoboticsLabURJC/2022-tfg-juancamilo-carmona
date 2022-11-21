@@ -1,0 +1,1 @@
+/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.h
