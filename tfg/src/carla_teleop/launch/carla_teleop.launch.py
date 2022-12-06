@@ -14,7 +14,7 @@ def generate_launch_description():
         launch_ros.actions.Node(
             package='carla_teleop',
             executable='carla_teleop',
-            name=['carla_teleop_', launch.substitutions.LaunchConfiguration('role_name')],
+            name=['carla_teleop'],
             output='screen',
             emulate_tty=True,
             parameters=[
@@ -22,7 +22,7 @@ def generate_launch_description():
                     'role_name': launch.substitutions.LaunchConfiguration('role_name')
                 }
             ]
-        )
+        ),
     ])
     return ld
 
