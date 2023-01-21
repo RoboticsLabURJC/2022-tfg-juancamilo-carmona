@@ -1,0 +1,16 @@
+[2.799s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/build --no-deps install_data --install-dir /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control
+[3.334s] running develop
+[3.653s] running egg_info
+[3.653s] writing src/rqt_carla_control.egg-info/PKG-INFO
+[3.653s] writing dependency_links to src/rqt_carla_control.egg-info/dependency_links.txt
+[3.653s] writing requirements to src/rqt_carla_control.egg-info/requires.txt
+[3.654s] writing top-level names to src/rqt_carla_control.egg-info/top_level.txt
+[3.708s] reading manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[3.709s] writing manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[3.769s] running build_ext
+[3.769s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages/rqt-carla-control.egg-link (link to src)
+[3.772s] Installing rqt_carla_control script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/rqt_carla_control
+[3.773s] 
+[3.773s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/src
+[3.773s] running install_data
+[3.996s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/build --no-deps install_data --install-dir /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control

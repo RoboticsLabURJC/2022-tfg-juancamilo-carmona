@@ -3,6 +3,7 @@ setup.cfg
 setup.py
 carla_teleop/__init__.py
 carla_teleop/carla_teleop.py
+carla_teleop/vehicle_control.py
 carla_teleop.egg-info/PKG-INFO
 carla_teleop.egg-info/SOURCES.txt
 carla_teleop.egg-info/dependency_links.txt

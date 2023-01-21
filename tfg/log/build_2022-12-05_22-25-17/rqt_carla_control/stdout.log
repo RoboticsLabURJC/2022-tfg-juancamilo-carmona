@@ -1,0 +1,14 @@
+running develop
+running egg_info
+writing src/rqt_carla_control.egg-info/PKG-INFO
+writing dependency_links to src/rqt_carla_control.egg-info/dependency_links.txt
+writing requirements to src/rqt_carla_control.egg-info/requires.txt
+writing top-level names to src/rqt_carla_control.egg-info/top_level.txt
+reading manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+writing manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages/rqt-carla-control.egg-link (link to src)
+Installing rqt_carla_control script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/rqt_carla_control
+
+Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/src
+running install_data

@@ -1,0 +1,15 @@
+[2.417s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/build --no-deps install_data --install-dir /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility
+[2.800s] running develop
+[3.020s] running egg_info
+[3.020s] writing src/ros_compatibility.egg-info/PKG-INFO
+[3.020s] writing dependency_links to src/ros_compatibility.egg-info/dependency_links.txt
+[3.021s] writing requirements to src/ros_compatibility.egg-info/requires.txt
+[3.021s] writing top-level names to src/ros_compatibility.egg-info/top_level.txt
+[3.056s] reading manifest file 'src/ros_compatibility.egg-info/SOURCES.txt'
+[3.056s] writing manifest file 'src/ros_compatibility.egg-info/SOURCES.txt'
+[3.092s] running build_ext
+[3.093s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages/ros-compatibility.egg-link (link to src)
+[3.103s] 
+[3.103s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src
+[3.104s] running install_data
+[3.159s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/build --no-deps install_data --install-dir /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility
