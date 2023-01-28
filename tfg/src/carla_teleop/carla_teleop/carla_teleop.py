@@ -204,7 +204,6 @@ class VehicleTeleop(Node):
 
         lines = cv2.HoughLinesP(edges,1,numpy.pi/180,40,minLineLength=30,maxLineGap=40)
         i = 0
-
         if lines is not None:
             for x1,y1,x2,y2 in lines[0]:
                 i+=1

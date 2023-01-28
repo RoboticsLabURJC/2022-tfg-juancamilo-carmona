@@ -78,7 +78,7 @@ def generate_launch_description():
         launch.actions.IncludeLaunchDescription(
             launch.launch_description_sources.PythonLaunchDescriptionSource(
                 os.path.join(get_package_share_directory(
-                    'carla_teleop'), 'carla_teleop.launch.py')
+                    'line_follower'), 'line_follower.launch.py')
             ),
             launch_arguments={
                 'role_name': launch.substitutions.LaunchConfiguration('role_name')
