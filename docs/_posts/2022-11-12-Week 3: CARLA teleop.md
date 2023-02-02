@@ -11,7 +11,8 @@ The teleop HRI is made with pygame, we have a window where we can se two images 
 ![image](https://user-images.githubusercontent.com/78978326/216432598-d1e4df06-263d-45c1-b9a6-43b811c0a596.png)
 
 ## Teleop
-As previously mentioned, the teleop is developed using Pygame. Pygame events will be utilized to capture key press events. Upon detection of a key press, a Carla vehicle command controller message will be modified and published on the Carla command controller topic, allowing the vehicle to respond to the key inputs, creating this way a simple  teleop.
+As previously mentioned, the teleop is developed using Pygame. Pygame events will be utilized to capture key press events. Upon detection of a key press, a Carla vehicle command controller message will be modified and published on the Carla command controller topic, allowing the vehicle to respond to the key inputs, creating this way a simple teleop. On the following video https://youtu.be/mJZwup0JafE we can se a short demostration of how the teleop works.
 
+## Problems and solutions
 
 
