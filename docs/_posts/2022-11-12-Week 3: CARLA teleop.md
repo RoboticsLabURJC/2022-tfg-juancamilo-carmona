@@ -15,6 +15,8 @@ As previously mentioned, the teleop is developed using Pygame. Pygame events wil
 
 ## Problems and solutions
 
+The initial challenge was becoming familiar with utilizing Carla and ROS through the carla_to_ros_bridge. This required research into the various topics and their respective controls, as well as a deeper understanding of how the bridge operates
+
 During the course of the project, several issues arose. 
 
 One of the challenges was simultaneously displaying images and controlling the vehicle. The image refresh was implemented using subscribers callbacks, which resulted in the vehicle control being blocked by a ROS spin on the node. To resolve this issue, we employed the use of threads. A separate thread was dedicated to executing the vehicle control function while the main program performed the ROS spin to continuously refresh the images.
