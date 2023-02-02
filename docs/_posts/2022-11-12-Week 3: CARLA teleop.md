@@ -1,6 +1,6 @@
 # Week 3: CARLA teleop
 
-For this week our task will be to programm a simple teleop on ROS2 that can control a vehicle on CARLA. 
+For this following weeks our task will be to program a simple teleop on ROS2 that can control a vehicle on CARLA. 
 
 ## vehicle launching
 Before proceeding with the teleop development, we need to spawn a vehicle to control. We will utilize the launchers provided by carla_ros_bridge, particularly the "carla_generate_vehicle.launch.py." laucnher. This launcher will randomly place a vehicle on a selected map. The vehicle's throttle, direction, brake, and other functions can be manipulated through ROS2 topics."
