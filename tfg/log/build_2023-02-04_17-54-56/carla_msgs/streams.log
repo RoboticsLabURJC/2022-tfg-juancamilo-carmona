@@ -1,0 +1,662 @@
+[0.138s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy /usr/bin/cmake /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs
+[1.517s] -- The C compiler identification is GNU 9.4.0
+[1.517s] -- The CXX compiler identification is GNU 9.4.0
+[1.517s] -- Check for working C compiler: /usr/bin/cc
+[1.517s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.517s] -- Detecting C compiler ABI info
+[1.517s] -- Detecting C compiler ABI info - done
+[1.517s] -- Detecting C compile features
+[1.517s] -- Detecting C compile features - done
+[1.517s] -- Check for working CXX compiler: /usr/bin/c++
+[1.517s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.517s] -- Detecting CXX compiler ABI info
+[1.518s] -- Detecting CXX compiler ABI info - done
+[1.518s] -- Detecting CXX compile features
+[1.518s] -- Detecting CXX compile features - done
+[1.518s] -- Found ros_environment: 2.5.1 (/opt/ros/foxy/share/ros_environment/cmake)
+[1.519s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.520s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.520s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.520s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.521s] -- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)
+[1.521s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.522s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.522s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.522s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.577s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.638s] -- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)
+[1.676s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[1.746s] -- Found diagnostic_msgs: 2.0.5 (/opt/ros/foxy/share/diagnostic_msgs/cmake)
+[1.814s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.941s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[2.461s] -- Found ament_cmake_cppcheck: 0.9.7 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)
+[2.468s] -- Found ament_cmake_cpplint: 0.9.7 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)
+[2.475s] -- Found ament_cmake_uncrustify: 0.9.7 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)
+[2.482s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[3.016s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.221s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.294s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[3.297s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[3.364s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+[3.364s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[3.365s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[3.365s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[3.423s] -- Found PythonExtra: .so  
+[3.584s] -- Found ament_cmake_flake8: 0.9.7 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)
+[3.587s] -- Found ament_cmake_pep257: 0.9.7 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)
+[3.599s] -- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.624s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.625s] -- Added test 'lint_cmake' to check CMake code style
+[3.626s] -- Added test 'xmllint' to check XML markup files
+[3.634s] -- Configuring done
+[3.749s] -- Generating done
+[3.751s] -- Build files have been written to: /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs
+[3.764s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy /usr/bin/cmake /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs
+[3.769s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs -- -j12 -l12
+[3.824s] [35m[1mScanning dependencies of target carla_msgs__cpp[0m
+[3.826s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.838s] [  1%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[6.845s] [  1%] Built target carla_msgs__cpp
+[6.858s] [  2%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[6.859s] [  4%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[6.859s] [  4%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[7.195s] [35m[1mScanning dependencies of target carla_msgs__rosidl_generator_c[0m
+[7.226s] [  4%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_bounding_box__functions.c.o[0m
+[7.228s] [  4%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_info__functions.c.o[0m
+[7.228s] [  4%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_status__functions.c.o[0m
+[7.228s] [  6%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__functions.c.o[0m
+[7.228s] [  7%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_collision_event__functions.c.o[0m
+[7.228s] [  7%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_control__functions.c.o[0m
+[7.239s] [  8%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_world_info__functions.c.o[0m
+[7.240s] [  8%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_actor_info__functions.c.o[0m
+[7.243s] [  8%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_lane_invasion_event__functions.c.o[0m
+[7.306s] [  8%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_control__functions.c.o[0m
+[7.309s] [  9%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_actor_list__functions.c.o[0m
+[7.325s] [ 10%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_status__functions.c.o[0m
+[7.330s] [ 10%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_traffic_light_info__functions.c.o[0m
+[7.338s] [ 11%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_traffic_light_info_list__functions.c.o[0m
+[7.340s] [ 11%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_traffic_light_status__functions.c.o[0m
+[7.349s] [ 12%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_traffic_light_status_list__functions.c.o[0m
+[7.361s] [ 12%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_walker_control__functions.c.o[0m
+[7.377s] [ 13%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_weather_parameters__functions.c.o[0m
+[7.413s] [ 14%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/srv/detail/get_blueprints__functions.c.o[0m
+[7.414s] [ 14%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/srv/detail/destroy_object__functions.c.o[0m
+[7.415s] [ 15%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/srv/detail/spawn_object__functions.c.o[0m
+[7.499s] [ 15%] [32m[1mLinking C shared library libcarla_msgs__rosidl_generator_c.so[0m
+[7.546s] [ 15%] Built target carla_msgs__rosidl_generator_c
+[7.560s] [ 16%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[7.563s] [ 17%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[8.668s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_cpp[0m
+[8.712s] [ 17%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_bounding_box__type_support.cpp.o[0m
+[8.716s] [ 18%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_ego_vehicle_control__type_support.cpp.o[0m
+[8.721s] [ 18%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_ego_vehicle_status__type_support.cpp.o[0m
+[8.724s] [ 19%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_ego_vehicle_info_wheel__type_support.cpp.o[0m
+[8.733s] [ 19%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_ego_vehicle_info__type_support.cpp.o[0m
+[8.754s] [ 20%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_collision_event__type_support.cpp.o[0m
+[8.806s] [ 20%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_lane_invasion_event__type_support.cpp.o[0m
+[8.807s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_introspection_cpp[0m
+[8.820s] [ 21%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_world_info__type_support.cpp.o[0m
+[8.873s] [ 22%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_bounding_box__type_support.cpp.o[0m
+[9.224s] [ 22%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.cpp.o[0m
+[9.280s] [ 22%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_actor_info__type_support.cpp.o[0m
+[9.289s] [ 23%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_actor_list__type_support.cpp.o[0m
+[9.328s] [ 23%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_control__type_support.cpp.o[0m
+[9.334s] [ 24%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_status__type_support.cpp.o[0m
+[9.397s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_traffic_light_info__type_support.cpp.o[0m
+[9.429s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_traffic_light_info_list__type_support.cpp.o[0m
+[9.479s] [ 26%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_traffic_light_status__type_support.cpp.o[0m
+[9.547s] [ 27%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.cpp.o[0m
+[9.751s] [ 27%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.cpp.o[0m
+[9.843s] [ 28%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_walker_control__type_support.cpp.o[0m
+[9.856s] [ 28%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_traffic_light_status_list__type_support.cpp.o[0m
+[9.976s] [ 28%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_weather_parameters__type_support.cpp.o[0m
+[9.979s] [ 29%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.cpp.o[0m
+[10.026s] [ 29%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_collision_event__type_support.cpp.o[0m
+[10.089s] [ 30%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/srv/spawn_object__type_support.cpp.o[0m
+[10.173s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_c[0m
+[10.193s] [ 31%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.cpp.o[0m
+[10.212s] [ 31%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_bounding_box__type_support.cpp.o[0m
+[10.249s] [ 31%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_world_info__type_support.cpp.o[0m
+[10.297s] [ 32%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_ego_vehicle_control__type_support.cpp.o[0m
+[10.328s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[10.334s] [ 32%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_ego_vehicle_status__type_support.cpp.o[0m
+[10.404s] [ 32%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_bounding_box__type_support.cpp.o[0m
+[10.411s] [ 33%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_ego_vehicle_info_wheel__type_support.cpp.o[0m
+[10.430s] [ 33%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/srv/destroy_object__type_support.cpp.o[0m
+[10.443s] [ 33%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_ego_vehicle_info__type_support.cpp.o[0m
+[10.468s] [ 34%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_ego_vehicle_control__type_support.cpp.o[0m
+[10.491s] [ 35%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/srv/get_blueprints__type_support.cpp.o[0m
+[10.506s] [ 36%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_collision_event__type_support.cpp.o[0m
+[10.543s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_introspection_c[0m
+[10.567s] [ 37%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_actor_info__type_support.cpp.o[0m
+[10.582s] [ 37%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_ego_vehicle_status__type_support.cpp.o[0m
+[10.640s] [ 37%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_lane_invasion_event__type_support.cpp.o[0m
+[10.684s] [ 37%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_bounding_box__type_support.c.o[0m
+[10.701s] [ 38%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_ego_vehicle_info_wheel__type_support.cpp.o[0m
+[10.726s] [ 39%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.c.o[0m
+[10.761s] [ 40%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_world_info__type_support.cpp.o[0m
+[10.810s] [ 40%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_actor_info__type_support.cpp.o[0m
+[10.860s] [ 40%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.c.o[0m
+[10.879s] [ 40%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_ego_vehicle_info__type_support.cpp.o[0m
+[10.880s] [ 41%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_actor_list__type_support.cpp.o[0m
+[10.934s] [ 42%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_collision_event__type_support.cpp.o[0m
+[10.937s] [ 42%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_actor_list__type_support.cpp.o[0m
+[10.947s] [ 43%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.c.o[0m
+[10.976s] [ 43%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_control__type_support.cpp.o[0m
+[11.003s] [ 44%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.c.o[0m
+[11.029s] [ 44%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_collision_event__type_support.c.o[0m
+[11.066s] [ 45%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_status__type_support.cpp.o[0m
+[11.125s] [ 46%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_lane_invasion_event__type_support.cpp.o[0m
+[11.129s] [ 46%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_traffic_light_info__type_support.cpp.o[0m
+[11.150s] [ 47%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_traffic_light_info_list__type_support.cpp.o[0m
+[11.164s] [ 49%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.c.o[0m
+[11.164s] [ 49%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_control__type_support.cpp.o[0m
+[11.182s] [ 49%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_cpp.so[0m
+[11.212s] [ 49%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_status__type_support.cpp.o[0m
+[11.213s] [ 49%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_traffic_light_status__type_support.cpp.o[0m
+[11.262s] [ 49%] Built target carla_msgs__rosidl_typesupport_cpp
+[11.275s] [ 49%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_world_info__type_support.c.o[0m
+[11.292s] [ 50%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_traffic_light_status_list__type_support.cpp.o[0m
+[11.303s] [ 51%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_actor_info__type_support.c.o[0m
+[11.353s] [ 52%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_walker_control__type_support.cpp.o[0m
+[11.404s] [ 53%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_control__type_support.c.o[0m
+[11.417s] [ 53%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_actor_list__type_support.c.o[0m
+[11.443s] [ 53%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_weather_parameters__type_support.cpp.o[0m
+[11.462s] [ 54%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_traffic_light_info__type_support.cpp.o[0m
+[11.489s] [ 54%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_status__type_support.c.o[0m
+[11.491s] [ 55%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_traffic_light_info__type_support.c.o[0m
+[11.521s] [ 55%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_world_info__type_support.cpp.o[0m
+[11.537s] [ 56%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/srv/spawn_object__type_support.cpp.o[0m
+[11.557s] [ 56%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.c.o[0m
+[11.562s] [ 57%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_actor_info__type_support.cpp.o[0m
+[11.564s] [ 58%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_traffic_light_status__type_support.c.o[0m
+[11.593s] [ 58%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.c.o[0m
+[11.603s] [ 58%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/srv/destroy_object__type_support.cpp.o[0m
+[11.626s] [ 59%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_walker_control__type_support.c.o[0m
+[11.653s] [ 59%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_weather_parameters__type_support.c.o[0m
+[11.659s] [ 60%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/srv/detail/spawn_object__type_support.c.o[0m
+[11.692s] [ 61%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/srv/get_blueprints__type_support.cpp.o[0m
+[11.717s] [ 62%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_traffic_light_status__type_support.cpp.o[0m
+[11.722s] [ 62%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/srv/detail/destroy_object__type_support.c.o[0m
+[11.729s] [ 62%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.cpp.o[0m
+[11.736s] [ 62%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_actor_list__type_support.cpp.o[0m
+[11.752s] [ 63%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/srv/detail/get_blueprints__type_support.c.o[0m
+[11.755s] [ 63%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_c.so[0m
+[11.790s] [ 64%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_walker_control__type_support.cpp.o[0m
+[11.802s] [ 65%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_control__type_support.cpp.o[0m
+[11.802s] [ 65%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.cpp.o[0m
+[11.854s] [ 65%] [32m[1mLinking C shared library libcarla_msgs__rosidl_typesupport_introspection_c.so[0m
+[11.881s] [ 65%] Built target carla_msgs__rosidl_typesupport_c
+[11.942s] [ 65%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_status__type_support.cpp.o[0m
+[11.943s] [ 65%] Built target carla_msgs__rosidl_typesupport_introspection_c
+[11.959s] [ 65%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_traffic_light_info_list__type_support.cpp.o[0m
+[11.969s] [ 66%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_traffic_light_info__type_support.cpp.o[0m
+[11.974s] [ 66%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_weather_parameters__type_support.cpp.o[0m
+[12.232s] [ 67%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_traffic_light_status__type_support.cpp.o[0m
+[12.364s] [ 68%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/srv/detail/spawn_object__type_support.cpp.o[0m
+[12.430s] [ 69%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_walker_control__type_support.cpp.o[0m
+[12.438s] [ 69%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_traffic_light_status_list__type_support.cpp.o[0m
+[12.472s] [ 69%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/srv/detail/destroy_object__type_support.cpp.o[0m
+[12.479s] [ 69%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_weather_parameters__type_support.cpp.o[0m
+[12.494s] [ 70%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/srv/detail/get_blueprints__type_support.cpp.o[0m
+[12.547s] [ 71%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.o[0m
+[12.580s] [ 71%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/srv/detail/dds_fastrtps/destroy_object__type_support.cpp.o[0m
+[12.699s] [ 72%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/srv/detail/dds_fastrtps/get_blueprints__type_support.cpp.o[0m
+[13.174s] [ 73%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[13.343s] [ 73%] Built target carla_msgs__rosidl_typesupport_introspection_cpp
+[13.433s] [ 73%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[13.544s] [ 73%] Built target carla_msgs__rosidl_typesupport_fastrtps_cpp
+[13.556s] [ 74%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[14.937s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_fastrtps_c[0m
+[14.980s] [ 75%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support_c.cpp.o[0m
+[14.981s] [ 75%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_bounding_box__type_support_c.cpp.o[0m
+[14.981s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_world_info__type_support_c.cpp.o[0m
+[14.981s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support_c.cpp.o[0m
+[14.981s] [ 75%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_lane_invasion_event__type_support_c.cpp.o[0m
+[14.981s] [ 77%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_actor_list__type_support_c.cpp.o[0m
+[14.981s] [ 78%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_collision_event__type_support_c.cpp.o[0m
+[14.981s] [ 79%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support_c.cpp.o[0m
+[14.983s] [ 79%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support_c.cpp.o[0m
+[14.983s] [ 79%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_actor_info__type_support_c.cpp.o[0m
+[14.994s] [ 80%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_control__type_support_c.cpp.o[0m
+[14.994s] [ 80%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_status__type_support_c.cpp.o[0m
+[15.567s] [ 81%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_traffic_light_info__type_support_c.cpp.o[0m
+[15.587s] [ 81%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support_c.cpp.o[0m
+[15.606s] [ 82%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_traffic_light_status__type_support_c.cpp.o[0m
+[15.635s] [ 82%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support_c.cpp.o[0m
+[15.651s] [ 83%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_walker_control__type_support_c.cpp.o[0m
+[15.665s] [ 83%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_weather_parameters__type_support_c.cpp.o[0m
+[15.685s] [ 84%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/srv/detail/spawn_object__type_support_c.cpp.o[0m
+[15.688s] [ 84%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/srv/detail/destroy_object__type_support_c.cpp.o[0m
+[15.727s] [ 85%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/srv/detail/get_blueprints__type_support_c.cpp.o[0m
+[16.319s] [ 85%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[16.414s] [ 85%] Built target carla_msgs__rosidl_typesupport_fastrtps_c
+[16.424s] [35m[1mScanning dependencies of target carla_msgs[0m
+[16.436s] [ 85%] Built target carla_msgs
+[16.448s] [35m[1mScanning dependencies of target carla_msgs__py[0m
+[16.459s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[19.426s] [ 86%] Built target carla_msgs__py
+[19.437s] [35m[1mScanning dependencies of target carla_msgs__python[0m
+[19.490s] [ 87%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_ego_vehicle_status_s.c.o[0m
+[19.490s] [ 87%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_bounding_box_s.c.o[0m
+[19.490s] [ 87%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_ego_vehicle_info_wheel_s.c.o[0m
+[19.491s] [ 88%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_collision_event_s.c.o[0m
+[19.491s] [ 88%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_ego_vehicle_info_s.c.o[0m
+[19.491s] [ 88%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_lane_invasion_event_s.c.o[0m
+[19.492s] [ 88%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_actor_info_s.c.o[0m
+[19.492s] [ 89%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_world_info_s.c.o[0m
+[19.493s] [ 90%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_actor_list_s.c.o[0m
+[19.494s] [ 91%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_status_s.c.o[0m
+[19.496s] [ 92%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_ego_vehicle_control_s.c.o[0m
+[19.499s] [ 92%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_control_s.c.o[0m
+[19.633s] [ 93%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_traffic_light_info_s.c.o[0m
+[19.634s] [ 93%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_traffic_light_info_list_s.c.o[0m
+[19.638s] [ 93%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_traffic_light_status_s.c.o[0m
+[19.641s] [ 94%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_traffic_light_status_list_s.c.o[0m
+[19.643s] [ 94%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_walker_control_s.c.o[0m
+[19.644s] [ 95%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_weather_parameters_s.c.o[0m
+[19.655s] [ 95%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/srv/_spawn_object_s.c.o[0m
+[19.655s] [ 96%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/srv/_destroy_object_s.c.o[0m
+[19.670s] [ 97%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/srv/_get_blueprints_s.c.o[0m
+[19.809s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/carla_msgs/libcarla_msgs__python.so[0m
+[19.862s] [ 97%] Built target carla_msgs__python
+[19.873s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[19.874s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_c__pyext[0m
+[19.874s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[19.896s] [ 99%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/carla_msgs/_carla_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[19.896s] [ 99%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/carla_msgs/_carla_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[19.896s] [100%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/carla_msgs/_carla_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[20.045s] [100%] [32m[1mLinking C shared library rosidl_generator_py/carla_msgs/carla_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[20.045s] [100%] [32m[1mLinking C shared library rosidl_generator_py/carla_msgs/carla_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[20.053s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/carla_msgs/carla_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[20.089s] [100%] Built target carla_msgs__rosidl_typesupport_c__pyext
+[20.090s] [100%] Built target carla_msgs__rosidl_typesupport_introspection_c__pyext
+[20.131s] [100%] Built target carla_msgs__rosidl_typesupport_fastrtps_c__pyext
+[20.144s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs -- -j12 -l12
+[20.465s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs
+[20.473s] -- Install configuration: ""
+[20.474s] -- Execute custom install script
+[20.474s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/ament_index/resource_index/rosidl_interfaces/carla_msgs
+[20.484s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_actor_info.h
+[20.494s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_actor_list.h
+[20.503s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_bounding_box.h
+[20.512s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_collision_event.h
+[20.522s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_control.h
+[20.531s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_control.h
+[20.540s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_info.h
+[20.550s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_info_wheel.h
+[20.559s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_status.h
+[20.568s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_lane_invasion_event.h
+[20.577s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_status.h
+[20.587s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_info.h
+[20.596s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_info_list.h
+[20.605s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_status.h
+[20.614s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_status_list.h
+[20.624s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_walker_control.h
+[20.633s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_weather_parameters.h
+[20.642s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_world_info.h
+[20.651s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__functions.h
+[20.660s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__struct.h
+[20.669s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__type_support.h
+[20.678s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__functions.h
+[20.688s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__struct.h
+[20.697s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__type_support.h
+[20.706s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__functions.h
+[20.716s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__struct.h
+[20.725s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__type_support.h
+[20.734s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__functions.h
+[20.743s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__struct.h
+[20.752s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__type_support.h
+[20.761s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__functions.h
+[20.770s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__struct.h
+[20.780s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__type_support.h
+[20.789s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__functions.h
+[20.798s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__struct.h
+[20.807s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.h
+[20.818s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__functions.h
+[20.828s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__struct.h
+[20.837s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.h
+[20.846s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__functions.h
+[20.855s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__struct.h
+[20.864s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.h
+[20.872s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__functions.h
+[20.881s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__struct.h
+[20.891s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.h
+[20.900s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__functions.h
+[20.909s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__struct.h
+[20.919s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.h
+[20.928s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__functions.h
+[20.937s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__struct.h
+[20.947s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__type_support.h
+[20.956s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__functions.h
+[20.965s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__struct.h
+[20.974s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__type_support.h
+[20.984s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__functions.h
+[20.993s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__struct.h
+[21.002s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.h
+[21.012s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__functions.h
+[21.022s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__struct.h
+[21.031s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__type_support.h
+[21.040s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__functions.h
+[21.049s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__struct.h
+[21.058s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.h
+[21.068s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__functions.h
+[21.078s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__struct.h
+[21.088s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__type_support.h
+[21.097s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__functions.h
+[21.106s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__struct.h
+[21.116s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__type_support.h
+[21.126s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__functions.h
+[21.135s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__struct.h
+[21.144s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__type_support.h
+[21.154s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/rosidl_generator_c__visibility_control.h
+[21.166s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/destroy_object.h
+[21.175s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__functions.h
+[21.185s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__struct.h
+[21.194s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__type_support.h
+[21.203s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__functions.h
+[21.213s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__struct.h
+[21.222s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__type_support.h
+[21.231s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__functions.h
+[21.240s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__struct.h
+[21.249s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__type_support.h
+[21.258s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/get_blueprints.h
+[21.267s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/spawn_object.h
+[21.276s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/environment/library_path.sh
+[21.286s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/environment/library_path.dsv
+[21.296s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__rosidl_typesupport_fastrtps_c.h
+[21.305s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__rosidl_typesupport_fastrtps_c.h
+[21.315s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__rosidl_typesupport_fastrtps_c.h
+[21.324s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__rosidl_typesupport_fastrtps_c.h
+[21.333s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__rosidl_typesupport_fastrtps_c.h
+[21.342s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__rosidl_typesupport_fastrtps_c.h
+[21.352s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__rosidl_typesupport_fastrtps_c.h
+[21.361s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__rosidl_typesupport_fastrtps_c.h
+[21.370s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__rosidl_typesupport_fastrtps_c.h
+[21.379s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__rosidl_typesupport_fastrtps_c.h
+[21.389s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__rosidl_typesupport_fastrtps_c.h
+[21.398s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__rosidl_typesupport_fastrtps_c.h
+[21.406s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__rosidl_typesupport_fastrtps_c.h
+[21.415s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__rosidl_typesupport_fastrtps_c.h
+[21.425s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__rosidl_typesupport_fastrtps_c.h
+[21.434s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__rosidl_typesupport_fastrtps_c.h
+[21.443s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__rosidl_typesupport_fastrtps_c.h
+[21.452s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__rosidl_typesupport_fastrtps_c.h
+[21.462s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[21.470s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__rosidl_typesupport_fastrtps_c.h
+[21.480s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__rosidl_typesupport_fastrtps_c.h
+[21.489s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__rosidl_typesupport_fastrtps_c.h
+[21.498s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_fastrtps_c.so
+[21.509s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__rosidl_typesupport_fastrtps_cpp.hpp
+[21.520s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__rosidl_typesupport_fastrtps_cpp.hpp
+[21.529s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__rosidl_typesupport_fastrtps_cpp.hpp
+[21.538s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__rosidl_typesupport_fastrtps_cpp.hpp
+[21.547s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__rosidl_typesupport_fastrtps_cpp.hpp
+[21.556s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__rosidl_typesupport_fastrtps_cpp.hpp
+[21.566s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__rosidl_typesupport_fastrtps_cpp.hpp
+[21.575s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__rosidl_typesupport_fastrtps_cpp.hpp
+[21.584s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__rosidl_typesupport_fastrtps_cpp.hpp
+[21.594s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__rosidl_typesupport_fastrtps_cpp.hpp
+[21.603s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__rosidl_typesupport_fastrtps_cpp.hpp
+[21.612s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__rosidl_typesupport_fastrtps_cpp.hpp
+[21.622s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__rosidl_typesupport_fastrtps_cpp.hpp
+[21.631s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__rosidl_typesupport_fastrtps_cpp.hpp
+[21.640s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__rosidl_typesupport_fastrtps_cpp.hpp
+[21.650s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__rosidl_typesupport_fastrtps_cpp.hpp
+[21.659s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__rosidl_typesupport_fastrtps_cpp.hpp
+[21.668s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__rosidl_typesupport_fastrtps_cpp.hpp
+[21.677s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[21.687s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__rosidl_typesupport_fastrtps_cpp.hpp
+[21.697s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__rosidl_typesupport_fastrtps_cpp.hpp
+[21.706s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__rosidl_typesupport_fastrtps_cpp.hpp
+[21.716s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_fastrtps_cpp.so
+[21.726s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__rosidl_typesupport_introspection_c.h
+[21.735s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__rosidl_typesupport_introspection_c.h
+[21.744s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__rosidl_typesupport_introspection_c.h
+[21.753s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__rosidl_typesupport_introspection_c.h
+[21.763s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__rosidl_typesupport_introspection_c.h
+[21.772s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__rosidl_typesupport_introspection_c.h
+[21.782s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__rosidl_typesupport_introspection_c.h
+[21.791s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__rosidl_typesupport_introspection_c.h
+[21.800s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__rosidl_typesupport_introspection_c.h
+[21.809s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__rosidl_typesupport_introspection_c.h
+[21.819s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__rosidl_typesupport_introspection_c.h
+[21.828s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__rosidl_typesupport_introspection_c.h
+[21.837s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__rosidl_typesupport_introspection_c.h
+[21.846s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__rosidl_typesupport_introspection_c.h
+[21.856s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__rosidl_typesupport_introspection_c.h
+[21.865s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__rosidl_typesupport_introspection_c.h
+[21.874s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__rosidl_typesupport_introspection_c.h
+[21.884s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__rosidl_typesupport_introspection_c.h
+[21.894s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[21.903s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__rosidl_typesupport_introspection_c.h
+[21.912s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__rosidl_typesupport_introspection_c.h
+[21.921s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__rosidl_typesupport_introspection_c.h
+[21.932s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_actor_info.hpp
+[21.950s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_actor_list.hpp
+[21.960s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_bounding_box.hpp
+[21.971s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_collision_event.hpp
+[21.980s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_control.hpp
+[21.990s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_control.hpp
+[21.999s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_info.hpp
+[22.008s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_info_wheel.hpp
+[22.019s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_status.hpp
+[22.029s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_lane_invasion_event.hpp
+[22.038s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_status.hpp
+[22.048s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_info.hpp
+[22.057s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_info_list.hpp
+[22.066s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_status.hpp
+[22.075s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_status_list.hpp
+[22.085s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_walker_control.hpp
+[22.094s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_weather_parameters.hpp
+[22.104s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/carla_world_info.hpp
+[22.113s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__builder.hpp
+[22.122s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__struct.hpp
+[22.132s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__traits.hpp
+[22.142s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__builder.hpp
+[22.153s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__struct.hpp
+[22.163s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__traits.hpp
+[22.172s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__builder.hpp
+[22.183s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__struct.hpp
+[22.193s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__traits.hpp
+[22.202s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__builder.hpp
+[22.213s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__struct.hpp
+[22.224s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__traits.hpp
+[22.233s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__builder.hpp
+[22.242s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__struct.hpp
+[22.252s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__traits.hpp
+[22.261s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__builder.hpp
+[22.270s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__struct.hpp
+[22.280s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__traits.hpp
+[22.290s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__builder.hpp
+[22.300s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__struct.hpp
+[22.309s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__traits.hpp
+[22.319s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__builder.hpp
+[22.329s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__struct.hpp
+[22.338s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__traits.hpp
+[22.346s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__builder.hpp
+[22.356s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__struct.hpp
+[22.365s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__traits.hpp
+[22.374s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__builder.hpp
+[22.384s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__struct.hpp
+[22.394s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__traits.hpp
+[22.403s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__builder.hpp
+[22.412s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__struct.hpp
+[22.422s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__traits.hpp
+[22.432s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__builder.hpp
+[22.440s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__struct.hpp
+[22.450s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__traits.hpp
+[22.459s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__builder.hpp
+[22.469s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__struct.hpp
+[22.478s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__traits.hpp
+[22.488s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__builder.hpp
+[22.497s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__struct.hpp
+[22.507s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__traits.hpp
+[22.517s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__builder.hpp
+[22.527s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__struct.hpp
+[22.536s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__traits.hpp
+[22.545s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__builder.hpp
+[22.555s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__struct.hpp
+[22.564s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__traits.hpp
+[22.573s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__builder.hpp
+[22.582s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__struct.hpp
+[22.592s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__traits.hpp
+[22.602s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__builder.hpp
+[22.611s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__struct.hpp
+[22.620s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__traits.hpp
+[22.630s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/destroy_object.hpp
+[22.639s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__builder.hpp
+[22.648s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__struct.hpp
+[22.658s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__traits.hpp
+[22.668s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__builder.hpp
+[22.677s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__struct.hpp
+[22.687s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__traits.hpp
+[22.696s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__builder.hpp
+[22.716s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__struct.hpp
+[22.727s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__traits.hpp
+[22.736s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/get_blueprints.hpp
+[22.746s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/spawn_object.hpp
+[22.756s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__rosidl_typesupport_introspection_cpp.hpp
+[22.765s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__rosidl_typesupport_introspection_cpp.hpp
+[22.774s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__rosidl_typesupport_introspection_cpp.hpp
+[22.784s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__rosidl_typesupport_introspection_cpp.hpp
+[22.794s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__rosidl_typesupport_introspection_cpp.hpp
+[22.803s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__rosidl_typesupport_introspection_cpp.hpp
+[22.812s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__rosidl_typesupport_introspection_cpp.hpp
+[22.822s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__rosidl_typesupport_introspection_cpp.hpp
+[22.831s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__rosidl_typesupport_introspection_cpp.hpp
+[22.840s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__rosidl_typesupport_introspection_cpp.hpp
+[22.850s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__rosidl_typesupport_introspection_cpp.hpp
+[22.859s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__rosidl_typesupport_introspection_cpp.hpp
+[22.869s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__rosidl_typesupport_introspection_cpp.hpp
+[22.878s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__rosidl_typesupport_introspection_cpp.hpp
+[22.888s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__rosidl_typesupport_introspection_cpp.hpp
+[22.898s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__rosidl_typesupport_introspection_cpp.hpp
+[22.907s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__rosidl_typesupport_introspection_cpp.hpp
+[22.918s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__rosidl_typesupport_introspection_cpp.hpp
+[22.928s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__rosidl_typesupport_introspection_cpp.hpp
+[22.937s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__rosidl_typesupport_introspection_cpp.hpp
+[22.946s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__rosidl_typesupport_introspection_cpp.hpp
+[22.955s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/environment/pythonpath.sh
+[22.964s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/environment/pythonpath.dsv
+[22.974s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/__init__.py
+[22.984s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/__init__.py
+[22.994s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_actor_info.py
+[23.003s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_actor_list.py
+[23.012s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_bounding_box.py
+[23.023s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_collision_event.py
+[23.032s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_control.py
+[23.041s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_control.py
+[23.050s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_info.py
+[23.060s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_info_wheel.py
+[23.068s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_status.py
+[23.077s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_lane_invasion_event.py
+[23.087s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_status.py
+[23.096s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_info.py
+[23.105s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_info_list.py
+[23.115s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_status.py
+[23.124s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_status_list.py
+[23.134s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_walker_control.py
+[23.143s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_weather_parameters.py
+[23.153s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_world_info.py
+[23.163s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/__init__.py
+[23.173s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_destroy_object.py
+[23.182s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_get_blueprints.py
+[23.191s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_spawn_object.py
+[23.201s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[23.211s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[23.221s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[23.231s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__python.so
+[23.240s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaBoundingBox.idl
+[23.249s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleControl.idl
+[23.258s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleStatus.idl
+[23.268s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleInfoWheel.idl
+[23.278s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleInfo.idl
+[23.288s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaCollisionEvent.idl
+[23.298s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaLaneInvasionEvent.idl
+[23.307s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaWorldInfo.idl
+[23.317s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaActorInfo.idl
+[23.327s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaActorList.idl
+[23.336s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaControl.idl
+[23.345s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaStatus.idl
+[23.356s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightInfo.idl
+[23.365s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightInfoList.idl
+[23.374s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightStatus.idl
+[23.384s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightStatusList.idl
+[23.394s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaWalkerControl.idl
+[23.403s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaWeatherParameters.idl
+[23.412s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/SpawnObject.idl
+[23.422s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/DestroyObject.idl
+[23.431s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/GetBlueprints.idl
+[23.440s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaBoundingBox.msg
+[23.449s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleControl.msg
+[23.459s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleStatus.msg
+[23.478s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleInfoWheel.msg
+[23.488s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleInfo.msg
+[23.497s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaCollisionEvent.msg
+[23.507s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaLaneInvasionEvent.msg
+[23.517s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaWorldInfo.msg
+[23.526s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaActorInfo.msg
+[23.536s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaActorList.msg
+[23.545s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaControl.msg
+[23.554s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaStatus.msg
+[23.564s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightInfo.msg
+[23.573s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightInfoList.msg
+[23.582s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightStatus.msg
+[23.592s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightStatusList.msg
+[23.601s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaWalkerControl.msg
+[23.610s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/msg/CarlaWeatherParameters.msg
+[23.620s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/SpawnObject.srv
+[23.630s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/SpawnObject_Request.msg
+[23.639s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/SpawnObject_Response.msg
+[23.649s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/DestroyObject.srv
+[23.658s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/DestroyObject_Request.msg
+[23.668s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/DestroyObject_Response.msg
+[23.677s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/GetBlueprints.srv
+[23.688s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/GetBlueprints_Request.msg
+[23.698s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/srv/GetBlueprints_Response.msg
+[23.707s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/ament_index/resource_index/package_run_dependencies/carla_msgs
+[23.717s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/ament_index/resource_index/parent_prefix_path/carla_msgs
+[23.726s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/environment/ament_prefix_path.sh
+[23.736s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/environment/ament_prefix_path.dsv
+[23.745s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/environment/path.sh
+[23.754s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/environment/path.dsv
+[23.764s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/local_setup.bash
+[23.773s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/local_setup.sh
+[23.782s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/local_setup.zsh
+[23.792s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/local_setup.dsv
+[23.801s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/package.dsv
+[23.811s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/ament_index/resource_index/packages/carla_msgs
+[23.821s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/rosidl_cmake-extras.cmake
+[23.831s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[23.841s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[23.851s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[23.860s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[23.870s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[23.879s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[23.889s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgsConfig.cmake
+[23.898s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgsConfig-version.cmake
+[23.907s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/package.xml
+[23.917s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_generator_c.so
+[23.918s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_generator_c.so" to ""
+[23.918s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_introspection_c.so
+[23.918s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_introspection_c.so" to ""
+[23.918s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_c.so
+[23.919s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_c.so" to ""
+[23.919s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_introspection_cpp.so
+[23.919s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[23.920s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_cpp.so
+[23.920s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_cpp.so" to ""
+[23.990s] Compiling '/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/__init__.py'...
+[23.994s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_generator_cExport.cmake
+[23.994s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_generator_cExport-noconfig.cmake
+[23.994s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_introspection_cExport.cmake
+[23.994s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[23.994s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_cExport.cmake
+[23.994s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[23.995s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_generator_cppExport.cmake
+[23.995s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[23.995s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[23.995s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_cppExport.cmake
+[23.995s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[24.002s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/home/camilo/carla-ros-bridge/install/rqt_carla_control:/home/camilo/carla-ros-bridge/install/carla_waypoint_publisher:/home/camilo/carla-ros-bridge/install/carla_ackermann_control:/home/camilo/carla-ros-bridge/install/carla_ros_bridge:/home/camilo/carla-ros-bridge/install/carla_spawn_objects:/home/camilo/carla-ros-bridge/install/carla_manual_control:/home/camilo/carla-ros-bridge/install/carla_ad_agent:/home/camilo/carla-ros-bridge/install/ros_compatibility:/home/camilo/carla-ros-bridge/install/carla_walker_agent:/home/camilo/carla-ros-bridge/install/carla_twist_to_control:/home/camilo/carla-ros-bridge/install/carla_ros_scenario_runner:/home/camilo/carla-ros-bridge/install/carla_common:/opt/ros/foxy /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs

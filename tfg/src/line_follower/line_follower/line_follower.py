@@ -38,11 +38,11 @@ class VehicleTeleop(Node):
         self._default_callback_group = image_callback_group
         #subscritor de la imagenes
         self.image_surface = None
-        size = 1600, 600
+        size = 800, 600
         self.screen = pygame.display.set_mode(size)
         pygame.display.set_caption("teleop_screen")
 
-        self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
+        #self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_front/image", self.first_person_image_cb, 10 )
         self.clock = pygame.time.Clock()
         self.fps = 0
@@ -95,7 +95,11 @@ class VehicleTeleop(Node):
         pygame.display.flip()
 
 
-    def first_person_image_cb(self, image):
+    def first_person_image_cb(self, ros_img):
+
+        img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
+
+        filter_img = self.line_filter(img)
 
         if self.fps == 0:
             self.start_time = time.time()
@@ -105,19 +109,71 @@ class VehicleTeleop(Node):
         if time.time() - self.start_time >= 1:
             self.last_fps = self.fps
             self.fps = 0
+
+        self.show_fps(filter_img)
+
+        final_image = self.bridge.cv2_to_imgmsg(filter_img, encoding="passthrough")  
+
                 
-        filter_img = self.line_filter(image)
-        array = numpy.frombuffer(filter_img.data, dtype=numpy.dtype("uint8"))
-        array = numpy.reshape(array, (image.height, image.width, 4))
+        array = numpy.frombuffer(final_image.data, dtype=numpy.dtype("uint8"))
+        array = numpy.reshape(array, (ros_img.height, ros_img.width, 4))
         array = array[:, :, :3]
         array = array[:, :, ::-1]
         image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
-        self.screen.blit(image_surface, (800,0))           
+        self.screen.blit(image_surface, (0,0))           
         pygame.display.flip()
 
 
+    def control_vehicle(self):        
+
+        self.set_autopilot()
+        self.set_vehicle_control_manual_override()
+
+        while True:
+
+            for event in pygame.event.get():
+
+                if event.type == KEYDOWN:
+                    keys = pygame.key.get_pressed()
+
+                    if (keys[K_DOWN]):
+                        self.get_logger().error("down")
+                        self.control_msg.brake = 1.0
+
+                    if (keys[K_UP]):
+                        self.get_logger().error("adelante")
+                        self.control_msg.throttle = 1.0          
+
+                    if (keys[K_LEFT]):
+                        self.get_logger().error("left")
+                        self.control_msg.steer = -1.0            
+
+                    if (keys[K_RIGHT]):
+                        self.get_logger().error("derecha")
+                        self.control_msg.steer = 1.0
+                elif event.type == KEYUP :
+                    keys = pygame.key.get_pressed()
+                    if not(keys[K_DOWN]):
+                        self.get_logger().error("suelta freno")
+                        self.control_msg.brake = 0.0
+
+                    if not(keys[K_UP]):
+                        self.get_logger().error("suelta acelerador")
+                        self.control_msg.throttle = 0.0          
+
+                    if not(keys[K_LEFT]):
+                        self.get_logger().error("suelta dir")
+                        self.control_msg.steer = 0.0            
+
+                    if not(keys[K_RIGHT]):
+                        self.get_logger().error("suelta dir")
+                        self.control_msg.steer = 0.0
 
 
+
+            self.vehicle_control_publisher.publish(self.control_msg)
+
+    """
     def control_vehicle(self):        
 
         self.set_autopilot()
@@ -141,7 +197,7 @@ class VehicleTeleop(Node):
         kd_turn= 2.5 #2.5 does well in my pc
         ki_turn = 0.0053; #0.0053 does well in my pc
 
-        """
+        
         while True:
 
 
@@ -208,7 +264,7 @@ class VehicleTeleop(Node):
         s_binary = numpy.zeros_like(s_channel)
         s_binary[(s_channel >= s_thresh[0]) & (s_channel <= s_thresh[1])] = 1
         
-        color_binary = numpy.dstack((numpy.zeros_like(sxbinary), sxbinary, s_binary)) * 255
+        #color_binary = numpy.dstack((numpy.zeros_like(sxbinary), sxbinary, s_binary)) * 255
         
         combined_binary = numpy.zeros_like(sxbinary)
         combined_binary[(s_binary == 1) | (sxbinary == 1)] = 1
@@ -232,6 +288,8 @@ class VehicleTeleop(Node):
         warped = cv2.warpPerspective(img, M, dst_size)
 
         return warped
+
+
 
     #################################################
 
@@ -284,6 +342,7 @@ class VehicleTeleop(Node):
         left_lane_inds = []
         right_lane_inds = []
 
+
         # Step through the windows one by one
         for window in range(nwindows):
             # Identify window boundaries in x and y (and right and left)
@@ -299,6 +358,7 @@ class VehicleTeleop(Node):
                 (100,255,255), 3) 
                 cv2.rectangle(out_img,(win_xright_low,win_y_low),(win_xright_high,win_y_high),
                 (100,255,255), 3) 
+
             # Identify the nonzero pixels in x and y within the window
             good_left_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & 
             (nonzerox >= win_xleft_low) &  (nonzerox < win_xleft_high)).nonzero()[0]
@@ -313,20 +373,12 @@ class VehicleTeleop(Node):
             if len(good_right_inds) > minpix:        
                 rightx_current = numpy.int(numpy.mean(nonzerox[good_right_inds]))
             
-            
-    #        if len(good_right_inds) > minpix:        
-    #            rightx_current = numpy.int(numpy.mean([leftx_current +900, numpy.mean(nonzerox[good_right_inds])]))
-    #        elif len(good_left_inds) > minpix:
-    #            rightx_current = numpy.int(numpy.mean([numpy.mean(nonzerox[good_left_inds]) +900, rightx_current]))
-    #        if len(good_left_inds) > minpix:
-    #            leftx_current = numpy.int(numpy.mean([rightx_current -900, numpy.mean(nonzerox[good_left_inds])]))
-    #        elif len(good_right_inds) > minpix:
-    #            leftx_current = numpy.int(numpy.mean([numpy.mean(nonzerox[good_right_inds]) -900, leftx_current]))
-
 
         # Concatenate the arrays of indices
         left_lane_inds = numpy.concatenate(left_lane_inds)
         right_lane_inds = numpy.concatenate(right_lane_inds)
+
+        
 
         # Extract left and right line pixel positions
         leftx = nonzerox[left_lane_inds]
@@ -394,35 +446,40 @@ class VehicleTeleop(Node):
         points = numpy.hstack((left, right))
         
         cv2.fillPoly(color_img, numpy.int_(points), (0,200,255))
+
         inv_perspective = self.inv_perspective_warp(color_img)
         inv_perspective = cv2.addWeighted(img, 1, inv_perspective, 0.7, 0)
+
         return inv_perspective
     #################################################
 
+    def draw_centers(self, img):
+        
+        lane = []
 
-    def line_filter(self, ros_img):
+        for i in range(800):
+            px = img[ 450, i] 
+            if px[1] == 255 and px[2] == 255:
+                lane.append(i)
 
-        img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
+        center = numpy.mean(lane)
+                
+        center_x = int(img.shape[1]/2)
+        cv2.circle(img, (center_x, 450), 8, (0,255,0), -1)
+        cv2.circle(img, (int(center), 450), 4, (255,0,0), -1)
+
+
+
+    def line_filter(self, img):
 
         img_ = self.pipeline(img)
         img_ = self.perspective_warp(img_)
         out_img, curves, lanes, ploty = self.sliding_window(img_, draw_windows=False)
 
-        curverad =self.get_curve(img, curves[0], curves[1])
-
-        lane_curve = numpy.mean([curverad[0], curverad[1]])
         img = self.draw_lanes(img, curves[0], curves[1])
-        
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        fontColor = (0, 0, 0)
-        fontSize=0.5
-        cv2.putText(img, 'Lane Curvature: {:.0f} m'.format(lane_curve), (570, 620), font, fontSize, fontColor, 2)
-        cv2.putText(img, 'Vehicle offset: {:.4f} m'.format(curverad[2]), (570, 650), font, fontSize, fontColor, 2)
+        self.draw_centers(img)
 
-
-        ros_image = self.bridge.cv2_to_imgmsg(img, encoding="passthrough")  
-
-        return ros_image
+        return img
 
 
     def show_fps(self, img):

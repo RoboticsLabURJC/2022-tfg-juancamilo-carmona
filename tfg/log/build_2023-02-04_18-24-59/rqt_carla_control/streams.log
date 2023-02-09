@@ -1,0 +1,16 @@
+[2.408s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/build --no-deps install_data
+[2.806s] running develop
+[3.052s] running egg_info
+[3.052s] writing src/rqt_carla_control.egg-info/PKG-INFO
+[3.052s] writing dependency_links to src/rqt_carla_control.egg-info/dependency_links.txt
+[3.053s] writing requirements to src/rqt_carla_control.egg-info/requires.txt
+[3.053s] writing top-level names to src/rqt_carla_control.egg-info/top_level.txt
+[3.091s] reading manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[3.091s] writing manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[3.131s] running build_ext
+[3.131s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages/rqt-carla-control.egg-link (link to src)
+[3.135s] Installing rqt_carla_control script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/rqt_carla_control
+[3.136s] 
+[3.136s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/src
+[3.136s] running install_data
+[3.342s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/build --no-deps install_data

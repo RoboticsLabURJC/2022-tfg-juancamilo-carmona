@@ -1,0 +1,378 @@
+[0.587s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/camilo/2022-tfg-juancamilo-carmona/tfg']
+[0.588s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], base_paths=['/home/camilo/2022-tfg-juancamilo-carmona/tfg'], build_base='build', ignore_user_meta=False, log_base=None, log_level=None, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7f993a550a00>>, metas=['./colcon.meta'], names_only=False, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, paths=None, paths_only=True, topological_graph=False, topological_graph_density=False, topological_graph_dot=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, topological_graph_legend=False, topological_order=False, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7f993a550a00>, verb_name='list', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f993a564040>)
+[0.648s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.648s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.648s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.648s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.648s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.648s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/camilo/2022-tfg-juancamilo-carmona/tfg'
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extensions ['ignore', 'ignore_ament_install']
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extension 'ignore'
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extension 'ignore_ament_install'
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extensions ['colcon_pkg']
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extension 'colcon_pkg'
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extensions ['colcon_meta']
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extension 'colcon_meta'
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extensions ['ros']
+[0.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extension 'ros'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extensions ['cmake', 'python']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extension 'cmake'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extension 'python'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extensions ['python_setup_py']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg) by extension 'python_setup_py'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/build) by extensions ['ignore', 'ignore_ament_install']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/build) by extension 'ignore'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/build) ignored
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/install) by extensions ['ignore', 'ignore_ament_install']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/install) by extension 'ignore'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/install) ignored
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/log) by extensions ['ignore', 'ignore_ament_install']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/log) by extension 'ignore'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/log) ignored
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extensions ['ignore', 'ignore_ament_install']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extension 'ignore'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extension 'ignore_ament_install'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extensions ['colcon_pkg']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extension 'colcon_pkg'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extensions ['colcon_meta']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extension 'colcon_meta'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extensions ['ros']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extension 'ros'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extensions ['cmake', 'python']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extension 'cmake'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extension 'python'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extensions ['python_setup_py']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src) by extension 'python_setup_py'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extensions ['ignore', 'ignore_ament_install']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extension 'ignore'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extension 'ignore_ament_install'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extensions ['colcon_pkg']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extension 'colcon_pkg'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extensions ['colcon_meta']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extension 'colcon_meta'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extensions ['ros']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis) by extension 'ros'
+[0.682s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/analysis' with type 'ros.ament_python' and name 'analysis'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extension 'ignore'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extension 'ignore_ament_install'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extensions ['colcon_pkg']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extension 'colcon_pkg'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extensions ['colcon_meta']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extension 'colcon_meta'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extensions ['ros']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop) by extension 'ros'
+[0.683s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/carla_teleop' with type 'ros.ament_python' and name 'carla_teleop'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extensions ['ignore', 'ignore_ament_install']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extension 'ignore'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extension 'ignore_ament_install'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extensions ['colcon_pkg']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extension 'colcon_pkg'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extensions ['colcon_meta']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extension 'colcon_meta'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extensions ['ros']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower) by extension 'ros'
+[0.685s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower' with type 'ros.ament_python' and name 'line_follower'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extension 'ignore'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extension 'ignore_ament_install'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extensions ['colcon_pkg']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extension 'colcon_pkg'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extensions ['colcon_meta']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extension 'colcon_meta'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extensions ['ros']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extension 'ros'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extensions ['cmake', 'python']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extension 'cmake'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extension 'python'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extensions ['python_setup_py']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge) by extension 'python_setup_py'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extensions ['ignore', 'ignore_ament_install']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extension 'ignore'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extension 'ignore_ament_install'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extensions ['colcon_pkg']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extension 'colcon_pkg'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extensions ['colcon_meta']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extension 'colcon_meta'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extensions ['ros']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control) by extension 'ros'
+[0.692s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_control' with type 'ros.ament_python' and name 'carla_ackermann_control'
+[0.692s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extension 'ignore'
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extension 'ignore_ament_install'
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extensions ['colcon_pkg']
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extension 'colcon_pkg'
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extensions ['colcon_meta']
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extension 'colcon_meta'
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extensions ['ros']
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs) by extension 'ros'
+[0.700s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ackermann_msgs' with type 'ros.ament_cmake' and name 'carla_ackermann_msgs'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extensions ['ignore', 'ignore_ament_install']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extension 'ignore'
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extension 'ignore_ament_install'
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extensions ['colcon_pkg']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extension 'colcon_pkg'
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extensions ['colcon_meta']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extension 'colcon_meta'
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extensions ['ros']
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent) by extension 'ros'
+[0.708s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_agent' with type 'ros.ament_python' and name 'carla_ad_agent'
+[0.708s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extensions ['ignore', 'ignore_ament_install']
+[0.708s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extension 'ignore'
+[0.709s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extension 'ignore_ament_install'
+[0.709s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extensions ['colcon_pkg']
+[0.709s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extension 'colcon_pkg'
+[0.709s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extensions ['colcon_meta']
+[0.709s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extension 'colcon_meta'
+[0.709s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extensions ['ros']
+[0.709s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo) by extension 'ros'
+[0.713s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ad_demo' with type 'ros.ament_cmake' and name 'carla_ad_demo'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extensions ['ignore', 'ignore_ament_install']
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extension 'ignore'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extension 'ignore_ament_install'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extensions ['colcon_pkg']
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extension 'colcon_pkg'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extensions ['colcon_meta']
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extension 'colcon_meta'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extensions ['ros']
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common) by extension 'ros'
+[0.715s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_common' with type 'ros.ament_python' and name 'carla_common'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extensions ['ignore', 'ignore_ament_install']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extension 'ignore'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extension 'ignore_ament_install'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extensions ['colcon_pkg']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extension 'colcon_pkg'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extensions ['colcon_meta']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extension 'colcon_meta'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extensions ['ros']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control) by extension 'ros'
+[0.721s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_manual_control' with type 'ros.ament_python' and name 'carla_manual_control'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extension 'ignore'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extension 'ignore_ament_install'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extensions ['colcon_pkg']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extension 'colcon_pkg'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extensions ['colcon_meta']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extension 'colcon_meta'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extensions ['ros']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs) by extension 'ros'
+[0.728s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_msgs' with type 'ros.ament_cmake' and name 'carla_msgs'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extension 'ignore'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extension 'ignore_ament_install'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extensions ['colcon_pkg']
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extension 'colcon_pkg'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extensions ['colcon_meta']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extension 'colcon_meta'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extensions ['ros']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge) by extension 'ros'
+[0.734s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_bridge' with type 'ros.ament_python' and name 'carla_ros_bridge'
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extensions ['ignore', 'ignore_ament_install']
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extension 'ignore'
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extension 'ignore_ament_install'
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extensions ['colcon_pkg']
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extension 'colcon_pkg'
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extensions ['colcon_meta']
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extension 'colcon_meta'
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extensions ['ros']
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner) by extension 'ros'
+[0.738s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner' with type 'ros.ament_python' and name 'carla_ros_scenario_runner'
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extensions ['ignore', 'ignore_ament_install']
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extension 'ignore'
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extension 'ignore_ament_install'
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extensions ['colcon_pkg']
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extension 'colcon_pkg'
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extensions ['colcon_meta']
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extension 'colcon_meta'
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extensions ['ros']
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types) by extension 'ros'
+[0.744s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types' with type 'ros.ament_cmake' and name 'carla_ros_scenario_runner_types'
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extensions ['ignore', 'ignore_ament_install']
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extension 'ignore'
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extension 'ignore_ament_install'
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extensions ['colcon_pkg']
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extension 'colcon_pkg'
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extensions ['colcon_meta']
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extension 'colcon_meta'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extensions ['ros']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects) by extension 'ros'
+[0.749s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_spawn_objects' with type 'ros.ament_python' and name 'carla_spawn_objects'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extensions ['ignore', 'ignore_ament_install']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extension 'ignore'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extension 'ignore_ament_install'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extensions ['colcon_pkg']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extension 'colcon_pkg'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extensions ['colcon_meta']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extension 'colcon_meta'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extensions ['ros']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control) by extension 'ros'
+[0.754s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_twist_to_control' with type 'ros.ament_python' and name 'carla_twist_to_control'
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extensions ['ignore', 'ignore_ament_install']
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extension 'ignore'
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extension 'ignore_ament_install'
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extensions ['colcon_pkg']
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extension 'colcon_pkg'
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extensions ['colcon_meta']
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extension 'colcon_meta'
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extensions ['ros']
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent) by extension 'ros'
+[0.758s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_walker_agent' with type 'ros.ament_python' and name 'carla_walker_agent'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extensions ['ignore', 'ignore_ament_install']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extension 'ignore'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extension 'ignore_ament_install'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extensions ['colcon_pkg']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extension 'colcon_pkg'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extensions ['colcon_meta']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extension 'colcon_meta'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extensions ['ros']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher) by extension 'ros'
+[0.762s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_publisher' with type 'ros.ament_python' and name 'carla_waypoint_publisher'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extensions ['ignore', 'ignore_ament_install']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extension 'ignore'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extension 'ignore_ament_install'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extensions ['colcon_pkg']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extension 'colcon_pkg'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extensions ['colcon_meta']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extension 'colcon_meta'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extensions ['ros']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types) by extension 'ros'
+[0.767s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types' with type 'ros.ament_cmake' and name 'carla_waypoint_types'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extensions ['ignore', 'ignore_ament_install']
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extension 'ignore'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extension 'ignore_ament_install'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extensions ['colcon_pkg']
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extension 'colcon_pkg'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extensions ['colcon_meta']
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extension 'colcon_meta'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extensions ['ros']
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extension 'ros'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extensions ['cmake', 'python']
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extension 'cmake'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extension 'python'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extensions ['python_setup_py']
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker) by extension 'python_setup_py'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extensions ['ignore', 'ignore_ament_install']
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extension 'ignore'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extension 'ignore_ament_install'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extensions ['colcon_pkg']
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extension 'colcon_pkg'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extensions ['colcon_meta']
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extension 'colcon_meta'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extensions ['ros']
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extension 'ros'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extensions ['cmake', 'python']
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extension 'cmake'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extension 'python'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extensions ['python_setup_py']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docker/content) by extension 'python_setup_py'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extensions ['ignore', 'ignore_ament_install']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extension 'ignore'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extension 'ignore_ament_install'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extensions ['colcon_pkg']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extension 'colcon_pkg'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extensions ['colcon_meta']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extension 'colcon_meta'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extensions ['ros']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extension 'ros'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extensions ['cmake', 'python']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extension 'cmake'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extension 'python'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extensions ['python_setup_py']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs) by extension 'python_setup_py'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extensions ['ignore', 'ignore_ament_install']
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extension 'ignore'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extension 'ignore_ament_install'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extensions ['colcon_pkg']
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extension 'colcon_pkg'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extensions ['colcon_meta']
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extension 'colcon_meta'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extensions ['ros']
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extension 'ros'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extensions ['cmake', 'python']
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extension 'cmake'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extension 'python'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extensions ['python_setup_py']
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/docs/images) by extension 'python_setup_py'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extensions ['ignore', 'ignore_ament_install']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extension 'ignore'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extension 'ignore_ament_install'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extensions ['colcon_pkg']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extension 'colcon_pkg'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extensions ['colcon_meta']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extension 'colcon_meta'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extensions ['ros']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extension 'ros'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extensions ['cmake', 'python']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extension 'cmake'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extension 'python'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extensions ['python_setup_py']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging) by extension 'python_setup_py'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extensions ['ignore', 'ignore_ament_install']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extension 'ignore'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extension 'ignore_ament_install'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extensions ['colcon_pkg']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extension 'colcon_pkg'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extensions ['colcon_meta']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extension 'colcon_meta'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extensions ['ros']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extension 'ros'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extensions ['cmake', 'python']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extension 'cmake'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extension 'python'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extensions ['python_setup_py']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian) by extension 'python_setup_py'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extensions ['ignore', 'ignore_ament_install']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extension 'ignore'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extension 'ignore_ament_install'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extensions ['colcon_pkg']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extension 'colcon_pkg'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extensions ['colcon_meta']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extension 'colcon_meta'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extensions ['ros']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extension 'ros'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extensions ['cmake', 'python']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extension 'cmake'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extension 'python'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extensions ['python_setup_py']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/packaging/debian/source) by extension 'python_setup_py'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extensions ['ignore', 'ignore_ament_install']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extension 'ignore'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extension 'ignore_ament_install'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extensions ['colcon_pkg']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extension 'colcon_pkg'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extensions ['colcon_meta']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extension 'colcon_meta'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extensions ['ros']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder) by extension 'ros'
+[0.779s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/pcl_recorder' with type 'ros.ament_cmake' and name 'pcl_recorder'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extensions ['ignore', 'ignore_ament_install']
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extension 'ignore'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extension 'ignore_ament_install'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extensions ['colcon_pkg']
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extension 'colcon_pkg'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extensions ['colcon_meta']
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extension 'colcon_meta'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extensions ['ros']
+[0.780s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility) by extension 'ros'
+[0.784s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/ros_compatibility' with type 'ros.ament_python' and name 'ros_compatibility'
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extensions ['ignore', 'ignore_ament_install']
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extension 'ignore'
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extension 'ignore_ament_install'
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extensions ['colcon_pkg']
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extension 'colcon_pkg'
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extensions ['colcon_meta']
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extension 'colcon_meta'
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extensions ['ros']
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control) by extension 'ros'
+[0.788s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rqt_carla_control' with type 'ros.ament_python' and name 'rqt_carla_control'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extensions ['ignore', 'ignore_ament_install']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extension 'ignore'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extension 'ignore_ament_install'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extensions ['colcon_pkg']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extension 'colcon_pkg'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extensions ['colcon_meta']
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extension 'colcon_meta'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extensions ['ros']
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin) by extension 'ros'
+[0.793s] DEBUG:colcon.colcon_core.package_identification:Package '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin' with type 'ros.ament_cmake' and name 'rviz_carla_plugin'
+[0.794s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

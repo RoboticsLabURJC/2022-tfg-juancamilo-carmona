@@ -1,0 +1,3 @@
+[console_scripts]
+analysis = analysis.analysis:main
+
