@@ -1,0 +1,17 @@
+[2.554s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/build --no-deps install_data
+[2.969s] running develop
+[3.322s] running egg_info
+[3.322s] writing src/carla_twist_to_control.egg-info/PKG-INFO
+[3.323s] writing dependency_links to src/carla_twist_to_control.egg-info/dependency_links.txt
+[3.323s] writing entry points to src/carla_twist_to_control.egg-info/entry_points.txt
+[3.323s] writing requirements to src/carla_twist_to_control.egg-info/requires.txt
+[3.323s] writing top-level names to src/carla_twist_to_control.egg-info/top_level.txt
+[3.368s] reading manifest file 'src/carla_twist_to_control.egg-info/SOURCES.txt'
+[3.373s] writing manifest file 'src/carla_twist_to_control.egg-info/SOURCES.txt'
+[3.424s] running build_ext
+[3.424s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/python3.8/site-packages/carla-twist-to-control.egg-link (link to src)
+[3.425s] Installing carla_twist_to_control script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/carla_twist_to_control
+[3.426s] 
+[3.426s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/src
+[3.426s] running install_data
+[3.539s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/build --no-deps install_data

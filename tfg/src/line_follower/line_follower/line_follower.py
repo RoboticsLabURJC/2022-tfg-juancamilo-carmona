@@ -472,12 +472,34 @@ class VehicleTeleop(Node):
 
     def line_filter(self, img):
 
-        img_ = self.pipeline(img)
-        img_ = self.perspective_warp(img_)
-        out_img, curves, lanes, ploty = self.sliding_window(img_, draw_windows=False)
+        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        
+        # Definir los límites de color para el amarillo y el blanco
+        lower_yellow = numpy.array([0, 0, 0])
+        upper_yellow = numpy.array([0, 0, 0])
+        lower_white = numpy.array([0, 0, 230])
+        upper_white = numpy.array([180, 30, 245])
+        
+        # Crea máscaras para el amarillo y el blanco
+        yellow_mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
+        white_mask = cv2.inRange(hsv, lower_white, upper_white)
+        
+        # Combina las máscaras para detectar tanto el amarillo como el blanco
+        mask = cv2.bitwise_or(yellow_mask, white_mask)
+        
+        # Aplica la máscara a la imagen original
+        result = cv2.bitwise_and(img, img, mask=mask)
 
-        img = self.draw_lanes(img, curves[0], curves[1])
-        self.draw_centers(img)
+        edges = cv2.Canny(result, 50, 150)
+        lines = cv2.HoughLinesP(edges, 1, numpy.pi/180, 50, maxLineGap=50)
+        center = (img.shape[1] // 2, img.shape[0] // 2)
+        if lines is not None:
+            lines = sorted(lines[0], key=lambda x: x[1])
+            lane_lines = lines[:2]
+            for line in lane_lines:
+                x1, y1, x2, y2 = line
+                cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 2)
+                cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)        
 
         return img
 
