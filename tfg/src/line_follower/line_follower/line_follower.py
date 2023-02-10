@@ -115,12 +115,13 @@ class VehicleTeleop(Node):
         final_image = self.bridge.cv2_to_imgmsg(filter_img, encoding="passthrough")  
 
                 
-        array = numpy.frombuffer(final_image.data, dtype=numpy.dtype("uint8"))
+        array = numpy.frombuffer(ros_img.data, dtype=numpy.dtype("uint8"))
         array = numpy.reshape(array, (ros_img.height, ros_img.width, 4))
         array = array[:, :, :3]
         array = array[:, :, ::-1]
         image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
         self.screen.blit(image_surface, (0,0))           
+
         pygame.display.flip()
 
 
@@ -470,38 +471,40 @@ class VehicleTeleop(Node):
 
 
 
+
     def line_filter(self, img):
 
-        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        
-        # Definir los límites de color para el amarillo y el blanco
-        lower_yellow = numpy.array([0, 0, 0])
-        upper_yellow = numpy.array([0, 0, 0])
+
+        #converted = convert_hls(img)
+        image = cv2.cvtColor(img,cv2.COLOR_BGR2HLS)
         lower_white = numpy.array([0, 0, 230])
         upper_white = numpy.array([180, 30, 245])
-        
-        # Crea máscaras para el amarillo y el blanco
-        yellow_mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
-        white_mask = cv2.inRange(hsv, lower_white, upper_white)
-        
-        # Combina las máscaras para detectar tanto el amarillo como el blanco
-        mask = cv2.bitwise_or(yellow_mask, white_mask)
-        
-        # Aplica la máscara a la imagen original
-        result = cv2.bitwise_and(img, img, mask=mask)
 
-        edges = cv2.Canny(result, 50, 150)
-        lines = cv2.HoughLinesP(edges, 1, numpy.pi/180, 50, maxLineGap=50)
-        center = (img.shape[1] // 2, img.shape[0] // 2)
-        if lines is not None:
-            lines = sorted(lines[0], key=lambda x: x[1])
-            lane_lines = lines[:2]
-            for line in lane_lines:
-                x1, y1, x2, y2 = line
-                cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 2)
-                cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)        
+        #white_mask = cv2.inRange(image, lower, upper)
+        # yellow color mask
+        #lower = numpy.uint8([10, 50,   100])
+        #upper = numpy.uint8([20, 180, 200])
+        white_mask = cv2.inRange(image, lower_white, upper_white)
+        # combine the mask
+        #skel = cv2.bitwise_or(white_mask, yellow_mask)
+        skel = white_mask
 
-        return img
+        cv2.imshow("image",white_mask)
+        cv2.waitKey(0)
+        #result = img.copy()
+        #edges = cv2.Canny(skel, 50, 150)
+
+        #cv2.imshow('mascara ', edges)
+        #cv2.waitKey(0)
+
+        #lines = cv2.HoughLinesP(edges,1,numpy.pi/180,40,minLineLength=30,maxLineGap=40)
+        #i = 0
+        #if lines is not None:
+        #    for x1,y1,x2,y2 in lines[0]:
+        #        i+=1
+        #        cv2.line(result,(x1,y1),(x2,y2),(255,0,0),3)
+
+        return white_mask
 
 
     def show_fps(self, img):
