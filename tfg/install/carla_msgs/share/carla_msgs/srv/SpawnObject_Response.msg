@@ -1,1 +1,0 @@
-/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs/rosidl_cmake/srv/SpawnObject_Response.msg

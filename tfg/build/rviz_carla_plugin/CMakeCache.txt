@@ -632,7 +632,7 @@ assimp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/assimp-5.0
 builtin_interfaces_DIR:PATH=/opt/ros/foxy/share/builtin_interfaces/cmake
 
 //The directory containing a CMake configuration file for carla_msgs.
-carla_msgs_DIR:PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake
+carla_msgs_DIR:PATH=/home/camilo/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake
 
 //The directory containing a CMake configuration file for carla_ros_scenario_runner_types.
 carla_ros_scenario_runner_types_DIR:PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake

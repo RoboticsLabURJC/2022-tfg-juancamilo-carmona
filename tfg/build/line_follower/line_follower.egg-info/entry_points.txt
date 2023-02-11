@@ -1,0 +1,3 @@
+[console_scripts]
+line_follower = line_follower.line_follower:main
+

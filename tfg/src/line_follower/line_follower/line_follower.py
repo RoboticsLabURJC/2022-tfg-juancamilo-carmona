@@ -397,6 +397,7 @@ class VehicleTeleop(Node):
         inv_perspective = self.inv_perspective_warp(color_img)
         inv_perspective = cv2.addWeighted(img, 1, inv_perspective, 0.7, 0)
         return inv_perspective
+        
     #################################################
 
 

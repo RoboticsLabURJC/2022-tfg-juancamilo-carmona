@@ -29,7 +29,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "rviz_carla_plugin_autogen/include"
   "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include"
-  "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include"
+  "/home/camilo/carla-ros-bridge/install/carla_msgs/include"
   "/opt/ros/foxy/include"
   "/usr/include/x86_64-linux-gnu/qt5"
   "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"

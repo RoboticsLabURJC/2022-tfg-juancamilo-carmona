@@ -1,0 +1,26 @@
+[3.081s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/build --no-deps install_data
+[3.590s] running develop
+[3.928s] running egg_info
+[3.928s] creating src/carla_twist_to_control.egg-info
+[3.929s] writing src/carla_twist_to_control.egg-info/PKG-INFO
+[3.929s] writing dependency_links to src/carla_twist_to_control.egg-info/dependency_links.txt
+[3.929s] writing entry points to src/carla_twist_to_control.egg-info/entry_points.txt
+[3.929s] writing requirements to src/carla_twist_to_control.egg-info/requires.txt
+[3.930s] writing top-level names to src/carla_twist_to_control.egg-info/top_level.txt
+[3.932s] writing manifest file 'src/carla_twist_to_control.egg-info/SOURCES.txt'
+[3.990s] reading manifest file 'src/carla_twist_to_control.egg-info/SOURCES.txt'
+[3.991s] writing manifest file 'src/carla_twist_to_control.egg-info/SOURCES.txt'
+[4.056s] running build_ext
+[4.056s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/python3.8/site-packages/site.py
+[4.060s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/python3.8/site-packages/carla-twist-to-control.egg-link (link to src)
+[4.062s] Installing carla_twist_to_control script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/carla_twist_to_control
+[4.062s] 
+[4.062s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/src
+[4.062s] running install_data
+[4.063s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/share/ament_index
+[4.063s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/share/ament_index/resource_index
+[4.063s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/share/ament_index/resource_index/packages
+[4.063s] copying resource/carla_twist_to_control -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/share/ament_index/resource_index/packages
+[4.063s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/share/carla_twist_to_control
+[4.063s] copying launch/carla_twist_to_control.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/share/carla_twist_to_control
+[4.145s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_twist_to_control/build --no-deps install_data

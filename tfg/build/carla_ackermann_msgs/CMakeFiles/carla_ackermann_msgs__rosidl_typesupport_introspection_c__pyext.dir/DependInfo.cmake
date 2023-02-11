@@ -23,7 +23,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "rosidl_typesupport_c"
   "rosidl_typesupport_introspection_c"
   "/opt/ros/foxy/include"
-  "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include"
+  "/home/camilo/carla-ros-bridge/install/carla_msgs/include"
   )
 
 # Targets to which this target links.
