@@ -26,6 +26,7 @@ import cv2
 from cv_bridge import CvBridge
 import time
 import matplotlib.pyplot as plt
+import math
 
 
 class VehicleTeleop(Node):
@@ -115,7 +116,7 @@ class VehicleTeleop(Node):
         final_image = self.bridge.cv2_to_imgmsg(filter_img, encoding="passthrough")  
 
                 
-        array = numpy.frombuffer(ros_img.data, dtype=numpy.dtype("uint8"))
+        array = numpy.frombuffer(filter_img.data, dtype=numpy.dtype("uint8"))
         array = numpy.reshape(array, (ros_img.height, ros_img.width, 4))
         array = array[:, :, :3]
         array = array[:, :, ::-1]
@@ -470,41 +471,84 @@ class VehicleTeleop(Node):
         cv2.circle(img, (int(center), 450), 4, (255,0,0), -1)
 
 
+    def region_of_interest(self, img, vertices):
+        mask = numpy.zeros_like(img)    
+        match_mask_color = 255 # <-- This line altered for grayscale.
+        
+        cv2.fillPoly(mask, vertices, match_mask_color)
+        masked_image = cv2.bitwise_and(img, mask)
+        return masked_image
 
+    def draw_lines(self, img, lines, color=[255, 0, 0], thickness=3):
+
+        if lines is None:
+            return    
+
+        for line in lines:
+            for x1, y1, x2, y2 in line:
+                cv2.line(img, (x1, y1), (x2, y2), color, thickness)    
+  
+        return img
 
     def line_filter(self, img):
 
+        # Convert to grayscale here.
+        gray_image = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)# Call Canny Edge Detection here.
+        cannyed_image = cv2.Canny(gray_image, 100, 150)
 
-        #converted = convert_hls(img)
-        image = cv2.cvtColor(img,cv2.COLOR_BGR2HLS)
-        lower_white = numpy.array([0, 0, 230])
-        upper_white = numpy.array([180, 30, 245])
+        h, w = cannyed_image.shape[:2]
+        region_of_interest_vertices = [ (0, h),(w/2 , h/2) ,(w, h), ]
+        cropped_image = self.region_of_interest(cannyed_image, numpy.array([region_of_interest_vertices], numpy.int32))
 
-        #white_mask = cv2.inRange(image, lower, upper)
-        # yellow color mask
-        #lower = numpy.uint8([10, 50,   100])
-        #upper = numpy.uint8([20, 180, 200])
-        white_mask = cv2.inRange(image, lower_white, upper_white)
-        # combine the mask
-        #skel = cv2.bitwise_or(white_mask, yellow_mask)
-        skel = white_mask
 
-        cv2.imshow("image",white_mask)
-        cv2.waitKey(0)
-        #result = img.copy()
-        #edges = cv2.Canny(skel, 50, 150)
+        lines = cv2.HoughLinesP(cropped_image,rho=6,theta=numpy.pi / 60,threshold=140,lines=numpy.array([]),minLineLength=20,maxLineGap=25)
 
-        #cv2.imshow('mascara ', edges)
-        #cv2.waitKey(0)
+        left_line_x = []
+        left_line_y = []
+        right_line_x = []
+        right_line_y = []
+    
+        if lines is None:
+            return img
+        else:
+            for line in lines:
+                for x1, y1, x2, y2 in line:
+                    slope = (y2 - y1) / (x2 - x1)
 
-        #lines = cv2.HoughLinesP(edges,1,numpy.pi/180,40,minLineLength=30,maxLineGap=40)
-        #i = 0
-        #if lines is not None:
-        #    for x1,y1,x2,y2 in lines[0]:
-        #        i+=1
-        #        cv2.line(result,(x1,y1),(x2,y2),(255,0,0),3)
+                if math.fabs(slope) < 0.5:
+                    continue
 
-        return white_mask
+                if slope <= 0:
+                    left_line_x.extend([x1, x2])
+                    left_line_y.extend([y1, y2])
+
+                else:
+                    right_line_x.extend([x1, x2])
+                    right_line_y.extend([y1, y2])    
+
+            min_y = int(img.shape[0] * (3 / 5))
+            max_y = int(img.shape[0])    
+
+            if not left_line_x or not left_line_y:
+                return img 
+
+            if not right_line_x or not right_line_y:
+                return img
+
+
+            poly_left = numpy.poly1d(numpy.polyfit(left_line_y,left_line_x,deg=1))
+        
+            left_x_start = int(poly_left(max_y))
+            left_x_end = int(poly_left(min_y))
+        
+            poly_right = numpy.poly1d(numpy.polyfit(right_line_y,right_line_x,deg=1))
+        
+            right_x_start = int(poly_right(max_y))
+            right_x_end = int(poly_right(min_y))    
+
+            line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
+
+            return line_image
 
 
     def show_fps(self, img):
