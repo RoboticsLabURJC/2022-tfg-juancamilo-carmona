@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing carla_teleop.egg-info/PKG-INFO
+writing dependency_links to carla_teleop.egg-info/dependency_links.txt
+writing entry points to carla_teleop.egg-info/entry_points.txt
+writing requirements to carla_teleop.egg-info/requires.txt
+writing top-level names to carla_teleop.egg-info/top_level.txt
+reading manifest file 'carla_teleop.egg-info/SOURCES.txt'
+writing manifest file 'carla_teleop.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop/lib/python3.8/site-packages/carla-teleop.egg-link (link to .)
+Installing carla_teleop script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop/lib/carla_teleop
+
+Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_teleop
+running install_data

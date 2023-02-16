@@ -468,26 +468,8 @@ rviz_common/ros_integration/ros_node_abstraction_iface.hpp
 rviz_common/frame_position_tracking_view_controller.hpp
 -
 
-/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin/src/drive_widget.cpp
-math.h
--
-stdio.h
--
-QMouseEvent
--
-QPainter
--
-drive_widget.h
-/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin/src/drive_widget.h
-
 /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin/src/drive_widget.h
 QWidget
--
-
-/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin/src/indicator_widget.cpp
-indicator_widget.h
-/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin/src/indicator_widget.h
-QPainter
 -
 
 /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/rviz_carla_plugin/src/indicator_widget.h
@@ -7089,10 +7071,6 @@ qicon.h
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QList
-qevent.h
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
 qevent.h
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h
 

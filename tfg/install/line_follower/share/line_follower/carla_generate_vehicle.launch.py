@@ -28,11 +28,11 @@ def generate_launch_description():
         ),
         launch.actions.DeclareLaunchArgument(
             name='spawn_point',
-            default_value='None'
+            default_value='-47.5,-221.1,2,0,0,270'
         ),
         launch.actions.DeclareLaunchArgument(
             name='town',
-            default_value='Town05'
+            default_value='Town04'
         ),
         launch.actions.DeclareLaunchArgument(
             name='passive',
@@ -55,6 +55,7 @@ def generate_launch_description():
                 'host': launch.substitutions.LaunchConfiguration('host'),
                 'port': launch.substitutions.LaunchConfiguration('port'),
                 'town': launch.substitutions.LaunchConfiguration('town'),
+                'spawn_point': launch.substitutions.LaunchConfiguration('spawn_point'),
                 'timeout': launch.substitutions.LaunchConfiguration('timeout'),
                 'passive': launch.substitutions.LaunchConfiguration('passive'),
                 'synchronous_mode_wait_for_vehicle_control_command': launch.substitutions.LaunchConfiguration('synchronous_mode_wait_for_vehicle_control_command'),
@@ -69,6 +70,7 @@ def generate_launch_description():
             launch_arguments={
                 'host': launch.substitutions.LaunchConfiguration('host'),
                 'port': launch.substitutions.LaunchConfiguration('port'),
+                'spawn_point': launch.substitutions.LaunchConfiguration('spawn_point'),
                 'timeout': launch.substitutions.LaunchConfiguration('timeout'),
                 'vehicle_filter': launch.substitutions.LaunchConfiguration('vehicle_filter'),
                 'role_name': launch.substitutions.LaunchConfiguration('role_name'),

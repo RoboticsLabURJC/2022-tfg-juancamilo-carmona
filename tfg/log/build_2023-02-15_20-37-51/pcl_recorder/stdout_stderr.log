@@ -1,0 +1,21 @@
+[100%] Built target pcl_recorder_node
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/lib/pcl_recorder/pcl_recorder_node
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder//pcl_recorder.launch
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder//pcl_recorder.launch.py
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/ament_index/resource_index/package_run_dependencies/pcl_recorder
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/ament_index/resource_index/parent_prefix_path/pcl_recorder
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/environment/path.sh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/environment/path.dsv
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/local_setup.bash
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/local_setup.sh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/local_setup.zsh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/local_setup.dsv
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/package.dsv
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/ament_index/resource_index/packages/pcl_recorder
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/cmake/pcl_recorderConfig.cmake
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/cmake/pcl_recorderConfig-version.cmake
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/pcl_recorder/share/pcl_recorder/package.xml

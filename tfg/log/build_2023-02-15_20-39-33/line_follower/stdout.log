@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing line_follower.egg-info/PKG-INFO
+writing dependency_links to line_follower.egg-info/dependency_links.txt
+writing entry points to line_follower.egg-info/entry_points.txt
+writing requirements to line_follower.egg-info/requires.txt
+writing top-level names to line_follower.egg-info/top_level.txt
+reading manifest file 'line_follower.egg-info/SOURCES.txt'
+writing manifest file 'line_follower.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower/lib/python3.8/site-packages/line-follower.egg-link (link to .)
+Installing line_follower script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower/lib/line_follower
+
+Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/line_follower
+running install_data
