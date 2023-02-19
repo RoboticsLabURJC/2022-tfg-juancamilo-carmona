@@ -123,7 +123,7 @@ class VehicleTeleop(Node):
         self.screen.blit(image_surface, (0,0))           
         pygame.display.flip()
 
-
+    """
     def control_vehicle(self):        
 
         self.set_autopilot()
@@ -189,37 +189,52 @@ class VehicleTeleop(Node):
         speedup = 0
 
 
-        kp_straight = 0.05  #0.05 does well in my pc
-        kd_straight  = 0.7 #0.7 does well in my pc
-        ki_straight = 0.000053; #0.000053 vdoes well in my pc
+        kp_straight = 0.08 
+        kd_straight  = 0.4
+        ki_straight = 0.00000015; 
 
-        kp_turn = 0.45 #0.45does well in my pc
-        kd_turn= 2.5 #2.5 does well in my pc
-        ki_turn = 0.0053; #0.0053 does well in my pc
+        kp_turn = 0.1
+        kd_turn= 0.6 
+        ki_turn = 0.0000001; 
 
         
         while True:
 
 
-            actual_error = self.error
+            actual_error = self.error            
+            #self.get_logger().error(str(actual_error))
+
+            if(abs(actual_error) < 20):
+                    i_error = 0
+
             actual_error = (actual_error) / 100  #error
             d_error =  actual_error - last_error #derivative erro
             
             i_error = i_error + actual_error #integral
 
-            if ((actual_error < 0.35) and ( actual_error > -0.35)):
-                self.control_msg.throttle = 1.0                          
+            if ((actual_error < 10) and ( actual_error > 10)):
                 self.control_msg.steer = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+
+                if(actual_error == 0):
+                    self.control_msg.throttle = 1.0                          
+                else:
+                    self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
+
                 
             else :
-                self.control_msg.throttle = -1.0          
                 self.control_msg.steer = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
+                if(actual_error == 0):
+                    self.control_msg.throttle = 1.0                          
+                else:
+                    self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+                #self.get_logger().error(str(i_error))
+
                 
       
     
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
-        """
+
 
 
     def set_vehicle_control_manual_override(self):
