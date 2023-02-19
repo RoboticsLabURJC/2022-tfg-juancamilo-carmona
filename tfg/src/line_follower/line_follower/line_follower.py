@@ -330,7 +330,7 @@ class VehicleTeleop(Node):
 
 
 
-    def sliding_window(self,img, nwindows=9, margin=150, minpix = 1, draw_windows=True):
+    def sliding_window(self,img, nwindows=4, margin=150, minpix = 1, draw_windows=False):
         left_fit_= numpy.empty(3)
         right_fit_ = numpy.empty(3)
         out_img = numpy.dstack((img, img, img))*255
@@ -480,8 +480,10 @@ class VehicleTeleop(Node):
         center = numpy.mean(lane)
                 
         center_x = int(img.shape[1]/2)
-        cv2.circle(img, (center_x, 450), 8, (0,255,0), -1)
-        cv2.circle(img, (int(center), 450), 4, (255,0,0), -1)
+        
+
+        cv2.line(img, (center_x, 450), (center_x, 600), [0, 255, 0], 2)    
+        cv2.line(img, (int(center), 450), (int(center), 600), [0, 0, 255], 1)
 
 
 
