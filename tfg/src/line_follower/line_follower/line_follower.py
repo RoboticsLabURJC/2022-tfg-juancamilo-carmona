@@ -39,19 +39,26 @@ class VehicleTeleop(Node):
         self._default_callback_group = image_callback_group
         #subscritor de la imagenes
         self.image_surface = None
-        size = 800, 600
+        size = 1600, 600
         self.screen = pygame.display.set_mode(size)
         pygame.display.set_caption("teleop_screen")
 
-        #self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
+        self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_front/image", self.first_person_image_cb, 10 )
         self.clock = pygame.time.Clock()
         self.fps = 0
         self.last_fps = 0
         self.start_time = 0
 
-        self.lane_mean_x = (0,0)
-        self.lane_mean_y = (0,0)
+        self.left_x_start = 0
+        self.max_y = 0
+        self.left_x_end = 0
+        self.min_y = 0
+        self.right_x_start = 0
+        self.max_y = 0
+        self.right_x_end = 0
+        self.min_y = 0
+
 
 
         self.role_name = "ego_vehicle"
@@ -94,7 +101,7 @@ class VehicleTeleop(Node):
         array = array[:, :, :3]
         array = array[:, :, ::-1]
         image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
-        self.screen.blit(image_surface, (0,0))    
+        self.screen.blit(image_surface, (800,0))    
 
         pygame.display.flip()
 
@@ -116,8 +123,7 @@ class VehicleTeleop(Node):
 
         self.show_fps(filter_img)
 
-        final_image = self.bridge.cv2_to_imgmsg(filter_img, encoding="passthrough")  
-
+        #final_image = self.bridge.cv2_to_imgmsg(filter_img, encoding="passthrough")  
                 
         array = numpy.frombuffer(filter_img.data, dtype=numpy.dtype("uint8"))
         array = numpy.reshape(array, (ros_img.height, ros_img.width, 4))
@@ -128,7 +134,7 @@ class VehicleTeleop(Node):
 
         pygame.display.flip()
 
-
+    """
     def control_vehicle(self):        
 
         self.set_autopilot()
@@ -194,37 +200,53 @@ class VehicleTeleop(Node):
         speedup = 0
 
 
-        kp_straight = 0.05  #0.05 does well in my pc
-        kd_straight  = 0.7 #0.7 does well in my pc
-        ki_straight = 0.000053; #0.000053 vdoes well in my pc
+        kp_straight = 0.08 
+        kd_straight  = 0.4
+        ki_straight = 0.00000015; 
 
-        kp_turn = 0.45 #0.45does well in my pc
-        kd_turn= 2.5 #2.5 does well in my pc
-        ki_turn = 0.0053; #0.0053 does well in my pc
+        kp_turn = 0.1
+        kd_turn= 0.6 
+        ki_turn = 0.0000001; 
 
         
         while True:
 
 
-            actual_error = self.error
+            actual_error = self.error            
+            #self.get_logger().error(str(actual_error))
+
+            if(abs(actual_error) < 20):
+                    i_error = 0
+
             actual_error = (actual_error) / 100  #error
             d_error =  actual_error - last_error #derivative erro
             
             i_error = i_error + actual_error #integral
 
-            if ((actual_error < 0.35) and ( actual_error > -0.35)):
-                self.control_msg.throttle = 1.0                          
+            if ((actual_error < 10) and ( actual_error > 10)):
                 self.control_msg.steer = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+
+                if(actual_error == 0):
+                    self.control_msg.throttle = 1.0                          
+                else:
+                    self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
+
                 
             else :
-                self.control_msg.throttle = -1.0          
                 self.control_msg.steer = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
+                if(actual_error == 0):
+                    self.control_msg.throttle = 1.0                          
+                else:
+                    self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+                #self.get_logger().error(str(i_error))
+
                 
       
     
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
-    """
+
+            
 
     def set_vehicle_control_manual_override(self):
         """
@@ -342,7 +364,7 @@ class VehicleTeleop(Node):
         cropped_image = self.region_of_interest(cannyed_image, numpy.array([region_of_interest_vertices], numpy.int32))
 
 
-        lines = cv2.HoughLinesP(cropped_image,rho=6,theta=numpy.pi / 60,threshold=140,lines=numpy.array([]),minLineLength=20,maxLineGap=25)
+        lines = cv2.HoughLinesP(cropped_image,rho=9,theta=numpy.pi / 60,threshold=100,lines=numpy.array([]),minLineLength=20,maxLineGap=25)
 
         left_line_x = []
         left_line_y = []
@@ -351,13 +373,14 @@ class VehicleTeleop(Node):
     
         if lines is None:
             return img
+
         else:
             for line in lines:
                 for x1, y1, x2, y2 in line:
                     slope = (y2 - y1) / (x2 - x1)
 
                 if math.fabs(slope) < 0.5:
-                    continue
+                    break
 
                 if slope <= 0:
                     left_line_x.extend([x1, x2])
@@ -367,20 +390,35 @@ class VehicleTeleop(Node):
                     right_line_x.extend([x1, x2])
                     right_line_y.extend([y1, y2])    
 
-            min_y = int(img.shape[0] * (3 / 5))
+            min_y = int(img.shape[0] * (7 / 10))
             max_y = int(img.shape[0])    
 
             if not left_line_x or not left_line_y:
-                return img 
+                line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
+
+                lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
+                image_center = int(line_image.shape[1]/2)
+                cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
+                cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
+
+                return line_image
+
 
             if not right_line_x or not right_line_y:
-                return img
+                line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
+
+                lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
+                image_center = int(line_image.shape[1]/2)
+                cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
+                cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
+
+                return line_image
 
 
             poly_left = numpy.poly1d(numpy.polyfit(left_line_y,left_line_x,deg=1))
         
-            left_x_start = int(poly_left(max_y))
-            left_x_end = int(poly_left(min_y))
+            left_x_start = int(poly_left(self.max_y))
+            left_x_end = int(poly_left(self.min_y))
         
             poly_right = numpy.poly1d(numpy.polyfit(right_line_y,right_line_x,deg=1))
         
@@ -394,7 +432,19 @@ class VehicleTeleop(Node):
             image_center = int(img.shape[1]/2)
 
             cv2.line(img, (image_center, max_y), (image_center, min_y), [0, 255, 0], 2)    
-            cv2.line(img, (lane_mean_x, max_y), (lane_mean_x, min_y), [0, 0, 255], 1)    
+            cv2.line(img, (lane_mean_x, max_y), (lane_mean_x, min_y), [0, 0, 255], 1)
+
+            self.error =  lane_mean_x - image_center
+
+            self.left_x_start = left_x_start
+            self.max_y = max_y
+            self.left_x_end = left_x_end
+            self.min_y = min_y
+            self.right_x_start = right_x_start
+            self.max_y = max_y
+            self.right_x_end = right_x_end
+            self.min_y = min_y
+
 
             return line_image
 
