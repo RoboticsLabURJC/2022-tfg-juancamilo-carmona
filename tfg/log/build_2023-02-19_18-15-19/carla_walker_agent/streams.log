@@ -1,0 +1,17 @@
+[2.728s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/build --no-deps install_data
+[3.137s] running develop
+[3.361s] running egg_info
+[3.362s] writing src/carla_walker_agent.egg-info/PKG-INFO
+[3.362s] writing dependency_links to src/carla_walker_agent.egg-info/dependency_links.txt
+[3.362s] writing entry points to src/carla_walker_agent.egg-info/entry_points.txt
+[3.363s] writing requirements to src/carla_walker_agent.egg-info/requires.txt
+[3.363s] writing top-level names to src/carla_walker_agent.egg-info/top_level.txt
+[3.403s] reading manifest file 'src/carla_walker_agent.egg-info/SOURCES.txt'
+[3.407s] writing manifest file 'src/carla_walker_agent.egg-info/SOURCES.txt'
+[3.461s] running build_ext
+[3.461s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/python3.8/site-packages/carla-walker-agent.egg-link (link to src)
+[3.461s] Installing carla_walker_agent script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/carla_walker_agent
+[3.462s] 
+[3.462s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/src
+[3.462s] running install_data
+[3.649s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/build --no-deps install_data

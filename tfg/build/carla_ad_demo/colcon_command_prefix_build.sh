@@ -1,6 +1,5 @@
 # generated from colcon_core/shell/template/command_prefix.sh.em
 . "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common/share/carla_common/package.sh"
-. "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/package.sh"
 . "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/package.sh"
 . "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control/share/carla_twist_to_control/package.sh"
 . "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/package.sh"
