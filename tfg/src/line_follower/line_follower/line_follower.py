@@ -342,7 +342,7 @@ class VehicleTeleop(Node):
         cropped_image = self.region_of_interest(cannyed_image, numpy.array([region_of_interest_vertices], numpy.int32))
 
 
-        lines = cv2.HoughLinesP(cropped_image,rho=6,theta=numpy.pi / 60,threshold=140,lines=numpy.array([]),minLineLength=20,maxLineGap=25)
+        lines = cv2.HoughLinesP(cropped_image,rho=9,theta=numpy.pi / 60, threshold=100,lines=numpy.array([]),minLineLength=20,maxLineGap=25)
 
         left_line_x = []
         left_line_y = []
