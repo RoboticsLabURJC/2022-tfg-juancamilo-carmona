@@ -360,8 +360,9 @@ class VehicleTeleop(Node):
         cannyed_image = cv2.Canny(gray_image, 100, 150)
 
         h, w = cannyed_image.shape[:2]
-        region_of_interest_vertices = [ (0, h),(0 , h/2), (w , h/2) ,(w, h), ]
+        region_of_interest_vertices = [ (0, h),(w/2 , h/2) ,(w, h), ]
         cropped_image = self.region_of_interest(cannyed_image, numpy.array([region_of_interest_vertices], numpy.int32))
+
 
         lines = cv2.HoughLinesP(cropped_image,rho=9,theta=numpy.pi / 60, threshold=100,lines=numpy.array([]),minLineLength=20,maxLineGap=25)
 
@@ -369,26 +370,28 @@ class VehicleTeleop(Node):
         left_line_y = []
         right_line_x = []
         right_line_y = []
-
-        lista = []
-
-        min_y = int(img.shape[0] * (7 / 10))
-        max_y = int(img.shape[0])  
     
         if lines is None:
             return img
-
         else:
             for line in lines:
                 for x1, y1, x2, y2 in line:
                     slope = (y2 - y1) / (x2 - x1)
 
-                if math.fabs(slope) > 0.5:
+                if math.fabs(slope) < 0.5:
+                    continue
 
+                if slope <= 0:
                     left_line_x.extend([x1, x2])
                     left_line_y.extend([y1, y2])
-                    
-  
+
+                else:
+                    right_line_x.extend([x1, x2])
+                    right_line_y.extend([y1, y2])    
+
+            min_y = int(img.shape[0] * (3 / 5))
+            max_y = int(img.shape[0])    
+
             if not left_line_x or not left_line_y:
                 #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
 
@@ -396,41 +399,36 @@ class VehicleTeleop(Node):
                 #image_center = int(line_image.shape[1]/2)
                 #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
                 #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
-
-                return img
-
+                return img 
 
             if not right_line_x or not right_line_y:
-                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
 
+                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
                 #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
                 #image_center = int(line_image.shape[1]/2)
                 #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
                 #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
-
                 return img
-
-            line_image = self.draw_lines(img,[lista],thickness=5,)
 
 
             poly_left = numpy.poly1d(numpy.polyfit(left_line_y,left_line_x,deg=1))
         
-            left_x_start = int(poly_left(self.max_y))
-            left_x_end = int(poly_left(self.min_y))
+            left_x_start = int(poly_left(max_y))
+            left_x_end = int(poly_left(min_y))
         
             poly_right = numpy.poly1d(numpy.polyfit(right_line_y,right_line_x,deg=1))
         
             right_x_start = int(poly_right(max_y))
             right_x_end = int(poly_right(min_y))    
 
-            line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y]]],thickness=5,)
+            line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
             
             lane_mean_x = int((left_x_start + left_x_end + right_x_start + right_x_end)/4)  
 
             image_center = int(img.shape[1]/2)
 
             cv2.line(img, (image_center, max_y), (image_center, min_y), [0, 255, 0], 2)    
-            cv2.line(img, (lane_mean_x, max_y), (lane_mean_x, min_y), [0, 0, 255], 1)
+            cv2.line(img, (lane_mean_x, max_y), (lane_mean_x, min_y), [0, 0, 255], 1)    
 
             self.error =  lane_mean_x - image_center
 
