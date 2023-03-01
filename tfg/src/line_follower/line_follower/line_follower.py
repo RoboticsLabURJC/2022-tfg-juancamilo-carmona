@@ -364,8 +364,14 @@ class VehicleTeleop(Node):
 
     def line_filter(self, img):
 
-        # Convert to grayscale here.
-        gray_image = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)# Call Canny Edge Detection here.
+        hsv_image = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+        lower_color = numpy.array([0, 0, 200])
+        upper_color = numpy.array([255, 255, 255])
+        color_mask = cv2.inRange(hsv_image, lower_color, upper_color)
+        filtered_image = cv2.bitwise_and(img, img, mask=color_mask)
+
+        # Convert to grayscale and perform Canny edge detection
+        gray_image = cv2.cvtColor(filtered_image, cv2.COLOR_RGB2GRAY)
         cannyed_image = cv2.Canny(gray_image, 100, 150)
 
         h, w = cannyed_image.shape[:2]
