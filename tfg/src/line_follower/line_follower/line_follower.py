@@ -217,29 +217,46 @@ class VehicleTeleop(Node):
         
         while True:
 
-
             actual_error = self.error            
-            #self.get_logger().error(str(actual_error))
-
-            if(abs(actual_error) < 20):
-                    i_error = 0
 
             actual_error = (actual_error) / 100  #error
             d_error =  actual_error - last_error #derivative erro
             
             i_error = i_error + actual_error #integral
+            
 
-            if ((actual_error < 10) and ( actual_error > 10)):
-                self.control_msg.steer = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+            if ((actual_error < 50/100) and ( actual_error > -50/100)):
+
+                #self.get_logger().error("straight " + str(stering))
+                stering = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:                    
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
 
                 #if(actual_error == 0):
                     #self.control_msg.throttle = 1.0                          
                 #else:
                     #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
-
-                
+            if ((actual_error < 10/100) and ( actual_error > -10/100)):
+                self.control_msg.steer = 0.0
             else :
-                self.control_msg.steer = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
+                stering = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
+
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
+
                 #if(actual_error == 0):
                     #self.control_msg.throttle = 1.0                          
                 #else:
@@ -249,8 +266,6 @@ class VehicleTeleop(Node):
                 self.control_msg.throttle = 0.0
             else:
                 self.control_msg.throttle = 1.0                          
-
-
 
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
@@ -466,7 +481,7 @@ class VehicleTeleop(Node):
 
             line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
             
-            lane_mean_x = int((left_x_start + left_x_end + right_x_start + right_x_end)/4)  
+            lane_mean_x = int((left_x_end + right_x_end)/2)  
 
             image_center = int(img.shape[1]/2)
 
