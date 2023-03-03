@@ -206,13 +206,13 @@ class VehicleTeleop(Node):
         speedup = 0
 
 
-        kp_straight = 0.08 
-        kd_straight  = 0.4
-        ki_straight = 0.00000015; 
+        kp_straight = 0.08
+        kd_straight  = 0.1
+        ki_straight = 0.000002
 
         kp_turn = 0.1
-        kd_turn= 0.6 
-        ki_turn = 0.0000001; 
+        kd_turn= 0.15
+        ki_turn = 0.000004
 
         
         while True:
