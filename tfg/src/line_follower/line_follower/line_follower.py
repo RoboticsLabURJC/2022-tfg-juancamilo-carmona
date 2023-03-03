@@ -255,6 +255,8 @@ class VehicleTeleop(Node):
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
 
+            time.sleep(0.1)
+
             
 
     def set_vehicle_control_manual_override(self):
