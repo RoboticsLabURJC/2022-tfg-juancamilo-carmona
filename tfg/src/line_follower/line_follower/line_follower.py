@@ -265,7 +265,7 @@ class VehicleTeleop(Node):
             if self.speed >= 20:
                 self.control_msg.throttle = 0.0
             else:
-                self.control_msg.throttle = 0.5                          
+                self.control_msg.throttle = 1.0                          
 
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
