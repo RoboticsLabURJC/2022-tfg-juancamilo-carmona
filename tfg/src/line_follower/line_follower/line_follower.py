@@ -189,51 +189,71 @@ class VehicleTeleop(Node):
         speedup = 0
 
 
-        kp_straight = 0.08 
-        kd_straight  = 0.4
-        ki_straight = 0.00000015; 
+        kp_straight = 0.08
+        kd_straight  = 0.1
+        ki_straight = 0.000002
 
         kp_turn = 0.1
-        kd_turn= 0.6 
-        ki_turn = 0.0000001; 
+        kd_turn= 0.15
+        ki_turn = 0.000004
 
         
         while True:
 
-
             actual_error = self.error            
-            #self.get_logger().error(str(actual_error))
-
-            if(abs(actual_error) < 20):
-                    i_error = 0
 
             actual_error = (actual_error) / 100  #error
             d_error =  actual_error - last_error #derivative erro
             
             i_error = i_error + actual_error #integral
+            
 
-            if ((actual_error < 10) and ( actual_error > 10)):
-                self.control_msg.steer = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+            if ((actual_error < 50/100) and ( actual_error > -50/100)):
 
-                if(actual_error == 0):
-                    self.control_msg.throttle = 1.0                          
+                #self.get_logger().error("straight " + str(stering))
+                stering = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:                    
+                    self.control_msg.steer = -1.0
+
                 else:
-                    self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
+                    self.control_msg.steer = stering
 
-                
+                #if(actual_error == 0):
+                    #self.control_msg.throttle = 1.0                          
+                #else:
+                    #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
+            if ((actual_error < 10/100) and ( actual_error > -10/100)):
+                self.control_msg.steer = 0.0
             else :
-                self.control_msg.steer = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
-                if(actual_error == 0):
-                    self.control_msg.throttle = 1.0                          
-                else:
-                    self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
-                #self.get_logger().error(str(i_error))
+                stering = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
 
-                
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
+
+                #if(actual_error == 0):
+                    #self.control_msg.throttle = 1.0                          
+                #else:
+                    #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
       
-    
+            if self.speed >= 20:
+                self.control_msg.throttle = 0.0
+            else:
+                self.control_msg.throttle = 1.0                          
+
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
+
+            time.sleep(0.2)
 
 
 
