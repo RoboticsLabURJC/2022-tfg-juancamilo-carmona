@@ -206,40 +206,57 @@ class VehicleTeleop(Node):
         speedup = 0
 
 
-        kp_straight = 0.08 
-        kd_straight  = 0.4
-        ki_straight = 0.00000015; 
+        kp_straight = 0.08
+        kd_straight  = 0.1
+        ki_straight = 0.000002
 
         kp_turn = 0.1
-        kd_turn= 0.6 
-        ki_turn = 0.0000001; 
+        kd_turn= 0.15
+        ki_turn = 0.000004
 
         
         while True:
 
-
             actual_error = self.error            
-            #self.get_logger().error(str(actual_error))
-
-            if(abs(actual_error) < 20):
-                    i_error = 0
 
             actual_error = (actual_error) / 100  #error
             d_error =  actual_error - last_error #derivative erro
             
             i_error = i_error + actual_error #integral
+            
 
-            if ((actual_error < 10) and ( actual_error > 10)):
-                self.control_msg.steer = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+            if ((actual_error < 50/100) and ( actual_error > -50/100)):
+
+                #self.get_logger().error("straight " + str(stering))
+                stering = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:                    
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
 
                 #if(actual_error == 0):
                     #self.control_msg.throttle = 1.0                          
                 #else:
                     #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
-
-                
+            if ((actual_error < 10/100) and ( actual_error > -10/100)):
+                self.control_msg.steer = 0.0
             else :
-                self.control_msg.steer = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
+                stering = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
+
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
+
                 #if(actual_error == 0):
                     #self.control_msg.throttle = 1.0                          
                 #else:
@@ -248,13 +265,12 @@ class VehicleTeleop(Node):
             if self.speed >= 20:
                 self.control_msg.throttle = 0.0
             else:
-                self.control_msg.throttle = 1.0                          
-
-
+                self.control_msg.throttle = 0.5                          
 
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
 
+            time.sleep(0.1)
             
 
     def set_vehicle_control_manual_override(self):
@@ -365,17 +381,21 @@ class VehicleTeleop(Node):
     def line_filter(self, img):
 
         hsv_image = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
-        lower_color = numpy.array([0, 0, 200])
-        upper_color = numpy.array([255, 255, 255])
-        color_mask = cv2.inRange(hsv_image, lower_color, upper_color)
+        lower_white = numpy.array([0, 0, 200])
+        upper_white = numpy.array([255, 255, 255])
+        #lower_white = numpy.array([0, 0, 160])
+        #upper_white = numpy.array([130, 20, 250])
+        color_mask = cv2.inRange(hsv_image, lower_white, upper_white)
         filtered_image = cv2.bitwise_and(img, img, mask=color_mask)
+        #cv2.imshow('image',filtered_image)
+        #cv2.waitKey(0)
 
         # Convert to grayscale and perform Canny edge detection
         gray_image = cv2.cvtColor(filtered_image, cv2.COLOR_RGB2GRAY)
         cannyed_image = cv2.Canny(gray_image, 100, 150)
 
         h, w = cannyed_image.shape[:2]
-        region_of_interest_vertices = [ (0, h*0.7),(w/2 , h/2) ,(w, h*0.7), ]
+        region_of_interest_vertices = [ (0, h*0.75),(w/2 , h/2) ,(w, h*0.75), ]
         cropped_image = self.region_of_interest(cannyed_image, numpy.array([region_of_interest_vertices], numpy.int32))
         #cv2.imshow('images', cropped_image)
         #cv2.waitKey(0)
@@ -470,7 +490,7 @@ class VehicleTeleop(Node):
 
             line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
             
-            lane_mean_x = int((left_x_start + left_x_end + right_x_start + right_x_end)/4)  
+            lane_mean_x = int((left_x_end + right_x_end)/2)  
 
             image_center = int(img.shape[1]/2)
 
