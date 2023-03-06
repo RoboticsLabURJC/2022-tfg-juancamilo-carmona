@@ -30,6 +30,8 @@ import matplotlib.pyplot as plt
 import math
 import signal
 import csv
+import os
+import psutil
 
 
 class VehicleTeleop(Node):
@@ -65,6 +67,8 @@ class VehicleTeleop(Node):
         self.right_x_end = 0
         self.min_y = 0
 
+        nombre_archivo = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/hsv_metrics.csv'
+        self.archivo_csv = open(nombre_archivo, mode='w', newline='')
 
 
         self.role_name = "ego_vehicle"
