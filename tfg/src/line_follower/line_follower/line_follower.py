@@ -26,6 +26,12 @@ import cv2
 from cv_bridge import CvBridge
 import time
 import matplotlib.pyplot as plt
+import time
+import math
+import csv
+import psutil
+import os
+import signal
 
 
 class VehicleTeleop(Node):
@@ -44,11 +50,15 @@ class VehicleTeleop(Node):
 
         #self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_front/image", self.first_person_image_cb, 10 )
+
+        self.speed = 0
         self.clock = pygame.time.Clock()
         self.fps = 0
         self.last_fps = 0
         self.start_time = 0
 
+        nombre_archivo = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/sliding_window_metrics.csv'
+        self.archivo_csv = open(nombre_archivo, mode='w', newline='')
 
         self.role_name = "ego_vehicle"
 
@@ -174,11 +184,14 @@ class VehicleTeleop(Node):
             self.vehicle_control_publisher.publish(self.control_msg)
 
     """
+    def controlador(self, sig, frame):
+        self.archivo_csv.close()
+        exit()
+
     def control_vehicle(self):        
 
         self.set_autopilot()
         self.set_vehicle_control_manual_override()
-
         Counter = 0
         acelerate = 0
         actual_error = 0
@@ -197,6 +210,13 @@ class VehicleTeleop(Node):
         kd_turn= 0.15
         ki_turn = 0.000004
 
+        adjustment_num = 0
+
+        # Abre el archivo CSV en modo escritura
+        csv_writer = csv.writer(self.archivo_csv)
+        
+        csv_row = ['fps','cpu usage','Memory usage','PID adjustment num','PID adjustment intesity']
+        csv_writer.writerow(csv_row)
         
         while True:
 
@@ -207,6 +227,13 @@ class VehicleTeleop(Node):
             
             i_error = i_error + actual_error #integral
             
+            if actual_error >= 0 and last_error < 0:
+                adjustment_num = adjustment_num + 1
+
+            if actual_error <= 0 and last_error > 0:
+                adjustment_num = adjustment_num + 1
+            
+
 
             if ((actual_error < 50/100) and ( actual_error > -50/100)):
 
@@ -252,8 +279,17 @@ class VehicleTeleop(Node):
 
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
+            
+            #el pid puede obtenerse fuera del bucle
+            pid = os.getpid()
+            process = psutil.Process(pid)
+            memory_usage = process.memory_info().rss    
 
-            time.sleep(0.2)
+            #cpu_percent = psutil.cpu_percent()
+            time.sleep(0.1)
+
+            cpu_percent = process.cpu_percent(interval=0.1)
+            csv_writer.writerow([self.last_fps, cpu_percent , memory_usage, adjustment_num, stering])
 
 
 
@@ -539,6 +575,8 @@ def main(args=None):
     
     teleop = VehicleTeleop()
     
+    signal.signal(signal.SIGINT, teleop.controlador)            
+
     rclpy.spin(teleop)
 
     teleop.destroy_node()
