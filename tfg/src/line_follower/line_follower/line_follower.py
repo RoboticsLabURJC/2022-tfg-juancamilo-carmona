@@ -195,7 +195,6 @@ class VehicleTeleop(Node):
 
         self.set_autopilot()
         self.set_vehicle_control_manual_override()
-
         Counter = 0
         acelerate = 0
         actual_error = 0
@@ -214,6 +213,13 @@ class VehicleTeleop(Node):
         kd_turn= 0.15
         ki_turn = 0.000004
 
+        adjustment_num = 0
+
+        # Abre el archivo CSV en modo escritura
+        csv_writer = csv.writer(self.archivo_csv)
+        
+        csv_row = ['fps','cpu usage','Memory usage','PID adjustment num','PID adjustment intesity']
+        csv_writer.writerow(csv_row)
         
         while True:
 
@@ -224,6 +230,13 @@ class VehicleTeleop(Node):
             
             i_error = i_error + actual_error #integral
             
+            if actual_error >= 0 and last_error < 0:
+                adjustment_num = adjustment_num + 1
+
+            if actual_error <= 0 and last_error > 0:
+                adjustment_num = adjustment_num + 1
+            
+
 
             if ((actual_error < 50/100) and ( actual_error > -50/100)):
 
@@ -269,8 +282,17 @@ class VehicleTeleop(Node):
 
             last_error = actual_error
             self.vehicle_control_publisher.publish(self.control_msg)
+            
+            #el pid puede obtenerse fuera del bucle
+            pid = os.getpid()
+            process = psutil.Process(pid)
+            memory_usage = process.memory_info().rss    
 
+            #cpu_percent = psutil.cpu_percent()
             time.sleep(0.1)
+
+            cpu_percent = process.cpu_percent(interval=0.1)
+            csv_writer.writerow([self.last_fps, cpu_percent , memory_usage, adjustment_num, stering])
 
             
 
