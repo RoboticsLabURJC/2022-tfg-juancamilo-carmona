@@ -67,7 +67,7 @@ class VehicleTeleop(Node):
         self.right_x_end = 0
         self.min_y = 0
 
-        nombre_archivo = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/hsv_metrics.csv'
+        nombre_archivo = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/canny_metrics.csv'
         self.archivo_csv = open(nombre_archivo, mode='w', newline='')
 
 
