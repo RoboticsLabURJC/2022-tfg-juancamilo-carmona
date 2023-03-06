@@ -432,24 +432,6 @@ class VehicleTeleop(Node):
                             outter_right_line_x.extend([x1, x2])
                             outter_right_line_y.extend([y1, y2])  
 
- 
-            if not left_line_x or not left_line_y:
-                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
-
-                #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4                        self.get_logger().error("down"))  
-                #image_center = int(line_image.shape[1]/2)
-                #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
-                #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
-                return img 
-
-            if not right_line_x or not right_line_y:
-
-                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
-                #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
-                #image_center = int(line_image.shape[1]/2)
-                #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
-                #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
-                return img
             
             if outter_left_line_x and outter_left_line_y :
 
@@ -467,6 +449,26 @@ class VehicleTeleop(Node):
                 outter_right_x_end = int(outter_poly_left(min_y))
                 img = self.draw_lines(img,[[[outter_right_x_start, max_y, outter_right_x_end, min_y],]],thickness=5,color=[0,0,255])
 
+
+            if not left_line_x or not left_line_y:
+                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
+
+                #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
+                #image_center = int(line_image.shape[1]/2)
+                #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
+                #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
+
+                return img 
+
+            if not right_line_x or not right_line_y:
+
+                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
+                #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
+                #image_center = int(line_image.shape[1]/2)
+                #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
+                #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
+
+                return img
 
 
             poly_left = numpy.poly1d(numpy.polyfit(left_line_y,left_line_x,deg=1))
