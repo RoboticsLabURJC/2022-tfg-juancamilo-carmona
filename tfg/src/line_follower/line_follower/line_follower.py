@@ -28,6 +28,8 @@ from cv_bridge import CvBridge
 import time
 import matplotlib.pyplot as plt
 import math
+import signal
+import csv
 
 
 class VehicleTeleop(Node):
@@ -191,6 +193,11 @@ class VehicleTeleop(Node):
             self.vehicle_control_publisher.publish(self.control_msg)
     
     """
+
+    def controlador(self, sig, frame):
+        self.archivo_csv.close()
+        exit()
+
     def control_vehicle(self):        
 
         self.set_autopilot()
@@ -540,9 +547,9 @@ def main(args=None):
 
     pygame.init()
     rclpy.init(args=args)
-    
+
     teleop = VehicleTeleop()
-    
+    signal.signal(signal.SIGINT, teleop.controlador)                
     rclpy.spin(teleop)
 
     teleop.destroy_node()
