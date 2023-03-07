@@ -1,873 +1,301 @@
 time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-7.331993818283081,0,10.0,196079616,1,0.030600340000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-7.759181261062622,0,0.0,201785344,1,0.04600104
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-7.93156623840332,0,0.0,206159872,1,0.006401500000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-8.09763479232788,0,0.0,206159872,1,0.01840196
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-8.260895490646362,0,10.0,206159872,1,0.01840242
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-8.425291776657104,6,0.0,206159872,1,0.020202899999999996
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-8.580856084823608,6,0.0,206159872,1,0.003003200000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-8.740591526031494,6,10.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-8.90474271774292,6,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-9.060189962387085,6,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-9.233895301818848,6,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-9.400935888290405,6,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-9.572848558425903,6,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-9.71720814704895,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-9.892932176589966,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-10.067360639572144,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-10.233147144317627,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-10.377614736557007,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-10.588268280029297,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-10.77184009552002,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-10.973533868789673,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-11.216022729873657,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-11.412946939468384,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-11.555883169174194,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-11.732529878616333,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-11.925431966781616,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-12.100266933441162,7,10.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-12.256055116653442,7,10.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-12.446163654327393,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-12.581472396850586,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-12.751012086868286,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-12.911937236785889,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-13.070721864700317,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-13.248905181884766,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-13.4031822681427,7,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-13.564510583877563,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-13.736274242401123,8,10.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-13.900410413742065,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-14.06961727142334,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-14.241269826889038,8,0.0,206159872,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-14.406926155090332,8,0.0,199901184,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-14.58964204788208,8,0.0,199901184,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-14.779107332229614,7,0.0,199901184,1,0.0100047
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-14.949107885360718,7,0.0,199901184,1,0.0080049
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-15.128876686096191,7,0.0,199901184,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-15.28030514717102,7,0.0,199901184,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-15.447699069976807,7,0.0,199901184,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-15.613542079925537,7,0.0,199901184,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-15.783140182495117,7,0.0,199901184,1,0.016205840000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-15.940529346466064,7,0.0,199901184,1,0.011206120000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-16.11305332183838,8,0.0,199901184,1,0.007606359999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-16.259068965911865,8,0.0,199901184,1,0.013206640000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-16.413519382476807,8,0.0,199901184,1,0.007606879999999997
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-16.608588933944702,8,0.0,199901184,1,0.009607119999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-16.757336139678955,8,0.0,199901184,1,0.009607359999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-16.91519331932068,8,0.0,199901184,1,0.009607599999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-17.09004855155945,8,0.0,199901184,1,0.00960784
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-17.255396604537964,8,0.0,199901184,1,0.007808060000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-17.428789854049683,8,0.0,199901184,1,0.014208340000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-17.60221266746521,8,0.0,199901184,1,0.011208620000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-17.774014472961426,8,0.0,199901184,1,0.0112089
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-17.947558641433716,8,0.0,199901184,1,0.011209180000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-18.124227046966553,8,0.0,199901184,1,0.00940944
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-18.285483837127686,8,0.0,199901184,1,0.010409700000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-18.443603038787842,8,0.0,199901184,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-18.596614122390747,8,0.0,199901184,1,0.013610099999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-18.751479387283325,8,0.0,199901184,1,0.006010300000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-18.89507818222046,8,10.0,199901184,1,0.015210580000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-19.05397391319275,8,0.0,199901184,1,0.011210860000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-19.1923086643219,8,0.0,199901184,1,0.011211140000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-19.340794801712036,8,0.0,199901184,1,0.011211420000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-19.508432865142822,8,0.0,199901184,1,0.00581164
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-19.639211177825928,8,0.0,199901184,1,0.007011840000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-19.79150700569153,8,0.0,199901184,1,0.013412100000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-19.91848087310791,8,0.0,199901184,1,0.008612339999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-20.067180633544922,8,0.0,199901184,1,0.013212620000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-20.219402074813843,8,0.0,199901184,1,0.011212900000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-20.36127471923828,8,0.0,199901184,1,0.00941316
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-20.501512050628662,8,0.0,199901184,1,0.010413420000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-20.634938955307007,8,0.0,199901184,1,0.00501362
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-20.775397062301636,8,0.0,199901184,1,0.013413880000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-20.932597160339355,8,0.0,199901184,1,0.01041414
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-21.06804394721985,8,0.0,199901184,1,0.00681436
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-21.211952924728394,9,0.0,199901184,1,0.010614599999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-21.353785276412964,9,0.0,199901184,1,0.00961484
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-21.515987873077393,9,0.0,199901184,1,0.00961508
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-21.65361523628235,9,0.0,200167424,1,0.009615319999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-21.797194004058838,9,0.0,200167424,1,0.007815540000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-21.93960189819336,9,0.0,200167424,1,0.010615779999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-22.08718991279602,9,10.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-22.22644281387329,9,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-22.378282070159912,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-22.510895013809204,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-22.657729625701904,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-22.8144748210907,8,0.0,200167424,1,0.02161702
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-22.97820734977722,8,0.0,200167424,1,0.015417379999999996
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-23.136380910873413,8,0.0,200167424,1,0.010817700000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-23.28531002998352,8,0.0,200167424,1,0.016418059999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-23.443754196166992,8,0.0,200167424,1,0.01441842
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-23.583910703659058,8,0.0,200167424,1,0.014418779999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-23.725821495056152,8,0.0,200167424,1,0.00901908
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-23.88607883453369,8,0.0,200167424,1,0.015619420000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-24.040340662002563,8,0.0,200167424,1,0.008219700000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-24.175029516220093,8,0.0,200167424,1,0.007619939999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-24.320086240768433,8,0.0,200167424,1,0.015020239999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-24.462014198303223,8,0.0,200167424,1,0.01202054
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-24.619043111801147,8,0.0,200167424,1,0.01202084
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-24.761293172836304,8,0.0,200167424,1,0.01202114
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-24.903838396072388,8,0.0,200167424,1,0.01202144
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-25.050092458724976,8,0.0,200167424,1,0.01202174
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-25.199827432632446,8,0.0,200167424,1,0.006621979999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-25.346616983413696,8,0.0,200167424,1,0.011422240000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-25.495908737182617,8,10.0,200167424,1,0.010422500000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-25.63002061843872,8,10.0,200167424,1,0.008622739999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-25.778783559799194,8,0.0,200167424,1,0.007822960000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-25.917954206466675,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-26.061295747756958,8,0.0,200167424,1,0.009023340000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-26.20272207260132,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-26.353137969970703,8,0.0,200167424,1,0.01082374
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-26.51758313179016,8,0.0,200167424,1,0.012424000000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-26.64981985092163,8,0.0,200167424,1,0.010424260000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-26.797600507736206,8,0.0,200167424,1,0.008624499999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-26.940829277038574,8,0.0,200167424,1,0.00962474
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-27.08856463432312,8,0.0,200167424,1,0.00962498
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-27.23269033432007,8,0.0,200167424,1,0.007825200000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-27.387134790420532,8,0.0,200167424,1,0.00882542
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-27.53925371170044,8,0.0,200167424,1,0.007025620000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-27.70182514190674,8,0.0,200167424,1,0.013425880000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-27.857585668563843,8,0.0,200167424,1,0.01042614
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-27.99589776992798,8,0.0,200167424,1,0.0104264
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-28.1585636138916,8,0.0,200167424,1,0.01042666
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-28.294768810272217,8,0.0,200167424,1,0.00502686
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-28.46643567085266,8,0.0,200167424,1,0.00982708
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-28.62882351875305,8,0.0,200167424,1,0.0088273
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-28.80175518989563,8,0.0,200167424,1,0.010627539999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-28.97336769104004,8,0.0,200167424,1,0.009627779999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-29.154083013534546,8,0.0,200167424,1,0.007828000000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-29.315887689590454,8,0.0,200167424,1,0.008828220000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-29.496487379074097,7,0.0,200167424,1,0.007028420000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-29.63948392868042,7,0.0,200167424,1,0.00982864
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-29.79439401626587,7,0.0,200167424,1,0.012428900000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-29.95083975791931,7,0.0,200167424,1,0.008629139999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-30.116270303726196,7,10.0,200167424,1,0.007829360000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-30.284880876541138,7,10.0,200167424,1,0.010629599999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-30.445984601974487,7,0.0,200167424,1,0.009629839999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-30.609992027282715,7,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-30.7811336517334,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-30.94258999824524,8,0.0,200167424,1,0.0108304
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-31.101314783096313,8,10.0,200167424,1,0.014230680000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-31.287362337112427,8,0.0,200167424,1,0.00943094
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-31.449307203292847,8,0.0,200167424,1,0.010431200000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-31.61817479133606,8,0.0,200167424,1,0.010431460000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-31.786911010742188,8,0.0,200167424,1,0.010431720000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-31.953336715698242,7,0.0,200167424,1,0.0050319200000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-32.13280415534973,7,0.0,200167424,1,0.013432180000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-32.296624183654785,7,0.0,200167424,1,0.008632419999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-32.459938287734985,7,0.0,200167424,1,0.00963266
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-32.61695623397827,7,0.0,200167424,1,0.0096329
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-32.77606749534607,7,0.0,200167424,1,0.009633139999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-32.94730186462402,7,0.0,200167424,1,0.009633379999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-33.111549854278564,7,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-33.279786825180054,8,0.0,200167424,1,0.010033740000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-33.45227241516113,8,0.0,200167424,1,0.00803394
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-33.59832143783569,8,0.0,200167424,1,0.00803414
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-33.765257358551025,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-33.93615198135376,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-34.09188437461853,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-34.25838804244995,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-34.41949510574341,8,0.0,200167424,1,0.009035040000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-34.57713055610657,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-34.747477531433105,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-34.91735649108887,8,0.0,200167424,1,0.01083562
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-35.06283903121948,8,0.0,200167424,1,0.007035820000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-35.19825601577759,8,0.0,200167424,1,0.00803602
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-35.350465059280396,8,0.0,200167424,1,0.00803622
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-35.49948716163635,8,0.0,200167424,1,0.00803642
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-35.65684676170349,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-35.80157518386841,8,0.0,200167424,1,0.009036800000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-35.93608856201172,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-36.08751130104065,8,0.0,200167424,1,0.00903718
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-36.237715005874634,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-36.38345193862915,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-36.519882678985596,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-36.661641359329224,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-36.817708015441895,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-36.96088409423828,8,0.0,200167424,1,0.009038280000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-37.104692459106445,8,0.0,200167424,1,0.01703858
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-37.263720989227295,8,0.0,200167424,1,0.01203888
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-37.40192747116089,8,10.0,200167424,1,0.010239160000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-37.5505645275116,8,0.0,200167424,1,0.011239440000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-37.694241523742676,8,0.0,200167424,1,0.01483976
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-37.83607578277588,8,0.0,200167424,1,0.011040059999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-37.985939264297485,8,0.0,200167424,1,0.006640299999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-38.12934684753418,8,0.0,200167424,1,0.011440560000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-38.28355884552002,8,0.0,200167424,1,0.012240840000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-38.431994915008545,8,0.0,200167424,1,0.009441100000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-38.5814573764801,8,0.0,200167424,1,0.010441360000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-38.72331404685974,8,0.0,200167424,1,0.01404166
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-38.88069939613342,8,0.0,200167424,1,0.01204196
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-39.03528380393982,8,0.0,200167424,1,0.0048421800000000015
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-39.17854118347168,8,0.0,200167424,1,0.0088424
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-39.32533645629883,8,0.0,200167424,1,0.00884262
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-39.47232151031494,8,0.0,200167424,1,0.01604292
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-39.61610746383667,8,0.0,200167424,1,0.01204322
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-39.77419185638428,8,0.0,200167424,1,0.0066434599999999995
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-39.904099225997925,8,0.0,200167424,1,0.01504376
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-40.04698586463928,8,0.0,200167424,1,0.004843980000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-40.190006494522095,8,0.0,200167424,1,0.007044180000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-40.32723569869995,8,0.0,200167424,1,0.015244460000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-40.46963357925415,8,0.0,200167424,1,0.013044759999999997
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-40.62194490432739,9,0.0,200167424,1,0.01204506
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-40.77080273628235,9,0.0,200167424,1,0.01204536
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-40.91293740272522,9,0.0,200167424,1,0.01204566
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-41.04562783241272,9,0.0,200167424,1,0.006645899999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-41.182472229003906,9,0.0,200167424,1,0.011446160000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-41.31796860694885,9,0.0,200167424,1,0.015846480000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-41.44814205169678,9,0.0,200167424,1,0.0128468
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-41.59428811073303,9,0.0,200167424,1,0.01284712
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-41.732842445373535,9,0.0,200167424,1,0.01284744
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-41.89108943939209,9,0.0,200167424,1,0.009247720000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-42.03801703453064,9,0.0,200167424,1,0.005847939999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-42.18862748146057,9,0.0,200167424,1,0.014248220000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-42.3208122253418,9,0.0,200167424,1,0.0076484599999999976
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-42.46719408035278,9,0.0,200167424,1,0.0096487
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-42.62266492843628,9,0.0,200167424,1,0.00964894
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-42.76571869850159,9,0.0,200167424,1,0.009649179999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-42.927430629730225,9,0.0,200167424,1,0.009649419999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-43.06957197189331,8,0.0,200167424,1,0.015049719999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-43.217281341552734,8,0.0,200167424,1,0.010250000000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-43.36152696609497,8,0.0,200167424,1,0.01485032
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-43.51998543739319,8,0.0,200167424,1,0.014650660000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-43.66758322715759,8,0.0,200167424,1,0.013651000000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-43.827749490737915,8,0.0,200167424,1,0.013651340000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-43.977553606033325,8,10.0,200167424,1,0.0064516
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-44.108985900878906,8,0.0,200167424,1,0.0050518
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-44.24640083312988,8,0.0,200167424,1,0.00985202
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-44.376924991607666,8,0.0,200167424,1,0.012452280000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-44.515161991119385,8,0.0,200167424,1,0.010452540000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-44.66472101211548,8,0.0,200167424,1,0.010452800000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-44.827218770980835,8,0.0,200167424,1,0.010453060000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-44.96191334724426,8,0.0,200167424,1,0.010453320000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-45.108712911605835,8,10.0,200167424,1,0.01045358
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-45.24576807022095,8,0.0,200167424,1,0.012253860000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-45.38288068771362,8,10.0,200167424,1,0.011254140000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-45.53270244598389,8,0.0,200167424,1,0.011254420000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-45.67293047904968,8,0.0,200167424,1,0.011254700000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-45.81439471244812,8,0.0,200167424,1,0.011254980000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-45.950711727142334,8,0.0,200167424,1,0.011255260000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-46.094393730163574,8,10.0,200167424,1,0.011255540000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-46.24105167388916,8,0.0,200167424,1,0.0094558
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-46.38674187660217,8,10.0,200167424,1,0.010456060000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-46.53773069381714,8,0.0,200167424,1,0.015856380000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-46.69090485572815,8,0.0,200167424,1,0.009256660000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-46.8396680355072,8,0.0,200167424,1,0.011256940000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-46.9837589263916,8,0.0,200167424,1,0.011257220000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-47.12409234046936,8,0.0,200167424,1,0.011257500000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-47.2660927772522,8,0.0,200167424,1,0.013057799999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-47.40783715248108,8,0.0,200167424,1,0.008458060000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-47.548946142196655,8,0.0,200167424,1,0.008658299999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-47.690505504608154,8,0.0,200167424,1,0.0150586
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-47.84161376953125,9,0.0,200167424,1,0.012058900000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-47.98641395568848,9,0.0,200167424,1,0.0120592
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-48.14024806022644,9,0.0,200167424,1,0.0120595
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-48.29590678215027,9,0.0,200167424,1,0.010259780000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-48.44557738304138,9,0.0,200167424,1,0.00586
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-48.59854531288147,9,0.0,200167424,1,0.010660239999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-48.736698627471924,9,0.0,200167424,1,0.013260520000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-48.902228593826294,9,0.0,200167424,1,0.011260800000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-49.0385320186615,8,0.0,200167424,1,0.011261080000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-49.17528963088989,8,0.0,200167424,1,0.011261360000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-49.33439803123474,8,0.0,200167424,1,0.011261640000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-49.49150824546814,8,0.0,200167424,1,0.011261920000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-49.6356885433197,8,0.0,200167424,1,0.011262200000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-49.78542160987854,8,0.0,200167424,1,0.007662439999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-49.93046236038208,8,10.0,200167424,1,0.01506274
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-50.08919334411621,8,0.0,200167424,1,0.008463000000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-50.23419904708862,8,0.0,200167424,1,0.010463260000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-50.38570499420166,8,0.0,200167424,1,0.01046352
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-50.525418281555176,8,0.0,200167424,1,0.01046378
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-50.668296098709106,8,0.0,200167424,1,0.012264060000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-50.81516194343567,8,0.0,200167424,1,0.013064359999999997
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-50.96241116523743,8,0.0,200167424,1,0.01206466
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-51.09744358062744,8,0.0,200167424,1,0.01206496
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-51.25742840766907,8,0.0,200167424,1,0.01206526
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-51.38046431541443,8,0.0,200167424,1,0.00846552
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-51.51955032348633,9,0.0,200167424,1,0.014065819999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-51.66150522232056,9,0.0,200167424,1,0.004866040000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-51.80301260948181,9,0.0,200167424,1,0.010666279999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-51.95240783691406,9,0.0,200167424,1,0.007866500000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-52.08283281326294,9,0.0,200167424,1,0.0160668
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-52.23492407798767,9,0.0,200167424,1,0.0120671
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-52.35596466064453,9,0.0,200167424,1,0.0120674
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-52.49384045600891,9,0.0,200167424,1,0.0120677
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-52.62270975112915,9,0.0,200167424,1,0.004867920000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-52.759944438934326,9,0.0,200167424,1,0.010668159999999998
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-52.906460762023926,9,0.0,200167424,1,0.006068360000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-53.036118030548096,9,0.0,200167424,1,0.017068660000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-53.18129873275757,9,0.0,200167424,1,0.01206896
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-53.33265018463135,9,0.0,200167424,1,0.01206926
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-53.46553707122803,9,0.0,200167424,1,0.01206956
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-53.6051459312439,9,0.0,200167424,1,0.010269840000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-53.7405104637146,9,0.0,200167424,1,0.0094701
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-53.88191556930542,9,0.0,200167424,1,0.008670339999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-54.034412145614624,9,0.0,200167424,1,0.01507064
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-54.177976846694946,9,0.0,200167424,1,0.010270920000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-54.31983757019043,9,0.0,200167424,1,0.011271200000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-54.45895051956177,9,0.0,200167424,1,0.011271480000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-54.606446266174316,9,0.0,200167424,1,0.0058717
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-54.7391996383667,9,0.0,200167424,1,0.01247196
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-54.88235831260681,9,0.0,200167424,1,0.012272240000000002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-55.03109550476074,9,0.0,200167424,1,0.0094725
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-55.16589093208313,9,0.0,200167424,1,0.015872820000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-55.311346769332886,9,0.0,200167424,1,0.01287314
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-55.44351410865784,9,0.0,200167424,1,0.01287346
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-55.57554745674133,9,0.0,200167424,1,0.012873780000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-55.71604943275452,9,0.0,200167424,1,0.00207398
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-55.85952854156494,9,0.0,200167424,1,0.00807418
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-56.01518893241882,9,0.0,200167424,1,0.0098744
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-56.17257261276245,9,0.0,200167424,1,0.007074600000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-56.30942249298096,9,0.0,200167424,1,0.0080748
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-56.44831347465515,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-56.577985525131226,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-56.72465109825134,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-56.85756254196167,8,0.0,200167424,1,0.014475600000000003
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-56.99474787712097,8,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-57.139230489730835,8,0.0,200167424,1,0.0198761
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-57.30233025550842,8,0.0,200167424,1,0.012876420000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-57.43349814414978,8,0.0,200167424,1,0.012876740000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-57.55784273147583,8,0.0,200167424,1,0.012877060000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-57.69374394416809,9,0.0,200167424,1,0.01287738
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-57.8295795917511,9,0.0,200167424,0.0,0.0
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-57.960816621780396,9,0.0,200167424,-1,0.011723
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-58.09361267089844,9,0.0,200167424,-1,0.006923200000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-58.229007959365845,9,0.0,200167424,-1,0.0079234
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-58.36274456977844,9,0.0,200167424,-1,0.0079236
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-58.49939036369324,9,0.0,200167424,-1,0.0079238
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-58.631776571273804,9,0.0,200167424,-1,0.007924
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-58.78596258163452,9,0.0,200167424,-1,0.056524740000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-58.957831382751465,9,0.0,200167424,-1,0.03672555999999999
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-59.10310459136963,9,10.0,200167424,-1,0.01472618
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-59.26795792579651,9,0.0,200167424,-1,0.04632704
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-59.43147253990173,9,0.0,200167424,-1,0.0343279
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-59.587021589279175,9,0.0,200167424,-1,0.03432876
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-59.72999167442322,9,0.0,200167424,-1,0.03432962
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-59.8833270072937,9,0.0,200167424,-1,0.0703614
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-60.036046266555786,9,0.0,200167424,-1,0.05136352
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-60.19853329658508,8,0.0,200167424,-1,0.0503656
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-60.350911378860474,8,0.0,200167424,-1,0.049367640000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-60.50979447364807,8,0.0,200167424,-1,0.029934720000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-60.67783737182617,8,0.0,200167424,-1,0.03593562
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-60.836002588272095,8,0.0,200167424,-1,0.06487336
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-60.9999053478241,8,0.0,200167424,-1,0.045375359999999997
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-61.16000294685364,8,10.0,200167424,-1,0.052377400000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-61.31493544578552,8,0.0,200167424,-1,0.033539639999999996
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-61.484816789627075,8,0.0,200167424,-1,0.037540580000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-61.63593125343323,8,0.0,200167424,-1,0.03754152
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-61.79881691932678,8,0.0,200167424,-1,0.03754246
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-61.9772264957428,8,0.0,200167424,-1,0.037543400000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-62.1323356628418,8,0.0,200167424,-1,0.04114438
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-62.281299114227295,8,0.0,200167424,-1,0.03914536
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-62.455857276916504,8,0.0,200167424,-1,0.030146240000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-62.60404968261719,8,0.0,200167424,-1,0.03874716
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-62.74822688102722,8,0.0,200167424,-1,0.033148040000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-62.90751361846924,8,0.0,200167424,-1,0.04054898
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-63.076276779174805,8,0.0,200167424,-1,0.03754992
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-63.24591016769409,8,0.0,200167424,-1,0.03755086
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-63.394848585128784,8,0.0,200167424,-1,0.04115184
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-63.551897048950195,8,0.0,200167424,-1,0.03915282
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-63.71540665626526,8,0.0,200167424,-1,0.037353779999999996
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-63.865817070007324,8,0.0,200167424,-1,0.04015476
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-64.01432347297668,8,0.0,200167424,-1,0.03195566000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-64.15032696723938,8,0.0,200167424,-1,0.035956560000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-64.28884100914001,8,0.0,200167424,-1,0.05741512
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-64.42015957832336,8,0.0,200167424,-1,0.03635852
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-64.57115006446838,8,0.0,200167424,-1,0.038359479999999994
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-64.70905041694641,8,0.0,200167424,-1,0.031160360000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-64.84582877159119,8,0.0,200167424,-1,0.040561299999999995
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-64.9802634716034,8,0.0,200167424,-1,0.032162180000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-65.10842323303223,8,0.0,200167424,-1,0.042363139999999994
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-65.26706409454346,9,0.0,200167424,-1,0.03296404000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-65.39938139915466,9,0.0,200167424,-1,0.03596494000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-65.5318911075592,9,0.0,200167424,-1,0.03956588
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-65.69036531448364,9,0.0,200167424,-1,0.03756682
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-65.81714463233948,9,0.0,200167424,-1,0.03396772000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-65.96346807479858,9,0.0,200167424,-1,0.0341686
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-66.10657858848572,9,0.0,200167424,-1,0.040569539999999994
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-66.244136095047,9,0.0,200167424,-1,0.03397044000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-66.40428829193115,8,10.0,200167424,-1,0.03417132
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-66.56688213348389,8,0.0,200167424,-1,0.0351722
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-66.71318578720093,8,0.0,200167424,-1,0.03517308
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-66.85219120979309,8,0.0,200167424,-1,0.035173960000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-66.99858021736145,8,0.0,200167424,-1,0.036974860000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-67.13505268096924,8,10.0,200167424,-1,0.03417574
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-67.28530025482178,8,0.0,200167424,-1,0.038776660000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-67.41598391532898,8,0.0,200167424,-1,0.0385776
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-67.55809116363525,8,0.0,200167424,-1,0.03397850000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-67.70417022705078,9,10.0,200167424,-1,0.0359794
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-67.84118914604187,9,10.0,200167424,-1,0.03598030000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-67.9817373752594,9,0.0,200167424,-1,0.03778122
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-68.1269121170044,9,0.0,200167424,-1,0.034982120000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-68.27462887763977,9,0.0,200167424,-1,0.035983020000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-68.43183922767639,9,0.0,200167424,-1,0.03598392
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-68.5828127861023,9,0.0,200167424,-1,0.032384779999999995
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-68.72759580612183,9,0.0,200167424,-1,0.03798568000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-68.880943775177,8,0.0,200167424,-1,0.034186560000000005
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-69.02186703681946,8,0.0,200167424,-1,0.03698746000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-69.1611704826355,8,0.0,200167424,-1,0.035988360000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-69.32131862640381,8,0.0,200167424,-1,0.032389219999999996
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-69.48600387573242,8,0.0,200167424,-1,0.03799012000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-69.61370539665222,8,0.0,200167424,-1,0.035991020000000006
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-69.76141810417175,8,0.0,200167424,-1,0.03779194
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-69.90325999259949,8,0.0,200167424,-1,0.034992840000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-70.04192090034485,8,0.0,200167424,-1,0.034193720000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-70.18878626823425,8,0.0,200167424,-1,0.03879464
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-70.34453439712524,8,0.0,200167424,-1,0.03679556
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-70.48322439193726,8,0.0,200167424,-1,0.03499646
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-70.63668370246887,8,0.0,200167424,-1,0.0395974
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-70.7766284942627,8,0.0,200167424,-1,0.03939836
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-70.92325067520142,8,0.0,200167424,-1,0.03479928
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-71.06235122680664,8,0.0,200167424,-1,0.0368002
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-71.21731352806091,8,0.0,200167424,-1,0.03680112
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-71.35292792320251,8,0.0,200167424,-1,0.03500202
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-71.49880337715149,8,0.0,200167424,-1,0.03600292000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-71.65026354789734,8,0.0,200167424,-1,0.0342038
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-71.77848839759827,8,0.0,200167424,-1,0.04060474
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-71.90921068191528,8,0.0,200167424,-1,0.03400564000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-72.04821538925171,8,0.0,200167424,-1,0.034206520000000004
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-72.1841208934784,8,0.0,200167424,-1,0.037007420000000006
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-72.31845998764038,8,0.0,200167424,-1,0.03780834
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-72.4508535861969,9,0.0,200167424,-1,0.029609179999999995
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-72.57921743392944,9,0.0,200167424,-1,0.03721006
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-72.71653008460999,9,0.0,200167424,-1,0.03701096
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-72.86519479751587,9,0.0,200167424,-1,0.03601186000000001
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-73.02479124069214,9,0.0,200167424,-1,0.03781278
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-73.16196870803833,9,0.0,200167424,-1,0.0368137
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
-73.30287981033325,9,0.0,200167424,-1,0.03681462
-time,fps,cpu usage,Memory usage,PID curling,PID adjustment intesity
+6.244722604751587,0,38.2,197763072,1,0.0360004
+6.369688987731934,0,69.0,208207872,1,0.0160008
+6.468409776687622,0,65.5,208207872,1,0.0160012
+6.570753812789917,0,54.2,208207872,1,0.0160016
+6.676280736923218,0,48.8,208392192,1,0.0340022
+6.777519226074219,0,43.1,210006016,1,0.013202679999999998
+6.865237236022949,0,44.2,210006016,0.0,0.0
+6.958138704299927,0,40.6,210006016,0.0,0.0
+7.056572675704956,0,42.0,210006016,0.0,0.0
+7.156537055969238,0,50.8,210006016,0.0,0.0
+7.266220808029175,11,47.2,210006016,0.0,0.0
+7.380044460296631,11,55.3,210006016,0.0,0.0
+7.480549097061157,11,44.9,210006016,0.0,0.0
+7.577494859695435,11,47.9,210006016,0.0,0.0
+7.687547445297241,11,45.0,210006016,0.0,0.0
+7.785581111907959,11,48.3,210006016,0.0,0.0
+7.88834023475647,11,44.0,210006016,0.0,0.0
+8.002006769180298,11,48.1,210006016,0.0,0.0
+8.108400344848633,11,41.5,210006016,0.0,0.0
+8.208332061767578,11,50.4,210006016,0.0,0.0
+8.310572862625122,11,49.2,210006016,0.0,0.0
+8.427529573440552,11,52.9,210006016,0.0,0.0
+8.541875839233398,11,55.1,210006016,0.0,0.0
+8.654475688934326,11,57.0,210006016,0.0,0.0
+8.791447639465332,11,58.7,210006016,0.0,0.0
+8.9052095413208,11,53.8,210006016,0.0,0.0
+9.031947135925293,11,57.2,210006016,0.0,0.0
+9.148808479309082,11,53.6,210006016,0.0,0.0
+9.262590885162354,11,52.2,210006016,0.0,0.0
+9.36098599433899,11,49.2,210006016,0.0,0.0
+9.486232995986938,11,55.8,210006016,0.0,0.0
+9.615093469619751,10,56.1,210006016,0.0,0.0
+9.730932474136353,10,58.7,210006016,0.0,0.0
+9.854271173477173,10,53.4,210006016,0.0,0.0
+9.967077255249023,10,58.5,210006016,0.0,0.0
+10.099426984786987,10,54.7,210006016,0.0,0.0
+10.22669243812561,10,56.1,210006016,0.0,0.0
+10.338964462280273,10,54.3,210006016,0.0,0.0
+10.461158752441406,10,60.5,210006016,0.0,0.0
+10.567098617553711,10,59.5,203747328,0.0,0.0
+10.67444372177124,10,52.3,203747328,0.0,0.0
+10.779691934585571,10,55.8,203747328,0.0,0.0
+10.888540267944336,10,53.1,203747328,0.0,0.0
+11.003138542175293,10,55.2,203747328,1,0.00900442
+11.1185142993927,10,57.3,203747328,1,0.00800462
+11.240605354309082,10,55.6,203747328,1,0.008004820000000001
+11.36669373512268,10,56.6,203747328,1,0.00980504
+11.475385665893555,10,52.3,203747328,1,0.00880526
+11.583923816680908,10,53.1,203747328,0.0,0.0
+11.68455958366394,10,45.5,203747328,1,0.01080566
+11.793038606643677,10,52.8,203747328,1,0.010605899999999998
+11.896131038665771,10,46.3,203747328,1,0.006006100000000001
+12.001805782318115,10,50.4,203747328,1,0.015206380000000002
+12.104226112365723,10,45.1,203747328,1,0.011206660000000002
+12.208119630813599,10,44.7,203747328,1,0.011206940000000002
+12.322145462036133,10,50.7,203747328,1,0.011207220000000002
+12.410665035247803,10,47.3,203747328,1,0.011207500000000002
+12.520504236221313,10,45.5,203747328,1,0.00580772
+12.636254787445068,10,42.6,203747328,1,0.01240798
+12.736376523971558,10,43.3,203747328,1,0.008608219999999998
+12.842934846878052,10,50.8,203747328,1,0.0078084400000000016
+12.94718623161316,10,42.7,203747328,1,0.007008640000000001
+13.050671100616455,11,42.2,203747328,1,0.00800884
+13.145668506622314,11,44.1,203747328,1,0.00800904
+13.246509552001953,11,45.8,203747328,1,0.00800924
+13.35582971572876,11,46.5,203747328,1,0.009809459999999999
+13.467528581619263,11,45.9,203747328,1,0.010609699999999998
+13.571871757507324,11,50.0,203747328,1,0.011409960000000002
+13.691370487213135,11,42.4,203747328,1,0.010410220000000001
+13.802323579788208,11,40.9,203747328,1,0.010410480000000001
+13.91285490989685,11,41.2,203747328,1,0.010410740000000002
+14.030504703521729,11,41.7,203747328,0.0,0.0
+14.153806924819946,10,51.7,203747328,1,0.01261116
+14.267566442489624,10,48.9,203747328,1,0.0078113800000000014
+14.391002893447876,10,57.4,203747328,1,0.010611619999999999
+14.505970001220703,10,55.1,203747328,1,0.013211900000000004
+14.621711015701294,10,53.7,203747328,1,0.011212180000000002
+14.742244720458984,10,55.3,203747328,1,0.011212460000000002
+14.85192584991455,10,52.7,203747328,1,0.011212740000000002
+14.973789930343628,10,52.3,203747328,0.0,0.0
+15.082212686538696,10,54.2,203747328,1,0.009013120000000001
+15.193721055984497,10,54.6,203747328,1,0.013413380000000003
+15.315452814102173,10,53.0,203747328,1,0.012213660000000003
+15.430336236953735,10,52.6,203747328,1,0.011213940000000002
+15.551257371902466,10,52.4,203747328,1,0.011214220000000002
+15.662210941314697,10,51.5,203747328,1,0.011214500000000002
+15.779652833938599,10,55.6,203747328,1,0.011214780000000002
+15.898073196411133,10,59.4,203747328,1,0.00401498
+16.020305156707764,10,56.2,203747328,1,0.0098152
+16.126327991485596,10,51.7,203747328,1,0.007015400000000001
+16.2354576587677,10,54.8,203747328,1,0.013415660000000003
+16.34173893928528,10,51.6,203747328,1,0.01041592
+16.455554485321045,10,52.6,203747328,1,0.01041618
+16.56459879875183,10,55.6,203747328,1,0.01041644
+16.69012999534607,10,52.1,203747328,0.0,0.0
+16.80150294303894,10,53.0,203747328,0.0,0.0
+16.93260097503662,10,54.4,203747328,1,0.016417
+17.03080415725708,10,56.0,203747328,1,0.010417260000000001
+17.147042751312256,10,48.5,203747328,1,0.010417520000000001
+17.260534048080444,10,50.8,203747328,1,0.010417780000000001
+17.369760513305664,10,49.6,203747328,1,0.010418040000000002
+17.48808789253235,10,56.6,203747328,1,0.00501824
+17.59521198272705,10,56.1,203747328,0.0,0.0
+17.71663761138916,10,52.1,203747328,1,0.011818620000000002
+17.840782403945923,10,55.2,203747328,1,0.00881884
+17.945900678634644,10,52.5,203747328,1,0.01601914
+18.050145387649536,10,54.3,203747328,1,0.012019440000000001
+18.16299057006836,10,53.7,203747328,1,0.012019740000000001
+18.280842304229736,10,51.4,203747328,1,0.012020040000000001
+18.393210649490356,10,52.9,203747328,1,0.003020240000000001
+18.498517751693726,10,55.5,203747328,1,0.00802044
+18.616127729415894,10,52.6,203747328,1,0.013420700000000002
+18.725075483322144,10,53.8,203747328,1,0.008620939999999999
+18.833911418914795,10,55.2,203747328,1,0.00962118
+18.947397232055664,10,56.1,203747328,1,0.009621419999999999
+19.058687210083008,10,59.6,203747328,1,0.007821640000000001
+19.166149854660034,10,53.1,203747328,1,0.00882186
+19.302429676055908,10,54.5,203747328,1,0.008822080000000001
+19.401801347732544,10,56.6,203747328,1,0.01242234
+19.513026237487793,10,53.5,203747328,1,0.00682256
+19.621512413024902,10,50.0,203747328,1,0.00882278
+19.727992296218872,10,51.6,203747328,1,0.010623019999999999
+19.817846536636353,10,46.1,203747328,1,0.00962326
+19.93106961250305,11,48.1,203747328,1,0.006023460000000001
+20.03617000579834,11,53.6,203747328,1,0.00982368
+20.12509799003601,11,47.3,203747328,1,0.0088239
+20.230856895446777,11,48.5,203747328,1,0.012424160000000002
+20.322351455688477,11,47.3,203747328,1,0.008624399999999999
+20.42635202407837,11,45.5,203747328,1,0.009624639999999999
+20.54802393913269,11,43.7,203747328,1,0.011424900000000002
+20.650107860565186,11,46.2,203747328,1,0.010425160000000001
+20.74848175048828,11,40.7,203747328,1,0.00502536
+20.84852123260498,11,45.5,203747328,1,0.0116256
+20.94498038291931,11,45.6,203747328,1,0.011425860000000003
+21.05134344100952,11,51.2,203747328,1,0.006826080000000001
+21.144232988357544,11,45.0,203747328,1,0.0088263
+21.238532304763794,11,51.2,203747328,1,0.008826520000000001
+21.34688448905945,11,45.4,203747328,1,0.008826740000000001
+21.44688582420349,11,48.3,203747328,1,0.007026940000000001
+21.546491861343384,11,45.4,203747328,0.0,0.0
+21.651989936828613,11,44.4,203747328,1,0.016227400000000003
+21.752552032470703,11,44.4,203747328,1,0.007627639999999997
+21.860728979110718,11,48.8,203747328,1,0.009627879999999998
+21.973844051361084,11,43.7,203747328,1,0.009628119999999999
+22.077373504638672,11,53.6,203747328,1,0.009628359999999999
+22.18507218360901,11,43.5,203747328,1,0.006028560000000001
+22.281597137451172,11,46.2,203747328,0.0,0.0
+22.383668899536133,11,47.4,203747328,1,0.01262898
+22.477838277816772,11,40.7,203747328,1,0.011429240000000002
+22.575793266296387,11,46.3,203747328,1,0.010429500000000001
+22.694693088531494,11,45.8,203747328,1,0.008629739999999999
+22.792212963104248,11,42.7,203747328,1,0.011430000000000003
+22.889458894729614,11,51.3,203747328,1,0.010430260000000002
+23.011289358139038,11,41.8,203747328,1,0.006830480000000001
+23.1043701171875,11,44.9,203747328,1,0.012430740000000001
+23.2044997215271,11,44.5,203747328,1,0.008630979999999998
+23.303860902786255,11,42.4,203747328,1,0.00963122
+23.423641204833984,11,43.4,203747328,1,0.00963146
+23.533214807510376,11,46.9,203747328,1,0.0096317
+23.63809299468994,11,50.0,203747328,1,0.009631939999999999
+23.75375247001648,11,43.3,203747328,1,0.006032140000000001
+23.840702533721924,11,49.1,203747328,1,0.00803234
+23.94773268699646,11,46.2,203747328,0.0,0.0
+24.047640085220337,11,46.2,203747328,1,0.009032720000000001
+24.148016929626465,11,47.9,203747328,1,0.00983294
+24.259252309799194,11,46.6,203747328,1,0.008833160000000001
+24.35941243171692,11,43.5,203747328,1,0.007033360000000001
+24.45956015586853,11,51.7,203747328,0.0,0.0
+24.55790638923645,11,45.2,203747328,0.0,0.0
+24.66212797164917,11,50.8,203747328,0.0,0.0
+24.763246536254883,11,43.7,203747328,0.0,0.0
+24.863011360168457,11,49.2,203747328,0.0,0.0
+24.960307121276855,11,47.0,203747328,0.0,0.0
+25.069939613342285,11,46.2,203747328,1,0.0108346
+25.175207376480103,11,41.5,203747328,1,0.00883482
+25.28340172767639,11,51.2,203747328,0.0,0.0
+25.39014434814453,11,43.3,203747328,0.0,0.0
+25.49315047264099,11,47.9,203747328,1,0.011835360000000001
+25.605541229248047,11,50.8,203747328,1,0.00883558
+25.708993911743164,11,54.3,203747328,1,0.008835800000000001
+25.81317639350891,11,52.4,203747328,1,0.00883602
+25.920817852020264,11,54.2,203747328,1,0.00883624
+26.03711700439453,11,49.3,203747328,0.0,0.0
+26.13269281387329,11,54.1,203747328,0.0,0.0
+26.23933219909668,11,48.0,203747328,0.0,0.0
+26.34212327003479,11,54.9,203747328,1,0.01183692
+26.457170248031616,11,46.5,203747328,1,0.010637159999999998
+26.562493085861206,11,48.1,203747328,1,0.009637399999999999
+26.66094422340393,11,46.4,203747328,1,0.00963764
+26.760544538497925,11,45.7,203747328,1,0.00963788
+26.862127780914307,11,46.7,203747328,1,0.006038080000000001
+26.97823977470398,11,49.3,203747328,0.0,0.0
+27.06612515449524,11,58.9,203747328,1,0.016238540000000003
+27.16697883605957,11,48.5,203747328,1,0.013038839999999998
+27.26641845703125,11,46.3,203747328,1,0.01203914
+27.3738214969635,11,48.4,203747328,1,0.01203944
+27.475139617919922,11,54.7,203747328,1,0.01203974
+27.57802414894104,11,52.0,203747328,1,0.004839960000000002
+27.6847026348114,11,55.6,203747328,1,0.010640199999999999
+27.77806830406189,11,53.6,203747328,1,0.009640439999999998
+27.87608814239502,11,48.7,203747328,1,0.015040739999999999
+27.97731304168701,11,46.8,203747328,1,0.01204104
+28.07419443130493,11,45.1,203747328,1,0.01204134
+28.171866178512573,11,49.2,203747328,1,0.012041640000000001
+28.26589584350586,11,43.5,203747328,1,0.004841860000000002
+28.36212158203125,11,46.6,203747328,1,0.00884208
+28.45492124557495,11,48.3,203747328,1,0.016042380000000002
+28.552582263946533,11,47.9,203747328,1,0.01204268
+28.654694318771362,11,52.7,203747328,1,0.010242960000000004
+28.75494956970215,11,41.1,203747328,1,0.011243240000000002
+28.849830389022827,11,42.6,203747328,1,0.011243520000000002
+28.945212602615356,11,48.7,203747328,1,0.011243800000000002
+29.047268629074097,12,52.5,203747328,1,0.004043999999999999
+29.153208017349243,12,46.0,203747328,1,0.015244280000000002
+29.246657371520996,12,51.4,203747328,1,0.011244560000000002
+29.34320044517517,12,42.0,203747328,1,0.00584478
+29.4357590675354,12,44.1,203747328,1,0.008845
+29.530762195587158,12,47.4,203747328,1,0.014245280000000003
+29.62705373764038,12,44.1,203747328,1,0.011245560000000002
+29.74311637878418,12,48.2,203747328,1,0.013045859999999998
+29.834679126739502,12,52.8,203747328,1,0.01204616
+29.923885345458984,12,50.9,203747328,1,0.013846480000000001
+30.026100635528564,12,44.8,203747328,1,0.011046779999999999
+30.118279695510864,12,49.1,203747328,1,0.01204708
+30.219332218170166,12,52.3,203747328,1,0.01204738
+30.310604572296143,12,46.9,203747328,1,0.01204768
+30.408453702926636,12,48.4,203747328,1,0.006647919999999999
+30.502167224884033,12,46.6,203747328,1,0.00964816
+30.598971366882324,12,43.4,203747328,1,0.013248440000000004
+30.69262170791626,12,43.5,203747328,1,0.013048739999999998
+30.790504693984985,12,51.3,203747328,1,0.015649080000000003
+30.88870644569397,12,49.6,203747328,1,0.01364942
+30.994072437286377,12,49.6,203747328,1,0.01364976
+31.0999538898468,12,50.0,203747328,1,0.0136501
+31.20326542854309,12,49.6,203747328,1,0.001050299999999999
+31.298856735229492,12,58.0,203747328,1,0.00985052
+31.412652730941772,12,47.4,203747328,1,0.010650759999999999
+31.51961898803711,12,45.0,203747328,1,0.013251040000000004
+31.611427068710327,12,42.9,203747328,1,0.011251320000000002
+31.704742431640625,12,47.9,203747328,1,0.011251600000000002
+31.807494401931763,12,44.2,203747328,1,0.011251880000000002
+31.91002130508423,12,48.4,203747328,1,0.0058521
+32.005024909973145,12,43.4,203747328,1,0.007052300000000001
+32.12765288352966,12,46.9,203747328,1,0.01165254
+32.22297382354736,12,52.2,203747328,1,0.013252820000000004
+32.324111223220825,12,45.2,203747328,1,0.011253100000000002
+32.418214082717896,12,52.7,203747328,1,0.011253380000000002
+32.51617407798767,12,48.7,203747328,1,0.011253660000000002
+32.612993478775024,12,50.0,203747328,1,0.011253940000000002
+32.73922252655029,12,51.6,203747328,1,0.014854260000000001
+32.830405950546265,12,57.5,203747328,1,0.007454520000000001
+32.93246388435364,12,52.1,203747328,1,0.00505472
+33.03833889961243,12,55.6,203747328,1,0.00805492
+33.13355541229248,12,54.7,203747328,1,0.00805512
+33.23407316207886,12,54.2,203747328,1,0.00805532
+33.347546100616455,12,54.0,203747328,1,0.01885564
+33.43584609031677,12,51.5,203747328,1,0.016456
+33.54214882850647,12,50.8,203747328,1,0.01445636
+33.666149616241455,12,55.2,203747328,1,0.0072566400000000034
+33.74915528297424,11,52.5,203747328,1,0.016656980000000002
+33.84885787963867,11,43.5,203747328,1,0.01365732
+33.95316958427429,11,50.4,203747328,1,0.01185764
+34.03905367851257,11,46.4,203747328,1,0.014657980000000001
+34.141751527786255,11,48.7,203747328,1,0.013658320000000002
+34.23709225654602,11,45.5,203747328,1,0.013658660000000001
+34.34027338027954,11,51.6,203747328,1,0.01185898
+34.43612003326416,11,42.7,203747328,1,0.014659320000000002
+34.53510785102844,11,43.8,203747328,1,0.01185964
+34.62308073043823,11,44.1,203747328,1,0.01285996
+34.7174117565155,11,47.3,203747328,1,0.011060259999999999
+34.82529354095459,11,48.8,203747328,1,0.01206056
+34.91589641571045,12,42.3,203747328,1,0.01206086
+35.009859800338745,12,42.3,203747328,1,0.01206116
+35.10540437698364,12,46.8,203747328,1,0.01386148
+35.20107698440552,12,44.5,203747328,1,0.0038616999999999996
+35.29926085472107,12,45.0,203747328,1,0.00886192
+35.40952157974243,12,45.7,203747328,1,0.008862140000000001
+35.509454011917114,12,47.5,203747328,1,0.014262420000000003
+35.61133313179016,12,50.4,203747328,1,0.013062719999999998
+35.70383548736572,12,46.0,203747328,1,0.01206302
+35.80152344703674,12,41.2,203747328,1,0.013863340000000002
+35.904369831085205,12,51.6,203747328,1,0.01106364
+36.003340005874634,12,48.3,203747328,1,0.01206394
+36.106332302093506,12,47.2,203747328,1,0.01206424
+36.20529866218567,12,43.1,203747328,1,0.01206454
+36.30629229545593,12,42.7,203747328,1,0.008464800000000001
+36.41007995605469,12,50.8,203747328,1,0.008665039999999999
+36.509673833847046,12,44.9,203747328,1,0.009665279999999998
+36.603832721710205,12,44.6,203747328,1,0.009665519999999999
+36.70496726036072,12,44.4,203747328,1,0.009665759999999999
+36.81597447395325,12,52.3,203747328,1,0.009666
+36.914653301239014,12,48.3,203747328,1,0.00966624
+37.00898504257202,12,52.6,203747328,1,0.013266520000000004
+37.11617040634155,12,49.2,203747328,1,0.013066819999999998
+37.207505226135254,11,50.0,203747328,1,0.006667059999999999
+37.299306869506836,11,46.4,203747328,1,0.01506736
+37.39524960517883,11,52.7,203747328,1,0.010267640000000005
+37.49918055534363,11,47.2,203747328,1,0.01126792
+37.5870795249939,11,54.3,203747328,1,0.0112682
+37.68598222732544,11,49.5,203747328,1,0.01126848
