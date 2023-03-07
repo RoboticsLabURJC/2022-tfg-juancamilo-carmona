@@ -41,6 +41,10 @@ class VehicleTeleop(Node):
 
         self.bridge = CvBridge()
 
+        # Abre el archivo CSV en modo escritura
+        self.csv_writer = csv.writer(self.archivo_csv)        
+        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity'])
+
         image_callback_group = MutuallyExclusiveCallbackGroup()
         self._default_callback_group = image_callback_group
         #subscritor de la imagenes
@@ -281,11 +285,6 @@ class VehicleTeleop(Node):
     """
 
     def control_vehicle(self):        
-
-        # Abre el archivo CSV en modo escritura
-        self.csv_writer = csv.writer(self.archivo_csv)
-        
-        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity'])
         
         actual_error = self.error            
 
