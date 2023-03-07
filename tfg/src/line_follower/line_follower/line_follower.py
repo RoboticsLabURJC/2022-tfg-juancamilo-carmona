@@ -232,7 +232,7 @@ class VehicleTeleop(Node):
         process = psutil.Process(pid)
         memory_usage = process.memory_info().rss    
 
-        cpu_percent = process.cpu_percent(interval=0.1)
+        cpu_percent = psutil.cpu_percent()
         self.csv_writer.writerow([time.time() - self.program_start_time ,self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
 
             
