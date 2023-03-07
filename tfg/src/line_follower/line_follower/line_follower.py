@@ -41,8 +41,10 @@ class VehicleTeleop(Node):
 
         self.bridge = CvBridge()
 
+        file_name = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/hsv_metrics.csv'
+        self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
-        self.csv_writer = csv.writer(self.archivo_csv)        
+        self.csv_writer = csv.writer(self.csv_file)        
         self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity'])
 
         image_callback_group = MutuallyExclusiveCallbackGroup()
@@ -71,11 +73,6 @@ class VehicleTeleop(Node):
         self.max_y = 0
         self.right_x_end = 0
         self.min_y = 0
-
-        nombre_archivo = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/canny_metrics.csv'
-        self.archivo_csv = open(nombre_archivo, mode='w', newline='')
-
-
         self.role_name = "ego_vehicle"
 
         image_callback_group = MutuallyExclusiveCallbackGroup()
