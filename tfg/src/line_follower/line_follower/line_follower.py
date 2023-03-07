@@ -99,10 +99,29 @@ class VehicleTeleop(Node):
         self.right_b = []
         self.right_c = []
 
-
         self.set_autopilot()
         self.set_vehicle_control_manual_override()
-        self.vehicle_control_thread()
+        #self.vehicle_control_thread()
+
+        self.Counter = 0
+        self.acelerate = 0
+        self.actual_error = 0
+        self.i_error = 0
+        self.last_error = 0
+        self.INITIAL_CX = 0
+        self.INITIAL_CY = 0
+        self.speedup = 0
+
+        self.kp_straight = 0.08
+        self.kd_straight  = 0.1
+        self.ki_straight = 0.000002
+
+        self.kp_turn = 0.1
+        self.kd_turn= 0.15
+        self.ki_turn = 0.000004
+
+        self.adjustment_num = 0
+
 
     def speedometer_cb(self, speed):
         self.speed = speed.data
@@ -145,63 +164,17 @@ class VehicleTeleop(Node):
         array = array[:, :, ::-1]
         image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
         self.screen.blit(image_surface, (0,0))           
+        
         pygame.display.flip()
 
-    """
-    def control_vehicle(self):        
-
-        self.set_autopilot()
-        self.set_vehicle_control_manual_override()
-
-        while True:
-
-            for event in pygame.event.get():
-
-                if event.type == KEYDOWN:
-                    keys = pygame.key.get_pressed()
-
-                    if (keys[K_DOWN]):
-                        self.get_logger().error("down")
-                        self.control_msg.brake = 1.0
-
-                    if (keys[K_UP]):
-                        self.get_logger().error("adelante")
-                        self.control_msg.throttle = 1.0          
-
-                    if (keys[K_LEFT]):
-                        self.get_logger().error("left")
-                        self.control_msg.steer = -1.0            
-
-                    if (keys[K_RIGHT]):
-                        self.get_logger().error("derecha")
-                        self.control_msg.steer = 1.0
-                elif event.type == KEYUP :
-                    keys = pygame.key.get_pressed()
-                    if not(keys[K_DOWN]):
-                        self.get_logger().error("suelta freno")
-                        self.control_msg.brake = 0.0
-
-                    if not(keys[K_UP]):
-                        self.get_logger().error("suelta acelerador")
-                        self.control_msg.throttle = 0.0          
-
-                    if not(keys[K_LEFT]):
-                        self.get_logger().error("suelta dir")
-                        self.control_msg.steer = 0.0            
-
-                    if not(keys[K_RIGHT]):
-                        self.get_logger().error("suelta dir")
-                        self.control_msg.steer = 0.0
+        self.control_vehicle()
 
 
-
-            self.vehicle_control_publisher.publish(self.control_msg)
-
-    """
     def controlador(self, sig, frame):
         self.archivo_csv.close()
         exit()
 
+    """
     def control_vehicle(self):        
 
         self.set_autopilot()
@@ -304,7 +277,72 @@ class VehicleTeleop(Node):
 
             cpu_percent = process.cpu_percent(interval=0.1)
             csv_writer.writerow([self.last_fps, cpu_percent , memory_usage, adjustment_num, stering])
+    """
 
+    def control_vehicle(self):        
+
+        # Abre el archivo CSV en modo escritura
+        self.csv_writer = csv.writer(self.archivo_csv)
+        
+        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity'])
+        
+        actual_error = self.error            
+
+        actual_error = (actual_error) / 100  #error
+        d_error =  actual_error - self.last_error #derivative erro
+        
+        self.i_error = self.i_error + actual_error #integral
+        
+        if actual_error >= 0:
+            self.curling = 1
+
+        if actual_error <= 0:
+            self.curling = -1
+        
+        if ((actual_error < 10/100) and ( actual_error > -10/100)):
+            stering = 0.0
+            self.control_msg.steer = stering
+            self.curling = 0.0
+
+        elif ((actual_error < 50/100) and ( actual_error > -50/100)):
+            #self.get_logger().error("straight " + str(stering))
+            stering = actual_error* self.kp_straight + d_error*self.kd_straight + self.i_error*self.ki_straight
+
+            if stering > 1:
+                self.control_msg.steer = 1.0
+
+            elif stering <  -1.0:                    
+                self.control_msg.steer = -1.0
+
+            else:
+                self.control_msg.steer = stering
+        else :
+            stering = actual_error*self.kp_turn + d_error*self.kd_turn + self.i_error*self.ki_turn
+
+            if stering > 1:
+                self.control_msg.steer = 1.0
+
+            elif stering <  -1.0:
+                self.control_msg.steer = -1.0
+
+            else:
+                self.control_msg.steer = stering
+
+        if self.speed >= 20:
+            self.control_msg.throttle = 0.0            
+        else:
+            self.control_msg.throttle = 1.0                          
+
+        self.last_error = actual_error
+        self.vehicle_control_publisher.publish(self.control_msg)
+        
+        #el pid puede obtenerse fuera del bucle
+        pid = os.getpid()
+        process = psutil.Process(pid)
+        memory_usage = process.memory_info().rss    
+
+        cpu_percent = process.cpu_percent(interval=0.1)
+        self.csv_writer.writerow([time.time(),self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
 
 
     def set_vehicle_control_manual_override(self):

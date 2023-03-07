@@ -26,12 +26,11 @@ from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 import cv2
 from cv_bridge import CvBridge
 import time
-import matplotlib.pyplot as plt
 import math
-import signal
 import csv
-import os
 import psutil
+import os
+import signal
 
 
 class VehicleTeleop(Node):
@@ -67,7 +66,7 @@ class VehicleTeleop(Node):
         self.right_x_end = 0
         self.min_y = 0
 
-        nombre_archivo = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/canny_metrics.csv'
+        nombre_archivo = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/hsv_metrics.csv'
         self.archivo_csv = open(nombre_archivo, mode='w', newline='')
 
 
@@ -101,7 +100,27 @@ class VehicleTeleop(Node):
 
         self.set_autopilot()
         self.set_vehicle_control_manual_override()
-        self.vehicle_control_thread()
+        #self.vehicle_control_thread()
+
+        self.Counter = 0
+        self.acelerate = 0
+        self.actual_error = 0
+        self.i_error = 0
+        self.last_error = 0
+        self.INITIAL_CX = 0
+        self.INITIAL_CY = 0
+        self.speedup = 0
+
+        self.kp_straight = 0.08
+        self.kd_straight  = 0.1
+        self.ki_straight = 0.000002
+
+        self.kp_turn = 0.1
+        self.kd_turn= 0.15
+        self.ki_turn = 0.000004
+
+        self.adjustment_num = 0
+
 
     def speedometer_cb(self, speed):
         self.speed = speed.data
@@ -146,62 +165,15 @@ class VehicleTeleop(Node):
 
         pygame.display.flip()
 
-    """
-    def control_vehicle(self):        
-
-        self.set_autopilot()
-        self.set_vehicle_control_manual_override()
-
-        while True:
-
-            for event in pygame.event.get():
-
-                if event.type == KEYDOWN:
-                    keys = pygame.key.get_pressed()
-
-                    if (keys[K_DOWN]):
-                        self.get_logger().error("down")
-                        self.control_msg.brake = 1.0
-
-                    if (keys[K_UP]):
-                        self.get_logger().error("adelante")
-                        self.control_msg.throttle = 1.0          
-
-                    if (keys[K_LEFT]):
-                        self.get_logger().error("left")
-                        self.control_msg.steer = -1.0            
-
-                    if (keys[K_RIGHT]):
-                        self.get_logger().error("derecha")
-                        self.control_msg.steer = 1.0
-                elif event.type == KEYUP :
-                    keys = pygame.key.get_pressed()
-                    if not(keys[K_DOWN]):
-                        self.get_logger().error("suelta freno")
-                        self.control_msg.brake = 0.0
-
-                    if not(keys[K_UP]):
-                        self.get_logger().error("suelta acelerador")
-                        self.control_msg.throttle = 0.0          
-
-                    if not(keys[K_LEFT]):
-                        self.get_logger().error("suelta dir")
-                        self.control_msg.steer = 0.0            
-
-                    if not(keys[K_RIGHT]):
-                        self.get_logger().error("suelta dir")
-                        self.control_msg.steer = 0.0
+        self.control_vehicle()
 
 
-
-            self.vehicle_control_publisher.publish(self.control_msg)
-    
-    """
 
     def controlador(self, sig, frame):
         self.archivo_csv.close()
         exit()
 
+    """"
     def control_vehicle(self):        
 
         self.set_autopilot()
@@ -304,9 +276,73 @@ class VehicleTeleop(Node):
 
             cpu_percent = process.cpu_percent(interval=0.1)
             csv_writer.writerow([self.last_fps, cpu_percent , memory_usage, adjustment_num, stering])
+    """
+    def control_vehicle(self):        
+
+        # Abre el archivo CSV en modo escritura
+        self.csv_writer = csv.writer(self.archivo_csv)
+        
+        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity'])
+        
+        actual_error = self.error            
+
+        actual_error = (actual_error) / 100  #error
+        d_error =  actual_error - self.last_error #derivative erro
+        
+        self.i_error = self.i_error + actual_error #integral
+        
+        if actual_error >= 0:
+            self.curling = 1
+
+        if actual_error <= 0:
+            self.curling = -1
+        
+        if ((actual_error < 10/100) and ( actual_error > -10/100)):
+            stering = 0.0
+            self.control_msg.steer = stering
+            self.curling = 0.0
+
+        elif ((actual_error < 50/100) and ( actual_error > -50/100)):
+            #self.get_logger().error("straight " + str(stering))
+            stering = actual_error* self.kp_straight + d_error*self.kd_straight + self.i_error*self.ki_straight
+
+            if stering > 1:
+                self.control_msg.steer = 1.0
+
+            elif stering <  -1.0:                    
+                self.control_msg.steer = -1.0
+
+            else:
+                self.control_msg.steer = stering
+        else :
+            stering = actual_error*self.kp_turn + d_error*self.kd_turn + self.i_error*self.ki_turn
+
+            if stering > 1:
+                self.control_msg.steer = 1.0
+
+            elif stering <  -1.0:
+                self.control_msg.steer = -1.0
+
+            else:
+                self.control_msg.steer = stering
+
+        if self.speed >= 20:
+            self.control_msg.throttle = 0.0            
+        else:
+            self.control_msg.throttle = 1.0                          
+
+        self.last_error = actual_error
+        self.vehicle_control_publisher.publish(self.control_msg)
+        
+        #el pid puede obtenerse fuera del bucle
+        pid = os.getpid()
+        process = psutil.Process(pid)
+        memory_usage = process.memory_info().rss    
+
+        cpu_percent = process.cpu_percent(interval=0.1)
+        self.csv_writer.writerow([time.time(),self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
 
             
-
     def set_vehicle_control_manual_override(self):
         """
         Set the manual control override
@@ -414,12 +450,22 @@ class VehicleTeleop(Node):
 
     def line_filter(self, img):
 
-        # Convert to grayscale here.
-        gray_image = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)# Call Canny Edge Detection here.
+        hsv_image = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+        lower_white = numpy.array([0, 0, 200])
+        upper_white = numpy.array([255, 255, 255])
+        #lower_white = numpy.array([0, 0, 160])
+        #upper_white = numpy.array([130, 20, 250])
+        color_mask = cv2.inRange(hsv_image, lower_white, upper_white)
+        filtered_image = cv2.bitwise_and(img, img, mask=color_mask)
+        #cv2.imshow('image',filtered_image)
+        #cv2.waitKey(0)
+
+        # Convert to grayscale and perform Canny edge detection
+        gray_image = cv2.cvtColor(filtered_image, cv2.COLOR_RGB2GRAY)
         cannyed_image = cv2.Canny(gray_image, 100, 150)
 
         h, w = cannyed_image.shape[:2]
-        region_of_interest_vertices = [ (0, h*0.7),(w/2 , h/2) ,(w, h*0.7), ]
+        region_of_interest_vertices = [ (0, h*0.75),(w/2 , h/2) ,(w, h*0.75), ]
         cropped_image = self.region_of_interest(cannyed_image, numpy.array([region_of_interest_vertices], numpy.int32))
         #cv2.imshow('images', cropped_image)
         #cv2.waitKey(0)
@@ -465,6 +511,24 @@ class VehicleTeleop(Node):
                             outter_right_line_x.extend([x1, x2])
                             outter_right_line_y.extend([y1, y2])  
 
+ 
+            if not left_line_x or not left_line_y:
+                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
+
+                #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4                        self.get_logger().error("down"))  
+                #image_center = int(line_image.shape[1]/2)
+                #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
+                #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
+                return img 
+
+            if not right_line_x or not right_line_y:
+
+                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
+                #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
+                #image_center = int(line_image.shape[1]/2)
+                #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
+                #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
+                return img
             
             if outter_left_line_x and outter_left_line_y :
 
@@ -482,26 +546,6 @@ class VehicleTeleop(Node):
                 outter_right_x_end = int(outter_poly_left(min_y))
                 img = self.draw_lines(img,[[[outter_right_x_start, max_y, outter_right_x_end, min_y],]],thickness=5,color=[0,0,255])
 
-
-            if not left_line_x or not left_line_y:
-                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
-
-                #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
-                #image_center = int(line_image.shape[1]/2)
-                #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
-                #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
-
-                return img 
-
-            if not right_line_x or not right_line_y:
-
-                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
-                #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
-                #image_center = int(line_image.shape[1]/2)
-                #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
-                #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
-
-                return img
 
 
             poly_left = numpy.poly1d(numpy.polyfit(left_line_y,left_line_x,deg=1))
@@ -551,9 +595,11 @@ def main(args=None):
 
     pygame.init()
     rclpy.init(args=args)
-
+    
     teleop = VehicleTeleop()
-    signal.signal(signal.SIGINT, teleop.controlador)                
+    
+    signal.signal(signal.SIGINT, teleop.controlador)            
+
     rclpy.spin(teleop)
 
     teleop.destroy_node()
