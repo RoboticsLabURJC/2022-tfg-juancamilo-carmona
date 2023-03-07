@@ -102,6 +102,7 @@ class VehicleTeleop(Node):
         self.set_vehicle_control_manual_override()
         #self.vehicle_control_thread()
 
+        self.program_start_time = time.time()
         self.Counter = 0
         self.acelerate = 0
         self.actual_error = 0
@@ -340,7 +341,7 @@ class VehicleTeleop(Node):
         memory_usage = process.memory_info().rss    
 
         cpu_percent = process.cpu_percent(interval=0.1)
-        self.csv_writer.writerow([time.time(),self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
+        self.csv_writer.writerow([time.time() - self.program_start_time ,self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
 
             
     def set_vehicle_control_manual_override(self):
