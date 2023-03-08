@@ -125,6 +125,8 @@ class VehicleTeleop(Node):
 
         self.adjustment_num = 0
 
+        self.process = psutil.Process( os.getpid() )
+
 
     def speedometer_cb(self, speed):
         self.speed = speed.data
@@ -334,11 +336,9 @@ class VehicleTeleop(Node):
         self.vehicle_control_publisher.publish(self.control_msg)
         
         #el pid puede obtenerse fuera del bucle
-        pid = os.getpid()
-        process = psutil.Process(pid)
-        memory_usage = process.memory_info().rss    
 
-        cpu_percent = psutil.cpu_percent()
+        memory_usage = self.process.memory_info().rss    
+        cpu_percent = self.process.cpu_percent()
         
         self.csv_writer.writerow([time.time() - self.program_start_time ,self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
 
