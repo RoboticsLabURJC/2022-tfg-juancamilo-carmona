@@ -26,12 +26,11 @@ from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 import cv2
 from cv_bridge import CvBridge
 import time
-import matplotlib.pyplot as plt
 import math
-import signal
 import csv
-import os
 import psutil
+import os
+import signal
 
 
 class VehicleTeleop(Node):
@@ -73,7 +72,6 @@ class VehicleTeleop(Node):
         self.right_x_end = 0
         self.min_y = 0
 
-
         self.role_name = "ego_vehicle"
 
         image_callback_group = MutuallyExclusiveCallbackGroup()
@@ -105,6 +103,8 @@ class VehicleTeleop(Node):
         self.set_autopilot()
         self.set_vehicle_control_manual_override()
         #self.vehicle_control_thread()
+        
+
         self.program_start_time = time.time()
         self.Counter = 0
         self.acelerate = 0
@@ -124,6 +124,9 @@ class VehicleTeleop(Node):
         self.ki_turn = 0.000004
 
         self.adjustment_num = 0
+
+        self.process = psutil.Process( os.getpid() )
+
 
     def speedometer_cb(self, speed):
         self.speed = speed.data
@@ -171,12 +174,117 @@ class VehicleTeleop(Node):
         self.control_vehicle()
 
 
+
     def controlador(self, sig, frame):
         self.archivo_csv.close()
         exit()
 
+    """"
     def control_vehicle(self):        
-                
+
+        self.set_autopilot()
+        self.set_vehicle_control_manual_override()
+        Counter = 0
+        acelerate = 0
+        actual_error = 0
+        i_error = 0
+        last_error = 0
+        INITIAL_CX = 0
+        INITIAL_CY = 0
+        speedup = 0
+
+
+        kp_straight = 0.08
+        kd_straight  = 0.1
+        ki_straight = 0.000002
+
+        kp_turn = 0.1
+        kd_turn= 0.15
+        ki_turn = 0.000004
+
+        adjustment_num = 0
+
+        # Abre el archivo CSV en modo escritura
+        csv_writer = csv.writer(self.archivo_csv)
+        
+        csv_row = ['fps','cpu usage','Memory usage','PID adjustment num','PID adjustment intesity']
+        csv_writer.writerow(csv_row)
+        
+        while True:
+
+            actual_error = self.error            
+
+            actual_error = (actual_error) / 100  #error
+            d_error =  actual_error - last_error #derivative erro
+            
+            i_error = i_error + actual_error #integral
+            
+            if actual_error >= 0 and last_error < 0:
+                adjustment_num = adjustment_num + 1
+
+            if actual_error <= 0 and last_error > 0:
+                adjustment_num = adjustment_num + 1
+            
+
+
+            if ((actual_error < 50/100) and ( actual_error > -50/100)):
+
+                #self.get_logger().error("straight " + str(stering))
+                stering = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:                    
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
+
+                #if(actual_error == 0):
+                    #self.control_msg.throttle = 1.0                          
+                #else:
+                    #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
+            if ((actual_error < 10/100) and ( actual_error > -10/100)):
+                self.control_msg.steer = 0.0
+            else :
+                stering = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
+
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
+
+                #if(actual_error == 0):
+                    #self.control_msg.throttle = 1.0                          
+                #else:
+                    #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
+      
+            if self.speed >= 20:
+                self.control_msg.throttle = 0.0
+            else:
+                self.control_msg.throttle = 1.0                          
+
+            last_error = actual_error
+            self.vehicle_control_publisher.publish(self.control_msg)
+            
+            #el pid puede obtenerse fuera del bucle
+            pid = os.getpid()
+            process = psutil.Process(pid)
+            memory_usage = process.memory_info().rss    
+
+            #cpu_percent = psutil.cpu_percent()
+            time.sleep(0.1)
+
+            cpu_percent = process.cpu_percent(interval=0.1)
+            csv_writer.writerow([self.last_fps, cpu_percent , memory_usage, adjustment_num, stering])
+    """
+    def control_vehicle(self):        
+
         actual_error = self.error            
 
         actual_error = (actual_error) / 100  #error
@@ -228,11 +336,10 @@ class VehicleTeleop(Node):
         self.vehicle_control_publisher.publish(self.control_msg)
         
         #el pid puede obtenerse fuera del bucle
-        pid = os.getpid()
-        process = psutil.Process(pid)
-        memory_usage = process.memory_info().rss    
 
-        cpu_percent = psutil.cpu_percent()
+        memory_usage = self.process.memory_info().rss    
+        cpu_percent = self.process.cpu_percent()
+        
         self.csv_writer.writerow([time.time() - self.program_start_time ,self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
 
             
