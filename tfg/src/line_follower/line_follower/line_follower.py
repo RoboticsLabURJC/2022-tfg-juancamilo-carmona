@@ -520,7 +520,17 @@ class VehicleTeleop(Node):
                 img = self.draw_lines(img,[[[outter_right_x_start, max_y, outter_right_x_end, min_y],]],thickness=5,color=[0,0,255])
 
 
-            if not left_line_x or not left_line_y:
+            if left_line_x and left_line_y:
+
+                poly_left = numpy.poly1d(numpy.polyfit(left_line_y,left_line_x,deg=1))
+                left_x_start = int(poly_left(max_y))
+                left_x_end = int(poly_left(min_y))
+
+                self.left_x_start = left_x_start
+                self.left_x_end = left_x_end
+                img = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y]]],thickness=5,)
+
+            #else: 
                 #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
 
                 #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
@@ -528,50 +538,42 @@ class VehicleTeleop(Node):
                 #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
                 #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
 
-                return img 
+            if right_line_x and right_line_y:
 
-            if not right_line_x or not right_line_y:
+                poly_right = numpy.poly1d(numpy.polyfit(right_line_y,right_line_x,deg=1))
+                right_x_start = int(poly_right(max_y))
+                right_x_end = int(poly_right(min_y))
 
+                self.right_x_start = right_x_start
+                self.right_x_end = right_x_end
+                img = self.draw_lines(img,[[[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
+
+            #else:
                 #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
                 #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
                 #image_center = int(line_image.shape[1]/2)
                 #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
                 #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
 
-                return img
 
-
-            poly_left = numpy.poly1d(numpy.polyfit(left_line_y,left_line_x,deg=1))
-        
-            left_x_start = int(poly_left(max_y))
-            left_x_end = int(poly_left(min_y))
-        
-            poly_right = numpy.poly1d(numpy.polyfit(right_line_y,right_line_x,deg=1))
-        
-            right_x_start = int(poly_right(max_y))
-            right_x_end = int(poly_right(min_y))
-
-            line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
-            
-            lane_mean_x = int((left_x_end + right_x_end)/2)  
+            #line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
 
             image_center = int(img.shape[1]/2)
 
+            if right_line_x and right_line_y and left_line_x and left_line_y:
+                lane_mean_x = int((left_x_end + right_x_end)/2)  
+                cv2.line(img, (lane_mean_x, max_y), (lane_mean_x, min_y), [0, 0, 255], 1)    
+                self.error =  lane_mean_x - image_center
+            
             cv2.line(img, (image_center, max_y), (image_center, min_y), [0, 255, 0], 2)    
-            cv2.line(img, (lane_mean_x, max_y), (lane_mean_x, min_y), [0, 0, 255], 1)    
 
-            self.error =  lane_mean_x - image_center
 
-            self.left_x_start = left_x_start
             self.max_y = max_y
-            self.left_x_end = left_x_end
             self.min_y = min_y
-            self.right_x_start = right_x_start
             self.max_y = max_y
-            self.right_x_end = right_x_end
             self.min_y = min_y
 
-            return line_image
+            return img
 
 
     def show_fps(self, img):
