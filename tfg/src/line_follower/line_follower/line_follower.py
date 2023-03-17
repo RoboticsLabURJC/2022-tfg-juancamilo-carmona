@@ -30,6 +30,7 @@ import csv
 import psutil
 import os
 import signal
+from sensor_msgs.msg import NavSatFix
 
 
 class VehicleTeleop(Node):
@@ -134,7 +135,7 @@ class VehicleTeleop(Node):
             self.archivo_csv.close()
             exit()
 
-            
+
     def speedometer_cb(self, speed):
         self.speed = speed.data
         
