@@ -19,9 +19,8 @@ from sensor_msgs.msg import Image
 from std_msgs.msg import Float32
 from threading import Thread
 from carla_msgs.msg import CarlaEgoVehicleControl
-from rclpy.executors import MultiThreadedExecutor
 from std_msgs.msg import Bool
-from carla_msgs.msg import CarlaStatus
+from sensor_msgs.msg import NavSatFix
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 import cv2
 from cv_bridge import CvBridge
@@ -56,6 +55,7 @@ class VehicleTeleop(Node):
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_front/image", self.first_person_image_cb, 10 )
         self.spedometer_subscriber= self.create_subscription( Float32, "/carla/ego_vehicle/speedometer", self.speedometer_cb, 10 )
+        self.spedometer_subscriber= self.create_subscription( NavSatFix, "/carla/ego_vehicle/gnss", self.position_cb, 10 )
 
         self.speed = 0
         self.clock = pygame.time.Clock()
@@ -128,6 +128,13 @@ class VehicleTeleop(Node):
         self.process = psutil.Process( os.getpid() )
 
 
+    def position_cb(self, pos):
+
+        if pos.latitude < 0.0001358:
+            self.archivo_csv.close()
+            exit()
+
+            
     def speedometer_cb(self, speed):
         self.speed = speed.data
         
