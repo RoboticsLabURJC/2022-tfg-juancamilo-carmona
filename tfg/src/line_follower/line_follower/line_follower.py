@@ -134,10 +134,8 @@ class VehicleTeleop(Node):
 
         if pos.latitude < 0.0001358:
             self.archivo_csv.close()
-            exit()
-
-        
-
+            exit()        
+            
 
     def speedometer_cb(self, speed):
         self.speed = speed.data

@@ -1,0 +1,18 @@
+[2.310s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/build --no-deps install_data
+[2.609s] running develop
+[2.739s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:368: UserWarning: Unbuilt egg for carla-common 0.0.0 (/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common/src)
+[2.739s]   self.local_index = Environment(self.shadow_path + sys.path)
+[2.795s] running egg_info
+[2.795s] writing src/rqt_carla_control.egg-info/PKG-INFO
+[2.795s] writing dependency_links to src/rqt_carla_control.egg-info/dependency_links.txt
+[2.795s] writing requirements to src/rqt_carla_control.egg-info/requires.txt
+[2.795s] writing top-level names to src/rqt_carla_control.egg-info/top_level.txt
+[2.830s] reading manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[2.831s] writing manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[2.870s] running build_ext
+[2.870s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages/rqt-carla-control.egg-link (link to src)
+[2.875s] Installing rqt_carla_control script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/rqt_carla_control
+[2.875s] 
+[2.875s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/src
+[2.875s] running install_data
+[3.041s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/build --no-deps install_data

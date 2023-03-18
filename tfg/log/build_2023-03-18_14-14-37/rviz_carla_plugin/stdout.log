@@ -1,0 +1,31 @@
+[ 12%] [34m[1mAutomatic MOC for target rviz_carla_plugin[0m
+[ 12%] Built target rviz_carla_plugin_autogen
+[100%] Built target rviz_carla_plugin
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin//plugin_description_ros2.xml
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/library_path.sh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/library_path.dsv
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/plugin_description_ros2.xml
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/classes/CarlaControl.png
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/pause.png
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/play.png
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/step_once.png
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/ament_index/resource_index/package_run_dependencies/rviz_carla_plugin
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/ament_index/resource_index/parent_prefix_path/rviz_carla_plugin
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/path.sh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/environment/path.dsv
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/local_setup.bash
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/local_setup.sh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/local_setup.zsh
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/local_setup.dsv
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/package.dsv
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/ament_index/resource_index/packages/rviz_carla_plugin
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/ament_index/resource_index/rviz_common__pluginlib__plugin/rviz_carla_plugin
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/cmake/rviz_carla_pluginConfig.cmake
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/cmake/rviz_carla_pluginConfig-version.cmake
+-- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/share/rviz_carla_plugin/package.xml
+-- Up-to-date: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rviz_carla_plugin/lib/librviz_carla_plugin.so
