@@ -563,7 +563,10 @@ class VehicleTeleop(Node):
                 #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
                 #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
 
-
+            if not right_line_x and not right_line_y and not left_line_x and not left_line_y:
+                self.archivo_csv.close()
+                exit()  
+                
             #line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
 
             image_center = int(img.shape[1]/2)
