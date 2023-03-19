@@ -549,6 +549,8 @@ class VehicleTeleop(Node):
                 img = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y]]],thickness=5,)
 
             #else: 
+                #self.archivo_csv.close()
+                #exit()   
                 #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
 
                 #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
@@ -567,13 +569,17 @@ class VehicleTeleop(Node):
                 img = self.draw_lines(img,[[[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
 
             #else:
-                #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
+                #self.archivo_csv.close()
+                #exit()                   #line_image = self.draw_lines(img,[[[self.left_x_start, self.max_y, self.left_x_end, self.min_y],[self.right_x_start, self.max_y, self.right_x_end, self.min_y],]],thickness=5,)
                 #lane_mean_x = int(( self.left_x_start + self.left_x_end + self.right_x_start + self.right_x_end)/4)  
                 #image_center = int(line_image.shape[1]/2)
                 #cv2.line(line_image, (image_center, self.max_y), (image_center, self.min_y), [0, 255, 0], 2)    
                 #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
 
-
+            if not right_line_x and not right_line_y and not left_line_x and not left_line_y:
+                self.archivo_csv.close()
+                exit()  
+        
             #line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
 
             image_center = int(img.shape[1]/2)
