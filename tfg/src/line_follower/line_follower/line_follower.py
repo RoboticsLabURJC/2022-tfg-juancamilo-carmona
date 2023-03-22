@@ -42,7 +42,7 @@ class VehicleTeleop(Node):
         self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
         self.csv_writer = csv.writer(self.csv_file)        
-        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity'])
+        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity','latitude','longitude'])
 
         image_callback_group = MutuallyExclusiveCallbackGroup()
         self._default_callback_group = image_callback_group
@@ -358,7 +358,7 @@ class VehicleTeleop(Node):
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
         
-        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering)], self.latitude, self.longitude)
+        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering), self.latitude, self.longitude])
 
             
     def set_vehicle_control_manual_override(self):
