@@ -38,7 +38,7 @@ class VehicleTeleop(Node):
 
         self.bridge = CvBridge()
 
-        file_name = '/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/metrics/hsv_metrics_5.csv'
+        file_name = '/home/camilo/Escritorio/tfg_metrics/hsv_metrics_5.csv'
         self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
         self.csv_writer = csv.writer(self.csv_file)        
@@ -107,7 +107,7 @@ class VehicleTeleop(Node):
         #self.vehicle_control_thread()
         
 
-        self.program_start_time = time.time()
+        self.program_start_time = -100
         self.Counter = 0
         self.acelerate = 0
         self.actual_error = 0
@@ -153,6 +153,10 @@ class VehicleTeleop(Node):
 
 
     def first_person_image_cb(self, ros_img):
+
+        if self.program_start_time == -100:
+            self.program_start_time = time.time()
+
 
         img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
 
@@ -349,7 +353,7 @@ class VehicleTeleop(Node):
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
         
-        self.csv_writer.writerow([time.time() - self.program_start_time ,self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
+        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering)])
 
             
     def set_vehicle_control_manual_override(self):
