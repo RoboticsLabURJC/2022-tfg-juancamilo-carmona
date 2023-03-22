@@ -18,17 +18,14 @@ from pygame.locals import K_d
 from sensor_msgs.msg import Image
 from threading import Thread
 from carla_msgs.msg import CarlaEgoVehicleControl
-from rclpy.executors import MultiThreadedExecutor
 from std_msgs.msg import Float32
+from sensor_msgs.msg import NavSatFix
 from std_msgs.msg import Bool
-from carla_msgs.msg import CarlaStatus
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 import cv2
 from cv_bridge import CvBridge
 import time
-import matplotlib.pyplot as plt
 import time
-import math
 import csv
 import psutil
 import os
@@ -58,6 +55,7 @@ class VehicleTeleop(Node):
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_front/image", self.first_person_image_cb, 10 )
         self.spedometer_subscriber= self.create_subscription( Float32, "/carla/ego_vehicle/speedometer", self.speedometer_cb, 10 )
+        self.spedometer_subscriber= self.create_subscription( NavSatFix, "/carla/ego_vehicle/gnss", self.position_cb, 10 )
 
         self.speed = 0
         self.clock = pygame.time.Clock()
@@ -74,6 +72,9 @@ class VehicleTeleop(Node):
         self.right_x_end = 0
         self.min_y = 0
         self.role_name = "ego_vehicle"
+
+        self.latitude = 0
+        self.longitude = 0
 
         image_callback_group = MutuallyExclusiveCallbackGroup()
         self._default_callback_group = image_callback_group        
@@ -125,6 +126,13 @@ class VehicleTeleop(Node):
         self.adjustment_num = 0
         self.process = psutil.Process( os.getpid() )
 
+    def position_cb(self, pos):
+        
+        self.latitude = pos.latitude
+        self.longitude = pos.longitude
+        if pos.latitude < 0.0001358:
+            self.archivo_csv.close()
+            exit()  
 
 
     def speedometer_cb(self, speed):
@@ -339,8 +347,7 @@ class VehicleTeleop(Node):
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
 
-        self.csv_writer.writerow([time.time() - self.program_start_time ,self.last_fps, cpu_percent , memory_usage/(1024*1024), self.curling, abs(stering)])
-
+        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering)], self.latitude, self.longitude)
 
     def set_vehicle_control_manual_override(self):
         """
