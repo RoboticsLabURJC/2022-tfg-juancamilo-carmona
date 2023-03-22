@@ -42,7 +42,7 @@ class VehicleTeleop(Node):
         self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
         self.csv_writer = csv.writer(self.csv_file)        
-        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity','latitude','longitude'])
+        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity','latitude','longitude', 'line detected num'])
 
         image_callback_group = MutuallyExclusiveCallbackGroup()
         self._default_callback_group = image_callback_group
@@ -96,6 +96,7 @@ class VehicleTeleop(Node):
         self.control_msg.gear = 0
         self.control_msg.manual_gear_shift = False
         self.error = 0
+        self.line_detected_num = 0
 
         self.left_a = []
         self.left_b = []
@@ -358,7 +359,8 @@ class VehicleTeleop(Node):
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
         
-        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering), self.latitude, self.longitude])
+        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering), self.latitude, self.longitude, self.line_detected_num])
+        self.line_detected_num = 0
 
             
     def set_vehicle_control_manual_override(self):
@@ -537,6 +539,7 @@ class VehicleTeleop(Node):
                 outter_left_x_start = int(outter_poly_left(max_y))
                 outter_left_x_end = int(outter_poly_left(min_y))
                 img = self.draw_lines(img,[[[outter_left_x_start, max_y, outter_left_x_end, min_y],]],thickness=5,color=[0,0,255])
+                self.line_detected_num = self.line_detected_num  + 1
 
             if outter_right_line_x and outter_right_line_x:
                 
@@ -545,6 +548,7 @@ class VehicleTeleop(Node):
                 outter_right_x_start = int(outter_poly_left(max_y))
                 outter_right_x_end = int(outter_poly_left(min_y))
                 img = self.draw_lines(img,[[[outter_right_x_start, max_y, outter_right_x_end, min_y],]],thickness=5,color=[0,0,255])
+                self.line_detected_num = self.line_detected_num  + 1
 
 
             if left_line_x and left_line_y:
