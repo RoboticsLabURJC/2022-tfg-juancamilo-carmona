@@ -73,6 +73,9 @@ class VehicleTeleop(Node):
         self.right_x_end = 0
         self.min_y = 0
 
+        self.latitude = 0
+        self.longitude = 0
+
         self.role_name = "ego_vehicle"
 
         image_callback_group = MutuallyExclusiveCallbackGroup()
@@ -131,7 +134,9 @@ class VehicleTeleop(Node):
 
 
     def position_cb(self, pos):
-
+        
+        self.latitude = pos.latitude
+        self.longitude = pos.longitude
         if pos.latitude < 0.0001358:
             self.archivo_csv.close()
             exit()        
@@ -353,7 +358,7 @@ class VehicleTeleop(Node):
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
         
-        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering)])
+        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering)], self.latitude, self.longitude)
 
             
     def set_vehicle_control_manual_override(self):
