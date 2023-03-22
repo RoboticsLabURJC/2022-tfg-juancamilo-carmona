@@ -104,7 +104,7 @@ class VehicleTeleop(Node):
         self.set_autopilot()
         self.set_vehicle_control_manual_override()
         #self.vehicle_control_thread()
-        self.program_start_time = time.time()
+        self.program_start_time = -100
 
         self.Counter = 0
         self.acelerate = 0
@@ -151,6 +151,9 @@ class VehicleTeleop(Node):
 
 
     def first_person_image_cb(self, ros_img):
+
+        if self.program_start_time == -100:
+            self.program_start_time = time.time()
 
         img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
 
