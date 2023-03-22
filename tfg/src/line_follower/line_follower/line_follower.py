@@ -348,7 +348,7 @@ class VehicleTeleop(Node):
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
         
-        self.csv_writer.writerow([time.time() - self.program_start_time ,self.last_fps, cpu_percent , memory_usage, self.curling, abs(stering)])
+        self.csv_writer.writerow([time.time() - self.program_start_time ,self.last_fps, cpu_percent , memory_usage/(1024*1024), self.curling, abs(stering)])
 
             
 
