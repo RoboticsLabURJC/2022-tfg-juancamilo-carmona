@@ -379,96 +379,10 @@ class VehicleTeleop(Node):
         spin_thread = Thread(target=self.control_vehicle)
         spin_thread.start()
 
-    #para detectar blanco utiliza valores  s_thresh=(100, 255), sx_thresh=(15, 255)
   
-
-    def perspective_warp(self,img, 
-                        dst_size=(800,600),
-                        src=numpy.float32([(0.43,0.65),(0.58,0.65),(0.1,1),(1,1)]),
-                        dst=numpy.float32([(0,0), (1, 0), (0,1), (1,1)])):
-        img_size = numpy.float32([(img.shape[1],img.shape[0])])
-        src = src* img_size
-        # For destination points, I'm arbitrarily choosing some points to be
-        # a nice fit for displaying our warped result 
-        # again, not exact, but close enough for our purposes
-        dst = dst * numpy.float32(dst_size)
-        
-        # Given src and dst points, calculate the perspective transform matrix
-        M = cv2.getPerspectiveTransform(src, dst)
-        # Warp the image using OpenCV warpPerspective()
-        warped = cv2.warpPerspective(img, M, dst_size)
-
-        return warped
-
-
-    def inv_perspective_warp(self,img, 
-                        dst_size=(800,600),
-                        src=numpy.float32([(0,0), (1, 0), (0,1), (1,1)]),
-                        dst=numpy.float32([(0.43,0.65),(0.58,0.65),(0.1,1),(1,1)])):
-        img_size = numpy.float32([(img.shape[1],img.shape[0])])
-        src = src* img_size
-        # For destination points, I'm arbitrarily choosing some points to be
-        # a nice fit for displaying our warped result 
-        # again, not exact, but close enough for our purposes
-        dst = dst * numpy.float32(dst_size)
-        # Given src and dst points, calculate the perspective transform matrix
-        M = cv2.getPerspectiveTransform(src, dst)
-        # Warp the image using OpenCV warpPerspective()
-        warped = cv2.warpPerspective(img, M, dst_size)
-        return warped
-
-
-    def draw_lanes(self,img, left_fit, right_fit):
-        ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0])
-        color_img = numpy.zeros_like(img)
-        
-        left = numpy.array([numpy.transpose(numpy.vstack([left_fit, ploty]))])
-        right = numpy.array([numpy.flipud(numpy.transpose(numpy.vstack([right_fit, ploty])))])
-        points = numpy.hstack((left, right))
-        
-        cv2.fillPoly(color_img, numpy.int_(points), (0,200,255))
-
-        inv_perspective = self.inv_perspective_warp(color_img)
-        inv_perspective = cv2.addWeighted(img, 1, inv_perspective, 0.7, 0)
-
-        return inv_perspective
-
-    def draw_centers(self, img):
-        
-        lane = []
-        for i in range(800):
-            px = img[ 450, i] 
-            if px[1] == 255 and px[2] == 255:
-                lane.append(i)
-
-        center = numpy.mean(lane)
-                
-        center_x = int(img.shape[1]/2)
-        cv2.circle(img, (center_x, 450), 8, (0,255,0), -1)
-        cv2.circle(img, (int(center), 450), 4, (255,0,0), -1)
-
-
-    def region_of_interest(self, img, vertices):
-        mask = numpy.zeros_like(img)    
-        match_mask_color = 255 # <-- This line altered for grayscale.
-        
-        cv2.fillPoly(mask, vertices, match_mask_color)
-        masked_image = cv2.bitwise_and(img, mask)
-        return masked_image
-
-    def draw_lines(self, img, lines, color=[255, 0, 0], thickness=3):
-
-        if lines is None:
-            return    
-
-        for line in lines:
-            for x1, y1, x2, y2 in line:
-                cv2.line(img, (x1, y1), (x2, y2), color, thickness)    
-  
-        return img
-
     #para detectar blanco utiliza valores  s_thresh=(100, 255), sx_thresh=(15, 255)
-    def pipeline(self,img, s_thresh=(100, 255), sx_thresh=(15, 255)):
+    def pipeline(self,img, s_thresh=(200, 255), sx_thresh=(15, 255)):
+
         img = numpy.copy(img)
 
         # Convert to HLS color space and separate the V channel
@@ -480,7 +394,6 @@ class VehicleTeleop(Node):
 
         # Sobel x detecta lor bordes en x
         sobelx = cv2.Sobel(l_channel, cv2.CV_64F, 1, 1) # Take the derivative in x
-
         abs_sobelx = numpy.absolute(sobelx) # Absolute x derivative to accentuate lines away from horizontal
         scaled_sobel = numpy.uint8(255*abs_sobelx/numpy.max(abs_sobelx))
         
@@ -543,7 +456,7 @@ class VehicleTeleop(Node):
 
 
 
-    def sliding_window(self,img, nwindows=9, margin=150, minpix = 1, draw_windows=True):
+    def sliding_window(self,img, nwindows=10, margin=150, minpix = 1, draw_windows=True):
         left_fit_= numpy.empty(3)
         right_fit_ = numpy.empty(3)
         out_img = numpy.dstack((img, img, img))*255
@@ -553,8 +466,7 @@ class VehicleTeleop(Node):
         midpoint = int(histogram.shape[0]/2)
         leftx_base = numpy.argmax(histogram[:midpoint])
         rightx_base = numpy.argmax(histogram[midpoint:]) + midpoint
-                
-        
+
         # Set height of windows
         window_height = numpy.int(img.shape[0]/nwindows)
         # Identify the x and y positions of all nonzero pixels in the image
@@ -564,12 +476,10 @@ class VehicleTeleop(Node):
         # Current positions to be updated for each window
         leftx_current = leftx_base
         rightx_current = rightx_base
-        
-        
+                
         # Create empty lists to receive left and right lane pixel indices
         left_lane_inds = []
         right_lane_inds = []
-
 
         # Step through the windows one by one
         for window in range(nwindows):
@@ -580,6 +490,12 @@ class VehicleTeleop(Node):
             win_xleft_high = leftx_current + margin
             win_xright_low = rightx_current - margin
             win_xright_high = rightx_current + margin
+            # Draw the windows on the visualization image
+            if draw_windows == True:
+                cv2.rectangle(out_img,(win_xleft_low,win_y_low),(win_xleft_high,win_y_high),
+                (100,255,255), 3) 
+                cv2.rectangle(out_img,(win_xright_low,win_y_low),(win_xright_high,win_y_high),
+                (100,255,255), 3) 
 
             # Identify the nonzero pixels in x and y within the window
             good_left_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & 
@@ -589,13 +505,13 @@ class VehicleTeleop(Node):
             # Append these indices to the lists
             left_lane_inds.append(good_left_inds)
             right_lane_inds.append(good_right_inds)
+
             # If you found > minpix pixels, recenter next window on their mean position
             if len(good_left_inds) > minpix:
                 leftx_current = numpy.int(numpy.mean(nonzerox[good_left_inds]))
             if len(good_right_inds) > minpix:        
                 rightx_current = numpy.int(numpy.mean(nonzerox[good_right_inds]))
             
-
         # Concatenate the arrays of indices
         left_lane_inds = numpy.concatenate(left_lane_inds)
         right_lane_inds = numpy.concatenate(right_lane_inds)
@@ -605,43 +521,37 @@ class VehicleTeleop(Node):
         leftx = nonzerox[left_lane_inds]
         lefty = nonzeroy[left_lane_inds] 
         rightx = nonzerox[right_lane_inds]
-        righty = nonzeroy[right_lane_inds]
+        righty = nonzeroy[right_lane_inds] 
+
+        # Fit a second order polynomial to each
+        left_fit = numpy.polyfit(lefty, leftx, 2)
+        right_fit = numpy.polyfit(righty, rightx, 2)
         
-        if len(leftx) > 0 and len(lefty) > 0 and len(rightx) > 0 and len(righty) > 0: 
+        self.left_a.append(left_fit[0])
+        self.left_b.append(left_fit[1])
+        self.left_c.append(left_fit[2])
+        
+        self.right_a.append(right_fit[0])
+        self.right_b.append(right_fit[1])
+        self.right_c.append(right_fit[2])
+        
+        left_fit_[0] = numpy.mean(self.left_a[-10:])
+        left_fit_[1] = numpy.mean(self.left_b[-10:])
+        left_fit_[2] = numpy.mean(self.left_c[-10:])
+        
+        right_fit_[0] = numpy.mean(self.right_a[-10:])
+        right_fit_[1] = numpy.mean(self.right_b[-10:])
+        right_fit_[2] = numpy.mean(self.right_c[-10:])
+        
+        # Generate x and y values for plotting
+        ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0] )
+        left_fitx = left_fit_[0]*ploty**2 + left_fit_[1]*ploty + left_fit_[2]
+        right_fitx = right_fit_[0]*ploty**2 + right_fit_[1]*ploty + right_fit_[2]
 
-            # Fit a second order polynomial to each
-            left_fit = numpy.polyfit(lefty, leftx, 2)
-            right_fit = numpy.polyfit(righty, rightx, 2)
-            
-            self.left_a.append(left_fit[0])
-            self.left_b.append(left_fit[1])
-            self.left_c.append(left_fit[2])
-            
-            self.right_a.append(right_fit[0])
-            self.right_b.append(right_fit[1])
-            self.right_c.append(right_fit[2])
-            
-            left_fit_[0] = numpy.mean(self.left_a[-10:])
-            left_fit_[1] = numpy.mean(self.left_b[-10:])
-            left_fit_[2] = numpy.mean(self.left_c[-10:])
-            
-            right_fit_[0] = numpy.mean(self.right_a[-10:])
-            right_fit_[1] = numpy.mean(self.right_b[-10:])
-            right_fit_[2] = numpy.mean(self.right_c[-10:])
-            
-            # Generate x and y values for plotting
-            ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0] )
-            left_fitx = left_fit_[0]*ploty**2 + left_fit_[1]*ploty + left_fit_[2]
-            right_fitx = right_fit_[0]*ploty**2 + right_fit_[1]*ploty + right_fit_[2]
-
-            out_img[nonzeroy[left_lane_inds], nonzerox[left_lane_inds]] = [255, 0, 100]
-            out_img[nonzeroy[right_lane_inds], nonzerox[right_lane_inds]] = [0, 100, 255]
-            
-            return (left_fitx, right_fitx), True
-        else:
-
-            return  (left_fitx, right_fitx), False
-
+        out_img[nonzeroy[left_lane_inds], nonzerox[left_lane_inds]] = [255, 0, 100]
+        out_img[nonzeroy[right_lane_inds], nonzerox[right_lane_inds]] = [0, 100, 255]
+        
+        return out_img, (left_fitx, right_fitx), (left_fit_, right_fit_), ploty
 
     def get_curve(sef,img, leftx, rightx):
         ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0])
@@ -685,7 +595,7 @@ class VehicleTeleop(Node):
         lane = []
 
         for i in range(800):
-            px = img[ 450, i] 
+            px = img[ 590, i] 
             if px[1] == 255 and px[2] == 255:
                 lane.append(i)
 
@@ -704,14 +614,12 @@ class VehicleTeleop(Node):
 
         img_ = self.pipeline(img)
         img_ = self.perspective_warp(img_)
-        curves, status = self.sliding_window(img_, draw_windows=False)
+        out_img, curves, lanes, ploty = self.sliding_window(img_, draw_windows=True)
 
-        if status:
-            img = self.draw_lanes(img, curves[0], curves[1])
-            self.draw_centers(img)
-            return img
-        else:
-            return img
+        img = self.draw_lanes(img, curves[0], curves[1])
+        self.draw_centers(img)
+
+        return img
 
 
     def show_fps(self, img):
