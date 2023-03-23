@@ -543,7 +543,7 @@ class VehicleTeleop(Node):
 
 
 
-    def sliding_window(self,img, nwindows=4, margin=150, minpix = 1, draw_windows=False):
+    def sliding_window(self,img, nwindows=9, margin=150, minpix = 1, draw_windows=True):
         left_fit_= numpy.empty(3)
         right_fit_ = numpy.empty(3)
         out_img = numpy.dstack((img, img, img))*255
