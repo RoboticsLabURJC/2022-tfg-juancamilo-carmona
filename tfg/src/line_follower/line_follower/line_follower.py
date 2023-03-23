@@ -358,7 +358,7 @@ class VehicleTeleop(Node):
 
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
-        
+                
         self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering), self.latitude, self.longitude, self.line_detected_num ])
         self.line_detected_num = 0
 
@@ -511,14 +511,39 @@ class VehicleTeleop(Node):
                     else:
                         right_line_x.extend([x1, x2])
                         right_line_y.extend([y1, y2])
-                else:
-                    if math.fabs(slope) > 0.2:
+
+            for line in lines:
+                for x1, y1, x2, y2 in line:
+                    slope = (y2 - y1) / (x2 - x1)
+
+                    if math.fabs(slope) > 0.4 and math.fabs(slope) < 0.8 :
+                        control = True
+
                         if slope <= 0:
-                            outter_left_line_x.extend([x1, x2])
-                            outter_left_line_y.extend([y1, y2])
+                            if left_line_x and left_line_y:
+                                for coords in left_line_x:
+                                    if x1 > coords or x1 > coords or x2 > coords or x2 > coords: 
+                                        control = False
+
+                                if control:
+                                    outter_left_line_x.extend([x1, x2])
+                                    outter_left_line_y.extend([y1, y2])
+                            else:
+                                outter_left_line_x.extend([x1, x2])
+                                outter_left_line_y.extend([y1, y2])
+
                         else:
-                            outter_right_line_x.extend([x1, x2])
-                            outter_right_line_y.extend([y1, y2])  
+                            if right_line_x and right_line_y:
+                                for coords in right_line_x:
+                                    if x1 < coords or x1 < coords or x2 < coords or x2 < coords: 
+                                        control = False
+
+                                if control:                               
+                                    outter_right_line_x.extend([x1, x2])
+                                    outter_right_line_y.extend([y1, y2])
+                            else:
+                                outter_right_line_x.extend([x1, x2])
+                                outter_right_line_y.extend([y1, y2])
 
             
             if outter_left_line_x and outter_left_line_y :
@@ -576,6 +601,7 @@ class VehicleTeleop(Node):
                 #cv2.line(line_image, (lane_mean_x, self.max_y), (lane_mean_x, self.min_y), [0, 0, 255], 1)
 
             if not right_line_x and not right_line_y and not left_line_x and not left_line_y:
+                self.get_logger().error("no lane lines detected")
                 self.archivo_csv.close()
                 exit()  
                 
