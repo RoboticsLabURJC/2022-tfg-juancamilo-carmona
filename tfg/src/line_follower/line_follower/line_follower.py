@@ -39,7 +39,7 @@ class VehicleTeleop(Node):
 
         self.bridge = CvBridge()
 
-        file_name = '/home/camilo/Escritorio/tfg_metrics/canny_metrics_5.csv'
+        file_name = '/home/camilo/Escritorio/tfg_metrics/sliding_window_metrics_1.csv'
         self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
         self.csv_writer = csv.writer(self.csv_file)        
