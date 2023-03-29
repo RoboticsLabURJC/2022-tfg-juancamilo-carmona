@@ -1,10 +1,13 @@
 package.xml
 setup.cfg
 setup.py
+launch/autopilot_line_follower.launch.py
+launch/carla_generate_autopilot_vehicle.launch.py
 launch/carla_generate_vehicle.launch.py
 launch/line_follower.launch.py
 launch/spawn_vehicle.launch.py
 line_follower/__init__.py
+line_follower/autopilot_line_follower.py
 line_follower/line_follower.py
 line_follower/vehicle_control.py
 line_follower.egg-info/PKG-INFO

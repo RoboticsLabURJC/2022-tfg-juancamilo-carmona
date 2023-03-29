@@ -1,0 +1,26 @@
+[3.635s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/build --no-deps install_data
+[4.178s] running develop
+[4.492s] running egg_info
+[4.492s] creating src/carla_walker_agent.egg-info
+[4.494s] writing src/carla_walker_agent.egg-info/PKG-INFO
+[4.494s] writing dependency_links to src/carla_walker_agent.egg-info/dependency_links.txt
+[4.494s] writing entry points to src/carla_walker_agent.egg-info/entry_points.txt
+[4.499s] writing requirements to src/carla_walker_agent.egg-info/requires.txt
+[4.499s] writing top-level names to src/carla_walker_agent.egg-info/top_level.txt
+[4.500s] writing manifest file 'src/carla_walker_agent.egg-info/SOURCES.txt'
+[4.565s] reading manifest file 'src/carla_walker_agent.egg-info/SOURCES.txt'
+[4.566s] writing manifest file 'src/carla_walker_agent.egg-info/SOURCES.txt'
+[4.648s] running build_ext
+[4.649s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/python3.8/site-packages/site.py
+[4.652s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/python3.8/site-packages/carla-walker-agent.egg-link (link to src)
+[4.653s] Installing carla_walker_agent script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/carla_walker_agent
+[4.653s] 
+[4.654s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/src
+[4.654s] running install_data
+[4.654s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/share/ament_index
+[4.654s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/share/ament_index/resource_index
+[4.654s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/share/ament_index/resource_index/packages
+[4.654s] copying resource/carla_walker_agent -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/share/ament_index/resource_index/packages
+[4.655s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/share/carla_walker_agent
+[4.655s] copying launch/carla_walker_agent.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/share/carla_walker_agent
+[4.963s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_walker_agent/build --no-deps install_data

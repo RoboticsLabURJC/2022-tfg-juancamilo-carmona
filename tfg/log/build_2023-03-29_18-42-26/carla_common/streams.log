@@ -1,0 +1,15 @@
+[2.879s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common/build --no-deps install_data
+[3.280s] running develop
+[3.563s] running egg_info
+[3.563s] writing src/carla_common.egg-info/PKG-INFO
+[3.564s] writing dependency_links to src/carla_common.egg-info/dependency_links.txt
+[3.564s] writing requirements to src/carla_common.egg-info/requires.txt
+[3.564s] writing top-level names to src/carla_common.egg-info/top_level.txt
+[3.607s] reading manifest file 'src/carla_common.egg-info/SOURCES.txt'
+[3.607s] writing manifest file 'src/carla_common.egg-info/SOURCES.txt'
+[3.652s] running build_ext
+[3.653s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common/lib/python3.8/site-packages/carla-common.egg-link (link to src)
+[3.654s] 
+[3.654s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common/src
+[3.654s] running install_data
+[3.843s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common/build --no-deps install_data

@@ -1,0 +1,30 @@
+[3.616s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/build --no-deps install_data
+[4.167s] running develop
+[4.522s] running egg_info
+[4.523s] creating src/rqt_carla_control.egg-info
+[4.524s] writing src/rqt_carla_control.egg-info/PKG-INFO
+[4.524s] writing dependency_links to src/rqt_carla_control.egg-info/dependency_links.txt
+[4.524s] writing requirements to src/rqt_carla_control.egg-info/requires.txt
+[4.524s] writing top-level names to src/rqt_carla_control.egg-info/top_level.txt
+[4.527s] writing manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[4.599s] reading manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[4.600s] writing manifest file 'src/rqt_carla_control.egg-info/SOURCES.txt'
+[4.680s] running build_ext
+[4.681s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages/site.py
+[4.682s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages/rqt-carla-control.egg-link (link to src)
+[4.682s] Installing rqt_carla_control script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/rqt_carla_control
+[4.682s] 
+[4.682s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/src
+[4.682s] running install_data
+[4.682s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/ament_index
+[4.683s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/ament_index/resource_index
+[4.683s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/ament_index/resource_index/packages
+[4.683s] copying resource/rqt_carla_control -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/ament_index/resource_index/packages
+[4.683s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/rqt_carla_control
+[4.683s] copying plugin.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/rqt_carla_control
+[4.684s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/rqt_carla_control/resource
+[4.684s] copying resource/CarlaControl.ui -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/rqt_carla_control/resource
+[4.684s] copying resource/pause.png -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/rqt_carla_control/resource
+[4.684s] copying resource/play.png -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/rqt_carla_control/resource
+[4.684s] copying resource/step_once.png -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/share/rqt_carla_control/resource
+[4.961s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/rqt_carla_control/build --no-deps install_data

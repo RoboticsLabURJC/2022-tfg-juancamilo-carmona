@@ -1,0 +1,263 @@
+[0.816s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs -- -j12 -l12
+[1.934s] -- Found ros_environment: 2.5.1 (/opt/ros/foxy/share/ros_environment/cmake)
+[1.935s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.935s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.935s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.935s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.935s] -- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)
+[1.935s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.935s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.935s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.935s] -- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)
+[1.935s] -- Found carla_msgs: 1.3.0 (/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake)
+[1.935s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.935s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[2.278s] -- Found ament_cmake_cppcheck: 0.9.7 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)
+[2.278s] -- Found ament_cmake_cpplint: 0.9.7 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)
+[2.278s] -- Found ament_cmake_uncrustify: 0.9.7 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)
+[2.280s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[2.877s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.238s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.311s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[3.312s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[3.366s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[3.366s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[3.366s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[3.544s] -- Found ament_cmake_flake8: 0.9.7 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)
+[3.545s] -- Found ament_cmake_pep257: 0.9.7 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)
+[3.551s] -- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.575s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.576s] -- Added test 'lint_cmake' to check CMake code style
+[3.576s] -- Added test 'xmllint' to check XML markup files
+[3.587s] -- Configuring done
+[3.759s] -- Generating done
+[3.766s] -- Build files have been written to: /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs
+[3.809s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.822s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[4.486s] [  3%] Built target carla_ackermann_msgs__cpp
+[4.513s] [  4%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[4.514s] [  6%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[4.520s] [  7%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[4.550s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_generator_c[0m
+[4.580s] [ 12%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__functions.c.o[0m
+[4.581s] [ 12%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__functions.c.o[0m
+[4.581s] [ 12%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__functions.c.o[0m
+[4.581s] [ 14%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__functions.c.o[0m
+[4.581s] [ 15%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__functions.c.o[0m
+[4.715s] [ 17%] [32m[1mLinking C shared library libcarla_ackermann_msgs__rosidl_generator_c.so[0m
+[4.790s] [ 17%] Built target carla_ackermann_msgs__rosidl_generator_c
+[4.806s] [ 19%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[4.807s] [ 20%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[5.252s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_cpp[0m
+[5.274s] [ 22%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ackermann_msgs/msg/ego_vehicle_control_current__type_support.cpp.o[0m
+[5.275s] [ 23%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ackermann_msgs/msg/ego_vehicle_control_info__type_support.cpp.o[0m
+[5.279s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ackermann_msgs/msg/ego_vehicle_control_maxima__type_support.cpp.o[0m
+[5.286s] [ 26%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ackermann_msgs/msg/ego_vehicle_control_status__type_support.cpp.o[0m
+[5.294s] [ 28%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ackermann_msgs/msg/ego_vehicle_control_target__type_support.cpp.o[0m
+[5.426s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_introspection_cpp[0m
+[5.459s] [ 30%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__type_support.cpp.o[0m
+[5.478s] [ 31%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__type_support.cpp.o[0m
+[5.488s] [ 33%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__type_support.cpp.o[0m
+[5.497s] [ 34%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__type_support.cpp.o[0m
+[5.654s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_c[0m
+[5.705s] [ 36%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ackermann_msgs/msg/ego_vehicle_control_info__type_support.cpp.o[0m
+[5.805s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[5.831s] [ 38%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ackermann_msgs/msg/ego_vehicle_control_current__type_support.cpp.o[0m
+[5.857s] [ 39%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ackermann_msgs/msg/detail/dds_fastrtps/ego_vehicle_control_info__type_support.cpp.o[0m
+[5.899s] [ 41%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ackermann_msgs/msg/ego_vehicle_control_maxima__type_support.cpp.o[0m
+[5.905s] [ 42%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__type_support.cpp.o[0m
+[5.932s] [ 44%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ackermann_msgs/msg/ego_vehicle_control_status__type_support.cpp.o[0m
+[5.986s] [ 46%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ackermann_msgs/msg/ego_vehicle_control_target__type_support.cpp.o[0m
+[5.997s] [ 47%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ackermann_msgs/msg/detail/dds_fastrtps/ego_vehicle_control_current__type_support.cpp.o[0m
+[6.005s] [ 49%] [32m[1mLinking CXX shared library libcarla_ackermann_msgs__rosidl_typesupport_cpp.so[0m
+[6.025s] [ 50%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ackermann_msgs/msg/detail/dds_fastrtps/ego_vehicle_control_maxima__type_support.cpp.o[0m
+[6.035s] [ 53%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ackermann_msgs/msg/detail/dds_fastrtps/ego_vehicle_control_status__type_support.cpp.o[0m
+[6.036s] [ 53%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ackermann_msgs/msg/detail/dds_fastrtps/ego_vehicle_control_target__type_support.cpp.o[0m
+[6.049s] [ 55%] [32m[1mLinking CXX shared library libcarla_ackermann_msgs__rosidl_typesupport_c.so[0m
+[6.066s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_introspection_c[0m
+[6.098s] [ 57%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__type_support.c.o[0m
+[6.113s] [ 57%] Built target carla_ackermann_msgs__rosidl_typesupport_cpp
+[6.126s] [ 58%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__type_support.c.o[0m
+[6.130s] [ 60%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__type_support.c.o[0m
+[6.137s] [ 61%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__type_support.c.o[0m
+[6.153s] [ 63%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__type_support.c.o[0m
+[6.160s] [ 63%] Built target carla_ackermann_msgs__rosidl_typesupport_c
+[6.242s] [ 65%] [32m[1mLinking C shared library libcarla_ackermann_msgs__rosidl_typesupport_introspection_c.so[0m
+[6.345s] [ 65%] Built target carla_ackermann_msgs__rosidl_typesupport_introspection_c
+[6.541s] [ 66%] [32m[1mLinking CXX shared library libcarla_ackermann_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[6.678s] [ 66%] Built target carla_ackermann_msgs__rosidl_typesupport_introspection_cpp
+[6.799s] [ 68%] [32m[1mLinking CXX shared library libcarla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[6.932s] [ 68%] Built target carla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp
+[6.946s] [ 69%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[7.920s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_fastrtps_c[0m
+[7.988s] [ 71%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__type_support_c.cpp.o[0m
+[8.039s] [ 73%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__type_support_c.cpp.o[0m
+[8.070s] [ 74%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__type_support_c.cpp.o[0m
+[8.072s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__type_support_c.cpp.o[0m
+[8.104s] [ 77%] [32mBuilding CXX object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__type_support_c.cpp.o[0m
+[9.126s] [ 79%] [32m[1mLinking CXX shared library libcarla_ackermann_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[9.314s] [ 79%] Built target carla_ackermann_msgs__rosidl_typesupport_fastrtps_c
+[9.350s] [ 79%] Built target carla_ackermann_msgs
+[9.424s] [ 80%] [34m[1mGenerating Python code for ROS interfaces[0m
+[11.136s] [ 80%] Built target carla_ackermann_msgs__py
+[11.154s] [35m[1mScanning dependencies of target carla_ackermann_msgs__python[0m
+[11.182s] [ 84%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__python.dir/rosidl_generator_py/carla_ackermann_msgs/msg/_ego_vehicle_control_maxima_s.c.o[0m
+[11.182s] [ 84%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__python.dir/rosidl_generator_py/carla_ackermann_msgs/msg/_ego_vehicle_control_status_s.c.o[0m
+[11.183s] [ 85%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__python.dir/rosidl_generator_py/carla_ackermann_msgs/msg/_ego_vehicle_control_info_s.c.o[0m
+[11.183s] [ 87%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__python.dir/rosidl_generator_py/carla_ackermann_msgs/msg/_ego_vehicle_control_current_s.c.o[0m
+[11.186s] [ 88%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__python.dir/rosidl_generator_py/carla_ackermann_msgs/msg/_ego_vehicle_control_target_s.c.o[0m
+[11.340s] [ 90%] [32m[1mLinking C shared library rosidl_generator_py/carla_ackermann_msgs/libcarla_ackermann_msgs__python.so[0m
+[11.393s] [ 90%] Built target carla_ackermann_msgs__python
+[11.407s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[11.407s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_c__pyext[0m
+[11.407s] [35m[1mScanning dependencies of target carla_ackermann_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[11.427s] [ 92%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/carla_ackermann_msgs/_carla_ackermann_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[11.428s] [ 93%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/carla_ackermann_msgs/_carla_ackermann_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[11.433s] [ 95%] [32mBuilding C object CMakeFiles/carla_ackermann_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/carla_ackermann_msgs/_carla_ackermann_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[11.539s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/carla_ackermann_msgs/carla_ackermann_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[11.539s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/carla_ackermann_msgs/carla_ackermann_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[11.553s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/carla_ackermann_msgs/carla_ackermann_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[11.592s] [100%] Built target carla_ackermann_msgs__rosidl_typesupport_introspection_c__pyext
+[11.592s] [100%] Built target carla_ackermann_msgs__rosidl_typesupport_c__pyext
+[11.637s] [100%] Built target carla_ackermann_msgs__rosidl_typesupport_fastrtps_c__pyext
+[11.652s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs -- -j12 -l12
+[11.760s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs
+[11.772s] -- Install configuration: ""
+[11.773s] -- Execute custom install script
+[11.773s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/ament_index/resource_index/rosidl_interfaces/carla_ackermann_msgs
+[11.774s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__functions.h
+[11.775s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__struct.h
+[11.775s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__type_support.h
+[11.775s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__functions.h
+[11.776s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__struct.h
+[11.776s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__type_support.h
+[11.776s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__functions.h
+[11.777s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__struct.h
+[11.777s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__type_support.h
+[11.777s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__functions.h
+[11.778s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__struct.h
+[11.778s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__type_support.h
+[11.778s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__functions.h
+[11.779s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__struct.h
+[11.779s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__type_support.h
+[11.779s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_current.h
+[11.780s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_info.h
+[11.780s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_maxima.h
+[11.780s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_status.h
+[11.780s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_target.h
+[11.781s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/rosidl_generator_c__visibility_control.h
+[11.781s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/environment/library_path.sh
+[11.781s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/environment/library_path.dsv
+[11.782s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__rosidl_typesupport_fastrtps_c.h
+[11.783s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__rosidl_typesupport_fastrtps_c.h
+[11.783s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__rosidl_typesupport_fastrtps_c.h
+[11.784s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__rosidl_typesupport_fastrtps_c.h
+[11.784s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__rosidl_typesupport_fastrtps_c.h
+[11.784s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[11.785s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_fastrtps_c.so
+[11.786s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__rosidl_typesupport_fastrtps_cpp.hpp
+[11.786s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__rosidl_typesupport_fastrtps_cpp.hpp
+[11.786s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__rosidl_typesupport_fastrtps_cpp.hpp
+[11.786s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__rosidl_typesupport_fastrtps_cpp.hpp
+[11.787s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__rosidl_typesupport_fastrtps_cpp.hpp
+[11.787s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[11.787s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_fastrtps_cpp.so
+[11.788s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__rosidl_typesupport_introspection_c.h
+[11.788s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__rosidl_typesupport_introspection_c.h
+[11.789s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__rosidl_typesupport_introspection_c.h
+[11.789s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__rosidl_typesupport_introspection_c.h
+[11.789s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__rosidl_typesupport_introspection_c.h
+[11.790s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[11.790s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__builder.hpp
+[11.791s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__struct.hpp
+[11.791s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__traits.hpp
+[11.791s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__builder.hpp
+[11.791s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__struct.hpp
+[11.792s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__traits.hpp
+[11.792s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__builder.hpp
+[11.792s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__struct.hpp
+[11.793s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__traits.hpp
+[11.793s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__builder.hpp
+[11.793s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__struct.hpp
+[11.794s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__traits.hpp
+[11.794s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__builder.hpp
+[11.794s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__struct.hpp
+[11.795s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__traits.hpp
+[11.795s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_current.hpp
+[11.795s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_info.hpp
+[11.796s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_maxima.hpp
+[11.796s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_status.hpp
+[11.796s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/ego_vehicle_control_target.hpp
+[11.797s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_current__rosidl_typesupport_introspection_cpp.hpp
+[11.798s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_info__rosidl_typesupport_introspection_cpp.hpp
+[11.798s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_maxima__rosidl_typesupport_introspection_cpp.hpp
+[11.798s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_status__rosidl_typesupport_introspection_cpp.hpp
+[11.798s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/include/carla_ackermann_msgs/msg/detail/ego_vehicle_control_target__rosidl_typesupport_introspection_cpp.hpp
+[11.799s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/environment/pythonpath.sh
+[11.799s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/environment/pythonpath.dsv
+[11.800s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/__init__.py
+[11.800s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/msg/__init__.py
+[11.801s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/msg/_ego_vehicle_control_current.py
+[11.801s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/msg/_ego_vehicle_control_info.py
+[11.801s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/msg/_ego_vehicle_control_maxima.py
+[11.801s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/msg/_ego_vehicle_control_status.py
+[11.801s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/msg/_ego_vehicle_control_target.py
+[11.802s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/carla_ackermann_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[11.803s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/carla_ackermann_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[11.803s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/carla_ackermann_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[11.804s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__python.so
+[11.804s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlInfo.idl
+[11.805s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlCurrent.idl
+[11.805s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlMaxima.idl
+[11.805s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlStatus.idl
+[11.806s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlTarget.idl
+[11.806s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlInfo.msg
+[11.806s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlCurrent.msg
+[11.807s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlMaxima.msg
+[11.807s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlStatus.msg
+[11.807s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/msg/EgoVehicleControlTarget.msg
+[11.808s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/ament_index/resource_index/package_run_dependencies/carla_ackermann_msgs
+[11.808s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/ament_index/resource_index/parent_prefix_path/carla_ackermann_msgs
+[11.808s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/environment/ament_prefix_path.sh
+[11.809s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/environment/ament_prefix_path.dsv
+[11.809s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/environment/path.sh
+[11.810s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/environment/path.dsv
+[11.810s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/local_setup.bash
+[11.810s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/local_setup.sh
+[11.811s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/local_setup.zsh
+[11.811s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/local_setup.dsv
+[11.811s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/package.dsv
+[11.822s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/ament_index/resource_index/packages/carla_ackermann_msgs
+[11.822s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/rosidl_cmake-extras.cmake
+[11.823s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[11.823s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[11.823s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[11.824s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[11.825s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[11.825s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[11.825s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgsConfig.cmake
+[11.825s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgsConfig-version.cmake
+[11.826s] -- Up-to-date symlink: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/package.xml
+[11.826s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_generator_c.so
+[11.827s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_generator_c.so" to ""
+[11.827s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_introspection_c.so
+[11.828s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_introspection_c.so" to ""
+[11.828s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_c.so
+[11.828s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_c.so" to ""
+[11.829s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_introspection_cpp.so
+[11.829s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[11.829s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_cpp.so
+[11.830s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/libcarla_ackermann_msgs__rosidl_typesupport_cpp.so" to ""
+[11.890s] Compiling '/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/lib/python3.8/site-packages/carla_ackermann_msgs/__init__.py'...
+[11.895s] -- Up-to-date: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_generator_cExport.cmake
+[11.896s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_generator_cExport-noconfig.cmake
+[11.896s] -- Up-to-date: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_typesupport_introspection_cExport.cmake
+[11.896s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[11.896s] -- Up-to-date: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_typesupport_cExport.cmake
+[11.896s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[11.897s] -- Up-to-date: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_generator_cppExport.cmake
+[11.897s] -- Up-to-date: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[11.897s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[11.898s] -- Up-to-date: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_typesupport_cppExport.cmake
+[11.898s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_msgs/share/carla_ackermann_msgs/cmake/carla_ackermann_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[11.905s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ackermann_msgs

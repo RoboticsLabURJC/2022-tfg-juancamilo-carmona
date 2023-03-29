@@ -1,0 +1,243 @@
+[0.910s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types
+[2.472s] -- The C compiler identification is GNU 9.4.0
+[2.472s] -- The CXX compiler identification is GNU 9.4.0
+[2.472s] -- Check for working C compiler: /usr/bin/cc
+[2.472s] -- Check for working C compiler: /usr/bin/cc -- works
+[2.472s] -- Detecting C compiler ABI info
+[2.472s] -- Detecting C compiler ABI info - done
+[2.473s] -- Detecting C compile features
+[2.473s] -- Detecting C compile features - done
+[2.475s] -- Check for working CXX compiler: /usr/bin/c++
+[2.475s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[2.475s] -- Detecting CXX compiler ABI info
+[2.475s] -- Detecting CXX compiler ABI info - done
+[2.475s] -- Detecting CXX compile features
+[2.476s] -- Detecting CXX compile features - done
+[2.476s] -- Found ros_environment: 2.5.1 (/opt/ros/foxy/share/ros_environment/cmake)
+[2.476s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[2.477s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[2.477s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.478s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.478s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[2.478s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.479s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[2.482s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[2.514s] -- Found FastRTPS: /opt/ros/foxy/include  
+[2.695s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.033s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[3.118s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[3.688s] -- Found ament_cmake_cppcheck: 0.9.7 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)
+[3.689s] -- Found ament_cmake_cpplint: 0.9.7 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)
+[3.690s] -- Found ament_cmake_uncrustify: 0.9.7 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)
+[3.704s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[4.346s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.681s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.794s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[4.805s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[4.906s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+[4.907s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[4.907s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[4.907s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[4.975s] -- Found PythonExtra: .so  
+[5.182s] -- Found ament_cmake_flake8: 0.9.7 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)
+[5.186s] -- Found ament_cmake_pep257: 0.9.7 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)
+[5.196s] -- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[5.223s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.224s] -- Added test 'lint_cmake' to check CMake code style
+[5.225s] -- Added test 'xmllint' to check XML markup files
+[5.236s] -- Configuring done
+[5.340s] -- Generating done
+[5.343s] -- Build files have been written to: /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types
+[7.310s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_waypoint_types -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types
+[7.314s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types -- -j12 -l12
+[7.389s] [35m[1mScanning dependencies of target carla_waypoint_types__cpp[0m
+[7.393s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[7.414s] [  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[8.576s] [  4%] Built target carla_waypoint_types__cpp
+[8.634s] [  6%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[8.678s] [  8%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[8.689s] [ 10%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[8.778s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_generator_c[0m
+[8.887s] [ 12%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_generator_c.dir/rosidl_generator_c/carla_waypoint_types/msg/detail/carla_waypoint__functions.c.o[0m
+[8.913s] [ 14%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_generator_c.dir/rosidl_generator_c/carla_waypoint_types/srv/detail/get_waypoint__functions.c.o[0m
+[8.939s] [ 17%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_generator_c.dir/rosidl_generator_c/carla_waypoint_types/srv/detail/get_actor_waypoint__functions.c.o[0m
+[9.153s] [ 19%] [32m[1mLinking C shared library libcarla_waypoint_types__rosidl_generator_c.so[0m
+[9.361s] [ 19%] Built target carla_waypoint_types__rosidl_generator_c
+[9.440s] [ 21%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[9.470s] [ 23%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[9.769s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_fastrtps_cpp[0m
+[9.862s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_waypoint_types/srv/detail/dds_fastrtps/get_waypoint__type_support.cpp.o[0m
+[9.916s] [ 27%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_waypoint_types/msg/detail/dds_fastrtps/carla_waypoint__type_support.cpp.o[0m
+[9.940s] [ 29%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_waypoint_types/srv/detail/dds_fastrtps/get_actor_waypoint__type_support.cpp.o[0m
+[10.018s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_introspection_cpp[0m
+[10.152s] [ 31%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_waypoint_types/srv/detail/get_waypoint__type_support.cpp.o[0m
+[10.154s] [ 34%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_waypoint_types/msg/detail/carla_waypoint__type_support.cpp.o[0m
+[10.157s] [ 36%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_waypoint_types/srv/detail/get_actor_waypoint__type_support.cpp.o[0m
+[10.398s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_cpp[0m
+[10.542s] [ 38%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_waypoint_types/msg/carla_waypoint__type_support.cpp.o[0m
+[10.542s] [ 40%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_waypoint_types/srv/get_waypoint__type_support.cpp.o[0m
+[10.551s] [ 42%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_waypoint_types/srv/get_actor_waypoint__type_support.cpp.o[0m
+[11.801s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_introspection_c[0m
+[11.933s] [ 44%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_waypoint_types/msg/detail/carla_waypoint__type_support.c.o[0m
+[11.966s] [ 46%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_waypoint_types/srv/detail/get_waypoint__type_support.c.o[0m
+[11.969s] [ 48%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_waypoint_types/srv/detail/get_actor_waypoint__type_support.c.o[0m
+[11.969s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_c[0m
+[12.072s] [ 51%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_waypoint_types/msg/carla_waypoint__type_support.cpp.o[0m
+[12.108s] [ 53%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_waypoint_types/srv/get_waypoint__type_support.cpp.o[0m
+[12.203s] [ 55%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_waypoint_types/srv/get_actor_waypoint__type_support.cpp.o[0m
+[12.204s] [ 57%] [32m[1mLinking CXX shared library libcarla_waypoint_types__rosidl_typesupport_introspection_cpp.so[0m
+[12.298s] [ 59%] [32m[1mLinking C shared library libcarla_waypoint_types__rosidl_typesupport_introspection_c.so[0m
+[12.385s] [ 61%] [32m[1mLinking CXX shared library libcarla_waypoint_types__rosidl_typesupport_c.so[0m
+[12.422s] [ 63%] [32m[1mLinking CXX shared library libcarla_waypoint_types__rosidl_typesupport_cpp.so[0m
+[12.495s] [ 63%] Built target carla_waypoint_types__rosidl_typesupport_introspection_c
+[12.547s] [ 65%] [32m[1mLinking CXX shared library libcarla_waypoint_types__rosidl_typesupport_fastrtps_cpp.so[0m
+[12.571s] [ 65%] Built target carla_waypoint_types__rosidl_typesupport_introspection_cpp
+[12.654s] [ 65%] Built target carla_waypoint_types__rosidl_typesupport_cpp
+[12.689s] [ 65%] Built target carla_waypoint_types__rosidl_typesupport_c
+[12.999s] [ 65%] Built target carla_waypoint_types__rosidl_typesupport_fastrtps_cpp
+[13.047s] [ 68%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[14.204s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_fastrtps_c[0m
+[14.260s] [ 70%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_waypoint_types/msg/detail/carla_waypoint__type_support_c.cpp.o[0m
+[14.272s] [ 72%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_waypoint_types/srv/detail/get_waypoint__type_support_c.cpp.o[0m
+[14.284s] [ 74%] [32mBuilding CXX object CMakeFiles/carla_waypoint_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_waypoint_types/srv/detail/get_actor_waypoint__type_support_c.cpp.o[0m
+[15.203s] [ 76%] [32m[1mLinking CXX shared library libcarla_waypoint_types__rosidl_typesupport_fastrtps_c.so[0m
+[15.434s] [ 76%] Built target carla_waypoint_types__rosidl_typesupport_fastrtps_c
+[15.465s] [35m[1mScanning dependencies of target carla_waypoint_types[0m
+[15.485s] [ 76%] Built target carla_waypoint_types
+[15.512s] [35m[1mScanning dependencies of target carla_waypoint_types__py[0m
+[15.531s] [ 78%] [34m[1mGenerating Python code for ROS interfaces[0m
+[16.940s] [ 78%] Built target carla_waypoint_types__py
+[16.964s] [35m[1mScanning dependencies of target carla_waypoint_types__python[0m
+[17.035s] [ 80%] [32mBuilding C object CMakeFiles/carla_waypoint_types__python.dir/rosidl_generator_py/carla_waypoint_types/srv/_get_actor_waypoint_s.c.o[0m
+[17.041s] [ 82%] [32mBuilding C object CMakeFiles/carla_waypoint_types__python.dir/rosidl_generator_py/carla_waypoint_types/msg/_carla_waypoint_s.c.o[0m
+[17.056s] [ 85%] [32mBuilding C object CMakeFiles/carla_waypoint_types__python.dir/rosidl_generator_py/carla_waypoint_types/srv/_get_waypoint_s.c.o[0m
+[17.353s] [ 87%] [32m[1mLinking C shared library rosidl_generator_py/carla_waypoint_types/libcarla_waypoint_types__python.so[0m
+[17.438s] [ 87%] Built target carla_waypoint_types__python
+[17.458s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_fastrtps_c__pyext[0m
+[17.458s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_c__pyext[0m
+[17.458s] [35m[1mScanning dependencies of target carla_waypoint_types__rosidl_typesupport_introspection_c__pyext[0m
+[17.495s] [ 89%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/carla_waypoint_types/_carla_waypoint_types_s.ep.rosidl_typesupport_c.c.o[0m
+[17.495s] [ 91%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/carla_waypoint_types/_carla_waypoint_types_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[17.506s] [ 93%] [32mBuilding C object CMakeFiles/carla_waypoint_types__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/carla_waypoint_types/_carla_waypoint_types_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[17.671s] [ 95%] [32m[1mLinking C shared library rosidl_generator_py/carla_waypoint_types/carla_waypoint_types_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[17.692s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/carla_waypoint_types/carla_waypoint_types_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[17.705s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/carla_waypoint_types/carla_waypoint_types_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[17.762s] [100%] Built target carla_waypoint_types__rosidl_typesupport_introspection_c__pyext
+[17.788s] [100%] Built target carla_waypoint_types__rosidl_typesupport_c__pyext
+[17.860s] [100%] Built target carla_waypoint_types__rosidl_typesupport_fastrtps_c__pyext
+[17.882s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types -- -j12 -l12
+[18.150s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types
+[18.169s] -- Install configuration: ""
+[18.170s] -- Execute custom install script
+[18.171s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/ament_index/resource_index/rosidl_interfaces/carla_waypoint_types
+[18.188s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/carla_waypoint.h
+[18.205s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__functions.h
+[18.225s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__struct.h
+[18.263s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__type_support.h
+[18.283s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/rosidl_generator_c__visibility_control.h
+[18.301s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__functions.h
+[18.316s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__struct.h
+[18.335s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__type_support.h
+[18.357s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__functions.h
+[18.374s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__struct.h
+[18.396s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__type_support.h
+[18.413s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/get_actor_waypoint.h
+[18.434s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/get_waypoint.h
+[18.453s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/environment/library_path.sh
+[18.473s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/environment/library_path.dsv
+[18.499s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__rosidl_typesupport_fastrtps_c.h
+[18.520s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[18.537s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__rosidl_typesupport_fastrtps_c.h
+[18.554s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__rosidl_typesupport_fastrtps_c.h
+[18.574s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_fastrtps_c.so
+[18.593s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__rosidl_typesupport_fastrtps_cpp.hpp
+[18.610s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[18.628s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__rosidl_typesupport_fastrtps_cpp.hpp
+[18.648s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__rosidl_typesupport_fastrtps_cpp.hpp
+[18.664s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_fastrtps_cpp.so
+[18.680s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__rosidl_typesupport_introspection_c.h
+[18.697s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[18.710s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__rosidl_typesupport_introspection_c.h
+[18.725s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__rosidl_typesupport_introspection_c.h
+[18.739s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/carla_waypoint.hpp
+[18.754s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__builder.hpp
+[18.769s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__struct.hpp
+[18.783s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__traits.hpp
+[18.798s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__builder.hpp
+[18.810s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__struct.hpp
+[18.828s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__traits.hpp
+[18.845s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__builder.hpp
+[18.858s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__struct.hpp
+[18.876s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__traits.hpp
+[18.894s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/get_actor_waypoint.hpp
+[18.909s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/get_waypoint.hpp
+[18.927s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/msg/detail/carla_waypoint__rosidl_typesupport_introspection_cpp.hpp
+[18.943s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_actor_waypoint__rosidl_typesupport_introspection_cpp.hpp
+[18.958s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/include/carla_waypoint_types/srv/detail/get_waypoint__rosidl_typesupport_introspection_cpp.hpp
+[18.977s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/environment/pythonpath.sh
+[18.993s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/environment/pythonpath.dsv
+[19.005s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/__init__.py
+[19.023s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/msg/__init__.py
+[19.039s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/msg/_carla_waypoint.py
+[19.052s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/srv/__init__.py
+[19.065s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/srv/_get_actor_waypoint.py
+[19.078s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/srv/_get_waypoint.py
+[19.095s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/carla_waypoint_types_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[19.108s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/carla_waypoint_types_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[19.123s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/carla_waypoint_types_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[19.139s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__python.so
+[19.153s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/msg/CarlaWaypoint.idl
+[19.165s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/srv/GetWaypoint.idl
+[19.180s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/srv/GetActorWaypoint.idl
+[19.194s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/msg/CarlaWaypoint.msg
+[19.210s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/srv/GetWaypoint.srv
+[19.224s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/srv/GetWaypoint_Request.msg
+[19.236s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/srv/GetWaypoint_Response.msg
+[19.250s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/srv/GetActorWaypoint.srv
+[19.264s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/srv/GetActorWaypoint_Request.msg
+[19.281s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/srv/GetActorWaypoint_Response.msg
+[19.299s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/ament_index/resource_index/package_run_dependencies/carla_waypoint_types
+[19.314s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/ament_index/resource_index/parent_prefix_path/carla_waypoint_types
+[19.327s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/environment/ament_prefix_path.sh
+[19.340s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/environment/ament_prefix_path.dsv
+[19.352s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/environment/path.sh
+[19.368s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/environment/path.dsv
+[19.380s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/local_setup.bash
+[19.396s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/local_setup.sh
+[19.408s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/local_setup.zsh
+[19.428s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/local_setup.dsv
+[19.444s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/package.dsv
+[19.463s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/ament_index/resource_index/packages/carla_waypoint_types
+[19.477s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/rosidl_cmake-extras.cmake
+[19.493s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/ament_cmake_export_dependencies-extras.cmake
+[19.511s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/ament_cmake_export_libraries-extras.cmake
+[19.535s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/ament_cmake_export_targets-extras.cmake
+[19.553s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/ament_cmake_export_include_directories-extras.cmake
+[19.575s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[19.596s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[19.617s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_typesConfig.cmake
+[19.637s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_typesConfig-version.cmake
+[19.656s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/package.xml
+[19.672s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_generator_c.so
+[19.673s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_generator_c.so" to ""
+[19.673s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_introspection_c.so
+[19.674s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_introspection_c.so" to ""
+[19.674s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_c.so
+[19.674s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_c.so" to ""
+[19.675s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_introspection_cpp.so
+[19.675s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_introspection_cpp.so" to ""
+[19.676s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_cpp.so
+[19.676s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/libcarla_waypoint_types__rosidl_typesupport_cpp.so" to ""
+[19.782s] Compiling '/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages/carla_waypoint_types/__init__.py'...
+[19.791s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_generator_cExport.cmake
+[19.792s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_generator_cExport-noconfig.cmake
+[19.792s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_typesupport_introspection_cExport.cmake
+[19.793s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[19.793s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_typesupport_cExport.cmake
+[19.793s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_typesupport_cExport-noconfig.cmake
+[19.793s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_generator_cppExport.cmake
+[19.794s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_typesupport_introspection_cppExport.cmake
+[19.794s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[19.794s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_typesupport_cppExport.cmake
+[19.794s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/share/carla_waypoint_types/cmake/carla_waypoint_types__rosidl_typesupport_cppExport-noconfig.cmake
+[19.809s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_waypoint_types
