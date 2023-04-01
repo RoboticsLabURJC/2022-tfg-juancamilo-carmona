@@ -138,7 +138,7 @@ class VehicleTeleop(Node):
         self.latitude = pos.latitude
         self.longitude = pos.longitude
         if pos.latitude < 0.0001358:
-            self.archivo_csv.close()
+            self.csv_file.close()
             exit()
 
 
@@ -195,7 +195,7 @@ class VehicleTeleop(Node):
 
 
     def controlador(self, sig, frame):
-        self.archivo_csv.close()
+        self.csv_file.close()
         exit()
 
     def control_vehicle(self):        
@@ -254,8 +254,10 @@ class VehicleTeleop(Node):
 
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
-                
-        self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering), self.latitude, self.longitude, self.line_detected_num ])
+
+        if self.last_fps != 0:
+            self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering), self.latitude, self.longitude, self.line_detected_num ])
+
         self.line_detected_num = 0
 
     def set_vehicle_control_manual_override(self):
@@ -500,7 +502,7 @@ class VehicleTeleop(Node):
 
             if not right_line_x and not right_line_y and not left_line_x and not left_line_y:
                 self.get_logger().error("no lane lines detected")
-                self.archivo_csv.close()
+                self.csv_file.close()
                 exit()  
                 
             #line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
