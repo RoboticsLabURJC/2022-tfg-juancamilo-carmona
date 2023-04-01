@@ -138,7 +138,7 @@ class VehicleTeleop(Node):
         self.latitude = pos.latitude
         self.longitude = pos.longitude
         if pos.latitude < 0.0001358:
-            self.archivo_csv.close()
+            self.csv_file.close()
             exit()
 
 
@@ -161,8 +161,6 @@ class VehicleTeleop(Node):
 
         if self.program_start_time == -100:
             self.program_start_time = time.time()
-
-
 
         img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
 
@@ -195,7 +193,7 @@ class VehicleTeleop(Node):
 
 
     def controlador(self, sig, frame):
-        self.archivo_csv.close()
+        self.csv_file.close()
         exit()
 
     def control_vehicle(self):        
@@ -270,10 +268,6 @@ class VehicleTeleop(Node):
         """
         self.auto_pilot_enable_publisher.publish(Bool(data=True))
 
-
-    def vehicle_control_thread(self):
-        spin_thread = Thread(target=self.control_vehicle)
-        spin_thread.start()
 
     #para detectar blanco utiliza valores  s_thresh=(100, 255), sx_thresh=(15, 255)
   
@@ -500,7 +494,7 @@ class VehicleTeleop(Node):
 
             if not right_line_x and not right_line_y and not left_line_x and not left_line_y:
                 self.get_logger().error("no lane lines detected")
-                self.archivo_csv.close()
+                self.csv_file.close()
                 exit()  
                 
             #line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
