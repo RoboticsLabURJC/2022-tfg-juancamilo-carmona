@@ -179,7 +179,7 @@ class VehicleTeleop(Node):
 
         self.show_fps(filter_img)
 
-        #final_image = self.bridge.cv2_to_imgmsg(filter_img, encoding="passthrough")  
+        final_image = self.bridge.cv2_to_imgmsg(filter_img, encoding="passthrough")  
                 
         array = numpy.frombuffer(filter_img.data, dtype=numpy.dtype("uint8"))
         array = numpy.reshape(array, (ros_img.height, ros_img.width, 4))
@@ -383,7 +383,7 @@ class VehicleTeleop(Node):
 
   
     #para detectar blanco utiliza valores  s_thresh=(100, 255), sx_thresh=(15, 255)
-    def pipeline(self,img, s_thresh=(200, 255), sx_thresh=(15, 255)):
+    def pipeline(self,img, s_thresh=(200, 255), sx_thresh=(50, 255)):
 
         img = numpy.copy(img)
 
@@ -416,7 +416,7 @@ class VehicleTeleop(Node):
 
     def perspective_warp(self,img, 
                         dst_size=(800,600),
-                        src=numpy.float32([(0.43,0.65),(0.58,0.65),(0.1,1),(1,1)]),
+                        src=numpy.float32([(0.43,0.6),(0.58,0.6),(0.1,1),(1,1)]),
                         dst=numpy.float32([(0,0), (1, 0), (0,1), (1,1)])):
         img_size = numpy.float32([(img.shape[1],img.shape[0])])
         src = src* img_size
@@ -439,7 +439,7 @@ class VehicleTeleop(Node):
     def inv_perspective_warp(self,img, 
                         dst_size=(800,600),
                         src=numpy.float32([(0,0), (1, 0), (0,1), (1,1)]),
-                        dst=numpy.float32([(0.43,0.65),(0.58,0.65),(0.1,1),(1,1)])):
+                        dst=numpy.float32([(0.43,0.6),(0.58,0.6),(0.1,1),(1,1)])):
         img_size = numpy.float32([(img.shape[1],img.shape[0])])
         src = src* img_size
         # For destination points, I'm arbitrarily choosing some points to be
