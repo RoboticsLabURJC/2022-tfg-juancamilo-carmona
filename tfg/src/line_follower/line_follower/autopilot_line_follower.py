@@ -20,6 +20,7 @@ from std_msgs.msg import Float32
 from threading import Thread
 from carla_msgs.msg import CarlaEgoVehicleControl
 from std_msgs.msg import Bool
+from geometry_msgs.msg import Twist
 from sensor_msgs.msg import NavSatFix
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 import cv2
@@ -85,6 +86,7 @@ class VehicleTeleop(Node):
         self.vehicle_control_publisher = self.create_publisher( CarlaEgoVehicleControl, "/carla/ego_vehicle/vehicle_control_cmd", 10)       
         self.vehicle_control_manual_override_publisher = self.create_publisher( Bool, "/carla/ego_vehicle/vehicle_control_manual_override",10)
         self.auto_pilot_enable_publisher = self.create_publisher(Bool,"/carla/ego_vehicle/enable_autopilot",10)
+        self.target_speed_publisher = self.create_publisher(Twist,"/carla/ego_vehicle/control/set_target_velocity",10)
 
         self.control_msg = CarlaEgoVehicleControl()
 
@@ -521,6 +523,10 @@ class VehicleTeleop(Node):
             self.min_y = min_y
             self.max_y = max_y
             self.min_y = min_y
+
+            velocidad = Twist()
+            velocidad.linear.x = 20.0
+            self.target_speed_publisher.publish(velocidad)
 
             return img
 
