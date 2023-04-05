@@ -20,6 +20,7 @@ from std_msgs.msg import Float32
 from threading import Thread
 from carla_msgs.msg import CarlaEgoVehicleControl
 from std_msgs.msg import Bool
+from geometry_msgs.msg import Twist
 from sensor_msgs.msg import NavSatFix
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 import cv2
@@ -39,7 +40,7 @@ class VehicleTeleop(Node):
 
         self.bridge = CvBridge()
 
-        file_name = '/home/camilo/Escritorio/tfg_metrics/canny_metrics_5.csv'
+        file_name = '/home/camilo/Escritorio/tfg_metrics/autopilot_metrics_1.csv'
         self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
         self.csv_writer = csv.writer(self.csv_file)        
@@ -85,6 +86,7 @@ class VehicleTeleop(Node):
         self.vehicle_control_publisher = self.create_publisher( CarlaEgoVehicleControl, "/carla/ego_vehicle/vehicle_control_cmd", 10)       
         self.vehicle_control_manual_override_publisher = self.create_publisher( Bool, "/carla/ego_vehicle/vehicle_control_manual_override",10)
         self.auto_pilot_enable_publisher = self.create_publisher(Bool,"/carla/ego_vehicle/enable_autopilot",10)
+        self.target_speed_publisher = self.create_publisher(Twist,"/carla/ego_vehicle/control/set_target_velocity",10)
 
         self.control_msg = CarlaEgoVehicleControl()
 
@@ -138,7 +140,7 @@ class VehicleTeleop(Node):
         self.latitude = pos.latitude
         self.longitude = pos.longitude
         if pos.latitude < 0.0001358:
-            self.archivo_csv.close()
+            self.csv_file.close()
             exit()
 
 
@@ -195,113 +197,9 @@ class VehicleTeleop(Node):
 
 
     def controlador(self, sig, frame):
-        self.archivo_csv.close()
+        self.csv_file.close()
         exit()
 
-    """"
-    def control_vehicle(self):        
-
-        self.set_autopilot()
-        self.set_vehicle_control_manual_override()
-        Counter = 0
-        acelerate = 0
-        actual_error = 0
-        i_error = 0
-        last_error = 0
-        INITIAL_CX = 0
-        INITIAL_CY = 0
-        speedup = 0
-
-
-        kp_straight = 0.08
-        kd_straight  = 0.1
-        ki_straight = 0.000002
-
-        kp_turn = 0.1
-        kd_turn= 0.15
-        ki_turn = 0.000004
-
-        adjustment_num = 0
-
-        # Abre el archivo CSV en modo escritura
-        csv_writer = csv.writer(self.archivo_csv)
-        
-        csv_row = ['fps','cpu usage','Memory usage','PID adjustment num','PID adjustment intesity']
-        csv_writer.writerow(csv_row)
-        
-        while True:
-
-            actual_error = self.error            
-
-            actual_error = (actual_error) / 100  #error
-            d_error =  actual_error - last_error #derivative erro
-            
-            i_error = i_error + actual_error #integral
-            
-            if actual_error >= 0 and last_error < 0:
-                adjustment_num = adjustment_num + 1
-
-            if actual_error <= 0 and last_error > 0:
-                adjustment_num = adjustment_num + 1
-            
-
-
-            if ((actual_error < 50/100) and ( actual_error > -50/100)):
-
-                #self.get_logger().error("straight " + str(stering))
-                stering = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
-
-                if stering > 1:
-                    self.control_msg.steer = 1.0
-
-                elif stering <  -1.0:                    
-                    self.control_msg.steer = -1.0
-
-                else:
-                    self.control_msg.steer = stering
-
-                #if(actual_error == 0):
-                    #self.control_msg.throttle = 1.0                          
-                #else:
-                    #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
-            if ((actual_error < 10/100) and ( actual_error > -10/100)):
-                self.control_msg.steer = 0.0
-            else :
-                stering = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
-
-                if stering > 1:
-                    self.control_msg.steer = 1.0
-
-                elif stering <  -1.0:
-                    self.control_msg.steer = -1.0
-
-                else:
-                    self.control_msg.steer = stering
-
-                #if(actual_error == 0):
-                    #self.control_msg.throttle = 1.0                          
-                #else:
-                    #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
-      
-            if self.speed >= 20:
-                self.control_msg.throttle = 0.0
-            else:
-                self.control_msg.throttle = 1.0                          
-
-            last_error = actual_error
-            self.vehicle_control_publisher.publish(self.control_msg)
-            
-            #el pid puede obtenerse fuera del bucle
-            pid = os.getpid()
-            process = psutil.Process(pid)
-            memory_usage = process.memory_info().rss    
-
-            #cpu_percent = psutil.cpu_percent()
-            time.sleep(0.1)
-
-            cpu_percent = process.cpu_percent(interval=0.1)
-            csv_writer.writerow([self.last_fps, cpu_percent , memory_usage, adjustment_num, stering])
-    """
     def control_vehicle(self):        
 
         actual_error = self.error            
@@ -352,13 +250,13 @@ class VehicleTeleop(Node):
             self.control_msg.throttle = 1.0                          
 
         self.last_error = actual_error
-        self.vehicle_control_publisher.publish(self.control_msg)
+        #self.vehicle_control_publisher.publish(self.control_msg)
         
         #el pid puede obtenerse fuera del bucle
 
         memory_usage = self.process.memory_info().rss    
         cpu_percent = self.process.cpu_percent()
-                
+
         if self.last_fps != 0:
             self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering), self.latitude, self.longitude, self.line_detected_num ])
 
@@ -374,7 +272,7 @@ class VehicleTeleop(Node):
         """
         enable/disable the autopilot
         """
-        self.auto_pilot_enable_publisher.publish(Bool(data=False))
+        self.auto_pilot_enable_publisher.publish(Bool(data=True))
 
 
     def vehicle_control_thread(self):
@@ -470,6 +368,8 @@ class VehicleTeleop(Node):
         return img
 
     def line_filter(self, img):
+        
+        self.auto_pilot_enable_publisher.publish(Bool(data=True))
 
         # Convert to grayscale here.
         gray_image = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)# Call Canny Edge Detection here.
@@ -604,7 +504,7 @@ class VehicleTeleop(Node):
 
             if not right_line_x and not right_line_y and not left_line_x and not left_line_y:
                 self.get_logger().error("no lane lines detected")
-                self.archivo_csv.close()
+                self.csv_file.close()
                 exit()  
                 
             #line_image = self.draw_lines(img,[[[left_x_start, max_y, left_x_end, min_y],[right_x_start, max_y, right_x_end, min_y],]],thickness=5,)
@@ -623,6 +523,10 @@ class VehicleTeleop(Node):
             self.min_y = min_y
             self.max_y = max_y
             self.min_y = min_y
+
+            velocidad = Twist()
+            velocidad.linear.x = 20.0
+            self.target_speed_publisher.publish(velocidad)
 
             return img
 
