@@ -1,0 +1,265 @@
+[0.564s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types
+[1.359s] -- The C compiler identification is GNU 9.4.0
+[1.359s] -- The CXX compiler identification is GNU 9.4.0
+[1.359s] -- Check for working C compiler: /usr/bin/cc
+[1.359s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.360s] -- Detecting C compiler ABI info
+[1.360s] -- Detecting C compiler ABI info - done
+[1.361s] -- Detecting C compile features
+[1.361s] -- Detecting C compile features - done
+[1.362s] -- Check for working CXX compiler: /usr/bin/c++
+[1.363s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.363s] -- Detecting CXX compiler ABI info
+[1.363s] -- Detecting CXX compiler ABI info - done
+[1.364s] -- Detecting CXX compile features
+[1.364s] -- Detecting CXX compile features - done
+[1.365s] -- Found ros_environment: 2.5.1 (/opt/ros/foxy/share/ros_environment/cmake)
+[1.365s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.365s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.366s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.366s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.366s] -- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)
+[1.381s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.382s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.496s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.543s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.627s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.655s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[1.718s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.756s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[2.013s] -- Found ament_cmake_cppcheck: 0.9.7 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)
+[2.018s] -- Found ament_cmake_cpplint: 0.9.7 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)
+[2.024s] -- Found ament_cmake_uncrustify: 0.9.7 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)
+[2.029s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[2.469s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.662s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.705s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[2.707s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[2.748s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+[2.749s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.749s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[2.749s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[2.788s] -- Found PythonExtra: .so  
+[2.947s] -- Found ament_cmake_flake8: 0.9.7 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)
+[2.949s] -- Found ament_cmake_pep257: 0.9.7 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)
+[2.956s] -- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.973s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.973s] -- Added test 'lint_cmake' to check CMake code style
+[2.974s] -- Added test 'xmllint' to check XML markup files
+[2.982s] -- Configuring done
+[3.037s] -- Generating done
+[3.040s] -- Build files have been written to: /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types
+[4.000s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake /home/camilo/2022-tfg-juancamilo-carmona/tfg/src/ros-bridge/carla_ros_scenario_runner_types -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types
+[4.001s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types -- -j12 -l12
+[4.298s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[4.298s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__cpp[0m
+[4.300s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[4.927s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_generator_c[0m
+[4.973s] [  7%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_generator_c.dir/rosidl_generator_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__functions.c.o[0m
+[4.973s] [  7%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_generator_c.dir/rosidl_generator_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario__functions.c.o[0m
+[4.988s] [  9%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_generator_c.dir/rosidl_generator_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__functions.c.o[0m
+[5.008s] [ 10%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_generator_c.dir/rosidl_generator_c/carla_ros_scenario_runner_types/srv/detail/execute_scenario__functions.c.o[0m
+[5.041s] [ 10%] Built target carla_ros_scenario_runner_types__cpp
+[5.084s] [ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[5.103s] [ 14%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[5.126s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[5.186s] [ 18%] [32m[1mLinking C shared library libcarla_ros_scenario_runner_types__rosidl_generator_c.so[0m
+[5.293s] [ 18%] Built target carla_ros_scenario_runner_types__rosidl_generator_c
+[5.361s] [ 20%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[5.371s] [ 21%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[6.404s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_cpp[0m
+[6.495s] [ 23%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ros_scenario_runner_types/msg/carla_scenario__type_support.cpp.o[0m
+[6.536s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ros_scenario_runner_types/srv/execute_scenario__type_support.cpp.o[0m
+[6.536s] [ 27%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ros_scenario_runner_types/msg/carla_scenario_list__type_support.cpp.o[0m
+[6.537s] [ 29%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ros_scenario_runner_types/msg/carla_scenario_runner_status__type_support.cpp.o[0m
+[6.653s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_c[0m
+[6.696s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp[0m
+[6.736s] [ 30%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ros_scenario_runner_types/msg/carla_scenario__type_support.cpp.o[0m
+[6.758s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp[0m
+[6.782s] [ 32%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ros_scenario_runner_types/msg/carla_scenario_list__type_support.cpp.o[0m
+[6.782s] [ 34%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ros_scenario_runner_types/msg/carla_scenario_runner_status__type_support.cpp.o[0m
+[6.783s] [ 36%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ros_scenario_runner_types/msg/detail/dds_fastrtps/carla_scenario__type_support.cpp.o[0m
+[6.810s] [ 38%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ros_scenario_runner_types/msg/detail/dds_fastrtps/carla_scenario_list__type_support.cpp.o[0m
+[6.822s] [ 40%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ros_scenario_runner_types/srv/execute_scenario__type_support.cpp.o[0m
+[6.826s] [ 41%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.cpp.o[0m
+[6.915s] [ 43%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ros_scenario_runner_types/msg/detail/dds_fastrtps/carla_scenario_runner_status__type_support.cpp.o[0m
+[6.916s] [ 45%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.cpp.o[0m
+[6.982s] [ 47%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_c.so[0m
+[7.066s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c[0m
+[7.071s] [ 47%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_c
+[7.082s] [ 49%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.cpp.o[0m
+[7.093s] [ 50%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ros_scenario_runner_types/srv/detail/dds_fastrtps/execute_scenario__type_support.cpp.o[0m
+[7.151s] [ 52%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.c.o[0m
+[7.216s] [ 54%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.c.o[0m
+[7.375s] [ 56%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.c.o[0m
+[7.396s] [ 58%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.cpp.o[0m
+[7.559s] [ 60%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.c.o[0m
+[7.712s] [ 61%] [32m[1mLinking C shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.so[0m
+[7.775s] [ 63%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_cpp.so[0m
+[7.854s] [ 63%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c
+[8.070s] [ 63%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_cpp
+[8.393s] [ 65%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.so[0m
+[8.397s] [ 67%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.so[0m
+[8.529s] [ 67%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp
+[8.547s] [ 67%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp
+[8.563s] [ 69%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[9.118s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c[0m
+[9.139s] [ 70%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support_c.cpp.o[0m
+[9.140s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support_c.cpp.o[0m
+[9.141s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support_c.cpp.o[0m
+[9.141s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support_c.cpp.o[0m
+[9.691s] [ 78%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.so[0m
+[9.772s] [ 78%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c
+[9.781s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types[0m
+[9.794s] [ 78%] Built target carla_ros_scenario_runner_types
+[9.819s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__py[0m
+[9.829s] [ 80%] [34m[1mGenerating Python code for ROS interfaces[0m
+[10.712s] [ 80%] Built target carla_ros_scenario_runner_types__py
+[10.722s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__python[0m
+[10.752s] [ 83%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__python.dir/rosidl_generator_py/carla_ros_scenario_runner_types/msg/_carla_scenario_s.c.o[0m
+[10.752s] [ 83%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__python.dir/rosidl_generator_py/carla_ros_scenario_runner_types/msg/_carla_scenario_list_s.c.o[0m
+[10.752s] [ 85%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__python.dir/rosidl_generator_py/carla_ros_scenario_runner_types/msg/_carla_scenario_runner_status_s.c.o[0m
+[10.753s] [ 87%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__python.dir/rosidl_generator_py/carla_ros_scenario_runner_types/srv/_execute_scenario_s.c.o[0m
+[10.894s] [ 89%] [32m[1mLinking C shared library rosidl_generator_py/carla_ros_scenario_runner_types/libcarla_ros_scenario_runner_types__python.so[0m
+[10.939s] [ 89%] Built target carla_ros_scenario_runner_types__python
+[10.949s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c__pyext[0m
+[10.949s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c__pyext[0m
+[10.952s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_c__pyext[0m
+[10.965s] [ 90%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/carla_ros_scenario_runner_types/_carla_ros_scenario_runner_types_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[10.972s] [ 92%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/carla_ros_scenario_runner_types/_carla_ros_scenario_runner_types_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[10.973s] [ 94%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/carla_ros_scenario_runner_types/_carla_ros_scenario_runner_types_s.ep.rosidl_typesupport_c.c.o[0m
+[11.073s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[11.094s] [ 98%] [32m[1mLinking CXX shared library rosidl_generator_py/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[11.107s] [100%] [32m[1mLinking C shared library rosidl_generator_py/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[11.119s] [100%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c__pyext
+[11.147s] [100%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_c__pyext
+[11.160s] [100%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c__pyext
+[11.172s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --build /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types -- -j12 -l12
+[11.250s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types
+[11.258s] -- Install configuration: ""
+[11.258s] -- Execute custom install script
+[11.259s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/ament_index/resource_index/rosidl_interfaces/carla_ros_scenario_runner_types
+[11.267s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario.h
+[11.275s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario_list.h
+[11.283s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario_runner_status.h
+[11.292s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__functions.h
+[11.300s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__struct.h
+[11.309s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.h
+[11.317s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__functions.h
+[11.325s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__struct.h
+[11.332s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.h
+[11.341s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__functions.h
+[11.349s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__struct.h
+[11.358s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.h
+[11.366s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_generator_c__visibility_control.h
+[11.375s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__functions.h
+[11.383s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__struct.h
+[11.391s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.h
+[11.399s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/execute_scenario.h
+[11.408s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/library_path.sh
+[11.416s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/library_path.dsv
+[11.425s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__rosidl_typesupport_fastrtps_c.h
+[11.433s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__rosidl_typesupport_fastrtps_c.h
+[11.440s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__rosidl_typesupport_fastrtps_c.h
+[11.448s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[11.456s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__rosidl_typesupport_fastrtps_c.h
+[11.465s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.so
+[11.473s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__rosidl_typesupport_fastrtps_cpp.hpp
+[11.481s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__rosidl_typesupport_fastrtps_cpp.hpp
+[11.488s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__rosidl_typesupport_fastrtps_cpp.hpp
+[11.496s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[11.505s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__rosidl_typesupport_fastrtps_cpp.hpp
+[11.513s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.so
+[11.521s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__rosidl_typesupport_introspection_c.h
+[11.529s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__rosidl_typesupport_introspection_c.h
+[11.538s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__rosidl_typesupport_introspection_c.h
+[11.546s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[11.555s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__rosidl_typesupport_introspection_c.h
+[11.564s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario.hpp
+[11.572s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario_list.hpp
+[11.580s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario_runner_status.hpp
+[11.589s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__builder.hpp
+[11.598s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__struct.hpp
+[11.607s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__traits.hpp
+[11.615s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__builder.hpp
+[11.624s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__struct.hpp
+[11.632s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__traits.hpp
+[11.641s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__builder.hpp
+[11.649s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__struct.hpp
+[11.658s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__traits.hpp
+[11.666s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__builder.hpp
+[11.675s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__struct.hpp
+[11.683s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__traits.hpp
+[11.693s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/execute_scenario.hpp
+[11.703s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__rosidl_typesupport_introspection_cpp.hpp
+[11.711s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__rosidl_typesupport_introspection_cpp.hpp
+[11.719s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__rosidl_typesupport_introspection_cpp.hpp
+[11.727s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__rosidl_typesupport_introspection_cpp.hpp
+[11.736s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/pythonpath.sh
+[11.745s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/pythonpath.dsv
+[11.753s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/__init__.py
+[11.762s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/__init__.py
+[11.769s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario.py
+[11.780s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario_list.py
+[11.790s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario_runner_status.py
+[11.799s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/srv/__init__.py
+[11.807s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/srv/_execute_scenario.py
+[11.820s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[11.832s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[11.840s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[11.849s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__python.so
+[11.857s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenario.idl
+[11.866s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenarioList.idl
+[11.878s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenarioRunnerStatus.idl
+[11.891s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/srv/ExecuteScenario.idl
+[11.904s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenario.msg
+[11.917s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenarioList.msg
+[11.929s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenarioRunnerStatus.msg
+[11.940s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/srv/ExecuteScenario.srv
+[11.947s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/srv/ExecuteScenario_Request.msg
+[11.958s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/srv/ExecuteScenario_Response.msg
+[11.967s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/ament_index/resource_index/package_run_dependencies/carla_ros_scenario_runner_types
+[11.975s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/ament_index/resource_index/parent_prefix_path/carla_ros_scenario_runner_types
+[11.984s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/ament_prefix_path.sh
+[11.993s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/ament_prefix_path.dsv
+[12.004s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/path.sh
+[12.015s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/path.dsv
+[12.023s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/local_setup.bash
+[12.032s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/local_setup.sh
+[12.041s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/local_setup.zsh
+[12.051s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/local_setup.dsv
+[12.060s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/package.dsv
+[12.072s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/ament_index/resource_index/packages/carla_ros_scenario_runner_types
+[12.083s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/rosidl_cmake-extras.cmake
+[12.097s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/ament_cmake_export_dependencies-extras.cmake
+[12.102s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/ament_cmake_export_libraries-extras.cmake
+[12.111s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/ament_cmake_export_targets-extras.cmake
+[12.120s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/ament_cmake_export_include_directories-extras.cmake
+[12.128s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[12.138s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[12.147s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_typesConfig.cmake
+[12.156s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_typesConfig-version.cmake
+[12.165s] -- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/package.xml
+[12.174s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_generator_c.so
+[12.175s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_generator_c.so" to ""
+[12.175s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.so
+[12.175s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.so" to ""
+[12.175s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_c.so
+[12.176s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_c.so" to ""
+[12.176s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.so
+[12.176s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.so" to ""
+[12.176s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_cpp.so
+[12.176s] -- Set runtime path of "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_cpp.so" to ""
+[12.231s] Compiling '/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/__init__.py'...
+[12.237s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_generator_cExport.cmake
+[12.238s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_generator_cExport-noconfig.cmake
+[12.238s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cExport.cmake
+[12.238s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[12.238s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_cExport.cmake
+[12.238s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_cExport-noconfig.cmake
+[12.238s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_generator_cppExport.cmake
+[12.239s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cppExport.cmake
+[12.239s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[12.239s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_cppExport.cmake
+[12.239s] -- Installing: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_cppExport-noconfig.cmake
+[12.450s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/rqt_carla_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/line_follower:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_publisher:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_teleop:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ackermann_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_walker_agent:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_twist_to_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:/opt/ros/foxy /usr/bin/cmake --install /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_scenario_runner_types

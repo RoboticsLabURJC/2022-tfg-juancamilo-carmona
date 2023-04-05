@@ -1,6 +1,8 @@
 package.xml
 setup.cfg
 setup.py
+launch/autopilot_line_follower.launch.py
+launch/carla_generate_autopilot_vehicle.launch.py
 launch/carla_generate_vehicle.launch.py
 launch/line_follower.launch.py
 launch/spawn_vehicle.launch.py

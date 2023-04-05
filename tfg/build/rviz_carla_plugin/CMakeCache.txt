@@ -632,7 +632,7 @@ assimp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/assimp-5.0
 builtin_interfaces_DIR:PATH=/opt/ros/foxy/share/builtin_interfaces/cmake
 
 //The directory containing a CMake configuration file for carla_msgs.
-carla_msgs_DIR:PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/share/carla_msgs/cmake
+carla_msgs_DIR:PATH=/opt/ros/foxy/share/carla_msgs/cmake
 
 //The directory containing a CMake configuration file for carla_ros_scenario_runner_types.
 carla_ros_scenario_runner_types_DIR:PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake
@@ -1364,5 +1364,5 @@ pkgcfg_lib_PKG_FONTCONFIG_freetype-ADVANCED:INTERNAL=1
 pkgcfg_lib__OPENSSL_crypto-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib__OPENSSL_ssl
 pkgcfg_lib__OPENSSL_ssl-ADVANCED:INTERNAL=1
-prefix_result:INTERNAL=SSL;IPv6;UnixSockets;libz;brotli;AsynchDNS;IDN;GSS-API;PSL;SPNEGO;Kerberos;NTLM;NTLM_WB;TLS-SRP;HTTP2;HTTPS-proxy
+prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
 

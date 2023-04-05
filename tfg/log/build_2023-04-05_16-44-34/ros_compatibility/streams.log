@@ -1,0 +1,23 @@
+[2.143s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/build --no-deps install_data
+[2.556s] running develop
+[2.779s] running egg_info
+[2.780s] creating src/ros_compatibility.egg-info
+[2.781s] writing src/ros_compatibility.egg-info/PKG-INFO
+[2.781s] writing dependency_links to src/ros_compatibility.egg-info/dependency_links.txt
+[2.781s] writing requirements to src/ros_compatibility.egg-info/requires.txt
+[2.781s] writing top-level names to src/ros_compatibility.egg-info/top_level.txt
+[2.781s] writing manifest file 'src/ros_compatibility.egg-info/SOURCES.txt'
+[2.812s] reading manifest file 'src/ros_compatibility.egg-info/SOURCES.txt'
+[2.812s] writing manifest file 'src/ros_compatibility.egg-info/SOURCES.txt'
+[2.846s] running build_ext
+[2.846s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages/site.py
+[2.850s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages/ros-compatibility.egg-link (link to src)
+[2.850s] 
+[2.850s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src
+[2.850s] running install_data
+[2.851s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/share/ament_index
+[2.851s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/share/ament_index/resource_index
+[2.851s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/share/ament_index/resource_index/packages
+[2.852s] copying resource/ros_compatibility -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/share/ament_index/resource_index/packages
+[2.855s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/share/ros_compatibility
+[2.878s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility' returned '0': PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/build --no-deps install_data

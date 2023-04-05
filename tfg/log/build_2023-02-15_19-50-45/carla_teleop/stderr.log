@@ -1,2 +1,0 @@
-/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:368: UserWarning: Unbuilt egg for carla-manual-control 0.0.0 (/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control/src)
-  self.local_index = Environment(self.shadow_path + sys.path)

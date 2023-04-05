@@ -1,1 +1,0 @@
-/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_msgs/ament_cmake_environment_hooks/local_setup.bash

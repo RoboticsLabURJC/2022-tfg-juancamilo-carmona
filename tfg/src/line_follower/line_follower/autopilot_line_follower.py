@@ -351,10 +351,10 @@ class VehicleTeleop(Node):
             else:
                 self.control_msg.steer = stering
 
-        if self.speed >= 20:
-            self.control_msg.throttle = 0.0            
-        else:
-            self.control_msg.throttle = 1.0                          
+        if self.speed <= 19:
+            velocity = Twist()
+            velocity.linear.x = 20.0
+            self.target_speed_publisher.publish(velocity)
 
         self.last_error = actual_error
         #self.vehicle_control_publisher.publish(self.control_msg)
@@ -368,10 +368,6 @@ class VehicleTeleop(Node):
             self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, abs(stering), self.latitude, self.longitude, self.line_detected_num ])
 
         self.line_detected_num = 0
-
-        velocity = Twist()
-        velocity.linear.x = 20.0
-        self.target_speed_publisher.publish(velocity)
 
     def set_vehicle_control_manual_override(self):
         """
@@ -628,7 +624,9 @@ class VehicleTeleop(Node):
         center_x = int(img.shape[1]/2)
         
         cv2.line(img, (center_x, 450), (center_x, 600), [0, 255, 0], 2)    
-        cv2.line(img, (int(center), 450), (int(center), 600), [0, 0, 255], 1)
+
+        if not math.isnan(center):
+            cv2.line(img, (int(center), 450), (int(center), 600), [0, 0, 255], 1)
 
         self.error =  center - center_x
 

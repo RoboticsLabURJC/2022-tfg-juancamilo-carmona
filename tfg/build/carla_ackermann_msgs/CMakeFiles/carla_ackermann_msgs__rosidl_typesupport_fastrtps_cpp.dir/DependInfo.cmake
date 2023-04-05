@@ -28,7 +28,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "rosidl_generator_cpp"
   "rosidl_typesupport_fastrtps_cpp"
   "/opt/ros/foxy/include"
-  "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include"
   "/opt/ros/foxy/include/foonathan_memory"
   )
 

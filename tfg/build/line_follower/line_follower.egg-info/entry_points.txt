@@ -1,3 +1,4 @@
 [console_scripts]
+autopilot_line_follower = line_follower.autopilot_line_follower:main
 line_follower = line_follower.line_follower:main
 

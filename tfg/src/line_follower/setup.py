@@ -21,7 +21,7 @@ setup(
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['line_follower = line_follower.line_follower:main'],
+        'console_scripts': ['line_follower = line_follower.line_follower:main', 'autopilot_line_follower = line_follower.autopilot_line_follower:main' ],
     },    
     
 )

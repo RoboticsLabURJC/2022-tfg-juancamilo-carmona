@@ -35,9 +35,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/foxy/include/std_msgs/msg/dds_fastrtps_c"
   "/opt/ros/foxy/include/std_msgs/srv/dds_fastrtps_c"
   "/opt/ros/foxy/include/std_msgs/action/dds_fastrtps_c"
-  "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/msg/dds_fastrtps_c"
-  "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/srv/dds_fastrtps_c"
-  "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include/carla_msgs/action/dds_fastrtps_c"
+  "/opt/ros/foxy/include/carla_msgs/msg/dds_fastrtps_c"
+  "/opt/ros/foxy/include/carla_msgs/srv/dds_fastrtps_c"
+  "/opt/ros/foxy/include/carla_msgs/action/dds_fastrtps_c"
   "/opt/ros/foxy/include/geometry_msgs/msg/dds_fastrtps_c"
   "/opt/ros/foxy/include/geometry_msgs/srv/dds_fastrtps_c"
   "/opt/ros/foxy/include/geometry_msgs/action/dds_fastrtps_c"
@@ -45,7 +45,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/foxy/include/diagnostic_msgs/srv/dds_fastrtps_c"
   "/opt/ros/foxy/include/diagnostic_msgs/action/dds_fastrtps_c"
   "/opt/ros/foxy/include"
-  "/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_msgs/include"
   "/opt/ros/foxy/include/foonathan_memory"
   )
 
