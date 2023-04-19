@@ -1,0 +1,46 @@
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ros_environment: 2.5.1 (/opt/ros/foxy/share/ros_environment/cmake)
+-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ad_demo
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/config/FollowLeadingVehicle.xosc
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/config/carla_ad_demo.rviz
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/config/carla_ad_demo_ros2.rviz
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/carla_ad_demo.launch
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/carla_ad_demo.launch.py
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/carla_ad_demo_with_scenario.launch
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/carla_ad_demo_with_scenario.launch.py
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/ament_index/resource_index/package_run_dependencies/carla_ad_demo
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/ament_index/resource_index/parent_prefix_path/carla_ad_demo
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/environment/ament_prefix_path.sh
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/environment/ament_prefix_path.dsv
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/environment/path.sh
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/environment/path.dsv
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/local_setup.bash
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/local_setup.sh
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/local_setup.zsh
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/local_setup.dsv
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/package.dsv
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/ament_index/resource_index/packages/carla_ad_demo
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/cmake/carla_ad_demoConfig.cmake
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/cmake/carla_ad_demoConfig-version.cmake
+-- Symlinking: /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_demo/share/carla_ad_demo/package.xml

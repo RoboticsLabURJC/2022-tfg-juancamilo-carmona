@@ -1,0 +1,26 @@
+[2.570s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:${AMENT_PREFIX_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control/build --no-deps install_data
+[3.031s] running develop
+[3.450s] running egg_info
+[3.450s] creating src/carla_manual_control.egg-info
+[3.450s] writing src/carla_manual_control.egg-info/PKG-INFO
+[3.450s] writing dependency_links to src/carla_manual_control.egg-info/dependency_links.txt
+[3.450s] writing entry points to src/carla_manual_control.egg-info/entry_points.txt
+[3.451s] writing requirements to src/carla_manual_control.egg-info/requires.txt
+[3.451s] writing top-level names to src/carla_manual_control.egg-info/top_level.txt
+[3.453s] writing manifest file 'src/carla_manual_control.egg-info/SOURCES.txt'
+[3.595s] reading manifest file 'src/carla_manual_control.egg-info/SOURCES.txt'
+[3.596s] writing manifest file 'src/carla_manual_control.egg-info/SOURCES.txt'
+[3.739s] running build_ext
+[3.739s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/lib/python3.8/site-packages/site.py
+[3.742s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/lib/python3.8/site-packages/carla-manual-control.egg-link (link to src)
+[3.755s] Installing carla_manual_control script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/lib/carla_manual_control
+[3.755s] 
+[3.756s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control/src
+[3.756s] running install_data
+[3.756s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/share/ament_index
+[3.756s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/share/ament_index/resource_index
+[3.756s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/share/ament_index/resource_index/packages
+[3.756s] copying resource/carla_manual_control -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/share/ament_index/resource_index/packages
+[3.756s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/share/carla_manual_control
+[3.756s] copying launch/carla_manual_control.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/share/carla_manual_control
+[3.871s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control' returned '0': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:${AMENT_PREFIX_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control/build --no-deps install_data

@@ -1,0 +1,28 @@
+[1.183s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ad_agent': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types LD_LIBRARY_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ad_agent/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ad_agent/build --no-deps install_data
+[1.455s] running develop
+[1.645s] running egg_info
+[1.645s] creating src/carla_ad_agent.egg-info
+[1.645s] writing src/carla_ad_agent.egg-info/PKG-INFO
+[1.645s] writing dependency_links to src/carla_ad_agent.egg-info/dependency_links.txt
+[1.645s] writing entry points to src/carla_ad_agent.egg-info/entry_points.txt
+[1.645s] writing requirements to src/carla_ad_agent.egg-info/requires.txt
+[1.645s] writing top-level names to src/carla_ad_agent.egg-info/top_level.txt
+[1.646s] writing manifest file 'src/carla_ad_agent.egg-info/SOURCES.txt'
+[1.681s] reading manifest file 'src/carla_ad_agent.egg-info/SOURCES.txt'
+[1.681s] writing manifest file 'src/carla_ad_agent.egg-info/SOURCES.txt'
+[1.716s] running build_ext
+[1.716s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/lib/python3.8/site-packages/site.py
+[1.718s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/lib/python3.8/site-packages/carla-ad-agent.egg-link (link to src)
+[1.718s] Installing ad_agent script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/lib/carla_ad_agent
+[1.719s] Installing local_planner script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/lib/carla_ad_agent
+[1.719s] Installing testing_waypoints script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/lib/carla_ad_agent
+[1.719s] 
+[1.719s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ad_agent/src
+[1.719s] running install_data
+[1.719s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/share/ament_index
+[1.719s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/share/ament_index/resource_index
+[1.720s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/share/ament_index/resource_index/packages
+[1.720s] copying resource/carla_ad_agent -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/share/ament_index/resource_index/packages
+[1.720s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/share/carla_ad_agent
+[1.720s] copying launch/carla_ad_agent.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/share/carla_ad_agent
+[1.767s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ad_agent' returned '0': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types LD_LIBRARY_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ad_agent/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ad_agent/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_waypoint_types/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ad_agent/build --no-deps install_data

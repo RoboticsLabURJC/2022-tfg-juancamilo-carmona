@@ -1,0 +1,29 @@
+[1.619s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_bridge': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:${AMENT_PREFIX_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_bridge/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_bridge/build --no-deps install_data
+[1.902s] running develop
+[2.101s] running egg_info
+[2.102s] creating src/carla_ros_bridge.egg-info
+[2.102s] writing src/carla_ros_bridge.egg-info/PKG-INFO
+[2.102s] writing dependency_links to src/carla_ros_bridge.egg-info/dependency_links.txt
+[2.102s] writing entry points to src/carla_ros_bridge.egg-info/entry_points.txt
+[2.102s] writing requirements to src/carla_ros_bridge.egg-info/requires.txt
+[2.102s] writing top-level names to src/carla_ros_bridge.egg-info/top_level.txt
+[2.103s] writing manifest file 'src/carla_ros_bridge.egg-info/SOURCES.txt'
+[2.138s] reading manifest file 'src/carla_ros_bridge.egg-info/SOURCES.txt'
+[2.139s] writing manifest file 'src/carla_ros_bridge.egg-info/SOURCES.txt'
+[2.175s] running build_ext
+[2.175s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/lib/python3.8/site-packages/site.py
+[2.177s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/lib/python3.8/site-packages/carla-ros-bridge.egg-link (link to src)
+[2.178s] Installing bridge script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/lib/carla_ros_bridge
+[2.178s] 
+[2.178s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_bridge/src
+[2.178s] running install_data
+[2.178s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/ament_index
+[2.178s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/ament_index/resource_index
+[2.179s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/ament_index/resource_index/packages
+[2.179s] copying resource/carla_ros_bridge -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/ament_index/resource_index/packages
+[2.179s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/carla_ros_bridge
+[2.179s] copying launch/carla_ros_bridge_with_example_ego_vehicle.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/carla_ros_bridge
+[2.179s] copying launch/carla_ros_bridge.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/carla_ros_bridge
+[2.179s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/carla_ros_bridge/test
+[2.180s] copying test/test_objects.json -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/share/carla_ros_bridge/test
+[2.214s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_bridge' returned '0': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common:${AMENT_PREFIX_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_bridge/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_ros_bridge/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_manual_control/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_manual_control/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_common/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_ros_bridge/build --no-deps install_data

@@ -1,0 +1,28 @@
+[2.525s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/analysis': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:${AMENT_PREFIX_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/analysis/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/analysis/build --no-deps install_data
+[3.009s] running develop
+[3.407s] running egg_info
+[3.407s] creating analysis.egg-info
+[3.407s] writing analysis.egg-info/PKG-INFO
+[3.407s] writing dependency_links to analysis.egg-info/dependency_links.txt
+[3.408s] writing entry points to analysis.egg-info/entry_points.txt
+[3.408s] writing requirements to analysis.egg-info/requires.txt
+[3.408s] writing top-level names to analysis.egg-info/top_level.txt
+[3.410s] writing manifest file 'analysis.egg-info/SOURCES.txt'
+[3.464s] reading manifest file 'analysis.egg-info/SOURCES.txt'
+[3.465s] writing manifest file 'analysis.egg-info/SOURCES.txt'
+[3.524s] running build_ext
+[3.525s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/lib/python3.8/site-packages/site.py
+[3.528s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/lib/python3.8/site-packages/analysis.egg-link (link to .)
+[3.529s] Installing analysis script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/lib/analysis
+[3.529s] 
+[3.530s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/analysis
+[3.530s] running install_data
+[3.530s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/share/ament_index
+[3.530s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/share/ament_index/resource_index
+[3.530s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/share/ament_index/resource_index/packages
+[3.530s] copying resource/analysis -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/share/ament_index/resource_index/packages
+[3.531s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/share/analysis
+[3.531s] copying launch/carla_generate_vehicle.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/share/analysis
+[3.531s] copying launch/analysis.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/share/analysis
+[3.532s] copying launch/spawn_vehicle.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/share/analysis
+[3.629s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/analysis' returned '0': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:${AMENT_PREFIX_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/analysis/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/analysis/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/analysis/build --no-deps install_data

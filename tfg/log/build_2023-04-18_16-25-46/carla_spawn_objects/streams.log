@@ -1,0 +1,31 @@
+[2.306s] Invoking command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:${AMENT_PREFIX_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects/build --no-deps install_data
+[2.676s] running develop
+[3.012s] running egg_info
+[3.012s] creating carla_spawn_objects.egg-info
+[3.013s] writing carla_spawn_objects.egg-info/PKG-INFO
+[3.014s] writing dependency_links to carla_spawn_objects.egg-info/dependency_links.txt
+[3.014s] writing entry points to carla_spawn_objects.egg-info/entry_points.txt
+[3.014s] writing requirements to carla_spawn_objects.egg-info/requires.txt
+[3.015s] writing top-level names to carla_spawn_objects.egg-info/top_level.txt
+[3.017s] writing manifest file 'carla_spawn_objects.egg-info/SOURCES.txt'
+[3.075s] reading manifest file 'carla_spawn_objects.egg-info/SOURCES.txt'
+[3.076s] writing manifest file 'carla_spawn_objects.egg-info/SOURCES.txt'
+[3.137s] running build_ext
+[3.137s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/lib/python3.8/site-packages/site.py
+[3.141s] Creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/lib/python3.8/site-packages/carla-spawn-objects.egg-link (link to .)
+[3.142s] Installing carla_spawn_objects script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/lib/carla_spawn_objects
+[3.142s] Installing set_initial_pose script to /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/lib/carla_spawn_objects
+[3.142s] 
+[3.143s] Installed /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects
+[3.143s] running install_data
+[3.143s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/ament_index
+[3.143s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/ament_index/resource_index
+[3.143s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/ament_index/resource_index/packages
+[3.143s] copying resource/carla_spawn_objects -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/ament_index/resource_index/packages
+[3.144s] copying package.xml -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/carla_spawn_objects
+[3.144s] creating /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/carla_spawn_objects/config
+[3.144s] copying config/objects.json -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/carla_spawn_objects/config
+[3.144s] copying launch/set_initial_pose.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/carla_spawn_objects
+[3.145s] copying launch/carla_example_ego_vehicle.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/carla_spawn_objects
+[3.145s] copying launch/carla_spawn_objects.launch.py -> /home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/share/carla_spawn_objects
+[3.297s] Invoked command in '/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects' returned '0': AMENT_PREFIX_PATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility:${AMENT_PREFIX_PATH} PYTHONPATH=/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects/prefix_override:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/carla_spawn_objects/lib/python3.8/site-packages:/home/camilo/2022-tfg-juancamilo-carmona/tfg/build/ros_compatibility/src:/home/camilo/2022-tfg-juancamilo-carmona/tfg/install/ros_compatibility/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/camilo/2022-tfg-juancamilo-carmona/tfg/build/carla_spawn_objects/build --no-deps install_data
