@@ -295,9 +295,27 @@ class VehicleTeleop(Node):
         res = numpy.copy(image)
         # We show only points with probability higher than 0.5
         res[left_mask > 0.5, :] = [255,0,0]
-        res[right_mask > 0.5,:] = [0, 0, 255]
+        res[right_mask > 0.5,:] = [255, 0, 0]
         return res
     
+
+    def draw_centers(self, img):
+        
+        lane = []
+        for i in range(1024):
+            px = img[ 304, i] 
+            if px[0] == 255:
+                lane.append(i)
+
+        center = numpy.mean(lane)
+        center_x = int(img.shape[1]/2)
+        
+        cv2.line(img, (center_x, 400), (center_x, 512), [0, 255, 0], 2)    
+        cv2.line(img, (int(center), 400), (int(center), 512), [0, 0, 255], 1)
+
+        self.error =  center - center_x
+
+
     def find_lane_center(self,left_mask, right_mask):
         # Suma las máscaras a lo largo del eje de las columnas
         left_sum = numpy.sum(left_mask, axis=0)
@@ -321,10 +339,8 @@ class VehicleTeleop(Node):
         back, left, right = self.get_prediction(resized_img)[0]
 
         filtered_img = self.lane_detection_overlay(resized_img, left, right)
-        center_x = self.find_lane_center(left, right)
-        cv2.line(filtered_img, (center_x, 450), (center_x, 512), [0, 255, 0], 2)    
-        cv2.line(filtered_img, (512, 450), (512, 512), [255, 0, 0], 2)    
-        self.error = abs(256 - center_x)
+
+        self.draw_centers(filtered_img)
 
         final_img = cv2.cvtColor(filtered_img, cv2.COLOR_RGB2BGRA)
         final_img = cv2.resize(final_img, (800, 600) )
