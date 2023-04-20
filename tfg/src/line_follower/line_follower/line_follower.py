@@ -195,7 +195,7 @@ class VehicleTeleop(Node):
 
         pygame.display.flip()
 
-        #self.control_vehicle()
+        self.control_vehicle()
 
 
 
@@ -297,6 +297,21 @@ class VehicleTeleop(Node):
         res[left_mask > 0.5, :] = [255,0,0]
         res[right_mask > 0.5,:] = [0, 0, 255]
         return res
+    
+    def find_lane_center(self,left_mask, right_mask):
+        # Suma las máscaras a lo largo del eje de las columnas
+        left_sum = numpy.sum(left_mask, axis=0)
+        right_sum = numpy.sum(right_mask, axis=0)
+
+        # Encuentra la posición de la columna con la suma más alta para cada máscara
+        left_index = numpy.argmax(left_sum)
+        right_index = numpy.argmax(right_sum)
+
+        # Calcula el centro del carril como el punto medio entre los dos índices
+        lane_center = int((left_index + right_index) / 2)
+
+        return lane_center
+
 
     def line_filter(self, img):
         
@@ -304,7 +319,12 @@ class VehicleTeleop(Node):
         resized_img = cv2.cvtColor(resized_img, cv2.COLOR_BGRA2RGB)
 
         back, left, right = self.get_prediction(resized_img)[0]
+
         filtered_img = self.lane_detection_overlay(resized_img, left, right)
+        center_x = self.find_lane_center(left, right)
+        cv2.line(filtered_img, (center_x, 450), (center_x, 512), [0, 255, 0], 2)    
+        cv2.line(filtered_img, (512, 450), (512, 512), [255, 0, 0], 2)    
+        self.error = abs(256 - center_x)
 
         final_img = cv2.cvtColor(filtered_img, cv2.COLOR_RGB2BGRA)
         final_img = cv2.resize(final_img, (800, 600) )
