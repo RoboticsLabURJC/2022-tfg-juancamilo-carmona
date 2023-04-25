@@ -40,7 +40,7 @@ class VehicleTeleop(Node):
 
         self.bridge = CvBridge()
 
-        file_name = '/home/camilo/Escritorio/tfg_metrics/sliding_window_metrics_1.csv'
+        file_name = '/home/camilo/Escritorio/tfg_metrics/deeplearning_metrics_1.csv'
         self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
         self.csv_writer = csv.writer(self.csv_file)        
@@ -134,6 +134,7 @@ class VehicleTeleop(Node):
 
         self.deeplearning_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/model/fastai_torch_lane_detector_model.pth')
         self.deeplearning_model.eval()
+        self.image_counter = 0
 
         self.process = psutil.Process( os.getpid() )
 
@@ -164,9 +165,9 @@ class VehicleTeleop(Node):
 
     def first_person_image_cb(self, ros_img):
 
+        
         if self.program_start_time == -100:
             self.program_start_time = time.time()
-
 
 
         img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
@@ -192,6 +193,7 @@ class VehicleTeleop(Node):
         array = array[:, :, ::-1]
         image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
         self.screen.blit(image_surface, (0,0))           
+
 
         pygame.display.flip()
 
@@ -299,6 +301,7 @@ class VehicleTeleop(Node):
         return res
     
 
+
     def draw_centers(self, img):
         
         lane = []
@@ -310,8 +313,8 @@ class VehicleTeleop(Node):
         center = numpy.mean(lane)
         center_x = int(img.shape[1]/2)
         
-        cv2.line(img, (center_x, 400), (center_x, 512), [0, 255, 0], 2)    
-        cv2.line(img, (int(center), 400), (int(center), 512), [0, 0, 255], 1)
+        cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
+        cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
 
         self.error =  center - center_x
 
@@ -331,14 +334,27 @@ class VehicleTeleop(Node):
         return lane_center
 
 
+    def draw_lanes(self,img, left, right):
+        color_img = numpy.zeros_like(img)
+        
+        points = numpy.hstack((left, right))
+        
+        cv2.fillPoly(color_img, numpy.int_(points), (0,200,255))
+        final_img = cv2.addWeighted(img, 1, color_img, 0.7, 0)
+
+        return final_img
+    
     def line_filter(self, img):
         
         resized_img = cv2.resize(img, (1024, 512) )
+
         resized_img = cv2.cvtColor(resized_img, cv2.COLOR_BGRA2RGB)
 
         back, left, right = self.get_prediction(resized_img)[0]
 
         filtered_img = self.lane_detection_overlay(resized_img, left, right)
+
+        #filtered_img = self.draw_lanes(filtered_img, left, right )
 
         self.draw_centers(filtered_img)
 
