@@ -207,65 +207,65 @@ class VehicleTeleop(Node):
 
     def control_vehicle(self):        
 
-        actual_error = self.error            
+        actual_error = (self.error)/100            
 
-        actual_error = (actual_error) / 100  #error
-        d_error =  actual_error - self.last_error #derivative erro
-        
-        self.i_error = self.i_error + actual_error #integral
-        
-        if actual_error >= 0:
-            self.curling = 1
+        if (abs(actual_error - self.last_error)) < 0.3:
 
-        if actual_error <= 0:
-            self.curling = -1
-        
-        if ((actual_error < 10/100) and ( actual_error > -10/100)):
-            stering = 0.0
-            self.control_msg.steer = stering
-            self.curling = 0.0
+            d_error =  actual_error - self.last_error #derivative erro
+            
+            self.i_error = self.i_error + actual_error #integral
+            
+            if actual_error >= 0:
+                self.curling = 1
 
-        elif ((actual_error < 50/100) and ( actual_error > -50/100)):
-            #self.get_logger().error("straight " + str(stering))
-            stering = actual_error* self.kp_straight + d_error*self.kd_straight + self.i_error*self.ki_straight
-
-            if stering > 1:
-                self.control_msg.steer = 1.0
-
-            elif stering <  -1.0:                    
-                self.control_msg.steer = -1.0
-
-            else:
+            if actual_error <= 0:
+                self.curling = -1
+            
+            if ((actual_error < 10/100) and ( actual_error > -10/100)):
+                stering = 0.0
                 self.control_msg.steer = stering
-        else :
-            stering = actual_error*self.kp_turn + d_error*self.kd_turn + self.i_error*self.ki_turn
+                self.curling = 0.0
 
-            if stering > 1:
-                self.control_msg.steer = 1.0
+            elif ((actual_error < 50/100) and ( actual_error > -50/100)):
+                #self.get_logger().error("straight " + str(stering))
+                stering = actual_error* self.kp_straight + d_error*self.kd_straight + self.i_error*self.ki_straight
 
-            elif stering <  -1.0:
-                self.control_msg.steer = -1.0
+                if stering > 1:
+                    self.control_msg.steer = 1.0
 
+                elif stering <  -1.0:                    
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
+            else :
+                stering = actual_error*self.kp_turn + d_error*self.kd_turn + self.i_error*self.ki_turn
+
+                if stering > 1:
+                    self.control_msg.steer = 1.0
+
+                elif stering <  -1.0:
+                    self.control_msg.steer = -1.0
+
+                else:
+                    self.control_msg.steer = stering
+
+            if self.speed >= 20:
+                self.control_msg.throttle = 0.0            
             else:
-                self.control_msg.steer = stering
+                self.control_msg.throttle = 1.0                          
 
-        if self.speed >= 20:
-            self.control_msg.throttle = 0.0            
-        else:
-            self.control_msg.throttle = 1.0                          
+            self.last_error = actual_error
+            self.vehicle_control_publisher.publish(self.control_msg)
+            
+            #el pid puede obtenerse fuera del bucle
+            memory_usage = self.process.memory_info().rss    
+            cpu_percent = self.process.cpu_percent()
+                    
+            if self.last_fps != 0:
+                self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, stering, self.latitude, self.longitude, self.line_detected_num ])
 
-        self.last_error = actual_error
-        self.vehicle_control_publisher.publish(self.control_msg)
-        
-        #el pid puede obtenerse fuera del bucle
-
-        memory_usage = self.process.memory_info().rss    
-        cpu_percent = self.process.cpu_percent()
-                
-        if self.last_fps != 0:
-            self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, stering, self.latitude, self.longitude, self.line_detected_num ])
-
-        self.line_detected_num = 0
+            self.line_detected_num = 0
 
     def set_vehicle_control_manual_override(self):
         """
@@ -314,6 +314,7 @@ class VehicleTeleop(Node):
         center_x = int(img.shape[1]/2)
         
         cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
+        cv2.line(img, (center_x-5, 304), (center_x+5, 304), [0, 0, 255], 1)
         cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
 
         self.error =  center - center_x
