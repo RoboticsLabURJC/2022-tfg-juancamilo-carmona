@@ -618,8 +618,9 @@ class VehicleTeleop(Node):
 
         center = numpy.mean(lane)
         center_x = int(img.shape[1]/2)
-        
+
         cv2.line(img, (center_x, 450), (center_x, 600), [0, 255, 0], 2)    
+        cv2.line(img, (int(center)-5, 350), (int(center)+5, 350), [0, 0, 255], 1)    
         cv2.line(img, (int(center), 450), (int(center), 600), [0, 0, 255], 1)
 
         self.error =  center - center_x
