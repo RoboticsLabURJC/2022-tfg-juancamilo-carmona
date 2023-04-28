@@ -38,8 +38,8 @@ class VehicleTeleop(Node):
         super().__init__("Vehicle_teleop")
 
         self.bridge = CvBridge()
-
         file_name = '/home/camilo/Escritorio/tfg_metrics/canny_metrics_1.csv'
+
         self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
         self.csv_writer = csv.writer(self.csv_file)        
@@ -346,7 +346,7 @@ class VehicleTeleop(Node):
             else:
                 self.control_msg.steer = stering
 
-        if self.speed >= 20:
+        if self.speed >= 25:
             self.control_msg.throttle = 0.0            
         else:
             self.control_msg.throttle = 1.0                          
@@ -403,37 +403,67 @@ class VehicleTeleop(Node):
         return warped
 
 
-    def inv_perspective_warp(self,img, 
-                        dst_size=(800,600),
-                        src=numpy.float32([(0,0), (1, 0), (0,1), (1,1)]),
-                        dst=numpy.float32([(0.43,0.65),(0.58,0.65),(0.1,1),(1,1)])):
-        img_size = numpy.float32([(img.shape[1],img.shape[0])])
-        src = src* img_size
-        # For destination points, I'm arbitrarily choosing some points to be
-        # a nice fit for displaying our warped result 
-        # again, not exact, but close enough for our purposes
-        dst = dst * numpy.float32(dst_size)
-        # Given src and dst points, calculate the perspective transform matrix
-        M = cv2.getPerspectiveTransform(src, dst)
-        # Warp the image using OpenCV warpPerspective()
-        warped = cv2.warpPerspective(img, M, dst_size)
-        return warped
+
+    def draw_lanes(self,img, leftx,lefty, rightx, righty):
+
+        leftx = numpy.array(leftx)
+        lefty = numpy.array(lefty)
+        rightx = numpy.array(rightx)
+        righty = numpy.array(righty)
 
 
-    def draw_lanes(self,img, left_fit, right_fit):
+        left_fit_= numpy.empty(3)
+        right_fit_ = numpy.empty(3)
+
+        ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0] )
+
+        if lefty.any() and leftx.any() :
+
+            left_fit = numpy.polyfit(lefty, leftx, 2)
+            self.line_detected_num = self.line_detected_num +1
+
+            self.left_a.append(left_fit[0])
+            self.left_b.append(left_fit[1])
+            self.left_c.append(left_fit[2])
+
+            left_fit_[0] = numpy.mean(self.left_a[-10:])
+            left_fit_[1] = numpy.mean(self.left_b[-10:])
+            left_fit_[2] = numpy.mean(self.left_c[-10:])
+
+            left_fitx = left_fit_[0]*ploty**2 + left_fit_[1]*ploty + left_fit_[2]
+        else:
+            left_fitx = numpy.empty(0)
+
+
+        if righty.any() and rightx.any() :
+            right_fit = numpy.polyfit(righty, rightx, 2)
+            self.line_detected_num = self.line_detected_num +1
+        
+            self.right_a.append(right_fit[0])
+            self.right_b.append(right_fit[1])
+            self.right_c.append(right_fit[2])
+            
+            right_fit_[0] = numpy.mean(self.right_a[-10:])
+            right_fit_[1] = numpy.mean(self.right_b[-10:])
+            right_fit_[2] = numpy.mean(self.right_c[-10:])
+            # Generate x and y values for plotting
+            right_fitx = right_fit_[0]*ploty**2 + right_fit_[1]*ploty + right_fit_[2]
+        else:
+            right_fitx = numpy.empty(0)
+        
+
         ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0])
         color_img = numpy.zeros_like(img)
         
-        left = numpy.array([numpy.transpose(numpy.vstack([left_fit, ploty]))])
-        right = numpy.array([numpy.flipud(numpy.transpose(numpy.vstack([right_fit, ploty])))])
+        left = numpy.array([numpy.transpose(numpy.vstack([left_fitx, ploty]))])
+        right = numpy.array([numpy.flipud(numpy.transpose(numpy.vstack([right_fitx, ploty])))])
         points = numpy.hstack((left, right))
         
         cv2.fillPoly(color_img, numpy.int_(points), (0,200,255))
 
-        inv_perspective = self.inv_perspective_warp(color_img)
-        inv_perspective = cv2.addWeighted(img, 1, inv_perspective, 0.7, 0)
+        final_img = cv2.addWeighted(img, 1, color_img, 0.7, 0)
 
-        return inv_perspective
+        return final_img
 
     def draw_centers(self, img):
         
@@ -623,6 +653,9 @@ class VehicleTeleop(Node):
             self.min_y = min_y
             self.max_y = max_y
             self.min_y = min_y
+
+            if right_line_x and right_line_y and left_line_x and left_line_y:
+                img = self.draw_lanes(img,[left_x_start,left_x_end], [min_y,max_y], [right_x_start,right_x_end], [min_y,max_y])
 
             return img
 
