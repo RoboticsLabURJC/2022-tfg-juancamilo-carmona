@@ -38,11 +38,11 @@ class VehicleTeleop(Node):
 
         self.bridge = CvBridge()
 
-        file_name = '/home/camilo/Escritorio/tfg_metrics/hsv_metrics_5.csv'
+        file_name = '/home/camilo/Escritorio/tfg_metrics/hsv_metrics_1.csv'
         self.csv_file = open(file_name, mode='w', newline='')
         # Abre el archivo CSV en modo escritura
         self.csv_writer = csv.writer(self.csv_file)        
-        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity','latitude','longitude', 'line detected num'])
+        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity','latitude','longitude', 'line detected num', 'processing time'])
 
         image_callback_group = MutuallyExclusiveCallbackGroup()
         self._default_callback_group = image_callback_group
@@ -129,6 +129,9 @@ class VehicleTeleop(Node):
         self.kd_turn= 0.15
         self.ki_turn = 0.000004
 
+        self.processing_time = 0
+        self.start_processing_time = 0
+
         self.adjustment_num = 0
 
         self.process = psutil.Process( os.getpid() )
@@ -166,7 +169,10 @@ class VehicleTeleop(Node):
 
         img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
 
+        self.start_processing_time = time.time()
         filter_img = self.line_filter(img)
+        self.processing_time = time.time() - self.start_processing_time 
+
 
         if self.fps == 0:
             self.start_time = time.time()
@@ -360,7 +366,7 @@ class VehicleTeleop(Node):
         cpu_percent = self.process.cpu_percent()
         
         if self.last_fps != 0:
-            self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, stering, self.latitude, self.longitude, self.line_detected_num ])
+            self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, stering, self.latitude, self.longitude, self.line_detected_num, self.processing_time ])
             
         self.line_detected_num = 0
 
