@@ -33,6 +33,271 @@ import signal
 from sensor_msgs.msg import NavSatFix
 
 
+class Actions:
+    def __init__(self):
+        # Acciones posibles
+        self.actions = ['forward', 
+                        'turn_left_1', 'turn_left_2', 'turn_left_3', 
+                        'turn_right_1', 'turn_right_2', 'turn_right_3']
+        
+        self.intesity_1 = 0.1
+        self.intesity_2 = 0.2
+        self.intesity_3 = 0.3
+
+    def forward(self):
+
+        if self.speed >= 20:
+            self.control_msg.throttle = 0.0            
+        else:
+            self.control_msg.throttle = 1.0        
+
+    def turn_left(self, stering):
+        """
+        Método para girar a la izquierda con una cierta intensidad. 
+        Aquí deberías implementar el código que gira tu vehículo a la izquierda.
+        """
+
+        if stering > 1:
+            self.control_msg.steer = 1.0
+
+        elif stering <  -1.0:                    
+            self.control_msg.steer = -1.0
+
+        else:
+            self.control_msg.steer = stering
+
+
+    def turn_right(self, stering):
+        """
+        Método para girar a la derecha con una cierta intensidad. 
+        Aquí deberías implementar el código que gira tu vehículo a la derecha.
+        """
+
+        if stering > 1:
+            self.control_msg.steer = 1.0
+
+        elif stering <  -1.0:
+            self.control_msg.steer = -1.0
+
+        else:
+            self.control_msg.steer = stering
+
+    def execute_action(self, action):
+        """
+        Método para ejecutar una acción dada.
+        """
+        if action == 'forward':
+            self.forward()
+
+        elif action.startswith('turn_left_1'):
+            stering = -self.intensity_1
+            self.turn_left(stering)
+
+        elif action.startswith('turn_left_2'):
+            stering = -self.intensity_2
+            self.turn_right(stering)
+
+        elif action.startswith('turn_left_3'):
+            stering = -self.intensity_2
+            self.turn_left(stering)
+
+        elif action.startswith('turn_right_1'):
+            stering = self.intensity_1
+            self.turn_right(stering)
+
+        elif action.startswith('turn_right_2'):
+            stering = self.intensity_2
+            self.turn_left(stering)
+
+        elif action.startswith('turn_right_3'):
+            stering = self.intensity_3
+            self.turn_right(stering)
+
+        else:
+            raise ValueError(f"Acción desconocida: {action}")
+
+
+class RewardFunction:
+    def __init__(self):
+        # Ajustes para la recompensa/punición
+        self.collision_penalty = -1000
+        self.off_road_penalty = -100
+        self.center_reward_factor = 10
+
+    def get_reward(self, car, lane):
+        """
+        Función de recompensa para un coche dado y un carril.
+
+        Args:
+            car: Un objeto que representa el coche.
+            lane: Un objeto que representa el carril.
+
+        Returns:
+            Un valor de recompensa flotante.
+        """
+        if car.crashed:
+            return self.collision_penalty
+
+        if not lane.on_road(car.position):
+            return self.off_road_penalty
+
+        # Calcula la distancia al centro del carril
+        distance_to_center = self.distance_to_center(car.position, lane.center)
+
+        # Da recompensa por estar cerca del centro del carril
+        reward = self.center_reward_factor / (distance_to_center + 1.0)
+
+        return reward
+
+    def distance_to_center(self, car_position, lane_center):
+        """
+        Calcula la distancia euclídea entre la posición del coche y el centro del carril.
+
+        Args:
+            car_position: Un par de coordenadas (x, y) que representan la posición del coche.
+            lane_center: Un par de coordenadas (x, y) que representan el centro del carril.
+
+        Returns:
+            Un valor de distancia flotante.
+        """
+        return ((car_position[0] - lane_center[0])**2 + (car_position[1] - lane_center[1])**2)**0.5
+
+
+import numpy as np
+
+class VehicleControl:
+    def __init__(self, num_states, num_actions, alpha=0.5, gamma=0.9, epsilon=0.1):
+
+        #Qlearning variables
+        self.num_states = num_states
+        self.num_actions = num_actions
+        self.alpha = alpha  # Tasa de aprendizaje
+        self.gamma = gamma  # Factor de descuento
+        self.epsilon = epsilon  # Probabilidad de exploración
+        self.q_table = np.zeros((num_states, num_actions))  # Inicializar la tabla Q
+        self.actions = Actions()
+        self.reward_function = RewardFunction()
+
+        #Metrics file variables 
+        file_name = '/home/camilo/Escritorio/tfg_metrics/sliding_window_metrics_1.csv'
+        self.csv_file = open(file_name, mode='w', newline='')
+        self.csv_writer = csv.writer(self.csv_file)        
+
+        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity','latitude', 'longitude','lines detected num','processing_time'])
+
+
+        #vehicle control variables 
+        self.spedometer_subscriber= self.create_subscription( Float32, "/carla/ego_vehicle/speedometer", self.speedometer_cb, 10 )
+        self.spedometer_subscriber= self.create_subscription( NavSatFix, "/carla/ego_vehicle/gnss", self.position_cb, 10 )
+
+        self.vehicle_control_publisher = self.create_publisher( CarlaEgoVehicleControl, "/carla/ego_vehicle/vehicle_control_cmd", 10)       
+        self.vehicle_control_manual_override_publisher = self.create_publisher( Bool, "/carla/ego_vehicle/vehicle_control_manual_override",10)
+        self.auto_pilot_enable_publisher = self.create_publisher(Bool,"/carla/ego_vehicle/enable_autopilot",10)
+
+        self.control_msg = CarlaEgoVehicleControl()
+
+        self.control_msg.throttle = 0.0
+        self.control_msg.steer = 0.0 
+        self.control_msg.brake = 0.0
+        self.control_msg.hand_brake = False
+        self.control_msg.reverse = False
+        self.control_msg.gear = 0
+        self.control_msg.manual_gear_shift = False
+        self.error = 0
+
+        self.acelerate = 0
+        self.actual_error = 0
+        self.i_error = 0
+        self.last_error = 0
+        self.INITIAL_CX = 0
+        self.INITIAL_CY = 0
+        self.speedup = 0
+
+        self.kp_straight = 0.07
+        self.kd_straight  = 0.09
+        self.ki_straight = 0.000003
+
+        self.kp_turn = 0.1
+        self.kd_turn= 0.15
+        self.ki_turn = 0.000004
+
+        self.center = 0
+        self.adjustment_num = 0
+
+        self.speed = 0
+
+        self.latitude = 0
+        self.longitude = 0
+
+        self.set_autopilot()
+        self.set_vehicle_control_manual_override()
+        
+
+    def position_cb(self, pos):
+
+        self.latitude = pos.latitude
+        self.longitude = pos.longitude
+        if pos.latitude < 0.0001358:
+            self.csv_file.close()
+            exit()
+
+
+    def speedometer_cb(self, speed):
+        self.speed = speed.data
+        
+    def set_vehicle_control_manual_override(self):
+        """
+        Set the manual control override
+        """
+        self.vehicle_control_manual_override_publisher.publish((Bool(data=True)))
+
+    def set_autopilot(self):
+        """
+        enable/disable the autopilot
+        """
+        self.auto_pilot_enable_publisher.publish(Bool(data=False))
+
+
+
+    def get_state(self, car, lane):
+        """
+        Deberías implementar esta función para convertir la percepción del coche en un estado que se pueda usar en la tabla Q.
+        """
+        pass
+
+    def choose_action(self, state):
+        """
+        Elige una acción basada en la política epsilon-greedy.
+        """
+        if np.random.uniform() < self.epsilon:
+            # Exploración: elige una acción aleatoria
+            action = np.random.choice(self.num_actions)
+        else:
+            # Explotación: elige la acción con el mayor valor Q para el estado actual
+            action = np.argmax(self.q_table[state, :])
+        return action
+
+    def update_q_table(self, state, action, reward, next_state):
+        """
+        Actualiza la tabla Q basada en la recompensa recibida por tomar una acción en un estado.
+        """
+        current_q = self.q_table[state, action]
+        new_q = reward + self.gamma * np.max(self.q_table[next_state, :])
+        self.q_table[state, action] = (1 - self.alpha) * current_q + self.alpha * new_q
+
+    def control_vehicle(self, car, lane):
+        """
+        Controla el vehículo durante un episodio de aprendizaje.
+        """
+        state = self.get_state(car, lane)
+        action = self.choose_action(state)
+        self.actions.execute_action(action)
+        reward = self.reward_function.get_reward(car, lane)
+        next_state = self.get_state(car, lane)
+        self.update_q_table(state, action, reward, next_state)
+
+
+
 class VehicleTeleop(Node):
     def __init__(self):
         super().__init__("Vehicle_teleop")
@@ -51,7 +316,7 @@ class VehicleTeleop(Node):
         self.image_surface = None
         size = 1600, 600
         self.screen = pygame.display.set_mode(size)
-        pygame.display.set_caption("teleop_screen")
+        pygame.display.set_caption("sliding window algorithm")
 
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
         self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_front/image", self.first_person_image_cb, 10 )
@@ -135,6 +400,8 @@ class VehicleTeleop(Node):
         self.processing_start_time = 0
 
 
+
+
         self.process = psutil.Process( os.getpid() )
 
 
@@ -205,110 +472,7 @@ class VehicleTeleop(Node):
         self.csv_file.close()
         exit()
 
-    """"
-    def control_vehicle(self):        
-
-        self.set_autopilot()
-        self.set_vehicle_control_manual_override()
-        Counter = 0
-        acelerate = 0
-        actual_error = 0
-        i_error = 0
-        last_error = 0
-        INITIAL_CX = 0
-        INITIAL_CY = 0
-        speedup = 0
-
-
-        kp_straight = 0.08
-        kd_straight  = 0.1
-        ki_straight = 0.000002
-
-        kp_turn = 0.1
-        kd_turn= 0.15
-        ki_turn = 0.000004
-
-        adjustment_num = 0
-
-        # Abre el archivo CSV en modo escritura
-        csv_writer = csv.writer(self.archivo_csv)
-        
-        csv_row = ['fps','cpu usage','Memory usage','PID adjustment num','PID adjustment intesity']
-        csv_writer.writerow(csv_row)
-        
-        while True:
-
-            actual_error = self.error            
-
-            actual_error = (actual_error) / 100  #error
-            d_error =  actual_error - last_error #derivative erro
-            
-            i_error = i_error + actual_error #integral
-            
-            if actual_error >= 0 and last_error < 0:
-                adjustment_num = adjustment_num + 1
-
-            if actual_error <= 0 and last_error > 0:
-                adjustment_num = adjustment_num + 1
-            
-
-
-            if ((actual_error < 50/100) and ( actual_error > -50/100)):
-
-                #self.get_logger().error("straight " + str(stering))
-                stering = actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
-
-                if stering > 1:
-                    self.control_msg.steer = 1.0
-
-                elif stering <  -1.0:                    
-                    self.control_msg.steer = -1.0
-
-                else:
-                    self.control_msg.steer = stering
-
-                #if(actual_error == 0):
-                    #self.control_msg.throttle = 1.0                          
-                #else:
-                    #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight                    
-            if ((actual_error < 10/100) and ( actual_error > -10/100)):
-                self.control_msg.steer = 0.0
-            else :
-                stering = actual_error*kp_turn + d_error*kd_turn + i_error*ki_turn
-
-                if stering > 1:
-                    self.control_msg.steer = 1.0
-
-                elif stering <  -1.0:
-                    self.control_msg.steer = -1.0
-
-                else:
-                    self.control_msg.steer = stering
-
-                #if(actual_error == 0):
-                    #self.control_msg.throttle = 1.0                          
-                #else:
-                    #self.control_msg.throttle = 1/actual_error* kp_straight + d_error*kd_straight + i_error*ki_straight
-      
-            if self.speed >= 20:
-                self.control_msg.throttle = 0.0
-            else:
-                self.control_msg.throttle = 1.0                          
-
-            last_error = actual_error
-            self.vehicle_control_publisher.publish(self.control_msg)
-            
-            #el pid puede obtenerse fuera del bucle
-            pid = os.getpid()
-            process = psutil.Process(pid)
-            memory_usage = process.memory_info().rss    
-
-            #cpu_percent = psutil.cpu_percent()
-            time.sleep(0.1)
-
-            cpu_percent = process.cpu_percent(interval=0.1)
-            csv_writer.writerow([self.last_fps, cpu_percent , memory_usage, adjustment_num, stering])
-    """
+ 
     def control_vehicle(self):        
 
         actual_error = self.error            
