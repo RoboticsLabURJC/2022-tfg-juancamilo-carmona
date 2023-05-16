@@ -31,6 +31,7 @@ import psutil
 import os
 import signal
 from sensor_msgs.msg import NavSatFix
+import random
 
 
 class Actions:
@@ -89,27 +90,27 @@ class Actions:
         if action == 'forward':
             self.forward()
 
-        elif action.startswith('turn_left_1'):
+        elif action == 'turn_left_1':
             stering = -self.intensity_1
             self.turn_left(stering)
 
-        elif action.startswith('turn_left_2'):
+        elif action == 'turn_left_2':
             stering = -self.intensity_2
             self.turn_right(stering)
 
-        elif action.startswith('turn_left_3'):
+        elif action.startswith == 'turn_left_3':
             stering = -self.intensity_2
             self.turn_left(stering)
 
-        elif action.startswith('turn_right_1'):
+        elif action.startswith == 'turn_right_1':
             stering = self.intensity_1
             self.turn_right(stering)
 
-        elif action.startswith('turn_right_2'):
+        elif action.startswith == 'turn_right_2':
             stering = self.intensity_2
             self.turn_left(stering)
 
-        elif action.startswith('turn_right_3'):
+        elif action.startswith == 'turn_right_3':
             stering = self.intensity_3
             self.turn_right(stering)
 
@@ -123,14 +124,14 @@ class RewardFunction:
         self.collision_penalty = -1000
         self.off_road_penalty = -100
         self.center_reward_factor = 10
+        self.image_center = 400  # Mitad de la imagen
 
-    def get_reward(self, car, lane):
+    def get_reward(self, car):
         """
-        Función de recompensa para un coche dado y un carril.
+        Función de recompensa para un coche dado.
 
         Args:
             car: Un objeto que representa el coche.
-            lane: Un objeto que representa el carril.
 
         Returns:
             Un valor de recompensa flotante.
@@ -138,29 +139,16 @@ class RewardFunction:
         if car.crashed:
             return self.collision_penalty
 
-        if not lane.on_road(car.position):
+        if not car.on_road:
             return self.off_road_penalty
 
-        # Calcula la distancia al centro del carril
-        distance_to_center = self.distance_to_center(car.position, lane.center)
+        # Calcula la distancia al centro de la imagen
+        distance_to_center = abs(self.lane_center - self.image_center)
 
-        # Da recompensa por estar cerca del centro del carril
+        # Da recompensa por estar cerca del centro de la imagen
         reward = self.center_reward_factor / (distance_to_center + 1.0)
 
         return reward
-
-    def distance_to_center(self, car_position, lane_center):
-        """
-        Calcula la distancia euclídea entre la posición del coche y el centro del carril.
-
-        Args:
-            car_position: Un par de coordenadas (x, y) que representan la posición del coche.
-            lane_center: Un par de coordenadas (x, y) que representan el centro del carril.
-
-        Returns:
-            Un valor de distancia flotante.
-        """
-        return ((car_position[0] - lane_center[0])**2 + (car_position[1] - lane_center[1])**2)**0.5
 
 
 import numpy as np
@@ -229,6 +217,8 @@ class VehicleControl:
         self.latitude = 0
         self.longitude = 0
 
+        self.process = psutil.Process( os.getpid() )
+
         self.set_autopilot()
         self.set_vehicle_control_manual_override()
         
@@ -260,10 +250,24 @@ class VehicleControl:
 
 
     def get_state(self, car, lane):
-        """
-        Deberías implementar esta función para convertir la percepción del coche en un estado que se pueda usar en la tabla Q.
-        """
-        pass
+        # Obtén la posición del centro del carril
+        lane_center_position = car.lane_center
+
+        # Discretiza la posición del centro del carril
+        # Supongamos que lane_center_position puede variar de 0 a 800 (si la imagen es de 800 píxeles de ancho)
+        lane_center_bins = np.linspace(0, 800, num=20)  # Ajusta el número de bins según tus necesidades
+        lane_center_bin = np.digitize(lane_center_position, lane_center_bins)
+
+        # Haz lo mismo para las líneas laterales del carril
+        left_line_position, right_line_position = car.lane_lines
+        line_bins = np.linspace(0, 800, num=20)
+        left_line_bin = np.digitize(left_line_position, line_bins)
+        right_line_bin = np.digitize(right_line_position, line_bins)
+
+        # Combina los bins en un único número de estado
+        state = lane_center_bin * len(line_bins)**2 + left_line_bin * len(line_bins) + right_line_bin
+
+        return state
 
     def choose_action(self, state):
         """
@@ -275,6 +279,7 @@ class VehicleControl:
         else:
             # Explotación: elige la acción con el mayor valor Q para el estado actual
             action = np.argmax(self.q_table[state, :])
+            
         return action
 
     def update_q_table(self, state, action, reward, next_state):
@@ -297,183 +302,35 @@ class VehicleControl:
         self.update_q_table(state, action, reward, next_state)
 
 
+    def control_vehicle(self, car, lane):
+        # Observa el estado actual.
+        next_state = VehicleControl.get_state(car, lane)
 
-class VehicleTeleop(Node):
-    def __init__(self):
-        super().__init__("Vehicle_teleop")
+        # Si es la primera vez, no hay acción ni estado anteriores, por lo que debemos seleccionar una acción inicial.
+        if self.current_state is None:
+            next_action = random.choice(Actions.ALL)
+        else:
+            # Calcula la recompensa basada en el estado actual y la acción actual.
+            reward = self.reward_function.get_reward(car)
 
-        self.bridge = CvBridge()
+            # Actualiza la tabla Q.
+            old_value = self.q_table[self.current_state][self.current_action]
+            future_rewards = [self.q_table[next_state][action] for action in Actions.ALL]
+            new_value = reward + self.gamma * max(future_rewards)
+            self.q_table[self.current_state][self.current_action] = (1 - self.alpha) * old_value + self.alpha * new_value
 
-        file_name = '/home/camilo/Escritorio/tfg_metrics/sliding_window_metrics_1.csv'
-        self.csv_file = open(file_name, mode='w', newline='')
-        # Abre el archivo CSV en modo escritura
-        self.csv_writer = csv.writer(self.csv_file)        
-        self.csv_writer.writerow(['time','fps','cpu usage','Memory usage','PID curling','PID adjustment intesity','latitude', 'longitude','lines detected num','processing_time'])
+            # Selecciona la siguiente acción basada en la tabla Q.
+            next_action = Actions.ALL[np.argmax(self.q_table[next_state])]
 
-        image_callback_group = MutuallyExclusiveCallbackGroup()
-        self._default_callback_group = image_callback_group
-        #subscritor de la imagenes
-        self.image_surface = None
-        size = 1600, 600
-        self.screen = pygame.display.set_mode(size)
-        pygame.display.set_caption("sliding window algorithm")
+        # Aplica la acción seleccionada.
+        car.apply_action(next_action)
 
-        self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
-        self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_front/image", self.first_person_image_cb, 10 )
-        self.spedometer_subscriber= self.create_subscription( Float32, "/carla/ego_vehicle/speedometer", self.speedometer_cb, 10 )
-        self.spedometer_subscriber= self.create_subscription( NavSatFix, "/carla/ego_vehicle/gnss", self.position_cb, 10 )
-
-        self.speed = 0
-        self.clock = pygame.time.Clock()
-        self.fps = 0
-        self.last_fps = 0
-        self.start_time = 0
-
-        self.left_x_start = 0
-        self.max_y = 0
-        self.left_x_end = 0
-        self.min_y = 0
-        self.right_x_start = 0
-        self.max_y = 0
-        self.right_x_end = 0
-        self.min_y = 0
-
-        self.latitude = 0
-        self.longitude = 0
-        self.line_detected_num = 0
-
-        self.role_name = "ego_vehicle"
-
-        image_callback_group = MutuallyExclusiveCallbackGroup()
-        self._default_callback_group = image_callback_group        
-
-        self.vehicle_control_publisher = self.create_publisher( CarlaEgoVehicleControl, "/carla/ego_vehicle/vehicle_control_cmd", 10)       
-        self.vehicle_control_manual_override_publisher = self.create_publisher( Bool, "/carla/ego_vehicle/vehicle_control_manual_override",10)
-        self.auto_pilot_enable_publisher = self.create_publisher(Bool,"/carla/ego_vehicle/enable_autopilot",10)
-
-        self.control_msg = CarlaEgoVehicleControl()
-
-        self.control_msg.throttle = 0.0
-        self.control_msg.steer = 0.0 
-        self.control_msg.brake = 0.0
-        self.control_msg.hand_brake = False
-        self.control_msg.reverse = False
-        self.control_msg.gear = 0
-        self.control_msg.manual_gear_shift = False
-        self.error = 0
-
-        self.left_a = []
-        self.left_b = []
-        self.left_c = []
-        self.right_a = []
-        self.right_b = []
-        self.right_c = []
-
-
-        self.set_autopilot()
-        self.set_vehicle_control_manual_override()
-        #self.vehicle_control_thread()
-        
-
-        self.program_start_time = -100
-        self.Counter = 0
-        self.acelerate = 0
-        self.actual_error = 0
-        self.i_error = 0
-        self.last_error = 0
-        self.INITIAL_CX = 0
-        self.INITIAL_CY = 0
-        self.speedup = 0
-
-        self.kp_straight = 0.07
-        self.kd_straight  = 0.09
-        self.ki_straight = 0.000003
-
-        self.kp_turn = 0.1
-        self.kd_turn= 0.15
-        self.ki_turn = 0.000004
-
-        self.center = 0
-        self.adjustment_num = 0
-
-        self.processing_time = 0
-        self.processing_start_time = 0
-
-
-
-
-        self.process = psutil.Process( os.getpid() )
-
-
-    def position_cb(self, pos):
-
-        self.latitude = pos.latitude
-        self.longitude = pos.longitude
-        if pos.latitude < 0.0001358:
-            self.csv_file.close()
-            exit()
-
-
-    def speedometer_cb(self, speed):
-        self.speed = speed.data
-        
-    def third_person_image_cb(self, image):
-
-        array = numpy.frombuffer(image.data, dtype=numpy.dtype("uint8"))
-        array = numpy.reshape(array, (image.height, image.width, 4))
-        array = array[:, :, :3]
-        array = array[:, :, ::-1]
-        image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
-        self.screen.blit(image_surface, (800,0))    
-
-        pygame.display.flip()
-
-
-    def first_person_image_cb(self, ros_img):
-
-        if self.program_start_time == -100:
-            self.program_start_time = time.time()
-
-
-        img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
-
-
-        self.processing_start_time = time.time()
-        filter_img = self.line_filter(img)
-        self.processing_time = time.time() - self.processing_start_time
-
-        if self.fps == 0:
-            self.start_time = time.time()
-
-        self.fps = self.fps + 1
-
-        if time.time() - self.start_time >= 1:
-            self.last_fps = self.fps
-            self.fps = 0
-
-        self.show_fps(filter_img)
-
-        final_image = self.bridge.cv2_to_imgmsg(filter_img, encoding="passthrough")  
-                
-        array = numpy.frombuffer(filter_img.data, dtype=numpy.dtype("uint8"))
-        array = numpy.reshape(array, (ros_img.height, ros_img.width, 4))
-        array = array[:, :, :3]
-        array = array[:, :, ::-1]
-        image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
-        self.screen.blit(image_surface, (0,0))           
-
-        pygame.display.flip()
-
-        self.control_vehicle()
-
-
-
-    def controlador(self, sig, frame):
-        self.csv_file.close()
-        exit()
-
- 
-    def control_vehicle(self):        
+        # Actualiza el estado y la acción actuales.
+        self.current_state = next_state
+        self.current_action = next_action
+    
+    """
+    def control_vehicle(self, lane_center, left_lane, right_lane):        
 
         actual_error = self.error            
 
@@ -534,23 +391,158 @@ class VehicleTeleop(Node):
             self.csv_writer.writerow([time.time() - self.program_start_time , self.last_fps, cpu_percent , memory_usage/(1024*1024) , self.curling, stering, self.latitude, self.longitude, self.line_detected_num, self.processing_time ])
 
         self.line_detected_num = 0
+    """
 
-    def set_vehicle_control_manual_override(self):
-        """
-        Set the manual control override
-        """
-        self.vehicle_control_manual_override_publisher.publish((Bool(data=True)))
+class VehiclePerception(Node):
+    def __init__(self, vehicle_controller):
+        super().__init__("Vehicle_perception")
 
-    def set_autopilot(self):
-        """
-        enable/disable the autopilot
-        """
-        self.auto_pilot_enable_publisher.publish(Bool(data=False))
+        self. vehicle_controller = vehicle_controller
+        self.bridge = CvBridge()
+
+        #subscritor de la imagenes
+        self.image_surface = None
+        size = 1600, 600
+        self.screen = pygame.display.set_mode(size)
+        pygame.display.set_caption("sliding window algorithm")
+
+        self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_view/image", self.third_person_image_cb, 10)
+        self.image_subscriber = self.create_subscription( Image, "/carla/ego_vehicle/rgb_front/image", self.first_person_image_cb, 10 )
+        self.spedometer_subscriber= self.create_subscription( Float32, "/carla/ego_vehicle/speedometer", self.speedometer_cb, 10 )
+        self.spedometer_subscriber= self.create_subscription( NavSatFix, "/carla/ego_vehicle/gnss", self.position_cb, 10 )
+
+        self.speed = 0
+        self.clock = pygame.time.Clock()
+        self.fps = 0
+        self.last_fps = 0
+        self.start_time = 0
+
+        self.left_x_start = 0
+        self.max_y = 0
+        self.left_x_end = 0
+        self.min_y = 0
+        self.right_x_start = 0
+        self.max_y = 0
+        self.right_x_end = 0
+        self.min_y = 0
+
+        self.latitude = 0
+        self.longitude = 0
+        self.line_detected_num = 0
+
+        self.role_name = "ego_vehicle"
+
+        image_callback_group = MutuallyExclusiveCallbackGroup()
+        self._default_callback_group = image_callback_group        
+
+        self.vehicle_control_publisher = self.create_publisher( CarlaEgoVehicleControl, "/carla/ego_vehicle/vehicle_control_cmd", 10)       
+        self.vehicle_control_manual_override_publisher = self.create_publisher( Bool, "/carla/ego_vehicle/vehicle_control_manual_override",10)
+        self.auto_pilot_enable_publisher = self.create_publisher(Bool,"/carla/ego_vehicle/enable_autopilot",10)
+
+        self.control_msg = CarlaEgoVehicleControl()
+
+        self.control_msg.throttle = 0.0
+        self.control_msg.steer = 0.0 
+        self.control_msg.brake = 0.0
+        self.control_msg.hand_brake = False
+        self.control_msg.reverse = False
+        self.control_msg.gear = 0
+        self.control_msg.manual_gear_shift = False
+        self.error = 0
+
+        self.left_a = []
+        self.left_b = []
+        self.left_c = []
+        self.right_a = []
+        self.right_b = []
+        self.right_c = []
+
+        self.lane_center = 0
+        self.left_lane = []
+        self.right_lane = []
+        
+        self.program_start_time = -100
+        self.Counter = 0
+        self.acelerate = 0
+        self.actual_error = 0
+        self.i_error = 0
+        self.last_error = 0
+        self.INITIAL_CX = 0
+        self.INITIAL_CY = 0
+        self.speedup = 0
+
+        self.center = 0
 
 
+    def position_cb(self, pos):
+
+        self.latitude = pos.latitude
+        self.longitude = pos.longitude
+        if pos.latitude < 0.0001358:
+            self.csv_file.close()
+            exit()
+
+
+    def speedometer_cb(self, speed):
+        self.speed = speed.data
+        
+    def third_person_image_cb(self, image):
+
+        array = numpy.frombuffer(image.data, dtype=numpy.dtype("uint8"))
+        array = numpy.reshape(array, (image.height, image.width, 4))
+        array = array[:, :, :3]
+        array = array[:, :, ::-1]
+        image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
+        self.screen.blit(image_surface, (800,0))    
+
+        pygame.display.flip()
+
+
+    def first_person_image_cb(self, ros_img):
+
+        if self.program_start_time == -100:
+            self.program_start_time = time.time()
+
+
+        img = self.bridge.imgmsg_to_cv2(ros_img, desired_encoding='passthrough')
+
+
+        self.processing_start_time = time.time()
+        filter_img = self.line_filter(img)
+        self.processing_time = time.time() - self.processing_start_time
+
+        if self.fps == 0:
+            self.start_time = time.time()
+
+        self.fps = self.fps + 1
+
+        if time.time() - self.start_time >= 1:
+            self.last_fps = self.fps
+            self.fps = 0
+
+        self.show_fps(filter_img)
+                
+        array = numpy.frombuffer(filter_img.data, dtype=numpy.dtype("uint8"))
+        array = numpy.reshape(array, (ros_img.height, ros_img.width, 4))
+        array = array[:, :, :3]
+        array = array[:, :, ::-1]
+        image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
+        self.screen.blit(image_surface, (0,0))           
+
+        pygame.display.flip()
+
+        self.vehicle_controller.control_vehicle(self.lane_center, self.left_lane, self.right_lane)
+
+
+    """"
+    def controlador(self, sig, frame):
+        self.csv_file.close()
+        exit()
+    
     def vehicle_control_thread(self):
         spin_thread = Thread(target=self.control_vehicle)
         spin_thread.start()
+    """
 
   
     #para detectar blanco utiliza valores  s_thresh=(100, 255), sx_thresh=(15, 255)
@@ -602,10 +594,6 @@ class VehicleTeleop(Node):
         warped = cv2.warpPerspective(img, M, dst_size)
 
         return warped
-
-
-
-    #################################################
 
     def inv_perspective_warp(self,img, 
                         dst_size=(800,600),
@@ -762,6 +750,7 @@ class VehicleTeleop(Node):
         return (left_curverad, right_curverad, center)
 
     def draw_lanes(self,img, left_fit, right_fit):
+
         ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0])
         color_img = numpy.zeros_like(img)
         
@@ -775,7 +764,6 @@ class VehicleTeleop(Node):
         inv_perspective = cv2.addWeighted(img, 1, inv_perspective, 0.7, 0)
 
         return inv_perspective
-    #################################################
 
     def draw_centers(self, img):
         
@@ -787,6 +775,7 @@ class VehicleTeleop(Node):
                 lane.append(i)
 
         center = numpy.mean(lane)
+        self.lane_center = center
         center_x = int(img.shape[1]/2)
 
         cv2.line(img, (center_x, 450), (center_x, 600), [0, 255, 0], 2)    
@@ -802,7 +791,8 @@ class VehicleTeleop(Node):
         img_ = self.pipeline(img)
         img_ = self.perspective_warp(img_)
         curves = self.sliding_window(img_, draw_windows=True)
-        
+        self.left_lane = curves[0]
+        self.right_lane = curves[1]
         if curves[0].any() and curves[1].any():
             img = self.draw_lanes(img, curves[0], curves[1])
             self.draw_centers(img)
@@ -821,7 +811,13 @@ class VehicleTeleop(Node):
         self.clock.tick(60)
         
         return image
-        
+
+
+
+class VehicleNavigation:
+    def __init__(self):       
+        vehicle_controller = VehicleControl()
+        perception = VehiclePerception(vehicle_controller)
 
 
 def main(args=None):
@@ -829,11 +825,11 @@ def main(args=None):
     pygame.init()
     rclpy.init(args=args)
 
-    teleop = VehicleTeleop()
-    signal.signal(signal.SIGINT, teleop.controlador)                
-    rclpy.spin(teleop)
+    navigation = VehicleNavigation()
+    #signal.signal(signal.SIGINT, navigation.controlador)                
+    rclpy.spin(navigation)
 
-    teleop.destroy_node()
+    navigation.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
