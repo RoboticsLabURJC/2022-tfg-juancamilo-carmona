@@ -30,6 +30,7 @@ import signal
 from sensor_msgs.msg import NavSatFix
 import random
 import carla
+import torch
 
 
 
@@ -39,6 +40,7 @@ class VehiclePerception():
 
         self.vehicle = 0
         self.program_start_time = -100
+        self.deeplearning_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/line_follower/model/fastai_torch_lane_detector_model.pth')
 
         self.init_enviroment()
         #subscritor de la imagenes
@@ -220,264 +222,94 @@ class VehiclePerception():
         spin_thread.start()
     """
 
-  
-    #para detectar blanco utiliza valores  s_thresh=(100, 255), sx_thresh=(15, 255)
-    def pipeline(self,img, s_thresh=(200, 255), sx_thresh=(50, 255)):
 
-        img = numpy.copy(img)
+    def get_prediction(self, img_array):
+        with torch.no_grad():
+            image_tensor = img_array.transpose(2,0,1).astype('float32')/255
+            x_tensor = torch.from_numpy(image_tensor).to("cuda").unsqueeze(0)
+            model_output = torch.softmax( self.deeplearning_model.forward(x_tensor), dim=1 ).cpu().numpy()
 
-        # Convert to HLS color space and separate the V channel
-        hls = cv2.cvtColor(img, cv2.COLOR_RGB2HLS).astype(float)
-        l_channel = hls[:,:,1]
-        s_channel = hls[:,:,2]
-        h_channel = hls[:,:,0]
+        return model_output
 
+    def lane_detection_overlay(self, image, left_mask, right_mask):
+        res = numpy.copy(image)
+        # We show only points with probability higher than 0.5
+        res[left_mask > 0.5, :] = [255,0,0]
+        res[right_mask > 0.5,:] = [255, 0, 0]
+        return res
+    
 
-        # Sobel x detecta lor bordes en x
-        sobelx = cv2.Sobel(l_channel, cv2.CV_64F, 1, 1) # Take the derivative in x
-        abs_sobelx = numpy.absolute(sobelx) # Absolute x derivative to accentuate lines away from horizontal
-        scaled_sobel = numpy.uint8(255*abs_sobelx/numpy.max(abs_sobelx))
-        
-        # Threshold x gradient
-        sxbinary = numpy.zeros_like(scaled_sobel)
-        sxbinary[(scaled_sobel >= sx_thresh[0]) & (scaled_sobel <= sx_thresh[1])] = 1
-        
-        # Threshold color channel
-        s_binary = numpy.zeros_like(s_channel)
-        s_binary[(s_channel >= s_thresh[0]) & (s_channel <= s_thresh[1])] = 1
-        
-        #color_binary = numpy.dstack((numpy.zeros_like(sxbinary), sxbinary, s_binary)) * 255
-        
-        combined_binary = numpy.zeros_like(sxbinary)
-        combined_binary[(s_binary == 1) | (sxbinary == 1)] = 1
-
-        return combined_binary
-
-    def perspective_warp(self,img, 
-                        dst_size=(800,600),
-                        src=numpy.float32([(0.39,0.57),(0.62,0.57),(0.1,1),(1,1)]),
-                        dst=numpy.float32([(0,0), (1, 0), (0,1), (1,1)])):
-        img_size = numpy.float32([(img.shape[1],img.shape[0])])
-        src = src* img_size
-        # For destination points, I'm arbitrarily choosing some points to be
-        # a nice fit for displaying our warped result 
-        # again, not exact, but close enough for our purposes
-        dst = dst * numpy.float32(dst_size)
-        
-        # Given src and dst points, calculate the perspective transform matrix
-        M = cv2.getPerspectiveTransform(src, dst)
-        # Warp the image using OpenCV warpPerspective()
-        warped = cv2.warpPerspective(img, M, dst_size)
-
-        return warped
-
-    def inv_perspective_warp(self,img, 
-                        dst_size=(800,600),
-                        src=numpy.float32([(0,0), (1, 0), (0,1), (1,1)]),
-                        dst=numpy.float32([(0.39,0.57),(0.62,0.57),(0.1,1),(1,1)])):
-        img_size = numpy.float32([(img.shape[1],img.shape[0])])
-        src = src* img_size
-        # For destination points, I'm arbitrarily choosing some points to be
-        # a nice fit for displaying our warped result 
-        # again, not exact, but close enough for our purposes
-        dst = dst * numpy.float32(dst_size)
-        # Given src and dst points, calculate the perspective transform matrix
-        M = cv2.getPerspectiveTransform(src, dst)
-        # Warp the image using OpenCV warpPerspective()
-        warped = cv2.warpPerspective(img, M, dst_size)
-        return warped
-
-    def get_hist(sef,img):
-        hist = numpy.sum(img[img.shape[0]//2:,:], axis=0)
-        return hist
-
-
-
-    def sliding_window(self,img, nwindows=10, margin=150, minpix = 1, draw_windows=True):
-        left_fit_= numpy.empty(3)
-        right_fit_ = numpy.empty(3)
-        out_img = numpy.dstack((img, img, img))*255
-
-        histogram = self.get_hist(img)
-        # find peaks of left and right halves
-        midpoint = int(histogram.shape[0]/2)
-        leftx_base = numpy.argmax(histogram[:midpoint])
-        rightx_base = numpy.argmax(histogram[midpoint:]) + midpoint
-
-        # Set height of windows
-        window_height = numpy.int(img.shape[0]/nwindows)
-        # Identify the x and y positions of all nonzero pixels in the image
-        nonzero = img.nonzero()
-        nonzeroy = numpy.array(nonzero[0])
-        nonzerox = numpy.array(nonzero[1])
-        # Current positions to be updated for each window
-        leftx_current = leftx_base
-        rightx_current = rightx_base
-                
-        # Create empty lists to receive left and right lane pixel indices
-        left_lane_inds = []
-        right_lane_inds = []
-
-        # Step through the windows one by one
-        for window in range(nwindows):
-            # Identify window boundaries in x and y (and right and left)
-            win_y_low = img.shape[0] - (window+1)*window_height
-            win_y_high = img.shape[0] - window*window_height
-            win_xleft_low = leftx_current - margin
-            win_xleft_high = leftx_current + margin
-            win_xright_low = rightx_current - margin
-            win_xright_high = rightx_current + margin
-            # Draw the windows on the visualization image
-            if draw_windows == True:
-                cv2.rectangle(out_img,(win_xleft_low,win_y_low),(win_xleft_high,win_y_high),
-                (100,255,255), 3) 
-                cv2.rectangle(out_img,(win_xright_low,win_y_low),(win_xright_high,win_y_high),
-                (100,255,255), 3) 
-
-            # Identify the nonzero pixels in x and y within the window
-            good_left_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & 
-            (nonzerox >= win_xleft_low) &  (nonzerox < win_xleft_high)).nonzero()[0]
-            good_right_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & 
-            (nonzerox >= win_xright_low) &  (nonzerox < win_xright_high)).nonzero()[0]
-            # Append these indices to the lists
-            left_lane_inds.append(good_left_inds)
-            right_lane_inds.append(good_right_inds)
-
-            # If you found > minpix pixels, recenter next window on their mean position
-            if len(good_left_inds) > minpix:
-                leftx_current = numpy.int(numpy.mean(nonzerox[good_left_inds]))
-            if len(good_right_inds) > minpix:        
-                rightx_current = numpy.int(numpy.mean(nonzerox[good_right_inds]))
-            
-        # Concatenate the arrays of indices
-        left_lane_inds = numpy.concatenate(left_lane_inds)
-        right_lane_inds = numpy.concatenate(right_lane_inds)
-
-        
-        # Extract left and right line pixel positions
-        leftx = nonzerox[left_lane_inds]
-        lefty = nonzeroy[left_lane_inds] 
-        rightx = nonzerox[right_lane_inds]
-        righty = nonzeroy[right_lane_inds] 
-
-        # Fit a second order polynomial to each
-
-        ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0] )
-
-
-        if lefty.any() and leftx.any() :
-
-            left_fit = numpy.polyfit(lefty, leftx, 2)
-            self.line_detected_num = self.line_detected_num +1
-
-            self.left_a.append(left_fit[0])
-            self.left_b.append(left_fit[1])
-            self.left_c.append(left_fit[2])
-
-            left_fit_[0] = numpy.mean(self.left_a[-10:])
-            left_fit_[1] = numpy.mean(self.left_b[-10:])
-            left_fit_[2] = numpy.mean(self.left_c[-10:])
-
-            left_fitx = left_fit_[0]*ploty**2 + left_fit_[1]*ploty + left_fit_[2]
-        else:
-            left_fitx = numpy.empty(0)
-
-
-        if righty.any() and rightx.any() :
-            right_fit = numpy.polyfit(righty, rightx, 2)
-            self.line_detected_num = self.line_detected_num +1
-        
-            self.right_a.append(right_fit[0])
-            self.right_b.append(right_fit[1])
-            self.right_c.append(right_fit[2])
-            
-            right_fit_[0] = numpy.mean(self.right_a[-10:])
-            right_fit_[1] = numpy.mean(self.right_b[-10:])
-            right_fit_[2] = numpy.mean(self.right_c[-10:])
-            # Generate x and y values for plotting
-            right_fitx = right_fit_[0]*ploty**2 + right_fit_[1]*ploty + right_fit_[2]
-        else:
-            right_fitx = numpy.empty(0)
-        
-        return (left_fitx, right_fitx)
-
-    def get_curve(self,img, leftx, rightx):
-        ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0])
-        y_eval = numpy.max(ploty)
-        ym_per_pix = 30.5/600 # meters per pixel in y dimension
-        xm_per_pix = 3.7/800 # meters per pixel in x dimension
-
-        # Fit new polynomials to x,y in world space
-        left_fit_cr = numpy.polyfit(ploty*ym_per_pix, leftx*xm_per_pix, 2)
-        right_fit_cr = numpy.polyfit(ploty*ym_per_pix, rightx*xm_per_pix, 2)
-        # Calculate the new radii of curvature
-        left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / numpy.absolute(2*left_fit_cr[0])
-        right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / numpy.absolute(2*right_fit_cr[0])
-
-        car_pos = img.shape[1]/2
-        l_fit_x_int = left_fit_cr[0]*img.shape[0]**2 + left_fit_cr[1]*img.shape[0] + left_fit_cr[2]
-        r_fit_x_int = right_fit_cr[0]*img.shape[0]**2 + right_fit_cr[1]*img.shape[0] + right_fit_cr[2]
-        lane_center_position = (r_fit_x_int + l_fit_x_int) /2
-        center = (car_pos - lane_center_position) * xm_per_pix / 10
-        self.get_logger().error(str(center))
-        self.center = center
-
-        # Now our radius of curvature is in meters
-        return (left_curverad, right_curverad, center)
-
-    def draw_lanes(self,img, left_fit, right_fit):
-
-        ploty = numpy.linspace(0, img.shape[0]-1, img.shape[0])
-        color_img = numpy.zeros_like(img)
-        
-        left = numpy.array([numpy.transpose(numpy.vstack([left_fit, ploty]))])
-        right = numpy.array([numpy.flipud(numpy.transpose(numpy.vstack([right_fit, ploty])))])
-        points = numpy.hstack((left, right))
-        
-        cv2.fillPoly(color_img, numpy.int_(points), (0,200,255))
-
-        inv_perspective = self.inv_perspective_warp(color_img)
-        inv_perspective = cv2.addWeighted(img, 1, inv_perspective, 0.7, 0)
-
-        return inv_perspective
 
     def draw_centers(self, img):
         
         lane = []
-        
-        for i in range(800):
-            px = img[ 350, i] 
-            if px[1] == 255 and px[2] == 255:
+        for i in range(1024):
+            px = img[ 304, i] 
+            if px[0] == 255:
                 lane.append(i)
 
         center = numpy.mean(lane)
-        self.lane_center = center
         center_x = int(img.shape[1]/2)
-
-        cv2.line(img, (center_x, 450), (center_x, 600), [0, 255, 0], 2)    
-        cv2.line(img, (int(center)-5, 350), (int(center)+5, 350), [0, 0, 255], 1)    
-        cv2.line(img, (int(center), 450), (int(center), 600), [0, 0, 255], 1)
+        
+        cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
+        cv2.line(img, (center_x-5, 304), (center_x+5, 304), [0, 0, 255], 1)
+        cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
 
         self.error =  center - center_x
 
 
+    def find_lane_center(self,left_mask, right_mask):
+        # Suma las máscaras a lo largo del eje de las columnas
+        left_sum = numpy.sum(left_mask, axis=0)
+        right_sum = numpy.sum(right_mask, axis=0)
 
+        # Encuentra la posición de la columna con la suma más alta para cada máscara
+        left_index = numpy.argmax(left_sum)
+        right_index = numpy.argmax(right_sum)
+
+        # Calcula el centro del carril como el punto medio entre los dos índices
+        lane_center = int((left_index + right_index) / 2)
+
+        return lane_center
+
+
+    def draw_lanes(self,img, left, right):
+        color_img = numpy.zeros_like(img)
+        
+        points = numpy.hstack((left, right))
+        
+        cv2.fillPoly(color_img, numpy.int_(points), (0,200,255))
+        final_img = cv2.addWeighted(img, 1, color_img, 0.7, 0)
+
+        return final_img
+    
     def line_filter(self, img):
+        
+        resized_img = cv2.resize(img, (1024, 512) )
 
-        img_ = self.pipeline(img)
-        img_ = self.perspective_warp(img_)
-        curves = self.sliding_window(img_, draw_windows=True)
-        self.left_lane = curves[0]
-        self.right_lane = curves[1]
-        if curves[0].any() and curves[1].any():
-            img = self.draw_lanes(img, curves[0], curves[1])
-            self.draw_centers(img)
-        else:
-            center_x = int(img.shape[1]/2)        
-            cv2.line(img, (center_x, 450), (center_x, 600), [0, 255, 0], 2)    
+        resized_img = cv2.cvtColor(resized_img, cv2.COLOR_BGRA2RGB)
+
+        back, left, right = self.get_prediction(resized_img)[0]
+
+        filtered_img = self.lane_detection_overlay(resized_img, left, right)
+
+        #filtered_img = self.draw_lanes(filtered_img, left, right )
+
+        self.draw_centers(filtered_img)
+
+        final_img = cv2.cvtColor(filtered_img, cv2.COLOR_RGB2BGRA)
+        final_img = cv2.resize(final_img, (800, 600) )
 
 
-        return img
+        return final_img
+        self.deeplearning_model.eval()
+        self.image_counter = 0
+        self.processing_start_time = 0
+        self.processing_time = 0
+
+        self.process = psutil.Process( os.getpid() )
+
+
 
 
     def show_fps(self, img):
