@@ -5,6 +5,137 @@ import numpy as np
 import cv2
 import time
 import torch
+from carla import VehicleControl
+
+import numpy as np
+
+class QLearningVehicleControl:
+    def __init__(self, learning_rate=0.5, discount_factor=0.95, exploration_rate=0.5, num_actions=7):
+        self.learning_rate = learning_rate
+        self.discount_factor = discount_factor
+        self.exploration_rate = exploration_rate
+        self.num_actions = num_actions
+        self.q_table = np.zeros((num_actions, num_actions))
+        
+        self.lane_center_error = 0  # Inicializamos la variable lane_center_error
+
+
+        ACTIONS = [ 
+            'forward',  # sigue recto
+            'slight_left',  # giro suave a la izquierda
+            'medium_left',  # giro medio a la izquierda
+            'hard_left',  # giro duro a la izquierda
+            'slight_right',  # giro suave a la derecha
+            'medium_right',  # giro medio a la derecha
+            'hard_right',  # giro duro a la derecha
+        ]
+
+    def get_lane_center_error(self):
+        return self.lane_center_error
+
+    def set_lane_center_error(self, error):
+        self.lane_center_error = error
+
+    def choose_action(self, state):
+        if np.random.uniform(0, 1) < self.exploration_rate:
+            # Explora: elige una acción aleatoria
+            action = np.random.randint(self.num_actions)
+        else:
+            # Explota: elige la acción con el mayor valor Q para este estado
+            action = np.argmax(self.q_table[state])
+        return action
+
+    def update_q_table(self, current_state, action, reward, next_state):
+        # Calcula el valor Q esperado para la próxima acción, si se elige la mejor
+        future_max_q = np.max(self.q_table[next_state])
+
+        # Calcula el nuevo valor Q para la acción tomada en el estado actual
+        new_q = (1 - self.learning_rate) * self.q_table[current_state][action] + \
+                self.learning_rate * (reward + self.discount_factor * future_max_q)
+
+        # Actualiza la tabla Q
+        self.q_table[current_state][action] = new_q
+
+    def get_state(self, center_of_lane):
+        # Asumimos que 'center_of_lane' es la posición en píxeles del centro del carril en la imagen.
+        # Definimos los umbrales de píxeles para cada franja.
+        thresholds = np.linspace(0, 800, num=8)  # Esto nos da 7 franjas de igual tamaño.
+
+        # Verificamos en qué franja cae el centro del carril.
+        for i in range(7):
+            if thresholds[i] <= center_of_lane < thresholds[i + 1]:
+                return i
+
+        # Si el centro del carril está en el extremo derecho de la imagen, lo consideramos en la franja más a la derecha.
+        return 6
+
+    def reward_function(self, error):
+        # Asumimos que 'error' es la diferencia en píxeles entre el centro del carril y el centro de la imagen.
+        # Normalizamos el error dividiéndolo por el ancho de la imagen (por ejemplo, 800 píxeles).
+        normalized_error = abs(error) / 800
+
+        # Usamos una función exponencial negativa para convertir el error en una recompensa.
+        reward = np.exp(-normalized_error)
+
+        return reward
+    
+    def perform_action(self, action):
+        # Define la acción que el vehículo debe tomar en función de la acción especificada
+        control = VehicleControl()
+        if action == 'forward':
+            control.throttle = 0.5
+            control.steer = 0.0
+        elif action == 'slight_left':
+            control.throttle = 0.5
+            control.steer = -0.2
+        elif action == 'medium_left':
+            control.throttle = 0.5
+            control.steer = -0.5
+        elif action == 'hard_left':
+            control.throttle = 0.5
+            control.steer = -1.0
+        elif action == 'slight_right':
+            control.throttle = 0.5
+            control.steer = 0.2
+        elif action == 'medium_right':
+            control.throttle = 0.5
+            control.steer = 0.5
+        elif action == 'hard_right':
+            control.throttle = 0.5
+            control.steer = 1.0
+        self.vehicle.apply_control(control)
+
+    def train(self, num_episodes):
+        for episode in range(num_episodes):
+            # Reinicia el estado del entorno para el comienzo de cada episodio
+            current_state = self.get_state(self.get_lane_center_error())
+
+            done = False
+            while not done:
+                # Elige una acción
+                action = self.choose_action(current_state)
+
+                # Realiza la acción
+                self.perform_action(self.ACTIONS[action])
+
+                # Obtén el nuevo estado y la recompensa
+                lane_center_error = self.get_lane_center_error()
+                next_state = self.get_state(lane_center_error)
+                reward = self.reward_function(lane_center_error)
+
+                # Aquí, puede ser útil definir una condición de "finalización" para el episodio, por ejemplo, si el vehículo
+                # se sale de la carretera o llega a su destino.
+                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continúe indefinidamente.
+                # Tendrás que modificar esto para adaptarlo a tu caso de uso específico.
+
+                # Actualiza la tabla Q
+                self.update_q_table(current_state, action, reward, next_state)
+
+                # El nuevo estado se convierte en el estado actual para la próxima iteración
+                current_state = next_state
+
+
+
 
 # Render object to keep and pass the PyGame surface
 class RenderObject(object):
