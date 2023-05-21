@@ -117,14 +117,12 @@ def first_person_image_cb(image, obj, metrics, dl_model):
     array = np.reshape(array, (image.height, image.width, 4))
     img = array[:, :, :3]
 
-    bgr_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-
     if metrics.program_start_time == -100:
         metrics.program_start_time = time.time()
 
     processing_start_time = time.time()
 
-    filter_img = line_filter(bgr_img, dl_model)
+    filter_img = line_filter(img, dl_model)
     
     metrics.processing_time = time.time() - processing_start_time
 
@@ -139,15 +137,10 @@ def first_person_image_cb(image, obj, metrics, dl_model):
 
     # Mostrar el FPS en la imagen en formato BGR
     bgr_img_with_fps = show_fps(filter_img,metrics)
+    rgb_img = cv2.cvtColor(bgr_img_with_fps, cv2.COLOR_BGR2RGB)
+    rgb_img = np.rot90(np.fliplr(rgb_img))
 
-    # Convertir la imagen con el texto del FPS de vuelta a formato RGB
-    # Mostrar la imagen en la ventana de pygame
-    cv_img = cv2.resize(bgr_img_with_fps, (image.width, image.height))
-    cv_img = cv_img.transpose((1, 0, 2))  # Intercambiamos las dimensiones de altura y anchura
-
-    obj.surface = pygame.surfarray.make_surface(cv_img.swapaxes(0,1))
-
-
+    obj.surface = pygame.surfarray.make_surface(rgb_img)
     #self.vehicle_controller.control_vehicle(self.lane_center, self.left_lane, self.right_lane)
 
 
