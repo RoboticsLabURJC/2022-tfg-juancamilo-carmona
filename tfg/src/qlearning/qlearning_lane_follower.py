@@ -443,7 +443,7 @@ actors.append(gnss)
 
 #gnss.listen(position_cb)
 
-num_episodes = 100
+num_episodes = 10000
 
 start = True
 while start:
