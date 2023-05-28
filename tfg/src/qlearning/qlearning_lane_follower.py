@@ -310,14 +310,9 @@ def position_cb( pos, metrics, vehicleQlearning):
 
     latitude = pos.latitude
     longitude = pos.longitude
-    print(latitude)
-    print(longitude)
 
     vehicleQlearning.latitude = latitude
     vehicleQlearning.longitude = longitude
-
-    print()
-    print()
 
     #if pos.latitude < 0.0001358:
         #self.csv_file.close()
@@ -395,8 +390,6 @@ vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
 
 location,rotation = choose_vehicle_location()
 
-print("location: ", location)
-print("rotation: ", rotation)
 transform = carla.Transform(location, rotation)
 
 actors = []
