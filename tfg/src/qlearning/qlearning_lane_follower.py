@@ -19,8 +19,8 @@ class QLearningVehicleControl:
         self.vehicle = vehicle
         self.lane_lines = 100
         self.start = 0
-        self.latitude = 0
-        self.longitude = 0
+        self.latitude = 100
+        self.longitude = 100
         
         self.lane_center_error = 0  # Inicializamos la variable lane_center_error
 
@@ -306,13 +306,18 @@ def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
     #self.vehicle_controller.control_vehicle(self.lane_center, self.left_lane, self.right_lane)
 
 
-def position_cb(self, pos, metrics, vehicleQlearning):
+def position_cb( pos, metrics, vehicleQlearning):
 
     latitude = pos.latitude
     longitude = pos.longitude
+    print(latitude)
+    print(longitude)
 
     vehicleQlearning.latitude = latitude
     vehicleQlearning.longitude = longitude
+
+    print()
+    print()
 
     #if pos.latitude < 0.0001358:
         #self.csv_file.close()
@@ -337,14 +342,13 @@ def reset_simulation(actors):
 
 def choose_vehicle_location():
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.1) , carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
-                 (carla.Location(x=-102.14, y=-164.02, z=0.1) , carla.Rotation(pitch=-12.84, yaw=142.55, roll=0)),
-                 (carla.Location(x=-231.48, y=-95.95, z=0.1) , carla.Rotation(pitch=-11.39, yaw=170.98, roll=0)),
-                 (carla.Location(x=-47.41, y=-214.90, z=0.1) , carla.Rotation(pitch=-5.579, yaw=132.02, roll=0)),
-                 (carla.Location(x=-65.03, y=-198.54, z=0.1) , carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)) ]
+                 (carla.Location(x=-102.14, y=-164.02, z=0.2) , carla.Rotation(pitch=-12.84, yaw=142.55, roll=0)),
+                 (carla.Location(x=-231.48, y=-95.95, z=0.4) , carla.Rotation(pitch=-11.39, yaw=170.98, roll=0)),
+                 (carla.Location(x=-47.41, y=-214.90, z=0.2) , carla.Rotation(pitch=-5.579, yaw=132.02, roll=0)),
+                 (carla.Location(x=-65.03, y=-198.54, z=0.2) , carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)) ]
     
     # Selecciona una ubicación aleatoria de la lista
     location, rotation = random.choice(locations)
-
     return location, rotation
 
 # Initialise the display
@@ -390,6 +394,9 @@ vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
 # Creamos una Transform con la ubicación y orientación que queremos
 
 location,rotation = choose_vehicle_location()
+
+print("location: ", location)
+print("rotation: ", rotation)
 transform = carla.Transform(location, rotation)
 
 actors = []
@@ -438,7 +445,7 @@ gnss_bp = blueprint_library.find('sensor.other.gnss')
 
 # Añade el sensor GNSS al vehículo
 gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
-gnss.listen(lambda data: position_cb(data, renderObject,metrics, vehicleQlearning))
+gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
 actors.append(gnss)
 
 #gnss.listen(position_cb)
@@ -490,7 +497,6 @@ while start:
 
                 if vehicleQlearning.latitude < 0.0001358:
                     print("¡Goal reached! finishing training")
-                    # Asumamos que `vehicleQlearning.q_table` es tu tabla Q
                     q_table = vehicleQlearning.q_table
 
                     # Guardar la tabla Q
@@ -503,7 +509,9 @@ while start:
             #third_person_cam.stop()
             
             reset_simulation(actors)
+
             location,rotation = choose_vehicle_location()
+
             transform = carla.Transform(location, rotation)
 
             vehicle = world.spawn_actor(vehicle_bp, transform)
