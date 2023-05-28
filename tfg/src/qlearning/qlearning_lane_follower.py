@@ -47,18 +47,18 @@ class QLearningVehicleControl:
 
     def choose_action(self, state):
         if np.random.uniform(0, 1) < self.exploration_rate:
-            # Explora: elige una acción aleatoria
+            # Explora: elige una acció?n aleatoria
             action = np.random.randint(self.num_actions)
         else:
-            # Explota: elige la acción con el mayor valor Q para este estado
+            # Explota: elige la acció?n con el mayor valor Q para este estado
             action = np.argmax(self.q_table[state])
         return action
 
     def update_q_table(self, current_state, action, reward, next_state):
-        # Calcula el valor Q esperado para la próxima acción, si se elige la mejor
+        # Calcula el valor Q esperado para la pró?xima acció?n, si se elige la mejor
         future_max_q = np.max(self.q_table[next_state])
 
-        # Calcula el nuevo valor Q para la acción tomada en el estado actual
+        # Calcula el nuevo valor Q para la acció?n tomada en el estado actual
         new_q = (1 - self.learning_rate) * self.q_table[current_state][action] + \
                 self.learning_rate * (reward + self.discount_factor * future_max_q)
 
@@ -66,30 +66,30 @@ class QLearningVehicleControl:
         self.q_table[current_state][action] = new_q
 
     def get_state(self, center_of_lane):
-        # Asumimos que 'center_of_lane' es la posición en píxeles del centro del carril en la imagen.
-        # Definimos los umbrales de píxeles para cada franja.
-        thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamaño.
+        # Asumimos que 'center_of_lane' es la posició?n en pí?xeles del centro del carril en la imagen.
+        # Definimos los umbrales de pí?xeles para cada franja.
+        thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ?o.
 
-        # Verificamos en qué franja cae el centro del carril.
+        # Verificamos en qué? franja cae el centro del carril.
         for i in range(4):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
 
-        # Si el centro del carril está en el extremo derecho de la imagen, lo consideramos en la franja más a la derecha.
+        # Si el centro del carril está? en el extremo derecho de la imagen, lo consideramos en la franja má?s a la derecha.
         return 6
 
     def reward_function(self, error):
-        # Asumimos que 'error' es la diferencia en píxeles entre el centro del carril y el centro de la imagen.
-        # Normalizamos el error dividiéndolo por el ancho de la imagen (por ejemplo, 800 píxeles).
+        # Asumimos que 'error' es la diferencia en pí?xeles entre el centro del carril y el centro de la imagen.
+        # Normalizamos el error dividié?ndolo por el ancho de la imagen (por ejemplo, 800 pí?xeles).
         normalized_error = abs(error) / 800
 
-        # Usamos una función exponencial negativa para convertir el error en una recompensa.
+        # Usamos una funció?n exponencial negativa para convertir el error en una recompensa.
         reward = np.exp(-normalized_error)
 
         return reward
     
     def perform_action(self, action):
-        # Define la acción que el vehículo debe tomar en función de la acción especificada
+        # Define la acció?n que el vehí?culo debe tomar en funció?n de la acció?n especificada
         control = VehicleControl()
         if action == 'forward':
             control.throttle = 0.5
@@ -121,26 +121,26 @@ class QLearningVehicleControl:
 
             done = False
             while not done:
-                # Elige una acción
+                # Elige una acció?n
                 action = self.choose_action(current_state)
 
-                # Realiza la acción
+                # Realiza la acció?n
                 self.perform_action(self.ACTIONS[action])
 
-                # Obtén el nuevo estado y la recompensa
+                # Obté?n el nuevo estado y la recompensa
                 lane_center_error = self.get_lane_center_error()
                 next_state = self.get_state(lane_center_error)
                 reward = self.reward_function(lane_center_error)
 
-                # Aquí, puede ser útil definir una condición de "finalización" para el episodio, por ejemplo, si el vehículo
+                # Aquí?, puede ser ú?til definir una condició?n de "finalizació?n" para el episodio, por ejemplo, si el vehí?culo
                 # se sale de la carretera o llega a su destino.
-                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continúe indefinidamente.
-                # Tendrás que modificar esto para adaptarlo a tu caso de uso específico.
+                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continú?e indefinidamente.
+                # Tendrá?s que modificar esto para adaptarlo a tu caso de uso especí?fico.
 
                 # Actualiza la tabla Q
                 self.update_q_table(current_state, action, reward, next_state)
 
-                # El nuevo estado se convierte en el estado actual para la próxima iteración
+                # El nuevo estado se convierte en el estado actual para la pró?xima iteració?n
                 current_state = next_state
 
 
@@ -225,7 +225,7 @@ def draw_centers( img, VehicleQlearning):
 
     #print(VehicleQlearning.lane_lines)
 
-    thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamaño.
+    thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ?o.
     for i in thresholds:
         cv2.line(img, (int(i), 0), (int(i), 600), [0, 255, 255], 1)
         
@@ -336,15 +336,18 @@ def reset_simulation(actors):
     
 
 def choose_vehicle_location():
-    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.1) , carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
-                 (carla.Location(x=-102.14, y=-164.02, z=0.2) , carla.Rotation(pitch=-12.84, yaw=142.55, roll=0)),
-                 (carla.Location(x=-231.48, y=-95.95, z=0.4) , carla.Rotation(pitch=-11.39, yaw=170.98, roll=0)),
-                 (carla.Location(x=-47.41, y=-214.90, z=0.2) , carla.Rotation(pitch=-5.579, yaw=132.02, roll=0)),
-                 (carla.Location(x=-65.03, y=-198.54, z=0.2) , carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)) ]
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2) , carla.Rotation(pitch=-1.19, yaw=131, roll=0))]
     
-    # Selecciona una ubicación aleatoria de la lista
+    # Selecciona una ubicació?n aleatoria de la lista
     location, rotation = random.choice(locations)
     return location, rotation
+
+def wait_spawn(vehicleQlearning):
+    vehicleQlearning.start = False
+    while not vehicleQlearning.start :
+        world.tick()
+
+
 
 # Initialise the display
 pygame.init()
@@ -355,14 +358,14 @@ pygame.display.set_caption("qlearning and DL")
 pygame.display.flip()
 
 # Connect to the client and retrieve the world object
-client = carla.Client('localhost', 2000)
+client = carla.Client('localhost', 2015)
 world = client.get_world()
 
 # Cargamos la ciudad deseada
 try:
     world = client.load_world('Town04')
 except RuntimeError:
-    print("No se pudo cargar Town04. Comprueba si esta ciudad está disponible en tu versión de CARLA.")
+    print("No se pudo cargar Town04. Comprueba si esta ciudad está? disponible en tu versió?n de CARLA.")
 
 # Set up the simulator in synchronous mode
 settings = world.get_settings()
@@ -370,10 +373,11 @@ settings.synchronous_mode = True # Enables synchronous mode
 settings.fixed_delta_seconds = 0.05
 world.apply_settings(settings)
 
+
 # We will aslo set up the spectator so we can see what we do
 spectator = world.get_spectator()
 
-# Define la ubicación donde quieres spawnear el vehículo
+# Define la ubicació?n donde quieres spawnear el vehí?culo
 spawn_points = world.get_map().get_spawn_points()
 
 blueprint_library = world.get_blueprint_library()
@@ -386,33 +390,33 @@ blueprint_library = world.get_blueprint_library()
 vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
 
 # Spawn the vehicle
-# Creamos una Transform con la ubicación y orientación que queremos
+# Creamos una Transform con la ubicació?n y orientació?n que queremos
 
 location,rotation = choose_vehicle_location()
 
 transform = carla.Transform(location, rotation)
 
 actors = []
-# Generamos el vehículo
+# Generamos el vehí?culo
 vehicle = world.spawn_actor(vehicle_bp, transform)
 actors.append(vehicle)
 
-# Busca el blueprint de la cámara
+# Busca el blueprint de la cá?mara
 camera_bp = blueprint_library.find('sensor.camera.rgb')
 
-# Configura la cámara
+# Configura la cá?mara
 camera_bp.set_attribute('image_size_x', '800')
 camera_bp.set_attribute('image_size_y', '600')
 camera_bp.set_attribute('fov', '110')
 
-# Añade la primera cámara (dashcam) al vehículo
+# Añ?ade la primera cá?mara (dashcam) al vehí?culo
 dashcam_location = carla.Location(x=1.5, y=0.0, z=1.4)
 dashcam_rotation = carla.Rotation(pitch=-15, yaw=0, roll=0)
 dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
 dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
 actors.append(dashcam)
 
-# Añade la segunda cámara (vista en tercera persona) al vehículo
+# Añ?ade la segunda cá?mara (vista en tercera persona) al vehí?culo
 """
 third_person_cam_location = carla.Location(x=-5.5, y=0.0, z=2.8)
 third_person_cam_rotation = carla.Rotation(pitch=-20, yaw=0, roll=0)
@@ -425,8 +429,8 @@ actors.append(third_person_cam)
 # Instantiate objects for rendering and vehicle control
 renderObject = RenderObject()
 
-dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-# Asocia la función callback con las cámaras
+dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+# Asocia la funció?n callback con las cá?maras
 metrics = Metrics()
 
 vehicleQlearning = QLearningVehicleControl(vehicle)
@@ -436,7 +440,7 @@ dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics,
 # Busca el blueprint del sensor GNSS
 gnss_bp = blueprint_library.find('sensor.other.gnss')
 
-# Añade el sensor GNSS al vehículo
+# Añ?ade el sensor GNSS al vehí?culo
 gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
 gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
 actors.append(gnss)
@@ -463,33 +467,33 @@ while start:
                 gameDisplay.blit(renderObject.surface2, (800,0))
                 pygame.display.flip()
 
-                # Elige una acción
+                # Elige una acció?n
                 action = vehicleQlearning.choose_action(current_state)
 
-                # Realiza la acción
+                # Realiza la acció?n
                 vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
 
-                # Obtén el nuevo estado y la recompensa
+                # Obté?n el nuevo estado y la recompensa
                 lane_center_error = vehicleQlearning.get_lane_center_error()
                 next_state = vehicleQlearning.get_state(lane_center_error)
                 reward = vehicleQlearning.reward_function(lane_center_error)
 
-                # Aquí, puede ser útil definir una condición de "finalización" para el episodio, por ejemplo, si el vehículo
+                # Aquí?, puede ser ú?til definir una condició?n de "finalizació?n" para el episodio, por ejemplo, si el vehí?culo
                 # se sale de la carretera o llega a su destino.
-                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continúe indefinidamente.
-                # Tendrás que modificar esto para adaptarlo a tu caso de uso específico.
+                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continú?e indefinidamente.
+                # Tendrá?s que modificar esto para adaptarlo a tu caso de uso especí?fico.
 
                 # Actualiza la tabla Q
                 vehicleQlearning.update_q_table(current_state, action, reward, next_state)
 
-                # El nuevo estado se convierte en el estado actual para la próxima iteración
+                # El nuevo estado se convierte en el estado actual para la pró?xima iteració?n
                 current_state = next_state
 
                 if vehicleQlearning.lane_lines < 2:
                     done = True
 
                 if vehicleQlearning.latitude < 0.0001358:
-                    print("¡Goal reached! finishing training")
+                    print("¡?Goal reached! finishing training")
                     q_table = vehicleQlearning.q_table
 
                     # Guardar la tabla Q
@@ -520,9 +524,10 @@ while start:
             gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
             actors.append(gnss)
 
-            # Reasocia la función callback con las cámaras
+            # Reasocia la funció?n callback con las cá?maras
             dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
             #third_person_cam.listen(lambda image:third_person_image_cb(image, renderObject))
+            wait_spawn(vehicleQlearning, world)
 
         start = False
         pygame.quit()
