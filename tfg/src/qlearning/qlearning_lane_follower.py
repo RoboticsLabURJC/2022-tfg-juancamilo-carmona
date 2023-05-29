@@ -47,18 +47,18 @@ class QLearningVehicleControl:
 
     def choose_action(self, state):
         if np.random.uniform(0, 1) < self.exploration_rate:
-            # Explora: elige una acció?n aleatoria
+            # Explora: elige una acció??n aleatoria
             action = np.random.randint(self.num_actions)
         else:
-            # Explota: elige la acció?n con el mayor valor Q para este estado
+            # Explota: elige la acció??n con el mayor valor Q para este estado
             action = np.argmax(self.q_table[state])
         return action
 
     def update_q_table(self, current_state, action, reward, next_state):
-        # Calcula el valor Q esperado para la pró?xima acció?n, si se elige la mejor
+        # Calcula el valor Q esperado para la pró??xima acció??n, si se elige la mejor
         future_max_q = np.max(self.q_table[next_state])
 
-        # Calcula el nuevo valor Q para la acció?n tomada en el estado actual
+        # Calcula el nuevo valor Q para la acció??n tomada en el estado actual
         new_q = (1 - self.learning_rate) * self.q_table[current_state][action] + \
                 self.learning_rate * (reward + self.discount_factor * future_max_q)
 
@@ -66,52 +66,52 @@ class QLearningVehicleControl:
         self.q_table[current_state][action] = new_q
 
     def get_state(self, center_of_lane):
-        # Asumimos que 'center_of_lane' es la posició?n en pí?xeles del centro del carril en la imagen.
-        # Definimos los umbrales de pí?xeles para cada franja.
-        thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ?o.
+        # Asumimos que 'center_of_lane' es la posició??n en pí??xeles del centro del carril en la imagen.
+        # Definimos los umbrales de pí??xeles para cada franja.
+        thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ??o.
 
-        # Verificamos en qué? franja cae el centro del carril.
+        # Verificamos en qué?? franja cae el centro del carril.
         for i in range(4):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
 
-        # Si el centro del carril está? en el extremo derecho de la imagen, lo consideramos en la franja má?s a la derecha.
+        # Si el centro del carril está?? en el extremo derecho de la imagen, lo consideramos en la franja má??s a la derecha.
         return 6
 
     def reward_function(self, error):
-        # Asumimos que 'error' es la diferencia en pí?xeles entre el centro del carril y el centro de la imagen.
-        # Normalizamos el error dividié?ndolo por el ancho de la imagen (por ejemplo, 800 pí?xeles).
+        # Asumimos que 'error' es la diferencia en pí??xeles entre el centro del carril y el centro de la imagen.
+        # Normalizamos el error dividié??ndolo por el ancho de la imagen (por ejemplo, 800 pí??xeles).
         normalized_error = abs(error) / 800
 
-        # Usamos una funció?n exponencial negativa para convertir el error en una recompensa.
+        # Usamos una funció??n exponencial negativa para convertir el error en una recompensa.
         reward = np.exp(-normalized_error)
 
         return reward
     
     def perform_action(self, action):
-        # Define la acció?n que el vehí?culo debe tomar en funció?n de la acció?n especificada
+        # Define la acció??n que el vehí??culo debe tomar en funció??n de la acció??n especificada
         control = VehicleControl()
         if action == 'forward':
             control.throttle = 0.5
             control.steer = 0.0
         elif action == 'slight_left':
             control.throttle = 0.4
-            control.steer = -0.05
+            control.steer = -0.01
         elif action == 'medium_left':
             control.throttle = 0.4
-            control.steer = -0.15
+            control.steer = -0.05
         elif action == 'hard_left':
             control.throttle = 0.4
-            control.steer = -0.3
+            control.steer = -0.1
         elif action == 'slight_right':
             control.throttle = 0.4
-            control.steer = 0.05
+            control.steer = 0.01
         elif action == 'medium_right':
             control.throttle = 0.4
-            control.steer = 0.15
+            control.steer = 0.05
         elif action == 'hard_right':
             control.throttle = 0.4
-            control.steer = 0.3
+            control.steer = 0.1
         self.vehicle.apply_control(control)
 
     def train(self, num_episodes):
@@ -121,26 +121,26 @@ class QLearningVehicleControl:
 
             done = False
             while not done:
-                # Elige una acció?n
+                # Elige una acció??n
                 action = self.choose_action(current_state)
 
-                # Realiza la acció?n
+                # Realiza la acció??n
                 self.perform_action(self.ACTIONS[action])
 
-                # Obté?n el nuevo estado y la recompensa
+                # Obté??n el nuevo estado y la recompensa
                 lane_center_error = self.get_lane_center_error()
                 next_state = self.get_state(lane_center_error)
                 reward = self.reward_function(lane_center_error)
 
-                # Aquí?, puede ser ú?til definir una condició?n de "finalizació?n" para el episodio, por ejemplo, si el vehí?culo
+                # Aquí??, puede ser ú??til definir una condició??n de "finalizació??n" para el episodio, por ejemplo, si el vehí??culo
                 # se sale de la carretera o llega a su destino.
-                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continú?e indefinidamente.
-                # Tendrá?s que modificar esto para adaptarlo a tu caso de uso especí?fico.
+                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continú??e indefinidamente.
+                # Tendrá??s que modificar esto para adaptarlo a tu caso de uso especí??fico.
 
                 # Actualiza la tabla Q
                 self.update_q_table(current_state, action, reward, next_state)
 
-                # El nuevo estado se convierte en el estado actual para la pró?xima iteració?n
+                # El nuevo estado se convierte en el estado actual para la pró??xima iteració??n
                 current_state = next_state
 
 
@@ -178,6 +178,15 @@ def lane_detection_overlay( image, left_mask, right_mask):
     res[right_mask > 0.5,:] = [255, 0, 0]
     return res
 
+def calculate_lane_center(left_line, right_line):
+
+    line_points = []
+    for i in range(3):
+        if left_line and right_line:
+            line_points = line_points + left_line[i] + right_line[i]
+    return int(np.mean(line_points))
+
+        
 
 def draw_centers( img, VehicleQlearning):
     
@@ -190,31 +199,33 @@ def draw_centers( img, VehicleQlearning):
     #cv2.line(img, (0, 254), (1024, 254), [0, 0, 255], 2)    
 
     for j in control_lines:
-        lane = []
+        control_line_right = []
+        control_line_left = []
         prev_i = None
         for i in range(1024):
             px = img[j, i]
             if px[0] == 255:
                 if prev_i is None or i - prev_i > 20:
 
-                    left_line.append(i)
+                    control_line_left.append(i)
                 else:
 
-                    right_line.append(i)
+                    control_line_right.append(i)
 
                 prev_i = i
+        if control_line_left:
+            left_line.append( [np.mean(control_line_left)])
+        else:
+            left_line.append( [])
 
-    if not left_line and not right_line:
-        VehicleQlearning.lane_lines = 0
-        VehicleQlearning.set_lane_center_error(0)
+        if control_line_right:
+            right_line.append( [np.mean(control_line_right)])
+        else:
+            right_line.append( [])
 
-    elif not left_line or not right_line:
-        VehicleQlearning.lane_lines = 1
-        
-        VehicleQlearning.set_lane_center_error(0)
-    else:
+    if  left_line[0] and right_line[0] and left_line[1] and right_line[1] and  left_line[2] and  right_line[2] :
         VehicleQlearning.lane_lines = 2            
-        center = np.mean(left_line + right_line)
+        center = calculate_lane_center(left_line, right_line)
         center_x = int(img.shape[1]/2)
     
         cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
@@ -223,9 +234,15 @@ def draw_centers( img, VehicleQlearning):
 
         VehicleQlearning.set_lane_center_error(center - center_x)
 
+    else:
+        VehicleQlearning.lane_lines = 0
+        VehicleQlearning.set_lane_center_error(0)
+
+
+
     #print(VehicleQlearning.lane_lines)
 
-    thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ?o.
+    thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ??o.
     for i in thresholds:
         cv2.line(img, (int(i), 0), (int(i), 600), [0, 255, 255], 1)
         
@@ -336,13 +353,13 @@ def reset_simulation(actors):
     
 
 def choose_vehicle_location():
-    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2) , carla.Rotation(pitch=-1.19, yaw=131, roll=0))]
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2) , carla.Rotation(pitch=-1.19, yaw=131, roll=0)), (carla.Location(x=-47.41, y=-214.90, z=0.3) , carla.Rotation(pitch=-5.579, yaw=132.02, roll=0)),(carla.Location(x=-65.03, y=-198.54, z=0.3) , carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)) ]
     
-    # Selecciona una ubicació?n aleatoria de la lista
+    # Selecciona una ubicació??n aleatoria de la lista
     location, rotation = random.choice(locations)
     return location, rotation
 
-def wait_spawn(vehicleQlearning):
+def wait_spawn(vehicleQlearning, world):
     vehicleQlearning.start = False
     while not vehicleQlearning.start :
         world.tick()
@@ -365,7 +382,7 @@ world = client.get_world()
 try:
     world = client.load_world('Town04')
 except RuntimeError:
-    print("No se pudo cargar Town04. Comprueba si esta ciudad está? disponible en tu versió?n de CARLA.")
+    print("No se pudo cargar Town04. Comprueba si esta ciudad está?? disponible en tu versió??n de CARLA.")
 
 # Set up the simulator in synchronous mode
 settings = world.get_settings()
@@ -377,7 +394,7 @@ world.apply_settings(settings)
 # We will aslo set up the spectator so we can see what we do
 spectator = world.get_spectator()
 
-# Define la ubicació?n donde quieres spawnear el vehí?culo
+# Define la ubicació??n donde quieres spawnear el vehí??culo
 spawn_points = world.get_map().get_spawn_points()
 
 blueprint_library = world.get_blueprint_library()
@@ -390,33 +407,33 @@ blueprint_library = world.get_blueprint_library()
 vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
 
 # Spawn the vehicle
-# Creamos una Transform con la ubicació?n y orientació?n que queremos
+# Creamos una Transform con la ubicació??n y orientació??n que queremos
 
 location,rotation = choose_vehicle_location()
 
 transform = carla.Transform(location, rotation)
 
 actors = []
-# Generamos el vehí?culo
+# Generamos el vehí??culo
 vehicle = world.spawn_actor(vehicle_bp, transform)
 actors.append(vehicle)
 
-# Busca el blueprint de la cá?mara
+# Busca el blueprint de la cá??mara
 camera_bp = blueprint_library.find('sensor.camera.rgb')
 
-# Configura la cá?mara
+# Configura la cá??mara
 camera_bp.set_attribute('image_size_x', '800')
 camera_bp.set_attribute('image_size_y', '600')
 camera_bp.set_attribute('fov', '110')
 
-# Añ?ade la primera cá?mara (dashcam) al vehí?culo
+# Añ??ade la primera cá??mara (dashcam) al vehí??culo
 dashcam_location = carla.Location(x=1.5, y=0.0, z=1.4)
 dashcam_rotation = carla.Rotation(pitch=-15, yaw=0, roll=0)
 dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
 dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
 actors.append(dashcam)
 
-# Añ?ade la segunda cá?mara (vista en tercera persona) al vehí?culo
+# Añ??ade la segunda cá??mara (vista en tercera persona) al vehí??culo
 """
 third_person_cam_location = carla.Location(x=-5.5, y=0.0, z=2.8)
 third_person_cam_rotation = carla.Rotation(pitch=-20, yaw=0, roll=0)
@@ -430,7 +447,9 @@ actors.append(third_person_cam)
 renderObject = RenderObject()
 
 dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-# Asocia la funció?n callback con las cá?maras
+#dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+
+# Asocia la funció??n callback con las cá??maras
 metrics = Metrics()
 
 vehicleQlearning = QLearningVehicleControl(vehicle)
@@ -440,14 +459,14 @@ dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics,
 # Busca el blueprint del sensor GNSS
 gnss_bp = blueprint_library.find('sensor.other.gnss')
 
-# Añ?ade el sensor GNSS al vehí?culo
+# Añ??ade el sensor GNSS al vehí??culo
 gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
 gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
 actors.append(gnss)
 
 #gnss.listen(position_cb)
 
-num_episodes = 10000
+num_episodes = 1000000
 
 start = True
 while start:
@@ -456,6 +475,11 @@ while start:
         for episode in range(num_episodes):
 
             print(episode)
+            q_table = vehicleQlearning.q_table
+            # Guardar la tabla Q
+            with open('q_table.pkl', 'wb') as f:
+                pickle.dump(q_table, f)
+              
             # Reinicia el estado del entorno para el comienzo de cada episodio
             current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center_error())
 
@@ -467,33 +491,33 @@ while start:
                 gameDisplay.blit(renderObject.surface2, (800,0))
                 pygame.display.flip()
 
-                # Elige una acció?n
+                # Elige una acci????n
                 action = vehicleQlearning.choose_action(current_state)
 
-                # Realiza la acció?n
+                # Realiza la acci????n
                 vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
 
-                # Obté?n el nuevo estado y la recompensa
+                # Obt????n el nuevo estado y la recompensa
                 lane_center_error = vehicleQlearning.get_lane_center_error()
                 next_state = vehicleQlearning.get_state(lane_center_error)
                 reward = vehicleQlearning.reward_function(lane_center_error)
 
-                # Aquí?, puede ser ú?til definir una condició?n de "finalizació?n" para el episodio, por ejemplo, si el vehí?culo
+                # Aqu????, puede ser ????til definir una condici????n de "finalizaci????n" para el episodio, por ejemplo, si el veh????culo
                 # se sale de la carretera o llega a su destino.
-                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continú?e indefinidamente.
-                # Tendrá?s que modificar esto para adaptarlo a tu caso de uso especí?fico.
+                # En este ejemplo, simplemente definimos 'done' como False para que el episodio contin????e indefinidamente.
+                # Tendr????s que modificar esto para adaptarlo a tu caso de uso espec????fico.
 
                 # Actualiza la tabla Q
                 vehicleQlearning.update_q_table(current_state, action, reward, next_state)
 
-                # El nuevo estado se convierte en el estado actual para la pró?xima iteració?n
+                # El nuevo estado se convierte en el estado actual para la pr????xima iteraci????n
                 current_state = next_state
 
                 if vehicleQlearning.lane_lines < 2:
                     done = True
 
                 if vehicleQlearning.latitude < 0.0001358:
-                    print("¡?Goal reached! finishing training")
+                    print("Goal reached! finishing training")
                     q_table = vehicleQlearning.q_table
 
                     # Guardar la tabla Q
@@ -502,30 +526,31 @@ while start:
                     exit()
 
 
-            dashcam.stop()
+            #dashcam.stop()
             #third_person_cam.stop()
             
-            reset_simulation(actors)
+            #reset_simulation(actors)
 
             location,rotation = choose_vehicle_location()
 
             transform = carla.Transform(location, rotation)
+            vehicleQlearning.vehicle.set_transform(transform)
 
-            vehicle = world.spawn_actor(vehicle_bp, transform)
-            vehicleQlearning.set_new_actuators(vehicle)
-            actors.append(vehicle)
+            #vehicle = world.spawn_actor(vehicle_bp, transform)
+            #vehicleQlearning.set_new_actuators(vehicle)
+            #actors.append(vehicle)
 
-            dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
-            actors.append(dashcam)
+            #dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
+            #actors.append(dashcam)
 
             #third_person_cam = world.spawn_actor(camera_bp, third_person_cam_transform, attach_to=vehicle)
             #actors.append(third_person_cam)
 
-            gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
-            actors.append(gnss)
+            #gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
+            #actors.append(gnss)
 
-            # Reasocia la funció?n callback con las cá?maras
-            dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
+            # Reasocia la funci????n callback con las c????maras
+            #dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
             #third_person_cam.listen(lambda image:third_person_image_cb(image, renderObject))
             wait_spawn(vehicleQlearning, world)
 
