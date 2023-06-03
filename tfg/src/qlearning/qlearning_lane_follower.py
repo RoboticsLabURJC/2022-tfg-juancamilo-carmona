@@ -176,56 +176,25 @@ def lane_detection_overlay( image, left_mask, right_mask):
     # We show only points with probability higher than 0.5
     res[left_mask > 0.5, :] = [255,0,0]
     res[right_mask > 0.5,:] = [255, 0, 0]
-    return res
 
-def calculate_lane_center(left_line, right_line):
+    left_lane_coordinates = np.where(left_mask > 0.5)[1]
+    right_lane_coordinates = np.where(right_mask > 0.5)[1]
 
-    line_points = []
-    for i in range(3):
-        if left_line and right_line:
-            line_points = line_points + left_line[i] + right_line[i]
-    return int(np.mean(line_points))
+    # convert numpy arrays to lists of coordinates
+    left_lane_coordinates_list = left_lane_coordinates.tolist()
+    right_lane_coordinates_list = right_lane_coordinates.tolist()
+
+    return res, left_lane_coordinates_list, right_lane_coordinates_list
+
 
         
 
-def draw_centers( img, VehicleQlearning):
+def draw_centers( img, VehicleQlearning, left_line, right_line ):
     
-    left_line = []
-    right_line = []
-    lane_num = 0
-    control_lines = [254, 304, 354]
-    #cv2.line(img, (0, 304), (1024, 304), [0, 0, 255], 2)    
-    #cv2.line(img, (0, 354), (1024, 354), [0, 0, 255], 2)    
-    #cv2.line(img, (0, 254), (1024, 254), [0, 0, 255], 2)    
+    if  left_line and right_line :
 
-    for j in control_lines:
-        control_line_right = []
-        control_line_left = []
-        prev_i = None
-        for i in range(1024):
-            px = img[j, i]
-            if px[0] == 255:
-                if prev_i is None or i - prev_i > 20:
-
-                    control_line_left.append(i)
-                else:
-
-                    control_line_right.append(i)
-
-                prev_i = i
-        if control_line_left:
-            left_line.append( [np.mean(control_line_left)])
-        else:
-            left_line.append( [])
-
-        if control_line_right:
-            right_line.append( [np.mean(control_line_right)])
-        else:
-            right_line.append( [])
-
-    if  left_line[0] and right_line[0] and left_line[1] and right_line[1] and  left_line[2] and  right_line[2] :
         VehicleQlearning.lane_lines = 2            
-        center = calculate_lane_center(left_line, right_line)
+        center = int((np.mean(left_line) + np.mean(right_line)) / 2)
         center_x = int(img.shape[1]/2)
     
         cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
@@ -235,6 +204,8 @@ def draw_centers( img, VehicleQlearning):
         VehicleQlearning.set_lane_center_error(center - center_x)
 
     else:
+        center_x = int(img.shape[1]/2)
+        VehicleQlearning.set_lane_center_error(center_x)
         VehicleQlearning.lane_lines = 0
         VehicleQlearning.set_lane_center_error(0)
 
@@ -265,11 +236,11 @@ def line_filter( img, dl_model, VehicleQlearning):
 
     back, left, right = get_prediction(resized_img,dl_model)[0]
 
-    filtered_img = lane_detection_overlay(resized_img, left, right)
+    filtered_img, left_line, right_line = lane_detection_overlay(resized_img, left, right)
 
     #filtered_img = self.draw_lanes(filtered_img, left, right )
 
-    draw_centers(filtered_img, VehicleQlearning)
+    draw_centers(filtered_img, VehicleQlearning, left_line, right_line)
 
     final_img = cv2.cvtColor(filtered_img, cv2.COLOR_RGB2BGRA)
     final_img = cv2.resize(final_img, (800, 600) )
@@ -427,7 +398,7 @@ camera_bp.set_attribute('image_size_y', '600')
 camera_bp.set_attribute('fov', '110')
 
 # Añ??ade la primera cá??mara (dashcam) al vehí??culo
-dashcam_location = carla.Location(x=1.5, y=0.0, z=1.4)
+dashcam_location = carla.Location(x=1.9, y=0.0, z=1.4)
 dashcam_rotation = carla.Rotation(pitch=-15, yaw=0, roll=0)
 dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
 dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
@@ -446,8 +417,8 @@ actors.append(third_person_cam)
 # Instantiate objects for rendering and vehicle control
 renderObject = RenderObject()
 
-dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-#dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+#dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
 # Asocia la funció??n callback con las cá??maras
 metrics = Metrics()
@@ -466,6 +437,7 @@ actors.append(gnss)
 
 #gnss.listen(position_cb)
 
+vehicle.set_autopilot(True)  # Activating autopilot
 num_episodes = 1000000
 
 start = True
