@@ -10,11 +10,12 @@ import pickle
 import numpy as np
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, learning_rate=0.5, discount_factor=0.95, exploration_rate=0.5, num_actions=7):
-        self.learning_rate = learning_rate
-        self.discount_factor = discount_factor
-        self.exploration_rate = exploration_rate
+    def __init__(self,vehicle, num_actions=7):
+        self.learning_rate = 0.5
+        self.discount_factor = 0.95
+        self.exploration_rate = 0.95
         self.num_actions = num_actions
+        self.exploration_rate_counter = 0
         self.q_table = np.zeros((num_actions, num_actions))
         self.vehicle = vehicle
         self.lane_lines = 100
@@ -55,15 +56,28 @@ class QLearningVehicleControl:
         return action
 
     def update_q_table(self, current_state, action, reward, next_state):
+
+        if self.exploration_rate_counter > 10:
+            
+            self.exploration_rate = self.exploration_rate - 0.001
+            self.exploration_rate_counter = 0
+        
+        if self.exploration_rate < 0.1:
+            print("exploration rate is lower than 0.1 finishing training")
+            exit()
+
         # Calcula el valor Q esperado para la pró??xima acció??n, si se elige la mejor
         future_max_q = np.max(self.q_table[next_state])
 
-        # Calcula el nuevo valor Q para la acció??n tomada en el estado actual
+        # Calcula el nuevo valor Q para la accióon tomada en el estado actual
         new_q = (1 - self.learning_rate) * self.q_table[current_state][action] + \
                 self.learning_rate * (reward + self.discount_factor * future_max_q)
 
         # Actualiza la tabla Q
         self.q_table[current_state][action] = new_q
+
+        self.exploration_rate_counter += 1 
+
 
     def get_state(self, center_of_lane):
         # Asumimos que 'center_of_lane' es la posició??n en pí??xeles del centro del carril en la imagen.
@@ -324,7 +338,16 @@ def reset_simulation(actors):
     
 
 def choose_vehicle_location():
-    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2) , carla.Rotation(pitch=-1.19, yaw=131, roll=0)), (carla.Location(x=-47.41, y=-214.90, z=0.3) , carla.Rotation(pitch=-5.579, yaw=132.02, roll=0)),(carla.Location(x=-65.03, y=-198.54, z=0.3) , carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)) ]
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
+                  carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
+                   (carla.Location(x=-65.03, y=-198.54, z=0.5), 
+                    carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
+                    (carla.Location(x=-65.380, y=-199.5546, z=0.5), 
+                    carla.Rotation(pitch=-2.0072, yaw=127.517, roll=0)),
+                    (carla.Location(x=-108.05, y=-158.286, z=0.5), 
+                    carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
+                    (carla.Location(x=-157.8591, y=-124.4512, z=0.5), 
+                    carla.Rotation(pitch=-4.850, yaw=160.7178, roll=0))   ]
     
     # Selecciona una ubicació??n aleatoria de la lista
     location, rotation = random.choice(locations)
@@ -365,8 +388,6 @@ world.apply_settings(settings)
 # We will aslo set up the spectator so we can see what we do
 spectator = world.get_spectator()
 
-# Define la ubicació??n donde quieres spawnear el vehí??culo
-spawn_points = world.get_map().get_spawn_points()
 
 blueprint_library = world.get_blueprint_library()
 #vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
@@ -403,15 +424,6 @@ dashcam_rotation = carla.Rotation(pitch=-15, yaw=0, roll=0)
 dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
 dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
 actors.append(dashcam)
-
-# Añ??ade la segunda cá??mara (vista en tercera persona) al vehí??culo
-"""
-third_person_cam_location = carla.Location(x=-5.5, y=0.0, z=2.8)
-third_person_cam_rotation = carla.Rotation(pitch=-20, yaw=0, roll=0)
-third_person_cam_transform = carla.Transform(third_person_cam_location, third_person_cam_rotation)
-third_person_cam = world.spawn_actor(camera_bp, third_person_cam_transform, attach_to=vehicle)
-actors.append(third_person_cam)
-"""
 
 
 # Instantiate objects for rendering and vehicle control
