@@ -94,13 +94,23 @@ class QLearningVehicleControl:
 
     def reward_function(self, error):
         # Asumimos que 'error' es la diferencia en pí??xeles entre el centro del carril y el centro de la imagen.
-        # Normalizamos el error dividié??ndolo por el ancho de la imagen (por ejemplo, 800 pí??xeles).
-        normalized_error = abs(error) / 800
+        # Normalizamos el error dividiendolo por el ancho de la imagen (por ejemplo, 800 pixeles).
 
-        # Usamos una funció??n exponencial negativa para convertir el error en una recompensa.
-        reward = np.exp(-normalized_error)
+        if vehicleQlearning.lane_lines < 2:
 
-        return reward
+            return -100
+        
+        else:
+
+            normalized_error = abs(error) / 800
+
+            # Usamos una funció??n exponencial negativa para convertir el error en una recompensa.
+            reward = np.exp(-normalized_error)
+
+            #max = 1.0
+            #min = 0.60653
+
+            return reward
     
     def perform_action(self, action):
         # Define la acció??n que el vehí??culo debe tomar en funció??n de la acció??n especificada
@@ -223,9 +233,8 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
         VehicleQlearning.lane_lines = 0
         VehicleQlearning.set_lane_center_error(0)
 
+        #print(VehicleQlearning.lane_lines)
 
-
-    #print(VehicleQlearning.lane_lines)
 
     thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ??o.
     for i in thresholds:
@@ -358,7 +367,8 @@ def wait_spawn(vehicleQlearning, world):
     while not vehicleQlearning.start :
         world.tick()
 
-
+def save_data():    
+    pass
 
 # Initialise the display
 pygame.init()
@@ -451,6 +461,7 @@ actors.append(gnss)
 
 vehicle.set_autopilot(True)  # Activating autopilot
 num_episodes = 1000000
+finished_laps_counter = 0
 
 start = True
 while start:
@@ -501,20 +512,25 @@ while start:
                     done = True
 
                 if vehicleQlearning.latitude < 0.0001358:
-                    print("Goal reached! finishing training")
-                    q_table = vehicleQlearning.q_table
+                    finished_laps_counter += 1
+                    if finished_laps_counter > 5:
+                        print("Goal reached! finishing training")
+                        q_table = vehicleQlearning.q_table
 
-                    # Guardar la tabla Q
-                    with open('q_table.pkl', 'wb') as f:
-                        pickle.dump(q_table, f)
-                    exit()
+                        # Guardar la tabla Q
+                        with open('q_table.pkl', 'wb') as f:
+                            pickle.dump(q_table, f)
+                        exit()
+                else:
+                    finished_laps_counter = 0
+
 
 
             #dashcam.stop()
             #third_person_cam.stop()
             
             #reset_simulation(actors)
-
+            save_data()
             location,rotation = choose_vehicle_location()
 
             transform = carla.Transform(location, rotation)
