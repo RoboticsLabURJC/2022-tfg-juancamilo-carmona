@@ -8,6 +8,8 @@ import torch
 from carla import VehicleControl
 import pickle
 import numpy as np
+import csv
+from prettytable import PrettyTable
 
 class QLearningVehicleControl:
     def __init__(self,vehicle, num_actions=7):
@@ -44,6 +46,11 @@ class QLearningVehicleControl:
 
     def set_lane_center_error(self, error):
         self.lane_center_error = error
+
+    
+    def get_qlearning_parameters(self):
+        return self.learning_rate, self.discount_factor, self.exploration_rate
+
 
 
     def choose_action(self, state):
@@ -367,8 +374,20 @@ def wait_spawn(vehicleQlearning, world):
     while not vehicleQlearning.start :
         world.tick()
 
-def save_data():    
-    pass
+def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
+
+    learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
+    csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
+
+
+def show_data( episode,acum_reward ,vehicleQlearning):   
+    learning_rate, discount_factor, exploration_rate = vehicleQlearning.get_qlearning_parameters()
+
+    table = PrettyTable()
+    table.field_names = ["Episode", "Learning Rate", "Discount Factor", "Exploration Rate", "Acumulated Reward"]
+    table.add_row([episode, learning_rate, discount_factor, exploration_rate, acum_reward])
+    print(table)
+
 
 # Initialise the display
 pygame.init()
@@ -460,8 +479,13 @@ actors.append(gnss)
 #gnss.listen(position_cb)
 
 vehicle.set_autopilot(True)  # Activating autopilot
-num_episodes = 1000000
+num_episodes = 3000
 finished_laps_counter = 0
+
+file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+csv_file = open(file_name, mode='w', newline='')
+csv_writer = csv.writer(csv_file)
+csv_writer.writerow([ "num episodio","constante aprendizaje" , "factor de descuento", "factor de explotacion" , "recompensa acumulada"])
 
 start = True
 while start:
@@ -469,16 +493,11 @@ while start:
 
         for episode in range(num_episodes):
 
-            print(episode)
-            q_table = vehicleQlearning.q_table
-            # Guardar la tabla Q
-            with open('q_table.pkl', 'wb') as f:
-                pickle.dump(q_table, f)
-              
             # Reinicia el estado del entorno para el comienzo de cada episodio
             current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center_error())
 
             done = False
+            acum_reward = 0
             while not done:
 
                 world.tick()
@@ -496,6 +515,7 @@ while start:
                 lane_center_error = vehicleQlearning.get_lane_center_error()
                 next_state = vehicleQlearning.get_state(lane_center_error)
                 reward = vehicleQlearning.reward_function(lane_center_error)
+                acum_reward = acum_reward + reward
 
                 # Aqu????, puede ser ????til definir una condici????n de "finalizaci????n" para el episodio, por ejemplo, si el veh????culo
                 # se sale de la carretera o llega a su destino.
@@ -523,14 +543,19 @@ while start:
                         exit()
                 else:
                     finished_laps_counter = 0
-
-
-
+                    
             #dashcam.stop()
             #third_person_cam.stop()
             
             #reset_simulation(actors)
-            save_data()
+
+            q_table = vehicleQlearning.q_table
+            # Guardar la tabla Q
+            with open('q_table.pkl', 'wb') as f:
+                pickle.dump(q_table, f)
+
+            save_data(csv_writer,episode,acum_reward ,vehicleQlearning)
+            show_data(episode,acum_reward ,vehicleQlearning)
             location,rotation = choose_vehicle_location()
 
             transform = carla.Transform(location, rotation)
