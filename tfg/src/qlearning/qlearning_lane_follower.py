@@ -375,9 +375,12 @@ def wait_spawn(vehicleQlearning, world):
         world.tick()
 
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
-
+        
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
-    csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
+    file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    with open(file_name, 'a') as csv_file:
+        csv_writer = csv.writer(csv_file)        
+        csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
 
 
 def show_data( episode,acum_reward ,vehicleQlearning):   
@@ -396,6 +399,12 @@ size = 800, 600
 gameDisplay = pygame.display.set_mode(size)
 pygame.display.set_caption("qlearning and DL")
 pygame.display.flip()
+
+
+file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+with open(file_name, 'w') as csv_file:
+    csv_writer = csv.writer(csv_file)      
+    csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward'])
 
 # Connect to the client and retrieve the world object
 client = carla.Client('localhost', 2015)
@@ -482,10 +491,6 @@ vehicle.set_autopilot(True)  # Activating autopilot
 num_episodes = 3000
 finished_laps_counter = 0
 
-file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-csv_file = open(file_name, mode='w', newline='')
-csv_writer = csv.writer(csv_file)
-csv_writer.writerow([ "num episodio","constante aprendizaje" , "factor de descuento", "factor de explotacion" , "recompensa acumulada"])
 
 start = True
 while start:
