@@ -208,12 +208,17 @@ def lane_detection_overlay( image, left_mask, right_mask):
     res[left_mask > 0.5, :] = [255,0,0]
     res[right_mask > 0.5,:] = [255, 0, 0]
 
-    left_lane_coordinates = np.where(left_mask > 0.5)[1]
-    right_lane_coordinates = np.where(right_mask > 0.5)[1]
+    left_y, left_x = np.where(left_mask > 0.5)
+    right_y, right_x = np.where(right_mask > 0.5)
 
-    # convert numpy arrays to lists of coordinates
+    # Filter y-coordinates that are greater than 350
+    left_lane_coordinates = left_x[left_y < 350]
+    right_lane_coordinates = right_x[right_y < 350]
+
+    # convert numpy arrays to lists of x-coordinates
     left_lane_coordinates_list = left_lane_coordinates.tolist()
     right_lane_coordinates_list = right_lane_coordinates.tolist()
+
 
     return res, left_lane_coordinates_list, right_lane_coordinates_list
 
@@ -232,6 +237,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
         cv2.line(img, (center_x-5, 304), (center_x+5, 304), [0, 0, 255], 1)
         cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
 
+
         VehicleQlearning.set_lane_center_error(center - center_x)
 
     else:
@@ -241,7 +247,6 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
         VehicleQlearning.set_lane_center_error(0)
 
         #print(VehicleQlearning.lane_lines)
-
 
     thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ??o.
     for i in thresholds:
@@ -400,7 +405,7 @@ gameDisplay = pygame.display.set_mode(size)
 pygame.display.set_caption("qlearning and DL")
 pygame.display.flip()
 
-
+#file_name = '/home/alumnos/camilo/qlearning_metrics/metrics_1.csv'
 file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
@@ -454,11 +459,11 @@ camera_bp = blueprint_library.find('sensor.camera.rgb')
 # Configura la cá??mara
 camera_bp.set_attribute('image_size_x', '800')
 camera_bp.set_attribute('image_size_y', '600')
-camera_bp.set_attribute('fov', '110')
+camera_bp.set_attribute('fov', '120')
 
 # Añ??ade la primera cá??mara (dashcam) al vehí??culo
-dashcam_location = carla.Location(x=1.9, y=0.0, z=1.4)
-dashcam_rotation = carla.Rotation(pitch=-15, yaw=0, roll=0)
+dashcam_location = carla.Location(x=1.9, y=0.0, z=2)
+dashcam_rotation = carla.Rotation(pitch=-20, yaw=0, roll=0)
 dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
 dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
 actors.append(dashcam)
@@ -492,8 +497,10 @@ num_episodes = 3000
 finished_laps_counter = 0
 
 
+
 start = True
 while start:
+    
     if vehicleQlearning.start == True:
 
         for episode in range(num_episodes):
