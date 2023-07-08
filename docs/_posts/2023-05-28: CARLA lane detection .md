@@ -1,9 +1,9 @@
 # CARLA lane detection
 
-In today's post, I'm excited to delve deeper into one of the most critical aspects of autonomous driving: lane detection. The primary idea behind my Final Degree Project (FDP) was to create a lane detector based on Convolutional Neural Networks (CNN). However, to demonstrate the effectiveness of this method, I designed three other algorithms based on traditional computer vision techniques. I'll discuss each of these in detail before diving into the issues encountered and how I resolved them.
+In today's post, I'm excited to delve deeper into one of the most critical aspects of autonomous driving: lane detection. The primary idea behind my Final Degree Project was to create a lane detector based on Convolutional Neural Networks (CNN). However, to demonstrate the effectiveness of this method, I designed three other algorithms based on traditional computer vision techniques. I'll discuss each of these in detail before diving into the issues encountered and how I resolved them.
 
 ## HSV Color Filter
-The first method I implemented was a simple HSV (Hue, Saturation, Value) color filter. This algorithm separates the color components and thresholds the HSV image to get binary images, highlighting the lane markings effectively against the road. This is an intuitive method but has its limitations, primarily when dealing with varying lighting conditions.
+The first method I implemented was a simple HSV (Hue, Saturation, Value) color filter. This algorithm separates the color components and thresholds the HSV image to get binary images, highlighting the lane markings effectively against the road. This is a very simple method that demands very lower computational resources but that gives very poor results in a realistic enviroment in consecuence to the change in lighting conditions since the same hsv threshold doesnt work in dark scenarios and conditions with a lot of light.
 
 ## HSV Color Filter and Canny Edge Detection
 Next, I combined the HSV color filter with the Canny edge detection algorithm. The Canny algorithm is a multi-stage process that involves blurring, gradient calculation, non-maximum suppression, and finally, a double threshold for edge tracking. This combination improved the detection capabilities, but it was still not as robust as I would have liked.
