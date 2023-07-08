@@ -10,6 +10,8 @@ import pickle
 import numpy as np
 import csv
 from prettytable import PrettyTable
+import math
+import pyproj
 
 class QLearningVehicleControl:
     def __init__(self,vehicle, num_actions=7):
@@ -21,7 +23,7 @@ class QLearningVehicleControl:
         self.q_table = np.zeros((num_actions, num_actions))
         self.vehicle = vehicle
         self.lane_lines = 100
-        self.start = 0
+        self.start = True
         self.latitude = 100
         self.longitude = 100
         
@@ -50,6 +52,9 @@ class QLearningVehicleControl:
     
     def get_qlearning_parameters(self):
         return self.learning_rate, self.discount_factor, self.exploration_rate
+    
+    def set_vehicle(self, vehicle):
+        self.vehicle = vehicle
 
 
 
@@ -143,6 +148,14 @@ class QLearningVehicleControl:
         elif action == 'hard_right':
             control.throttle = 0.4
             control.steer = 0.1
+        self.vehicle.apply_control(control)
+
+    def stop_Car(self):
+        # Define la acció??n que el vehí??culo debe tomar en funció??n de la acció??n especificada
+        control = VehicleControl()
+        control.throttle = 0.0
+        control.steer = 0.0
+        control.brake = 1.0
         self.vehicle.apply_control(control)
 
     def train(self, num_episodes):
@@ -293,8 +306,6 @@ def show_fps( img, metrics):
         
 def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
 
-    if VehicleQlearning.start == False:
-        VehicleQlearning.start = True
 
     # Convierte la imagen en una matriz np
     array = np.frombuffer(image.raw_data, dtype=np.dtype('uint8'))
@@ -331,6 +342,7 @@ def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
 
 def position_cb( pos, metrics, vehicleQlearning):
 
+
     latitude = pos.latitude
     longitude = pos.longitude
 
@@ -358,6 +370,7 @@ def reset_simulation(actors):
     actors.clear()
     
 
+
 def choose_vehicle_location():
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
                   carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
@@ -372,12 +385,33 @@ def choose_vehicle_location():
     
     # Selecciona una ubicació??n aleatoria de la lista
     location, rotation = random.choice(locations)
+    location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.5), carla.Rotation(pitch=-1.19, yaw=131, roll=0))
     return location, rotation
 
-def wait_spawn(vehicleQlearning, world):
-    vehicleQlearning.start = False
-    while not vehicleQlearning.start :
+def get_speed(vehicle):
+    # Obtener el objeto de velocidad (un vector tridimensional)
+    velocity_vector = vehicle.get_velocity()
+    # Calcular la velocidad como la magnitud del vector de velocidad
+    speed = math.sqrt(velocity_vector.x**2 + velocity_vector.y**2)
+    return speed
+
+def wait_spawn(vehicleQlearning, world,transform):
+
+    #vehicleQlearning.start = False
+
+    start = time.time()
+    while time.time() - start < 1:
+        #print( get_speed(vehicleQlearning.vehicle) )
+        #time.sleep(0.1)
+        gameDisplay.blit(renderObject.surface, (0,0))
+        gameDisplay.blit(renderObject.surface2, (800,0))
+        pygame.display.flip()
         world.tick()
+
+    #vehicleQlearning.start = True
+        
+
+
 
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
         
@@ -395,6 +429,7 @@ def show_data( episode,acum_reward ,vehicleQlearning):
     table.field_names = ["Episode", "Learning Rate", "Discount Factor", "Exploration Rate", "Acumulated Reward"]
     table.add_row([episode, learning_rate, discount_factor, exploration_rate, acum_reward])
     print(table)
+
 
 
 # Initialise the display
@@ -445,7 +480,6 @@ vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
 # Creamos una Transform con la ubicació??n y orientació??n que queremos
 
 location,rotation = choose_vehicle_location()
-
 transform = carla.Transform(location, rotation)
 
 actors = []
@@ -485,14 +519,13 @@ dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics,
 # Busca el blueprint del sensor GNSS
 gnss_bp = blueprint_library.find('sensor.other.gnss')
 
-# Añ??ade el sensor GNSS al vehí??culo
+# Añade el sensor GNSS al vehí??culo
 gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
 gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
 actors.append(gnss)
 
 #gnss.listen(position_cb)
 
-vehicle.set_autopilot(True)  # Activating autopilot
 num_episodes = 3000
 finished_laps_counter = 0
 
@@ -500,98 +533,121 @@ finished_laps_counter = 0
 
 start = True
 while start:
-    
-    if vehicleQlearning.start == True:
 
-        for episode in range(num_episodes):
+    for episode in range(num_episodes):
+        world.tick()
+        # Reinicia el estado del entorno para el comienzo de cada episodio
+        current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center_error())
 
-            # Reinicia el estado del entorno para el comienzo de cada episodio
-            current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center_error())
+        done = False
+        acum_reward = 0
+        while not done:
 
-            done = False
-            acum_reward = 0
-            while not done:
+            world.tick()
+            gameDisplay.blit(renderObject.surface, (0,0))
+            gameDisplay.blit(renderObject.surface2, (800,0))
+            pygame.display.flip()
 
-                world.tick()
-                gameDisplay.blit(renderObject.surface, (0,0))
-                gameDisplay.blit(renderObject.surface2, (800,0))
-                pygame.display.flip()
+            # Elige una acci????n
+            action = vehicleQlearning.choose_action(current_state)
 
-                # Elige una acci????n
-                action = vehicleQlearning.choose_action(current_state)
+            # Realiza la acci????n
+            vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
 
-                # Realiza la acci????n
-                vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
+            # Obt????n el nuevo estado y la recompensa
+            lane_center_error = vehicleQlearning.get_lane_center_error()
+            next_state = vehicleQlearning.get_state(lane_center_error)
+            reward = vehicleQlearning.reward_function(lane_center_error)
+            acum_reward = acum_reward + reward
 
-                # Obt????n el nuevo estado y la recompensa
-                lane_center_error = vehicleQlearning.get_lane_center_error()
-                next_state = vehicleQlearning.get_state(lane_center_error)
-                reward = vehicleQlearning.reward_function(lane_center_error)
-                acum_reward = acum_reward + reward
+            # Aqu????, puede ser ????til definir una condici????n de "finalizaci????n" para el episodio, por ejemplo, si el veh????culo
+            # se sale de la carretera o llega a su destino.
+            # En este ejemplo, simplemente definimos 'done' como False para que el episodio contin????e indefinidamente.
+            # Tendr????s que modificar esto para adaptarlo a tu caso de uso espec????fico.
 
-                # Aqu????, puede ser ????til definir una condici????n de "finalizaci????n" para el episodio, por ejemplo, si el veh????culo
-                # se sale de la carretera o llega a su destino.
-                # En este ejemplo, simplemente definimos 'done' como False para que el episodio contin????e indefinidamente.
-                # Tendr????s que modificar esto para adaptarlo a tu caso de uso espec????fico.
+            # Actualiza la tabla Q
+            vehicleQlearning.update_q_table(current_state, action, reward, next_state)
 
-                # Actualiza la tabla Q
-                vehicleQlearning.update_q_table(current_state, action, reward, next_state)
+            # El nuevo estado se convierte en el estado actual para la pr????xima iteraci????n
+            current_state = next_state
 
-                # El nuevo estado se convierte en el estado actual para la pr????xima iteraci????n
-                current_state = next_state
+            if vehicleQlearning.lane_lines < 2:
+                done = True
 
-                if vehicleQlearning.lane_lines < 2:
-                    done = True
+            if vehicleQlearning.latitude < 0.0001358:
+                finished_laps_counter += 1
+                if finished_laps_counter > 5:
+                    print("Goal reached! finishing training")
+                    q_table = vehicleQlearning.q_table
 
-                if vehicleQlearning.latitude < 0.0001358:
-                    finished_laps_counter += 1
-                    if finished_laps_counter > 5:
-                        print("Goal reached! finishing training")
-                        q_table = vehicleQlearning.q_table
+                    # Guardar la tabla Q
+                    with open('q_table.pkl', 'wb') as f:
+                        pickle.dump(q_table, f)
+                    exit()
+            else:
+                finished_laps_counter = 0
 
-                        # Guardar la tabla Q
-                        with open('q_table.pkl', 'wb') as f:
-                            pickle.dump(q_table, f)
-                        exit()
-                else:
-                    finished_laps_counter = 0
-                    
-            #dashcam.stop()
-            #third_person_cam.stop()
-            
-            #reset_simulation(actors)
 
-            q_table = vehicleQlearning.q_table
-            # Guardar la tabla Q
-            with open('q_table.pkl', 'wb') as f:
-                pickle.dump(q_table, f)
+                
 
-            save_data(csv_writer,episode,acum_reward ,vehicleQlearning)
-            show_data(episode,acum_reward ,vehicleQlearning)
-            location,rotation = choose_vehicle_location()
+        q_table = vehicleQlearning.q_table
+        # Guardar la tabla Q
+        with open('q_table.pkl', 'wb') as f:
+            pickle.dump(q_table, f)
 
-            transform = carla.Transform(location, rotation)
-            vehicleQlearning.vehicle.set_transform(transform)
+        save_data(csv_writer,episode,acum_reward ,vehicleQlearning)
+        show_data(episode,acum_reward ,vehicleQlearning)
 
-            #vehicle = world.spawn_actor(vehicle_bp, transform)
-            #vehicleQlearning.set_new_actuators(vehicle)
-            #actors.append(vehicle)
+        for actor in actors:
+            actor.destroy()
 
-            #dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
-            #actors.append(dashcam)
+        actors = []
+        
+        location,rotation = choose_vehicle_location()
+        transform = carla.Transform(location, rotation)
+        # Generamos el vehí??culo
+        vehicle = world.spawn_actor(vehicle_bp, transform)
+        actors.append(vehicle)
 
-            #third_person_cam = world.spawn_actor(camera_bp, third_person_cam_transform, attach_to=vehicle)
-            #actors.append(third_person_cam)
+        # Busca el blueprint de la cá??mara
+        camera_bp = blueprint_library.find('sensor.camera.rgb')
 
-            #gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
-            #actors.append(gnss)
+        # Configura la cá??mara
+        camera_bp.set_attribute('image_size_x', '800')
+        camera_bp.set_attribute('image_size_y', '600')
+        camera_bp.set_attribute('fov', '120')
 
-            # Reasocia la funci????n callback con las c????maras
-            #dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
-            #third_person_cam.listen(lambda image:third_person_image_cb(image, renderObject))
-            wait_spawn(vehicleQlearning, world)
+        # Añ??ade la primera cá??mara (dashcam) al vehí??culo
+        dashcam_location = carla.Location(x=1.9, y=0.0, z=2)
+        dashcam_rotation = carla.Rotation(pitch=-20, yaw=0, roll=0)
+        dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
+        dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
+        actors.append(dashcam)
 
-        start = False
-        pygame.quit()
 
-    world.tick()
+        # Instantiate objects for rendering and vehicle control
+        renderObject = RenderObject()
+
+        # Asocia la funció??n callback con las cá??maras
+        metrics = Metrics()
+
+        vehicleQlearning.set_vehicle(vehicle)
+        dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
+        #third_person_cam.listen(lambda image:third_person_image_cb(image, renderObject))
+
+        # Busca el blueprint del sensor GNSS
+        gnss_bp = blueprint_library.find('sensor.other.gnss')
+
+        # Añade el sensor GNSS al vehí??culo
+        gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
+        gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
+        actors.append(gnss)
+        #transform = carla.Transform(location, rotation)
+        #vehicleQlearning.vehicle.set_transform(transform)
+        #time.sleep(0.5)
+        #vehicleQlearning.start = False
+
+
+        #vehicleQlearning.start = True
+    start = False
+    pygame.quit()
