@@ -24,4 +24,5 @@ Despite the success of the CNN-based lane detector, it was not without its chall
 To mitigate this issue, I spent a lot of time optimizing the code and tuning the parameters to ensure that the system could handle higher vehicle speeds and maintain robust lane detection. Despite this challenge, it served as another valuable lesson in the journey, reinforcing the importance of considering all system components' interactions and their potential impacts on the final application.
 
 ## Demostration
-The following link will take you to a youtube video where you can see a demostration of the CNN lane detection https://youtu.be/JNjXhbmbLmg
+The following link will take you to a youtube video where you can see a demostration of the final CNN lane detection 
+https://youtu.be/JNjXhbmbLmg
