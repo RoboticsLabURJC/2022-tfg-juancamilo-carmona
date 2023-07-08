@@ -16,7 +16,12 @@ Next, I utilized a computer vision pipeline, incorporating a sliding window algo
 
 After exploring traditional computer vision techniques, I turned to deep learning, implementing a lane detector based on convolutional Neural Networks (CNN) for lane detection. Despite the computational weight, the CNN-based lane detector demonstrated superior performance over all other methods. It managed to maintain robust lane detection across varying lighting conditions, vehicle speeds, and curve angles. This outcome affirmed the power of deep learning applications in autonomous driving, confirming its suitability for my project.
 
+![image](https://github.com/RoboticsLabURJC/2022-tfg-juancamilo-carmona/assets/78978326/10ee5757-b1eb-4ad5-85a3-2170c2f76233)
+
 ## Problems and Solutions
 Despite the success of the CNN-based lane detector, it was not without its challenges. The main issue was the bottleneck created by ROSBridge when using CARLA. This limitation capped graphical applications at around 13 to 14 frames per second (FPS), which, combined with the inference time of the algorithms, provided functional but somewhat inadequate FPS when the vehicle exceeded certain speeds.
 
 To mitigate this issue, I spent a lot of time optimizing the code and tuning the parameters to ensure that the system could handle higher vehicle speeds and maintain robust lane detection. Despite this challenge, it served as another valuable lesson in the journey, reinforcing the importance of considering all system components' interactions and their potential impacts on the final application.
+
+## Demostration
+The following link will take you to a youtube video where you can see a demostration of the CNN lane detection https://youtu.be/JNjXhbmbLmg
