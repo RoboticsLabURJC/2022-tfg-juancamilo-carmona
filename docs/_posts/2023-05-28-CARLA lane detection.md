@@ -1,5 +1,3 @@
-# CARLA Lane detection
-
 In today's post, I'm excited to delve deeper into one of the most critical aspects of autonomous driving: lane detection. The primary idea behind my Final Degree Project was to create a lane detector based on Convolutional Neural Networks (CNN). However, to demonstrate the effectiveness of this method, I designed three other algorithms based on traditional computer vision techniques. I'll discuss each of these in detail before diving into the issues encountered and how I resolved them.
 
 ## HSV color filter
