@@ -15,10 +15,10 @@
 # in the templates via {{ site.myvariable }}.
 
 title: ROBOTICS LAB URJC
-email: jc.carmona.2019@alumnos.urjc
-description: "binnacle for my bachelor's degree final project"
-github_username: camilo-0715
-instagram_username: j.camilo.cs
+email: c.sanchezro.2018@alumnos.urjc.es
+description: "Bitacora for my bachelor's degree final project"
+twitter_username: csanrobotics
+github_username: csanrod
 minimal_mistakes_skin: dark
 search: true
 logo: ./logo.png
@@ -38,7 +38,11 @@ include:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
+<<<<<<< HEAD
+# exclude:
+=======
  #exclude:
+>>>>>>> cebab93b4698c3f86a015cf5fc8b8b346e85437c
 #   - Gemfile
 #   - Gemfile.lock
 #   - node_modules
@@ -57,25 +61,31 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Juan Camilo Carmona Sanchez"
-  avatar : "/assets/images/pfp.jpeg"
+  name   : "Cristian Sanchez Rodriguez"
+  avatar : "/assets/images/bio-photo.jpeg"
   bio    : "Software robotics engineer at URJC"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/chuismiguel"
+      url: "https://github.com/csanrod"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/csanrod/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/chuismiguelbots"
+      url: "https://twitter.com/csanrobotics"
 
 footer:
   links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/csanrod/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/camilo-0715"
+      url: "https://github.com/csanrod"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/camilo_0715"
+      url: "https://twitter.com/csanrobotics"
 
 defaults:
   # _posts
