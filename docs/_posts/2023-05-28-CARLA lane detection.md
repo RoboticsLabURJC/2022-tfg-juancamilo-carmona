@@ -25,4 +25,4 @@ To mitigate this issue, I spent a lot of time optimizing the code and tuning the
 
 ## Demostration
 The following link will take you to a youtube video where you can see a demostration of the final CNN lane detection 
-https://youtu.be/JNjXhbmbLmg
+[Link to video](https://youtu.be/JNjXhbmbLmg)
