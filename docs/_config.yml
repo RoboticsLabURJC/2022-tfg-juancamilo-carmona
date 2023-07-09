@@ -38,11 +38,7 @@ include:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-<<<<<<< HEAD
-# exclude:
-=======
  #exclude:
->>>>>>> cebab93b4698c3f86a015cf5fc8b8b346e85437c
 #   - Gemfile
 #   - Gemfile.lock
 #   - node_modules
@@ -61,16 +57,16 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Cristian Sanchez Rodriguez"
-  avatar : "/assets/images/bio-photo.jpeg"
+  name   : "Juan Camilo Carmona Sanchez"
+  avatar : "/assets/images/profile_picture.jpeg"
   bio    : "Software robotics engineer at URJC"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/csanrod"
+      url: "https://github.com/camilo-0715"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/csanrod/"
+      url: "https://www.linkedin.com/in/juan-camilo-carmona-sanchez-160164246/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/csanrobotics"
