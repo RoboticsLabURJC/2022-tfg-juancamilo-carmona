@@ -1,0 +1,3 @@
+[submodule "ros-bridge"]
+	path = tfg/src/ros-bridge
+	url = https://github.com/carla-simulator/ros-bridge
