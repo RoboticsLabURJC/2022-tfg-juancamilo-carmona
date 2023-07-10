@@ -75,7 +75,7 @@ class QLearningVehicleControl:
 
         if self.exploration_rate_counter > 10:
             
-            self.exploration_rate = self.exploration_rate - 0.001
+            self.exploration_rate = self.exploration_rate - 0.000316
             self.exploration_rate_counter = 0
         
         if self.exploration_rate < 0.1:
@@ -533,7 +533,7 @@ while start:
             # Obt????n el nuevo estado y la recompensa
             lane_center= vehicleQlearning.get_lane_center()
             next_state = vehicleQlearning.get_state(lane_center)
-            print(next_state)
+            #print(next_state)
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
             reward = vehicleQlearning.reward_function(lane_center_error)
