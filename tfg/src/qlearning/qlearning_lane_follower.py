@@ -11,7 +11,6 @@ import numpy as np
 import csv
 from prettytable import PrettyTable
 import math
-import pyproj
 
 class QLearningVehicleControl:
     def __init__(self,vehicle, num_actions=7):
@@ -28,6 +27,7 @@ class QLearningVehicleControl:
         self.longitude = 100
         
         self.lane_center_error = 0  # Inicializamos la variable lane_center_error
+        self.lane_center = 0  # Inicializamos la variable lane_center_error
 
         self.ACTIONS = [ 
             'forward',  # sigue recto
@@ -42,6 +42,8 @@ class QLearningVehicleControl:
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
 
+    def get_lane_center(self):
+        return self.lane_center
 
     def get_lane_center_error(self):
         return self.lane_center_error
@@ -49,7 +51,9 @@ class QLearningVehicleControl:
     def set_lane_center_error(self, error):
         self.lane_center_error = error
 
-    
+    def set_lane_center(self, center):
+        self.lane_center = center
+
     def get_qlearning_parameters(self):
         return self.learning_rate, self.discount_factor, self.exploration_rate
     
@@ -94,10 +98,9 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
         # Asumimos que 'center_of_lane' es la posició??n en pí??xeles del centro del carril en la imagen.
         # Definimos los umbrales de pí??xeles para cada franja.
-        thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ??o.
-
+        thresholds = np.array([0,356,462,512,562,656,1024])
         # Verificamos en qué?? franja cae el centro del carril.
-        for i in range(4):
+        for i in range(6):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
 
@@ -157,35 +160,6 @@ class QLearningVehicleControl:
         control.steer = 0.0
         control.brake = 1.0
         self.vehicle.apply_control(control)
-
-    def train(self, num_episodes):
-        for episode in range(num_episodes):
-            # Reinicia el estado del entorno para el comienzo de cada episodio
-            current_state = self.get_state(self.get_lane_center_error())
-
-            done = False
-            while not done:
-                # Elige una acció??n
-                action = self.choose_action(current_state)
-
-                # Realiza la acció??n
-                self.perform_action(self.ACTIONS[action])
-
-                # Obté??n el nuevo estado y la recompensa
-                lane_center_error = self.get_lane_center_error()
-                next_state = self.get_state(lane_center_error)
-                reward = self.reward_function(lane_center_error)
-
-                # Aquí??, puede ser ú??til definir una condició??n de "finalizació??n" para el episodio, por ejemplo, si el vehí??culo
-                # se sale de la carretera o llega a su destino.
-                # En este ejemplo, simplemente definimos 'done' como False para que el episodio continú??e indefinidamente.
-                # Tendrá??s que modificar esto para adaptarlo a tu caso de uso especí??fico.
-
-                # Actualiza la tabla Q
-                self.update_q_table(current_state, action, reward, next_state)
-
-                # El nuevo estado se convierte en el estado actual para la pró??xima iteració??n
-                current_state = next_state
 
 
 
@@ -251,20 +225,26 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
         cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
 
 
-        VehicleQlearning.set_lane_center_error(center - center_x)
+        VehicleQlearning.set_lane_center(center)
+        VehicleQlearning.set_lane_center_error(center_x - center)
 
     else:
         center_x = int(img.shape[1]/2)
-        VehicleQlearning.set_lane_center_error(center_x)
-        VehicleQlearning.lane_lines = 0
+        VehicleQlearning.set_lane_center(center_x)
         VehicleQlearning.set_lane_center_error(0)
+        VehicleQlearning.lane_lines = 0
 
         #print(VehicleQlearning.lane_lines)
 
-    thresholds = np.linspace(0, 800, num=5)  # Esto nos da 7 franjas de igual tamañ??o.
+    #thresholds = np.linspace(0, 800, num=2)  # Esto nos da 7 franjas de igual tamañ??o.
+    thresholds = np.array([0,356,462,512,562,656,1024])
+
     for i in thresholds:
-        cv2.line(img, (int(i), 0), (int(i), 600), [0, 255, 255], 1)
-        
+        cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
+
+
+
+
 
 def draw_lanes(img, left, right):
     color_img = np.zeros_like(img)
@@ -342,16 +322,12 @@ def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
 
 def position_cb( pos, metrics, vehicleQlearning):
 
-
     latitude = pos.latitude
     longitude = pos.longitude
 
     vehicleQlearning.latitude = latitude
     vehicleQlearning.longitude = longitude
 
-    #if pos.latitude < 0.0001358:
-        #self.csv_file.close()
-        #exit()
 
 def third_person_image_cb(image, obj ):
 
@@ -537,7 +513,7 @@ while start:
     for episode in range(num_episodes):
         world.tick()
         # Reinicia el estado del entorno para el comienzo de cada episodio
-        current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center_error())
+        current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
 
         done = False
         acum_reward = 0
@@ -555,8 +531,11 @@ while start:
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
 
             # Obt????n el nuevo estado y la recompensa
+            lane_center= vehicleQlearning.get_lane_center()
+            next_state = vehicleQlearning.get_state(lane_center)
+            print(next_state)
+
             lane_center_error = vehicleQlearning.get_lane_center_error()
-            next_state = vehicleQlearning.get_state(lane_center_error)
             reward = vehicleQlearning.reward_function(lane_center_error)
             acum_reward = acum_reward + reward
 
@@ -600,6 +579,8 @@ while start:
 
         for actor in actors:
             actor.destroy()
+
+        del actors
 
         actors = []
         
