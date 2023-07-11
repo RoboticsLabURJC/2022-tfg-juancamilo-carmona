@@ -60,8 +60,6 @@ class QLearningVehicleControl:
     def set_vehicle(self, vehicle):
         self.vehicle = vehicle
 
-
-
     def choose_action(self, state):
         if np.random.uniform(0, 1) < self.exploration_rate:
             # Explora: elige una acció??n aleatoria
@@ -73,15 +71,6 @@ class QLearningVehicleControl:
 
     def update_q_table(self, current_state, action, reward, next_state):
 
-        if self.exploration_rate_counter > 10:
-            
-            self.exploration_rate = self.exploration_rate - 0.000316
-            self.exploration_rate_counter = 0
-        
-        if self.exploration_rate < 0.1:
-            print("exploration rate is lower than 0.1 finishing training")
-            exit()
-
         # Calcula el valor Q esperado para la pró??xima acció??n, si se elige la mejor
         future_max_q = np.max(self.q_table[next_state])
 
@@ -91,6 +80,15 @@ class QLearningVehicleControl:
 
         # Actualiza la tabla Q
         self.q_table[current_state][action] = new_q
+
+        if self.exploration_rate_counter > 10:
+            
+            self.exploration_rate = self.exploration_rate - 0.000316
+            self.exploration_rate_counter = 0
+        
+        if self.exploration_rate < 0.1:
+            print("exploration rate is lower than 0.1 finishing training")
+            exit()
 
         self.exploration_rate_counter += 1 
 
@@ -111,21 +109,15 @@ class QLearningVehicleControl:
         # Asumimos que 'error' es la diferencia en pí??xeles entre el centro del carril y el centro de la imagen.
         # Normalizamos el error dividiendolo por el ancho de la imagen (por ejemplo, 800 pixeles).
 
-        if vehicleQlearning.lane_lines < 2:
+        normalized_error = abs(error) / 1024
 
-            return -100
-        
-        else:
+        # Usamos una funció??n exponencial negativa para convertir el error en una recompensa.
+        reward = np.exp(-normalized_error)
 
-            normalized_error = abs(error) / 800
+        #max = 1.0
+        #min = 0.60653
 
-            # Usamos una funció??n exponencial negativa para convertir el error en una recompensa.
-            reward = np.exp(-normalized_error)
-
-            #max = 1.0
-            #min = 0.60653
-
-            return reward
+        return reward
     
     def perform_action(self, action):
         # Define la acció??n que el vehí??culo debe tomar en funció??n de la acció??n especificada
@@ -199,8 +191,13 @@ def lane_detection_overlay( image, left_mask, right_mask):
     right_y, right_x = np.where(right_mask > 0.5)
 
     # Filter y-coordinates that are greater than 350
-    left_lane_coordinates = left_x[left_y < 350]
-    right_lane_coordinates = right_x[right_y < 350]
+    #left_lane_coordinates = left_x[left_y < 350]
+    #right_lane_coordinates = right_x[right_y < 350]
+    left_lane_coordinates = left_x[(left_y < 350) & (left_x >= 150)]
+    right_lane_coordinates = right_x[(right_y < 350) & (right_x >= 150)]
+    
+    #cv2.line(res, (150, 0), (150, res.shape[0]), [0, 0, 255], 2)    
+
 
     # convert numpy arrays to lists of x-coordinates
     left_lane_coordinates_list = left_lane_coordinates.tolist()
@@ -502,7 +499,7 @@ actors.append(gnss)
 
 #gnss.listen(position_cb)
 
-num_episodes = 3000
+num_episodes = 6000
 finished_laps_counter = 0
 
 
