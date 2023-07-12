@@ -114,6 +114,12 @@ class QLearningVehicleControl:
         # Usamos una funció??n exponencial negativa para convertir el error en una recompensa.
         reward = np.exp(-normalized_error)
 
+        #if reward == 1.0:
+            #print("reward" ,reward)
+            #print("normalized errorr: ",-normalized_error)
+            #print("error ",error)
+
+
         if self.lane_lines < 2:
             reward = reward - 1000
 
@@ -371,21 +377,11 @@ def get_speed(vehicle):
     speed = math.sqrt(velocity_vector.x**2 + velocity_vector.y**2)
     return speed
 
-def wait_spawn(vehicleQlearning, world,transform):
-
-    #vehicleQlearning.start = False
-
-    start = time.time()
-    while time.time() - start < 1:
-        #print( get_speed(vehicleQlearning.vehicle) )
-        #time.sleep(0.1)
-        gameDisplay.blit(renderObject.surface, (0,0))
-        gameDisplay.blit(renderObject.surface2, (800,0))
-        pygame.display.flip()
+def wait_for_detection(vehicleQlearning):
+    while vehicleQlearning.lane_lines == 100:
+        print("waiting")
         world.tick()
-
-    #vehicleQlearning.start = True
-        
+        time.sleep(0.1)         
 
 
 
@@ -510,6 +506,7 @@ finished_laps_counter = 0
 start = True
 while start:
 
+    wait_for_detection(vehicleQlearning)
     for episode in range(num_episodes):
         world.tick()
         # Reinicia el estado del entorno para el comienzo de cada episodio
@@ -584,6 +581,7 @@ while start:
 
         actors = []
         
+        vehicleQlearning.lane_lines = 100
         location,rotation = choose_vehicle_location()
         transform = carla.Transform(location, rotation)
         # Generamos el vehí??culo
