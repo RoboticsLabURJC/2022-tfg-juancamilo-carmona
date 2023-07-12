@@ -389,6 +389,7 @@ def wait_for_detection(vehicleQlearning, gameDisplay, renderObject):
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
+    #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
@@ -413,7 +414,7 @@ gameDisplay = pygame.display.set_mode(size)
 pygame.display.set_caption("qlearning and DL")
 pygame.display.flip()
 
-#file_name = '/home/alumnos/camilo/qlearning_metrics/metrics_1.csv'
+#file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
