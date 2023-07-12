@@ -216,10 +216,8 @@ def lane_detection_overlay( image, left_mask, right_mask):
     return res, left_lane_coordinates_list, right_lane_coordinates_list
 
 
-        
-
 def draw_centers( img, VehicleQlearning, left_line, right_line ):
-    
+
     if  left_line and right_line :
 
         VehicleQlearning.lane_lines = 2            
@@ -235,9 +233,6 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
         VehicleQlearning.set_lane_center_error(center_x - center)
 
     else:
-        center_x = int(img.shape[1]/2)
-        VehicleQlearning.set_lane_center(center_x)
-        VehicleQlearning.set_lane_center_error(0)
         VehicleQlearning.lane_lines = 0
 
         #print(VehicleQlearning.lane_lines)
@@ -291,7 +286,6 @@ def show_fps( img, metrics):
     return image
         
 def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
-
 
     # Convierte la imagen en una matriz np
     array = np.frombuffer(image.raw_data, dtype=np.dtype('uint8'))
@@ -354,6 +348,7 @@ def reset_simulation(actors):
 
 
 def choose_vehicle_location():
+
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
                   carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
                    (carla.Location(x=-65.03, y=-198.54, z=0.5), 
@@ -364,6 +359,7 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
                     (carla.Location(x=-157.8591, y=-124.4512, z=0.5), 
                     carla.Rotation(pitch=-4.850, yaw=160.7178, roll=0))   ]
+
     
     # Selecciona una ubicació??n aleatoria de la lista
     location, rotation = random.choice(locations)
@@ -377,12 +373,16 @@ def get_speed(vehicle):
     speed = math.sqrt(velocity_vector.x**2 + velocity_vector.y**2)
     return speed
 
-def wait_for_detection(vehicleQlearning):
-    
+def wait_for_detection(vehicleQlearning, gameDisplay, renderObject):
+
     vehicleQlearning.lane_lines = 100
     while vehicleQlearning.lane_lines == 100:
-        time.sleep(0.1)         
         world.tick()
+        gameDisplay.blit(renderObject.surface, (0,0))
+        gameDisplay.blit(renderObject.surface2, (800,0))
+        pygame.display.flip()
+        time.sleep(1.0)         
+        
 
 
 
@@ -509,7 +509,7 @@ while start:
 
     for episode in range(num_episodes):
 
-        wait_for_detection(vehicleQlearning)
+        wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
         world.tick()
         # Reinicia el estado del entorno para el comienzo de cada episodio
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
@@ -566,7 +566,13 @@ while start:
                 finished_laps_counter = 0
 
 
-                
+
+        for actor in actors:
+            actor.destroy()
+
+        del actors
+
+        actors = []               
 
         q_table = vehicleQlearning.q_table
         # Guardar la tabla Q
@@ -576,12 +582,6 @@ while start:
         save_data(csv_writer,episode,acum_reward ,vehicleQlearning)
         show_data(episode,acum_reward ,vehicleQlearning)
 
-        for actor in actors:
-            actor.destroy()
-
-        del actors
-
-        actors = []
         
         location,rotation = choose_vehicle_location()
         transform = carla.Transform(location, rotation)
