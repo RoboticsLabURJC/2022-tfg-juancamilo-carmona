@@ -114,6 +114,9 @@ class QLearningVehicleControl:
         # Usamos una funció??n exponencial negativa para convertir el error en una recompensa.
         reward = np.exp(-normalized_error)
 
+        if self.lane_lines < 2:
+            reward = reward - 1000
+
         #max = 1.0
         #min = 0.60653
 
