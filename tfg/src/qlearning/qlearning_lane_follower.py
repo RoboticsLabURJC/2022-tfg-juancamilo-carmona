@@ -378,10 +378,11 @@ def get_speed(vehicle):
     return speed
 
 def wait_for_detection(vehicleQlearning):
+    
+    vehicleQlearning.lane_lines = 100
     while vehicleQlearning.lane_lines == 100:
-        print("waiting")
-        world.tick()
         time.sleep(0.1)         
+        world.tick()
 
 
 
@@ -506,8 +507,9 @@ finished_laps_counter = 0
 start = True
 while start:
 
-    wait_for_detection(vehicleQlearning)
     for episode in range(num_episodes):
+
+        wait_for_detection(vehicleQlearning)
         world.tick()
         # Reinicia el estado del entorno para el comienzo de cada episodio
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
@@ -581,7 +583,6 @@ while start:
 
         actors = []
         
-        vehicleQlearning.lane_lines = 100
         location,rotation = choose_vehicle_location()
         transform = carla.Transform(location, rotation)
         # Generamos el vehí??culo
