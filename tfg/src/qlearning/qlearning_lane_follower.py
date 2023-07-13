@@ -13,13 +13,13 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=7):
+    def __init__(self,vehicle, num_actions=7, num_states=8):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
         self.num_actions = num_actions
         self.exploration_rate_counter = 0
-        self.q_table = np.zeros((num_actions, num_actions))
+        self.q_table = np.zeros((num_states, num_actions))
         self.vehicle = vehicle
         self.lane_lines = 100
         self.start = True
@@ -81,24 +81,27 @@ class QLearningVehicleControl:
         # Actualiza la tabla Q
         self.q_table[current_state][action] = new_q
 
-        if self.exploration_rate_counter > 10:
+
+        if self.exploration_rate_counter > 5:            
             
-            self.exploration_rate = self.exploration_rate - 0.000316
+            self.exploration_rate = self.exploration_rate - 0.0015
             self.exploration_rate_counter = 0
         
-        if self.exploration_rate < 0.1:
+        if self.exploration_rate < 0.01:
             print("exploration rate is lower than 0.1 finishing training")
             exit()
 
-        self.exploration_rate_counter += 1 
+    def increment_exploration_counter(self):
+        self.exploration_rate_counter += 1
+
 
 
     def get_state(self, center_of_lane):
         # Asumimos que 'center_of_lane' es la posició??n en pí??xeles del centro del carril en la imagen.
         # Definimos los umbrales de pí??xeles para cada franja.
-        thresholds = np.array([0,356,462,512,562,656,1024])
+        thresholds = np.array([0,356,462,487,512,537,562,656,1024])
         # Verificamos en qué?? franja cae el centro del carril.
-        for i in range(6):
+        for i in range(8):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
 
@@ -136,22 +139,23 @@ class QLearningVehicleControl:
             control.steer = 0.0
         elif action == 'slight_left':
             control.throttle = 0.4
-            control.steer = -0.01
+            control.steer = -0.005
         elif action == 'medium_left':
             control.throttle = 0.4
             control.steer = -0.05
         elif action == 'hard_left':
             control.throttle = 0.4
-            control.steer = -0.1
+            control.steer = -0.25
         elif action == 'slight_right':
             control.throttle = 0.4
-            control.steer = 0.01
+            control.steer = 0.005
         elif action == 'medium_right':
             control.throttle = 0.4
             control.steer = 0.05
         elif action == 'hard_right':
             control.throttle = 0.4
-            control.steer = 0.1
+            control.steer = 0.25
+
         self.vehicle.apply_control(control)
 
     def stop_Car(self):
@@ -238,7 +242,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
         #print(VehicleQlearning.lane_lines)
 
     #thresholds = np.linspace(0, 800, num=2)  # Esto nos da 7 franjas de igual tamañ??o.
-    thresholds = np.array([0,356,462,512,562,656,1024])
+    thresholds = np.array([0,356,462,487,512,537,562,656,1024])
 
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
@@ -544,27 +548,28 @@ while start:
             # En este ejemplo, simplemente definimos 'done' como False para que el episodio contin????e indefinidamente.
             # Tendr????s que modificar esto para adaptarlo a tu caso de uso espec????fico.
 
-            # Actualiza la tabla Q
-            vehicleQlearning.update_q_table(current_state, action, reward, next_state)
-
             # El nuevo estado se convierte en el estado actual para la pr????xima iteraci????n
             current_state = next_state
 
-            if vehicleQlearning.lane_lines < 2:
-                done = True
-
             if vehicleQlearning.latitude < 0.0001358:
+                reward = 1000
+                vehicleQlearning.update_q_table(current_state, action, reward, next_state)
                 finished_laps_counter += 1
                 if finished_laps_counter > 5:
-                    print("Goal reached! finishing training")
+                    print("algorithm converged! finishing training")
                     q_table = vehicleQlearning.q_table
 
                     # Guardar la tabla Q
                     with open('q_table.pkl', 'wb') as f:
                         pickle.dump(q_table, f)
-                    exit()
+
+                    #exit()
             else:
+                vehicleQlearning.update_q_table(current_state, action, reward, next_state)
                 finished_laps_counter = 0
+
+            if vehicleQlearning.lane_lines < 2:
+                done = True
 
 
 
@@ -623,6 +628,9 @@ while start:
         gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
         gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
         actors.append(gnss)
+
+        if vehicleQlearning.exploration_rate > 0.02:
+            vehicleQlearning.increment_exploration_counter()
         #transform = carla.Transform(location, rotation)
         #vehicleQlearning.vehicle.set_transform(transform)
         #time.sleep(0.5)
