@@ -25,6 +25,7 @@ class QLearningVehicleControl:
         self.start = True
         self.latitude = 100
         self.longitude = 100
+        self.speed = 0
         
         self.lane_center_error = 0  # Inicializamos la variable lane_center_error
         self.lane_center = 0  # Inicializamos la variable lane_center_error
@@ -135,26 +136,34 @@ class QLearningVehicleControl:
         # Define la acció??n que el vehí??culo debe tomar en funció??n de la acció??n especificada
         control = VehicleControl()
         if action == 'forward':
-            control.throttle = 0.5
+            #control.throttle = 0.5
             control.steer = 0.0
         elif action == 'slight_left':
-            control.throttle = 0.4
+            #control.throttle = 0.4
             control.steer = -0.005
         elif action == 'medium_left':
-            control.throttle = 0.4
+            #control.throttle = 0.4
             control.steer = -0.05
         elif action == 'hard_left':
-            control.throttle = 0.4
+            #control.throttle = 0.4
             control.steer = -0.25
         elif action == 'slight_right':
-            control.throttle = 0.4
+            #control.throttle = 0.4
             control.steer = 0.005
         elif action == 'medium_right':
-            control.throttle = 0.4
+            #control.throttle = 0.4
             control.steer = 0.05
         elif action == 'hard_right':
-            control.throttle = 0.4
+            #control.throttle = 0.4
             control.steer = 0.25
+
+        velocity = self.vehicle.get_velocity()
+        speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
+
+        if speed >= 20:
+            control.throttle = 0.0
+        else:
+            control.throttle = 1.0
 
         self.vehicle.apply_control(control)
 
