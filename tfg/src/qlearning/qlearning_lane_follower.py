@@ -25,19 +25,18 @@ class QLearningVehicleControl:
         self.start = True
         self.latitude = 100
         self.longitude = 100
-        self.speed = 0
         
-        self.lane_center_error = 0  # Inicializamos la variable lane_center_error
-        self.lane_center = 0  # Inicializamos la variable lane_center_error
+        self.lane_center_error = 0 
+        self.lane_center = 0  
 
         self.ACTIONS = [ 
-            'forward',  # sigue recto
-            'slight_left',  # giro suave a la izquierda
-            'medium_left',  # giro medio a la izquierda
-            'hard_left',  # giro duro a la izquierda
-            'slight_right',  # giro suave a la derecha
-            'medium_right',  # giro medio a la derecha
-            'hard_right',  # giro duro a la derecha
+            'forward',  
+            'slight_left',  
+            'medium_left',
+            'hard_left',  
+            'slight_right',  
+            'medium_right', 
+            'hard_right',  
         ]
 
     def set_new_actuators(self, vehicle):
@@ -63,122 +62,100 @@ class QLearningVehicleControl:
 
     def choose_action(self, state):
         if np.random.uniform(0, 1) < self.exploration_rate:
-            # Explora: elige una acció??n aleatoria
             action = np.random.randint(self.num_actions)
         else:
-            # Explota: elige la acció??n con el mayor valor Q para este estado
             action = np.argmax(self.q_table[state])
         return action
 
+    #function to update the qtale
     def update_q_table(self, current_state, action, reward, next_state):
-
-        # Calcula el valor Q esperado para la pró??xima acció??n, si se elige la mejor
         future_max_q = np.max(self.q_table[next_state])
 
-        # Calcula el nuevo valor Q para la accióon tomada en el estado actual
+        # new q table entry value
         new_q = (1 - self.learning_rate) * self.q_table[current_state][action] + \
                 self.learning_rate * (reward + self.discount_factor * future_max_q)
 
-        # Actualiza la tabla Q
         self.q_table[current_state][action] = new_q
 
 
         if self.exploration_rate_counter > 5:            
             
-            self.exploration_rate = self.exploration_rate - 0.0015
+            #self.exploration_rate = self.exploration_rate - 0.0015
+            self.exploration_rate = self.exploration_rate - 0.005
             self.exploration_rate_counter = 0
         
-        if self.exploration_rate < 0.01:
-            print("exploration rate is lower than 0.1 finishing training")
-            exit()
+        #if self.exploration_rate < 0.01:
+            #print("exploration rate is lower than 0.1 finishing training")
+            #exit()
 
     def increment_exploration_counter(self):
         self.exploration_rate_counter += 1
 
+    def set_exploration_rate(self, exploration_rate):
+        self.exploration_rate =  exploration_rate
 
 
     def get_state(self, center_of_lane):
-        # Asumimos que 'center_of_lane' es la posició??n en pí??xeles del centro del carril en la imagen.
-        # Definimos los umbrales de pí??xeles para cada franja.
-        thresholds = np.array([0,356,462,487,512,537,562,656,1024])
-        # Verificamos en qué?? franja cae el centro del carril.
-        for i in range(8):
-            if thresholds[i] <= center_of_lane < thresholds[i + 1]:
+
+        #threshold for the lines that define the stastes
+        thresholds = np.array([0,356,462,487,512,537,562,656,1024]) 
+
+        for i in range( len(thresholds) - 1 ):
+            #if thresholds[i] <= center_of_lane < thresholds[i + 1]:
+            if thresholds[i] <= 200 < thresholds[i + 1]:
+                print(i)
                 return i
 
-        # Si el centro del carril está?? en el extremo derecho de la imagen, lo consideramos en la franja má??s a la derecha.
-        return 6
+        return int(len(thresholds) / 2)
 
+    #we use an exponencial function to calculate the reward
     def reward_function(self, error):
-        # Asumimos que 'error' es la diferencia en pí??xeles entre el centro del carril y el centro de la imagen.
-        # Normalizamos el error dividiendolo por el ancho de la imagen (por ejemplo, 800 pixeles).
 
         normalized_error = abs(error) / 1024
-
-        # Usamos una funció??n exponencial negativa para convertir el error en una recompensa.
         reward = np.exp(-normalized_error)
 
-        #if reward == 1.0:
-            #print("reward" ,reward)
-            #print("normalized errorr: ",-normalized_error)
-            #print("error ",error)
-
-
+        # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 2:
             reward = reward - 1000
-
-        #max = 1.0
-        #min = 0.60653
 
         return reward
     
     def perform_action(self, action):
-        # Define la acció??n que el vehí??culo debe tomar en funció??n de la acció??n especificada
+
         control = VehicleControl()
         if action == 'forward':
-            #control.throttle = 0.5
             control.steer = 0.0
+
         elif action == 'slight_left':
-            #control.throttle = 0.4
             control.steer = -0.005
+
         elif action == 'medium_left':
-            #control.throttle = 0.4
             control.steer = -0.05
+
         elif action == 'hard_left':
-            #control.throttle = 0.4
             control.steer = -0.25
+
         elif action == 'slight_right':
-            #control.throttle = 0.4
             control.steer = 0.005
+
         elif action == 'medium_right':
-            #control.throttle = 0.4
             control.steer = 0.05
+
         elif action == 'hard_right':
-            #control.throttle = 0.4
             control.steer = 0.25
 
+        #we try to mantain the same speed all the time
         velocity = self.vehicle.get_velocity()
         speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
 
-        if speed >= 20:
+        if speed >= 5.56:
             control.throttle = 0.0
         else:
             control.throttle = 1.0
 
         self.vehicle.apply_control(control)
 
-    def stop_Car(self):
-        # Define la acció??n que el vehí??culo debe tomar en funció??n de la acció??n especificada
-        control = VehicleControl()
-        control.throttle = 0.0
-        control.steer = 0.0
-        control.brake = 1.0
-        self.vehicle.apply_control(control)
 
-
-
-
-# Render object to keep and pass the PyGame surface
 class RenderObject(object):
     def __init__(self):
         init_image = np.random.randint(0,255,(800,600,3),dtype='uint8')
@@ -205,30 +182,24 @@ def get_prediction( img_array, deeplearning_model):
 
 def lane_detection_overlay( image, left_mask, right_mask):
     res = np.copy(image)
-    # We show only points with probability higher than 0.5
+
+    # We use only points with probability higher than 0.5 of being a lane
     res[left_mask > 0.5, :] = [255,0,0]
     res[right_mask > 0.5,:] = [255, 0, 0]
 
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
 
-    # Filter y-coordinates that are greater than 350
-    #left_lane_coordinates = left_x[left_y < 350]
-    #right_lane_coordinates = right_x[right_y < 350]
-    left_lane_coordinates = left_x[(left_y < 350) & (left_x >= 150)]
-    right_lane_coordinates = right_x[(right_y < 350) & (right_x >= 150)]
+    left_lane_coordinates = left_x[(left_y < 350)]
+    right_lane_coordinates = right_x[(right_y < 350)]
     
-    #cv2.line(res, (150, 0), (150, res.shape[0]), [0, 0, 255], 2)    
-
-
-    # convert numpy arrays to lists of x-coordinates
     left_lane_coordinates_list = left_lane_coordinates.tolist()
     right_lane_coordinates_list = right_lane_coordinates.tolist()
-
 
     return res, left_lane_coordinates_list, right_lane_coordinates_list
 
 
+#draw both lane center and image center
 def draw_centers( img, VehicleQlearning, left_line, right_line ):
 
     if  left_line and right_line :
@@ -248,27 +219,10 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
     else:
         VehicleQlearning.lane_lines = 0
 
-        #print(VehicleQlearning.lane_lines)
-
-    #thresholds = np.linspace(0, 800, num=2)  # Esto nos da 7 franjas de igual tamañ??o.
     thresholds = np.array([0,356,462,487,512,537,562,656,1024])
-
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
 
-
-
-
-
-def draw_lanes(img, left, right):
-    color_img = np.zeros_like(img)
-    
-    points = np.hstack((left, right))
-    
-    cv2.fillPoly(color_img, np.int_(points), (0,200,255))
-    final_img = cv2.addWeighted(img, 1, color_img, 0.7, 0)
-
-    return final_img
 
 def line_filter( img, dl_model, VehicleQlearning):
     
@@ -280,8 +234,6 @@ def line_filter( img, dl_model, VehicleQlearning):
 
     filtered_img, left_line, right_line = lane_detection_overlay(resized_img, left, right)
 
-    #filtered_img = self.draw_lanes(filtered_img, left, right )
-
     draw_centers(filtered_img, VehicleQlearning, left_line, right_line)
 
     final_img = cv2.cvtColor(filtered_img, cv2.COLOR_RGB2BGRA)
@@ -292,15 +244,14 @@ def line_filter( img, dl_model, VehicleQlearning):
 
 
 def show_fps( img, metrics):
-    #fps = int(self.clock.get_fps())
     image = cv2.putText(img, 'FPS: ' + str(metrics.last_fps) , (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 
                 0.5, (255, 0, 0), 1, cv2.LINE_AA)
     
     return image
         
+#callback for the car first person camera
 def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
 
-    # Convierte la imagen en una matriz np
     array = np.frombuffer(image.raw_data, dtype=np.dtype('uint8'))
     array = np.reshape(array, (image.height, image.width, 4))
     img = array[:, :, :3]
@@ -323,14 +274,12 @@ def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
         metrics.last_fps = metrics.fps
         metrics.fps = 0
 
-    # Mostrar el FPS en la imagen en formato BGR
     bgr_img_with_fps = show_fps(filter_img,metrics)
     rgb_img = cv2.cvtColor(bgr_img_with_fps, cv2.COLOR_BGR2RGB)
     rgb_img = np.rot90(np.fliplr(rgb_img))
 
     obj.surface = pygame.surfarray.make_surface(rgb_img)
 
-    #self.vehicle_controller.control_vehicle(self.lane_center, self.left_lane, self.right_lane)
 
 
 def position_cb( pos, metrics, vehicleQlearning):
@@ -349,19 +298,10 @@ def third_person_image_cb(image, obj ):
     array = array[:, :, :3]
     array = array[:, :, ::-1]
     obj.surface2 = pygame.surfarray.make_surface(array.swapaxes(0,1))
-
-
-def reset_simulation(actors):
-    # Destruye los actores actuales
-    for actor in actors:
-        if actor is not None:
-            actor.destroy()
-    actors.clear()
     
 
-
+#choose the vehicle initial location from a pool of locations
 def choose_vehicle_location():
-
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
                   carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
                    (carla.Location(x=-65.03, y=-198.54, z=0.5), 
@@ -374,18 +314,11 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-4.850, yaw=160.7178, roll=0))   ]
 
     
-    # Selecciona una ubicació??n aleatoria de la lista
     location, rotation = random.choice(locations)
     location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.5), carla.Rotation(pitch=-1.19, yaw=131, roll=0))
     return location, rotation
 
-def get_speed(vehicle):
-    # Obtener el objeto de velocidad (un vector tridimensional)
-    velocity_vector = vehicle.get_velocity()
-    # Calcular la velocidad como la magnitud del vector de velocidad
-    speed = math.sqrt(velocity_vector.x**2 + velocity_vector.y**2)
-    return speed
-
+#This funcion waitf for the first camera image to arrive, we use it to start each episode lane detection
 def wait_for_detection(vehicleQlearning, gameDisplay, renderObject):
 
     vehicleQlearning.lane_lines = 100
@@ -396,8 +329,6 @@ def wait_for_detection(vehicleQlearning, gameDisplay, renderObject):
         pygame.display.flip()
         time.sleep(1.0)         
         
-
-
 
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
         
@@ -419,7 +350,44 @@ def show_data( episode,acum_reward ,vehicleQlearning):
 
 
 
-# Initialise the display
+def spawn_vehicle(renderObject):
+    #spawn vehicle
+    blueprint_library = world.get_blueprint_library()
+    vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
+    location,rotation = choose_vehicle_location()
+    transform = carla.Transform(location, rotation)
+    vehicle = world.spawn_actor(vehicle_bp, transform)
+
+    actors = []
+    actors.append(vehicle)
+
+    #spawn camera first person view
+    camera_bp = blueprint_library.find('sensor.camera.rgb')
+    camera_bp.set_attribute('image_size_x', '800')
+    camera_bp.set_attribute('image_size_y', '600')
+    camera_bp.set_attribute('fov', '120')
+    dashcam_location = carla.Location(x=1.9, y=0.0, z=2)
+    dashcam_rotation = carla.Rotation(pitch=-20, yaw=0, roll=0)
+    dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
+    dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
+    actors.append(dashcam)
+
+
+    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+
+    vehicleQlearning = QLearningVehicleControl(vehicle)
+    dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
+
+    #spawn gnss sensor
+    gnss_bp = blueprint_library.find('sensor.other.gnss')
+    gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
+    gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
+    actors.append(gnss)
+
+    return vehicle, vehicleQlearning, actors
+
+
 pygame.init()
 image_surface = None
 size = 800, 600
@@ -437,7 +405,6 @@ with open(file_name, 'w') as csv_file:
 client = carla.Client('localhost', 2015)
 world = client.get_world()
 
-# Cargamos la ciudad deseada
 try:
     world = client.load_world('Town04')
 except RuntimeError:
@@ -445,78 +412,20 @@ except RuntimeError:
 
 # Set up the simulator in synchronous mode
 settings = world.get_settings()
-settings.synchronous_mode = True # Enables synchronous mode
+settings.synchronous_mode = True
 settings.fixed_delta_seconds = 0.05
 world.apply_settings(settings)
-
-
-# We will aslo set up the spectator so we can see what we do
 spectator = world.get_spectator()
 
-
-blueprint_library = world.get_blueprint_library()
-#vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
-
-#Para un Ford Mustang
-#vehicle_bp = blueprint_library.find('vehicle.ford.mustang')
-
-# Para un Porsche 911
-vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
-
-# Spawn the vehicle
-# Creamos una Transform con la ubicació??n y orientació??n que queremos
-
-location,rotation = choose_vehicle_location()
-transform = carla.Transform(location, rotation)
-
-actors = []
-# Generamos el vehí??culo
-vehicle = world.spawn_actor(vehicle_bp, transform)
-actors.append(vehicle)
-
-# Busca el blueprint de la cá??mara
-camera_bp = blueprint_library.find('sensor.camera.rgb')
-
-# Configura la cá??mara
-camera_bp.set_attribute('image_size_x', '800')
-camera_bp.set_attribute('image_size_y', '600')
-camera_bp.set_attribute('fov', '120')
-
-# Añ??ade la primera cá??mara (dashcam) al vehí??culo
-dashcam_location = carla.Location(x=1.9, y=0.0, z=2)
-dashcam_rotation = carla.Rotation(pitch=-20, yaw=0, roll=0)
-dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
-dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
-actors.append(dashcam)
-
-
-# Instantiate objects for rendering and vehicle control
-renderObject = RenderObject()
-
-#dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-
-# Asocia la funció??n callback con las cá??maras
 metrics = Metrics()
 
-vehicleQlearning = QLearningVehicleControl(vehicle)
-dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
-#third_person_cam.listen(lambda image:third_person_image_cb(image, renderObject))
+renderObject = RenderObject()
 
-# Busca el blueprint del sensor GNSS
-gnss_bp = blueprint_library.find('sensor.other.gnss')
+vehicle, vehicleQlearning, actors = spawn_vehicle(renderObject)
 
-# Añade el sensor GNSS al vehí??culo
-gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
-gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
-actors.append(gnss)
-
-#gnss.listen(position_cb)
 
 num_episodes = 6000
 finished_laps_counter = 0
-
-
 
 start = True
 while start:
@@ -525,7 +434,7 @@ while start:
 
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
         world.tick()
-        # Reinicia el estado del entorno para el comienzo de cada episodio
+        
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
 
         done = False
@@ -537,27 +446,16 @@ while start:
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
 
-            # Elige una acci????n
             action = vehicleQlearning.choose_action(current_state)
-
-            # Realiza la acci????n
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
 
-            # Obt????n el nuevo estado y la recompensa
             lane_center= vehicleQlearning.get_lane_center()
             next_state = vehicleQlearning.get_state(lane_center)
-            #print(next_state)
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
             reward = vehicleQlearning.reward_function(lane_center_error)
             acum_reward = acum_reward + reward
 
-            # Aqu????, puede ser ????til definir una condici????n de "finalizaci????n" para el episodio, por ejemplo, si el veh????culo
-            # se sale de la carretera o llega a su destino.
-            # En este ejemplo, simplemente definimos 'done' como False para que el episodio contin????e indefinidamente.
-            # Tendr????s que modificar esto para adaptarlo a tu caso de uso espec????fico.
-
-            # El nuevo estado se convierte en el estado actual para la pr????xima iteraci????n
             current_state = next_state
 
             if vehicleQlearning.latitude < 0.0001358:
@@ -568,18 +466,15 @@ while start:
                     print("algorithm converged! finishing training")
                     q_table = vehicleQlearning.q_table
 
-                    # Guardar la tabla Q
                     with open('q_table.pkl', 'wb') as f:
                         pickle.dump(q_table, f)
 
-                    #exit()
             else:
                 vehicleQlearning.update_q_table(current_state, action, reward, next_state)
                 finished_laps_counter = 0
 
             if vehicleQlearning.lane_lines < 2:
                 done = True
-
 
 
         for actor in actors:
@@ -590,7 +485,6 @@ while start:
         actors = []               
 
         q_table = vehicleQlearning.q_table
-        # Guardar la tabla Q
         with open('q_table.pkl', 'wb') as f:
             pickle.dump(q_table, f)
 
@@ -598,54 +492,15 @@ while start:
         show_data(episode,acum_reward ,vehicleQlearning)
 
         
-        location,rotation = choose_vehicle_location()
-        transform = carla.Transform(location, rotation)
-        # Generamos el vehí??culo
-        vehicle = world.spawn_actor(vehicle_bp, transform)
-        actors.append(vehicle)
+        vehicle, vehicleQlearning, actors = spawn_vehicle(renderObject)
 
-        # Busca el blueprint de la cá??mara
-        camera_bp = blueprint_library.find('sensor.camera.rgb')
-
-        # Configura la cá??mara
-        camera_bp.set_attribute('image_size_x', '800')
-        camera_bp.set_attribute('image_size_y', '600')
-        camera_bp.set_attribute('fov', '120')
-
-        # Añ??ade la primera cá??mara (dashcam) al vehí??culo
-        dashcam_location = carla.Location(x=1.9, y=0.0, z=2)
-        dashcam_rotation = carla.Rotation(pitch=-20, yaw=0, roll=0)
-        dashcam_transform = carla.Transform(dashcam_location, dashcam_rotation)
-        dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
-        actors.append(dashcam)
-
-
-        # Instantiate objects for rendering and vehicle control
-        renderObject = RenderObject()
-
-        # Asocia la funció??n callback con las cá??maras
-        metrics = Metrics()
-
-        vehicleQlearning.set_vehicle(vehicle)
-        dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
-        #third_person_cam.listen(lambda image:third_person_image_cb(image, renderObject))
-
-        # Busca el blueprint del sensor GNSS
-        gnss_bp = blueprint_library.find('sensor.other.gnss')
-
-        # Añade el sensor GNSS al vehí??culo
-        gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
-        gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
-        actors.append(gnss)
 
         if vehicleQlearning.exploration_rate > 0.02:
             vehicleQlearning.increment_exploration_counter()
-        #transform = carla.Transform(location, rotation)
-        #vehicleQlearning.vehicle.set_transform(transform)
-        #time.sleep(0.5)
-        #vehicleQlearning.start = False
+        else:
+            vehicleQlearning.set_exploration_rate(0)
 
+            
 
-        #vehicleQlearning.start = True
     start = False
     pygame.quit()
