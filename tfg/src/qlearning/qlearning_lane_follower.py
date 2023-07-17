@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=7, num_states=8):
+    def __init__(self,vehicle, num_actions=15, num_states=9):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -31,12 +31,20 @@ class QLearningVehicleControl:
 
         self.ACTIONS = [ 
             'forward',  
-            'slight_left',  
-            'medium_left',
-            'hard_left',  
-            'slight_right',  
-            'medium_right', 
-            'hard_right',  
+            'left_1',  
+            'left_2',
+            'left_3',  
+            'left_4',  
+            'left_5', 
+            'left_6',  
+            'left_7',  
+            'right_1',  
+            'right_2',
+            'right_3',  
+            'right_4',  
+            'right_5', 
+            'right_6', 
+            'right_7', 
         ]
 
     def set_new_actuators(self, vehicle):
@@ -65,6 +73,7 @@ class QLearningVehicleControl:
             action = np.random.randint(self.num_actions)
         else:
             action = np.argmax(self.q_table[state])
+
         return action
 
     #function to update the qtale
@@ -98,12 +107,10 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
-        thresholds = np.array([0,356,462,487,512,537,562,656,1024]) 
-
+        thresholds = np.array([0,312,412,462,487,537,562,587,687,1025]) 
         for i in range( len(thresholds) - 1 ):
             #if thresholds[i] <= center_of_lane < thresholds[i + 1]:
-            if thresholds[i] <= 200 < thresholds[i + 1]:
-                print(i)
+            if thresholds[i] <= 1024 < thresholds[i + 1]:
                 return i
 
         return int(len(thresholds) / 2)
@@ -126,24 +133,49 @@ class QLearningVehicleControl:
         if action == 'forward':
             control.steer = 0.0
 
-        elif action == 'slight_left':
-            control.steer = -0.005
+        elif action == 'left_1':
+            control.steer = -0.001
 
-        elif action == 'medium_left':
+        elif action == 'left_2':
+            control.steer = -0.01
+
+        elif action == 'left_3':
             control.steer = -0.05
 
-        elif action == 'hard_left':
-            control.steer = -0.25
+        elif action == 'left_4':
+            control.steer = -0.1
 
-        elif action == 'slight_right':
-            control.steer = 0.005
+        elif action == 'left_5':
+            control.steer = -0.15
 
-        elif action == 'medium_right':
+        elif action == 'left_6':
+            control.steer = -0.2
+
+        elif action == 'left_7':
+            control.steer = -0.3
+
+        elif action == 'right_1':
+            control.steer = 0.001
+
+        elif action == 'right_2':
+            control.steer = 0.01
+
+        elif action == 'right_3':
             control.steer = 0.05
 
-        elif action == 'hard_right':
-            control.steer = 0.25
+        elif action == 'right_4':
+            control.steer = 0.1
 
+        elif action == 'right_5':
+            control.steer = 0.15
+
+        elif action == 'right_6':
+            control.steer = 0.2
+        
+        elif action == 'right_7':
+            control.steer = 0.3
+
+        
         #we try to mantain the same speed all the time
         velocity = self.vehicle.get_velocity()
         speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
@@ -219,7 +251,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
     else:
         VehicleQlearning.lane_lines = 0
 
-    thresholds = np.array([0,356,462,487,512,537,562,656,1024])
+    thresholds = np.array([312,412,462,487,537,562,587,687]) 
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
 
