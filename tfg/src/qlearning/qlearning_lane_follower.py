@@ -88,7 +88,6 @@ class QLearningVehicleControl:
 
 
         if self.exploration_rate_counter > 5:            
-            
             #self.exploration_rate = self.exploration_rate - 0.0015
             self.exploration_rate = self.exploration_rate - 0.005
             self.exploration_rate_counter = 0
@@ -408,7 +407,6 @@ def spawn_vehicle(renderObject):
     #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
     dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
-    vehicleQlearning = QLearningVehicleControl(vehicle)
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
     #spawn gnss sensor
@@ -453,7 +451,9 @@ metrics = Metrics()
 
 renderObject = RenderObject()
 
-vehicle, vehicleQlearning, actors = spawn_vehicle(renderObject)
+vehicle, actors = spawn_vehicle(renderObject)
+vehicleQlearning = QLearningVehicleControl(vehicle)
+
 
 
 num_episodes = 6000
@@ -524,8 +524,8 @@ while start:
         show_data(episode,acum_reward ,vehicleQlearning)
 
         
-        vehicle, vehicleQlearning, actors = spawn_vehicle(renderObject)
-
+        vehicle, actors = spawn_vehicle(renderObject)
+        vehicleQlearning.set_vehicle(vehicle)
 
         if vehicleQlearning.exploration_rate > 0.02:
             vehicleQlearning.increment_exploration_counter()
