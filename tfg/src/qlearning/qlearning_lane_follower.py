@@ -117,10 +117,9 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
-        thresholds = np.array([0,312,412,462,487,537,562,587,687,1025]) 
+        thresholds = np.array([0,412,462,487,500,524,537,562,587,1025]) 
         for i in range( len(thresholds) - 1 ):
-            #if thresholds[i] <= center_of_lane < thresholds[i + 1]:
-            if thresholds[i] <= 1024 < thresholds[i + 1]:
+            if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
 
         return int(len(thresholds) / 2)
@@ -227,8 +226,8 @@ def lane_detection_overlay( image, left_mask, right_mask):
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
 
-    left_lane_coordinates = left_x[(left_y < 350) & (left_x > 312)]
-    right_lane_coordinates = right_x[(right_y < 350) & (right_x > 312)]
+    left_lane_coordinates = left_x[(left_y < 350) & (left_x > 400)]
+    right_lane_coordinates = right_x[(right_y < 350) & (right_x > 400)]
 
     #left_lane_coordinates = left_x[(left_y < 350)]
     #right_lane_coordinates = right_x[(right_y < 350)]
@@ -259,7 +258,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
     else:
         VehicleQlearning.lane_lines = 0
 
-    thresholds = np.array([312,412,462,487,537,562,587,687]) 
+    thresholds = np.array([412,462,487,500,524,537,562,587]) 
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
 
