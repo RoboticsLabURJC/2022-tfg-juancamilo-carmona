@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=15, num_states=9):
+    def __init__(self,vehicle, num_actions=13, num_states=9):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -25,6 +25,8 @@ class QLearningVehicleControl:
         self.start = True
         self.latitude = 100
         self.longitude = 100
+        self.random_counter = 0
+        self.table_counter = 0
         
         self.lane_center_error = 0 
         self.lane_center = 0  
@@ -37,14 +39,12 @@ class QLearningVehicleControl:
             'left_4',  
             'left_5', 
             'left_6',  
-            'left_7',  
             'right_1',  
             'right_2',
             'right_3',  
             'right_4',  
             'right_5', 
             'right_6', 
-            'right_7', 
         ]
 
     def set_new_actuators(self, vehicle):
@@ -71,10 +71,21 @@ class QLearningVehicleControl:
     def choose_action(self, state):
         if np.random.uniform(0, 1) < self.exploration_rate:
             action = np.random.randint(self.num_actions)
+            self.random_counter += 1
         else:
             action = np.argmax(self.q_table[state])
+            self.table_counter += 1
 
         return action
+    
+    def get_random_counter(self):
+        return self.random_counter
+    def get_table_counter(self):
+        return self.table_counter
+    def set_random_counter(self, value):
+        self.random_counter = value
+    def set_table_counter(self, value):
+        self.table_counter = value
 
     #function to update the qtale
     def update_q_table(self, current_state, action, reward, next_state):
@@ -150,9 +161,6 @@ class QLearningVehicleControl:
         elif action == 'left_6':
             control.steer = -0.2
 
-        elif action == 'left_7':
-            control.steer = -0.3
-
         elif action == 'right_1':
             control.steer = 0.001
 
@@ -171,8 +179,6 @@ class QLearningVehicleControl:
         elif action == 'right_6':
             control.steer = 0.2
         
-        elif action == 'right_7':
-            control.steer = 0.3
 
         
         #we try to mantain the same speed all the time
@@ -221,8 +227,11 @@ def lane_detection_overlay( image, left_mask, right_mask):
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
 
-    left_lane_coordinates = left_x[(left_y < 350)]
-    right_lane_coordinates = right_x[(right_y < 350)]
+    left_lane_coordinates = left_x[(left_y < 350) & (left_x > 312)]
+    right_lane_coordinates = right_x[(right_y < 350) & (right_x > 312)]
+
+    #left_lane_coordinates = left_x[(left_y < 350)]
+    #right_lane_coordinates = right_x[(right_y < 350)]
     
     left_lane_coordinates_list = left_lane_coordinates.tolist()
     right_lane_coordinates_list = right_lane_coordinates.tolist()
@@ -346,7 +355,6 @@ def choose_vehicle_location():
 
     
     location, rotation = random.choice(locations)
-    location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.5), carla.Rotation(pitch=-1.19, yaw=131, roll=0))
     return location, rotation
 
 #This funcion waitf for the first camera image to arrive, we use it to start each episode lane detection
@@ -378,6 +386,9 @@ def show_data( episode,acum_reward ,vehicleQlearning):
     table.field_names = ["Episode", "Learning Rate", "Discount Factor", "Exploration Rate", "Acumulated Reward"]
     table.add_row([episode, learning_rate, discount_factor, exploration_rate, acum_reward])
     print(table)
+    print('random: ',vehicleQlearning.get_random_counter(),' table: ',vehicleQlearning.get_table_counter())
+    vehicleQlearning.set_random_counter(0)
+    vehicleQlearning.set_table_counter(0)
 
 
 
@@ -415,7 +426,7 @@ def spawn_vehicle(renderObject):
     gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
     actors.append(gnss)
 
-    return vehicle, vehicleQlearning, actors
+    return vehicle, actors
 
 
 pygame.init()
