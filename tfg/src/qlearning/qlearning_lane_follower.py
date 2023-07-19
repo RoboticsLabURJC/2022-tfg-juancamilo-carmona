@@ -117,7 +117,7 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
-        thresholds = np.array([0,412,462,487,500,524,537,562,587,1025]) 
+        thresholds = np.array([0,412,462,487,500,524,537,562,662,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
@@ -131,7 +131,7 @@ class QLearningVehicleControl:
         reward = np.exp(-normalized_error)
 
         # if we are not detecting both lane lines reward gets a big penalization
-        if self.lane_lines < 2:
+        if self.lane_lines < 1:
             reward = reward - 1000
 
         return reward
@@ -220,14 +220,14 @@ def lane_detection_overlay( image, left_mask, right_mask):
     res = np.copy(image)
 
     # We use only points with probability higher than 0.5 of being a lane
-    res[left_mask > 0.5, :] = [255,0,0]
-    res[right_mask > 0.5,:] = [255, 0, 0]
+    res[left_mask > 0.8, :] = [255,0,0]
+    res[right_mask > 0.8,:] = [255, 0, 0]
 
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
 
-    left_lane_coordinates = left_x[(left_y < 350) & (left_x > 400)]
-    right_lane_coordinates = right_x[(right_y < 350) & (right_x > 400)]
+    left_lane_coordinates = left_x[(left_y < 350)]
+    right_lane_coordinates = right_x[(right_y < 350)]
 
     #left_lane_coordinates = left_x[(left_y < 350)]
     #right_lane_coordinates = right_x[(right_y < 350)]
@@ -240,25 +240,47 @@ def lane_detection_overlay( image, left_mask, right_mask):
 
 #draw both lane center and image center
 def draw_centers( img, VehicleQlearning, left_line, right_line ):
-
-    if  left_line and right_line :
-
-        VehicleQlearning.lane_lines = 2            
-        center = int((np.mean(left_line) + np.mean(right_line)) / 2)
-        center_x = int(img.shape[1]/2)
-    
-        cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
-        cv2.line(img, (center_x-5, 304), (center_x+5, 304), [0, 0, 255], 1)
-        cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
-
-
-        VehicleQlearning.set_lane_center(center)
-        VehicleQlearning.set_lane_center_error(center_x - center)
-
-    else:
+    if (not left_line and not right_line):
         VehicleQlearning.lane_lines = 0
 
-    thresholds = np.array([412,462,487,500,524,537,562,587]) 
+    elif ((not left_line and right_line) or (left_line and not right_line)):
+        if (left_line or right_line):
+            VehicleQlearning.lane_lines = 1
+            if left_line:
+                center = int((np.mean(left_line)) + 125)
+            else:
+                center = int((np.mean(right_line)) - 125)
+
+
+            center_x = int(img.shape[1]/2)
+        
+            cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
+            cv2.line(img, (center_x-5, 304), (center_x+5, 304), [0, 0, 255], 1)
+            cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
+
+
+            VehicleQlearning.set_lane_center(center)
+            VehicleQlearning.set_lane_center_error(center_x - center)
+
+    else:
+        if (np.mean(right_line) - np.mean(left_line)  < 280):
+            VehicleQlearning.lane_lines = 2            
+            center = int((np.mean(left_line) + np.mean(right_line)) / 2)
+
+            center_x = int(img.shape[1]/2)
+        
+            cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
+            cv2.line(img, (center_x-5, 304), (center_x+5, 304), [0, 0, 255], 1)
+            cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
+
+
+            VehicleQlearning.set_lane_center(center)
+            VehicleQlearning.set_lane_center_error(center_x - center)
+        else:
+            VehicleQlearning.lane_lines = 0
+
+
+    thresholds = np.array([412,462,487,500,524,537,562,662]) 
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
 
@@ -343,13 +365,13 @@ def third_person_image_cb(image, obj ):
 def choose_vehicle_location():
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
                   carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
-                   (carla.Location(x=-65.03, y=-198.54, z=0.5), 
+                   (carla.Location(x=-65.03, y=-198.94, z=0.5), 
                     carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
                     (carla.Location(x=-65.380, y=-199.5546, z=0.5), 
                     carla.Rotation(pitch=-2.0072, yaw=127.517, roll=0)),
-                    (carla.Location(x=-108.05, y=-158.286, z=0.5), 
+                    (carla.Location(x=-108.05, y=-158.886, z=0.3), 
                     carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
-                    (carla.Location(x=-157.8591, y=-124.4512, z=0.5), 
+                    (carla.Location(x=-157.8591, y=-126.4512, z=0.5), 
                     carla.Rotation(pitch=-4.850, yaw=160.7178, roll=0))   ]
 
     
@@ -482,7 +504,7 @@ while start:
         done = False
         acum_reward = 0
         while not done:
-
+            
             world.tick()
             gameDisplay.blit(renderObject.surface, (0,0))
             gameDisplay.blit(renderObject.surface2, (800,0))
@@ -515,9 +537,9 @@ while start:
                 vehicleQlearning.update_q_table(current_state, action, reward, next_state)
                 finished_laps_counter = 0
 
-            if vehicleQlearning.lane_lines < 2:
+            if vehicleQlearning.lane_lines < 1:
                 done = True
-
+            
 
         for actor in actors:
             actor.destroy()
