@@ -117,7 +117,7 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
-        thresholds = np.array([0,412,462,487,500,524,537,562,662,1025]) 
+        thresholds = np.array([0,412,462,487,500,524,537,562,612,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
@@ -220,8 +220,8 @@ def lane_detection_overlay( image, left_mask, right_mask):
     res = np.copy(image)
 
     # We use only points with probability higher than 0.5 of being a lane
-    res[left_mask > 0.8, :] = [255,0,0]
-    res[right_mask > 0.8,:] = [255, 0, 0]
+    res[left_mask > 0.5, :] = [255,0,0]
+    res[right_mask > 0.5,:] = [255, 0, 0]
 
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
@@ -240,10 +240,10 @@ def lane_detection_overlay( image, left_mask, right_mask):
 
 #draw both lane center and image center
 def draw_centers( img, VehicleQlearning, left_line, right_line ):
-    if (not left_line and not right_line):
+    if ((not left_line and not right_line) or (left_line and not right_line)):
         VehicleQlearning.lane_lines = 0
 
-    elif ((not left_line and right_line) or (left_line and not right_line)):
+    elif (not left_line and right_line):
         if (left_line or right_line):
             VehicleQlearning.lane_lines = 1
             if left_line:
@@ -260,7 +260,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
 
 
             VehicleQlearning.set_lane_center(center)
-            VehicleQlearning.set_lane_center_error(center_x - center)
+            VehicleQlearning.set_lane_center_error(center_x - center)        
 
     else:
         if (np.mean(right_line) - np.mean(left_line)  < 280):
@@ -280,7 +280,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
             VehicleQlearning.lane_lines = 0
 
 
-    thresholds = np.array([412,462,487,500,524,537,562,662]) 
+    thresholds = np.array([412,462,487,500,524,537,562,612]) 
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
 
@@ -559,10 +559,9 @@ while start:
         vehicle, actors = spawn_vehicle(renderObject)
         vehicleQlearning.set_vehicle(vehicle)
 
-        if vehicleQlearning.exploration_rate > 0.02:
+        if vehicleQlearning.exploration_rate > 0.05:
             vehicleQlearning.increment_exploration_counter()
-        else:
-            vehicleQlearning.set_exploration_rate(0)
+
 
             
 
