@@ -113,7 +113,6 @@ class QLearningVehicleControl:
     def set_exploration_rate(self, exploration_rate):
         self.exploration_rate =  exploration_rate
 
-
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
@@ -143,40 +142,40 @@ class QLearningVehicleControl:
             control.steer = 0.0
 
         elif action == 'left_1':
-            control.steer = -0.001
-
-        elif action == 'left_2':
             control.steer = -0.01
 
-        elif action == 'left_3':
+        elif action == 'left_2':
             control.steer = -0.05
 
-        elif action == 'left_4':
+        elif action == 'left_3':
             control.steer = -0.1
 
-        elif action == 'left_5':
+        elif action == 'left_4':
             control.steer = -0.15
 
-        elif action == 'left_6':
+        elif action == 'left_5':
             control.steer = -0.2
 
-        elif action == 'right_1':
-            control.steer = 0.001
+        elif action == 'left_6':
+            control.steer = -0.3
 
-        elif action == 'right_2':
+        elif action == 'right_1':
             control.steer = 0.01
 
-        elif action == 'right_3':
+        elif action == 'right_2':
             control.steer = 0.05
 
-        elif action == 'right_4':
+        elif action == 'right_3':
             control.steer = 0.1
 
-        elif action == 'right_5':
+        elif action == 'right_4':
             control.steer = 0.15
 
-        elif action == 'right_6':
+        elif action == 'right_5':
             control.steer = 0.2
+
+        elif action == 'right_6':
+            control.steer = 0.3
         
 
         
@@ -184,7 +183,7 @@ class QLearningVehicleControl:
         velocity = self.vehicle.get_velocity()
         speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
 
-        if speed >= 5.56:
+        if speed >= 4.0:
             control.throttle = 0.0
         else:
             control.throttle = 1.0
@@ -226,8 +225,10 @@ def lane_detection_overlay( image, left_mask, right_mask):
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
 
-    left_lane_coordinates = left_x[(left_y < 350)]
-    right_lane_coordinates = right_x[(right_y < 350)]
+    #cv2.line(res, (0, 400), (1000, 400), [255, 0, 255], 1)    
+
+    left_lane_coordinates = left_x[(left_y < 400)]
+    right_lane_coordinates = right_x[(right_y < 400)]
 
     #left_lane_coordinates = left_x[(left_y < 350)]
     #right_lane_coordinates = right_x[(right_y < 350)]
@@ -263,7 +264,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
             VehicleQlearning.set_lane_center_error(center_x - center)        
 
     else:
-        if (np.mean(right_line) - np.mean(left_line)  < 280):
+        if (np.mean(right_line) - np.mean(left_line)  < 400):
             VehicleQlearning.lane_lines = 2            
             center = int((np.mean(left_line) + np.mean(right_line)) / 2)
 
@@ -412,7 +413,6 @@ def show_data( episode,acum_reward ,vehicleQlearning):
     vehicleQlearning.set_table_counter(0)
 
 
-
 def spawn_vehicle(renderObject):
     #spawn vehicle
     blueprint_library = world.get_blueprint_library()
@@ -448,6 +448,10 @@ def spawn_vehicle(renderObject):
     actors.append(gnss)
 
     return vehicle, actors
+
+def tick_world(vehicleQlearning, world):
+    if vehicleQlearning.lane_lines > 0:
+        world.tick()
 
 
 pygame.init()
@@ -486,8 +490,6 @@ renderObject = RenderObject()
 vehicle, actors = spawn_vehicle(renderObject)
 vehicleQlearning = QLearningVehicleControl(vehicle)
 
-
-
 num_episodes = 6000
 finished_laps_counter = 0
 
@@ -497,48 +499,49 @@ while start:
     for episode in range(num_episodes):
 
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
-        world.tick()
+        world.tick()        
         
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
 
         done = False
         acum_reward = 0
         while not done:
-            
-            world.tick()
             gameDisplay.blit(renderObject.surface, (0,0))
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
 
-            action = vehicleQlearning.choose_action(current_state)
-            vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
-
-            lane_center= vehicleQlearning.get_lane_center()
-            next_state = vehicleQlearning.get_state(lane_center)
-
-            lane_center_error = vehicleQlearning.get_lane_center_error()
-            reward = vehicleQlearning.reward_function(lane_center_error)
-            acum_reward = acum_reward + reward
-
-            current_state = next_state
-
-            if vehicleQlearning.latitude < 0.0001358:
-                reward = 1000
-                vehicleQlearning.update_q_table(current_state, action, reward, next_state)
-                finished_laps_counter += 1
-                if finished_laps_counter > 5:
-                    print("algorithm converged! finishing training")
-                    q_table = vehicleQlearning.q_table
-
-                    with open('q_table.pkl', 'wb') as f:
-                        pickle.dump(q_table, f)
-
-            else:
-                vehicleQlearning.update_q_table(current_state, action, reward, next_state)
-                finished_laps_counter = 0
-
             if vehicleQlearning.lane_lines < 1:
                 done = True
+            else:
+                action = vehicleQlearning.choose_action(current_state)
+                vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
+
+                lane_center= vehicleQlearning.get_lane_center()
+                next_state = vehicleQlearning.get_state(lane_center)
+
+                lane_center_error = vehicleQlearning.get_lane_center_error()
+                reward = vehicleQlearning.reward_function(lane_center_error)
+                acum_reward = acum_reward + reward
+
+                current_state = next_state
+
+                if vehicleQlearning.latitude < 0.0001358:
+                    reward = reward + 500
+                    finished_laps_counter += 1
+                    if finished_laps_counter > 5:
+                        print("algorithm converged! finishing training")
+                        q_table = vehicleQlearning.q_table
+
+                        with open('q_table.pkl', 'wb') as f:
+                            pickle.dump(q_table, f)
+
+                else:
+                    finished_laps_counter = 0
+
+                vehicleQlearning.update_q_table(current_state, action, reward, next_state)
+
+            world.tick()
+
             
 
         for actor in actors:
@@ -561,6 +564,8 @@ while start:
 
         if vehicleQlearning.exploration_rate > 0.05:
             vehicleQlearning.increment_exploration_counter()
+        else:
+            vehicleQlearning.set_exploration_rate(0.001)
 
 
             
