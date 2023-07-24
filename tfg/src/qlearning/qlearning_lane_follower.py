@@ -366,17 +366,18 @@ def third_person_image_cb(image, obj ):
 def choose_vehicle_location():
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
                   carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
-                   (carla.Location(x=-65.03, y=-198.94, z=0.5), 
+                   (carla.Location(x=-65.03, y=-199.5, z=0.5), 
                     carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
                     (carla.Location(x=-65.380, y=-199.5546, z=0.5), 
                     carla.Rotation(pitch=-2.0072, yaw=127.517, roll=0)),
                     (carla.Location(x=-108.05, y=-158.886, z=0.3), 
                     carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
-                    (carla.Location(x=-157.8591, y=-126.4512, z=0.5), 
+                    (carla.Location(x=-157.8591, y=-125.4512, z=0.5), 
                     carla.Rotation(pitch=-4.850, yaw=160.7178, roll=0))   ]
 
     
     location, rotation = random.choice(locations)
+    
     return location, rotation
 
 #This funcion waitf for the first camera image to arrive, we use it to start each episode lane detection
