@@ -512,33 +512,33 @@ while start:
 
             if vehicleQlearning.lane_lines < 1:
                 done = True
+                
+            action = vehicleQlearning.choose_action(current_state)
+            vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
+
+            lane_center= vehicleQlearning.get_lane_center()
+            next_state = vehicleQlearning.get_state(lane_center)
+
+            lane_center_error = vehicleQlearning.get_lane_center_error()
+            reward = vehicleQlearning.reward_function(lane_center_error)
+            acum_reward = acum_reward + reward
+
+            current_state = next_state
+
+            if vehicleQlearning.latitude < 0.0001358:
+                reward = reward + 500
+                finished_laps_counter += 1
+                if finished_laps_counter > 5:
+                    print("algorithm converged! finishing training")
+                    q_table = vehicleQlearning.q_table
+
+                    with open('q_table.pkl', 'wb') as f:
+                        pickle.dump(q_table, f)
+
             else:
-                action = vehicleQlearning.choose_action(current_state)
-                vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
+                finished_laps_counter = 0
 
-                lane_center= vehicleQlearning.get_lane_center()
-                next_state = vehicleQlearning.get_state(lane_center)
-
-                lane_center_error = vehicleQlearning.get_lane_center_error()
-                reward = vehicleQlearning.reward_function(lane_center_error)
-                acum_reward = acum_reward + reward
-
-                current_state = next_state
-
-                if vehicleQlearning.latitude < 0.0001358:
-                    reward = reward + 500
-                    finished_laps_counter += 1
-                    if finished_laps_counter > 5:
-                        print("algorithm converged! finishing training")
-                        q_table = vehicleQlearning.q_table
-
-                        with open('q_table.pkl', 'wb') as f:
-                            pickle.dump(q_table, f)
-
-                else:
-                    finished_laps_counter = 0
-
-                vehicleQlearning.update_q_table(current_state, action, reward, next_state)
+            vehicleQlearning.update_q_table(current_state, action, reward, next_state)
 
             world.tick()
 
