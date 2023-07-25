@@ -177,7 +177,6 @@ class QLearningVehicleControl:
         elif action == 'right_6':
             control.steer = 0.3
         
-
         
         #we try to mantain the same speed all the time
         velocity = self.vehicle.get_velocity()
@@ -241,30 +240,27 @@ def lane_detection_overlay( image, left_mask, right_mask):
 
 #draw both lane center and image center
 def draw_centers( img, VehicleQlearning, left_line, right_line ):
-    if ((not left_line and not right_line) or (left_line and not right_line)):
+
+    if(not right_line):
+        print("no right line")
         VehicleQlearning.lane_lines = 0
 
     elif (not left_line and right_line):
-        if (left_line or right_line):
-            VehicleQlearning.lane_lines = 1
-            if left_line:
-                center = int((np.mean(left_line)) + 125)
-            else:
-                center = int((np.mean(right_line)) - 125)
-
-
-            center_x = int(img.shape[1]/2)
+        VehicleQlearning.lane_lines = 1
         
-            cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
-            cv2.line(img, (center_x-5, 304), (center_x+5, 304), [0, 0, 255], 1)
-            cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
+        center = int((np.mean(right_line)) - 125)
+        center_x = int(img.shape[1]/2)
+    
+        cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
+        cv2.line(img, (center_x-5, 304), (center_x+5, 304), [0, 0, 255], 1)
+        cv2.line(img, (int(center), 400), (int(center), 512), [0, 255, 0], 1)
 
 
-            VehicleQlearning.set_lane_center(center)
-            VehicleQlearning.set_lane_center_error(center_x - center)        
+        VehicleQlearning.set_lane_center(center)
+        VehicleQlearning.set_lane_center_error(center_x - center)        
 
     else:
-        if (np.mean(right_line) - np.mean(left_line)  < 400):
+        if (np.mean(right_line) - np.mean(left_line)  < 450):
             VehicleQlearning.lane_lines = 2            
             center = int((np.mean(left_line) + np.mean(right_line)) / 2)
 
@@ -278,6 +274,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
             VehicleQlearning.set_lane_center(center)
             VehicleQlearning.set_lane_center_error(center_x - center)
         else:
+            print("to big lane distance")
             VehicleQlearning.lane_lines = 0
 
 
@@ -365,19 +362,19 @@ def third_person_image_cb(image, obj ):
 #choose the vehicle initial location from a pool of locations
 def choose_vehicle_location():
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
-                  carla.Rotation(pitch=-1.19, yaw=131, roll=0)), 
+                  carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
                    (carla.Location(x=-65.03, y=-199.5, z=0.5), 
                     carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
                     (carla.Location(x=-65.380, y=-199.5546, z=0.5), 
-                    carla.Rotation(pitch=-2.0072, yaw=127.517, roll=0)),
+                    carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)),
                     (carla.Location(x=-108.05, y=-158.886, z=0.3), 
                     carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
                     (carla.Location(x=-157.8591, y=-125.4512, z=0.5), 
-                    carla.Rotation(pitch=-4.850, yaw=160.7178, roll=0))   ]
+                    carla.Rotation(pitch=-4.850, yaw=158.7178, roll=0))   ]
 
     
     location, rotation = random.choice(locations)
-    
+
     return location, rotation
 
 #This funcion waitf for the first camera image to arrive, we use it to start each episode lane detection
@@ -477,6 +474,15 @@ try:
 except RuntimeError:
     print("No se pudo cargar Town04. Comprueba si esta ciudad está?? disponible en tu versió??n de CARLA.")
 
+# Set the weather to be sunny and without wind, wind affects steering
+weather = carla.WeatherParameters(
+    cloudiness=0.0,
+    precipitation=0.0,
+    sun_altitude_angle=70.0,
+    wind_intensity=0.0
+)
+world.set_weather(weather)
+
 # Set up the simulator in synchronous mode
 settings = world.get_settings()
 settings.synchronous_mode = True
@@ -527,6 +533,7 @@ while start:
             current_state = next_state
 
             if vehicleQlearning.latitude < 0.0001358:
+                done = True
                 reward = reward + 500
                 finished_laps_counter += 1
                 if finished_laps_counter > 5:
