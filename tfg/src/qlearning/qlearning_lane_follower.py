@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=13, num_states=9):
+    def __init__(self,vehicle, num_actions=15, num_states=11):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -39,12 +39,14 @@ class QLearningVehicleControl:
             'left_4',  
             'left_5', 
             'left_6',  
+            'left_7',  
             'right_1',  
             'right_2',
             'right_3',  
             'right_4',  
             'right_5', 
             'right_6', 
+            'right_7', 
         ]
 
     def set_new_actuators(self, vehicle):
@@ -116,7 +118,7 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
-        thresholds = np.array([0,412,462,487,500,524,537,562,612,1025]) 
+        thresholds = np.array([0,312,362,412,462,500,524,562,612,662,712,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
@@ -159,6 +161,9 @@ class QLearningVehicleControl:
         elif action == 'left_6':
             control.steer = -0.3
 
+        elif action == 'left_7':
+            control.steer = -0.4
+
         elif action == 'right_1':
             control.steer = 0.01
 
@@ -176,6 +181,10 @@ class QLearningVehicleControl:
 
         elif action == 'right_6':
             control.steer = 0.3
+
+        elif action == 'right_7':
+            control.steer = 0.4
+        
         
         
         #we try to mantain the same speed all the time
@@ -278,7 +287,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
             VehicleQlearning.lane_lines = 0
 
 
-    thresholds = np.array([412,462,487,500,524,537,562,612]) 
+    thresholds = np.array([312,362,412,462,500,524,562,612,662,712]) 
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
 
@@ -504,7 +513,6 @@ start = True
 while start:
 
     for episode in range(num_episodes):
-
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
         world.tick()        
         
@@ -536,10 +544,10 @@ while start:
                 done = True
                 reward = reward + 500
                 finished_laps_counter += 1
-                if finished_laps_counter > 5:
+                if finished_laps_counter > 50:
                     print("algorithm converged! finishing training")
                     q_table = vehicleQlearning.q_table
-
+                    print(vehicleQlearning.q_table)
                     with open('q_table.pkl', 'wb') as f:
                         pickle.dump(q_table, f)
 
