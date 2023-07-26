@@ -19,7 +19,6 @@ class QLearningVehicleControl:
         self.exploration_rate = 0.95
         self.num_actions = num_actions
         self.exploration_rate_counter = 0
-        self.q_table = np.zeros((num_states, num_actions))
         self.vehicle = vehicle
         self.lane_lines = 100
         self.start = True
@@ -27,6 +26,7 @@ class QLearningVehicleControl:
         self.longitude = 100
         self.random_counter = 0
         self.table_counter = 0
+        self.speed = 4.0
         
         self.lane_center_error = 0 
         self.lane_center = 0  
@@ -48,6 +48,18 @@ class QLearningVehicleControl:
             'right_6', 
             'right_7', 
         ]
+        self.ACELERATION = [ 
+            'speed_1',  
+            'speed_2',  
+            'speed_3',
+            'speed_4',  
+            'speed_5',  
+            'speed_6',  
+            'speed_7',  
+
+        ]
+
+        self.q_table = np.zeros((num_states, num_actions, len(self.ACELERATION) ))
 
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
@@ -72,13 +84,17 @@ class QLearningVehicleControl:
 
     def choose_action(self, state):
         if np.random.uniform(0, 1) < self.exploration_rate:
-            action = np.random.randint(self.num_actions)
+            # Elegir una acción aleatoria para dirección y aceleración
+            steer_action = np.random.randint(len(self.ACTIONS))
+            accel_action = np.random.randint(len(self.ACELERATION))
             self.random_counter += 1
         else:
-            action = np.argmax(self.q_table[state])
+            # Elegir la mejor acción combinada (dirección y aceleración) basada en la tabla Q
+            action_values = self.q_table[state]
+            steer_action, accel_action = np.unravel_index(action_values.argmax(), action_values.shape)
             self.table_counter += 1
 
-        return action
+        return steer_action, accel_action
     
     def get_random_counter(self):
         return self.random_counter
@@ -90,24 +106,24 @@ class QLearningVehicleControl:
         self.table_counter = value
 
     #function to update the qtale
-    def update_q_table(self, current_state, action, reward, next_state):
+    def update_q_table(self, current_state, steering_action, acceleration_action, reward, next_state):
+        # Obtener el máximo valor Q para el próximo estado
         future_max_q = np.max(self.q_table[next_state])
 
-        # new q table entry value
-        new_q = (1 - self.learning_rate) * self.q_table[current_state][action] + \
+        # Calcular el nuevo valor Q para el estado y acción actual
+        current_q_value = self.q_table[current_state][steering_action][acceleration_action]
+        new_q = (1 - self.learning_rate) * current_q_value + \
                 self.learning_rate * (reward + self.discount_factor * future_max_q)
 
-        self.q_table[current_state][action] = new_q
+        # Actualizar la tabla Q con el nuevo valor
+        self.q_table[current_state][steering_action][acceleration_action] = new_q
 
-
+        # Actualizar la tasa de exploración si es necesario
         if self.exploration_rate_counter > 5:            
-            #self.exploration_rate = self.exploration_rate - 0.0015
             self.exploration_rate = self.exploration_rate - 0.005
             self.exploration_rate_counter = 0
+
         
-        #if self.exploration_rate < 0.01:
-            #print("exploration rate is lower than 0.1 finishing training")
-            #exit()
 
     def increment_exploration_counter(self):
         self.exploration_rate_counter += 1
@@ -137,7 +153,7 @@ class QLearningVehicleControl:
 
         return reward
     
-    def perform_action(self, action):
+    def perform_action(self, action, speed):
 
         control = VehicleControl()
         if action == 'forward':
@@ -184,6 +200,27 @@ class QLearningVehicleControl:
 
         elif action == 'right_7':
             control.steer = 0.4
+
+        if speed == 'speed_1':
+            self.speed = 4.0
+
+        elif speed == 'speed_2':
+            self.speed = 5.0
+
+        elif speed == 'speed_3':
+            self.speed = 6.0
+
+        elif speed == 'speed_4':
+            self.speed = 7.0
+
+        elif speed == 'speed_5':
+            self.speed = 8.0
+
+        elif speed == 'speed_6':
+            self.speed = 9.0
+
+        elif speed == 'speed_7':
+            self.speed = 10.0
         
         
         
@@ -191,7 +228,7 @@ class QLearningVehicleControl:
         velocity = self.vehicle.get_velocity()
         speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
 
-        if speed >= 4.0:
+        if speed >= self.speed:
             control.throttle = 0.0
         else:
             control.throttle = 1.0
@@ -485,9 +522,9 @@ except RuntimeError:
 
 # Set the weather to be sunny and without wind, wind affects steering
 weather = carla.WeatherParameters(
-    cloudiness=0.0,
+    cloudiness=50.0,
     precipitation=0.0,
-    sun_altitude_angle=70.0,
+    sun_altitude_angle=10.0,
     wind_intensity=0.0
 )
 world.set_weather(weather)
@@ -528,8 +565,8 @@ while start:
             if vehicleQlearning.lane_lines < 1:
                 done = True
                 
-            action = vehicleQlearning.choose_action(current_state)
-            vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
+            action, speed = vehicleQlearning.choose_action(current_state)
+            vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action],vehicleQlearning.ACELERATION[speed] )
 
             lane_center= vehicleQlearning.get_lane_center()
             next_state = vehicleQlearning.get_state(lane_center)
@@ -538,7 +575,6 @@ while start:
             reward = vehicleQlearning.reward_function(lane_center_error)
             acum_reward = acum_reward + reward
 
-            current_state = next_state
 
             if vehicleQlearning.latitude < 0.0001358:
                 done = True
@@ -554,12 +590,12 @@ while start:
             else:
                 finished_laps_counter = 0
 
-            vehicleQlearning.update_q_table(current_state, action, reward, next_state)
+            vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state)
+            current_state = next_state
 
             world.tick()
 
             
-
         for actor in actors:
             actor.destroy()
 
