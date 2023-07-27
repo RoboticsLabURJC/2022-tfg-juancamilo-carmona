@@ -27,6 +27,7 @@ class QLearningVehicleControl:
         self.random_counter = 0
         self.table_counter = 0
         self.speed = 4.0
+        self.object_in_front = False
         
         self.lane_center_error = 0 
         self.lane_center = 0  
@@ -84,17 +85,27 @@ class QLearningVehicleControl:
 
     def choose_action(self, state):
         if np.random.uniform(0, 1) < self.exploration_rate:
-            # Elegir una acción aleatoria para dirección y aceleración
+            # Elegir una acción aleatoria para dirección
             steer_action = np.random.randint(len(self.ACTIONS))
-            accel_action = np.random.randint(len(self.ACELERATION))
             self.random_counter += 1
         else:
-            # Elegir la mejor acción combinada (dirección y aceleración) basada en la tabla Q
+            # Elegir la mejor acción de dirección basada en la tabla Q
             action_values = self.q_table[state]
-            steer_action, accel_action = np.unravel_index(action_values.argmax(), action_values.shape)
+            steer_action = np.unravel_index(action_values.argmax(), action_values.shape)[0]
             self.table_counter += 1
 
-        return steer_action, accel_action
+        return steer_action
+
+    def choose_speed(self, state):
+        if np.random.uniform(0, 1) < self.exploration_rate:
+            speed = np.random.randint(len(self.ACELERATION))
+
+        else:
+            # Elegir la mejor acción de aceleración basada en la tabla Q
+            action_values = self.q_table[state]
+            speed = np.unravel_index(action_values.argmax(), action_values.shape)[1]
+
+        return speed
     
     def get_random_counter(self):
         return self.random_counter
@@ -457,11 +468,26 @@ def show_data( episode,acum_reward ,vehicleQlearning):
     vehicleQlearning.set_table_counter(0)
 
 
+def lidar_callback(point_cloud, vehicleQlearning):
+
+    # Convertir datos a un numpy array
+    points = np.frombuffer(point_cloud.raw_data, dtype=np.dtype('f4'))
+    points = np.reshape(points, (int(points.shape[0] / 3), 3))
+
+    # Filtrar puntos que están en frente y a una cierta altura (para no detectar el suelo)
+    points_in_front = points[(points[:, 0] > 0) & (points[:, 0] < 10) & (points[:, 2] > 0.5) & (points[:, 2] < 3)]
+
+    if len(points_in_front) > 0:
+        vehicleQlearning.object_in_front = True
+    else:
+        vehicleQlearning.object_in_front = False
+
+
 def spawn_vehicle(renderObject):
     #spawn vehicle
     blueprint_library = world.get_blueprint_library()
     vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
-    location,rotation = choose_vehicle_location()
+    location, rotation = choose_vehicle_location()
     transform = carla.Transform(location, rotation)
     vehicle = world.spawn_actor(vehicle_bp, transform)
 
@@ -479,10 +505,8 @@ def spawn_vehicle(renderObject):
     dashcam = world.spawn_actor(camera_bp, dashcam_transform, attach_to=vehicle)
     actors.append(dashcam)
 
-
-    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    # Load DL model
     dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
     #spawn gnss sensor
@@ -491,7 +515,23 @@ def spawn_vehicle(renderObject):
     gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
     actors.append(gnss)
 
+    #spawn lidar sensor
+    lidar_bp = blueprint_library.find('sensor.lidar.ray_cast')
+    lidar_bp.set_attribute('channels', '32')
+    lidar_bp.set_attribute('points_per_second', '100000')
+    lidar_bp.set_attribute('rotation_frequency', '10')
+    lidar_bp.set_attribute('range', '100')
+    lidar_location = carla.Location(x=0, y=0, z=2)
+    lidar_rotation = carla.Rotation(pitch=0, yaw=0, roll=0)
+    lidar_transform = carla.Transform(lidar_location, lidar_rotation)
+    lidar = world.spawn_actor(lidar_bp, lidar_transform, attach_to=vehicle)
+    lidar.listen(lidar_callback)
+    # If you want the LIDAR to generate data and process it, add a listener similar to the cameras and GNSS sensor.
+    # lidar.listen(lambda point_cloud: lidar_callback(point_cloud))
+    actors.append(lidar)
+
     return vehicle, actors
+
 
 def tick_world(vehicleQlearning, world):
     if vehicleQlearning.lane_lines > 0:
@@ -554,6 +594,7 @@ while start:
         world.tick()        
         
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
+        speed = vehicleQlearning.choose_speed(current_state)
 
         done = False
         acum_reward = 0
@@ -565,7 +606,7 @@ while start:
             if vehicleQlearning.lane_lines < 1:
                 done = True
                 
-            action, speed = vehicleQlearning.choose_action(current_state)
+            action = vehicleQlearning.choose_action(current_state)
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action],vehicleQlearning.ACELERATION[speed] )
 
             lane_center= vehicleQlearning.get_lane_center()
