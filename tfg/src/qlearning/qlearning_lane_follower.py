@@ -47,17 +47,13 @@ class QLearningVehicleControl:
             'right_4',  
             'right_5', 
             'right_6', 
-            'right_7', 
+            'right_7' 
         ]
         self.ACELERATION = [ 
             'speed_1',  
             'speed_2',  
             'speed_3',
-            'speed_4',  
-            'speed_5',  
-            'speed_6',  
-            'speed_7',  
-
+            'speed_4'
         ]
 
         self.q_table = np.zeros((num_states, num_actions, len(self.ACELERATION) ))
@@ -224,14 +220,6 @@ class QLearningVehicleControl:
         elif speed == 'speed_4':
             self.speed = 7.0
 
-        elif speed == 'speed_5':
-            self.speed = 8.0
-
-        elif speed == 'speed_6':
-            self.speed = 9.0
-
-        elif speed == 'speed_7':
-            self.speed = 10.0
         
         
         
@@ -418,6 +406,7 @@ def third_person_image_cb(image, obj ):
 
 #choose the vehicle initial location from a pool of locations
 def choose_vehicle_location():
+    """
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
                   carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
                    (carla.Location(x=-65.03, y=-199.5, z=0.5), 
@@ -428,6 +417,14 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
                     (carla.Location(x=-157.8591, y=-125.4512, z=0.5), 
                     carla.Rotation(pitch=-4.850, yaw=158.7178, roll=0))   ]
+    """
+    
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
+                carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
+                (carla.Location(x=-65.03, y=-199.5, z=0.5), 
+                carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
+                (carla.Location(x=-65.380, y=-199.5546, z=0.5), 
+                carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
 
     
     location, rotation = random.choice(locations)
@@ -562,9 +559,9 @@ except RuntimeError:
 
 # Set the weather to be sunny and without wind, wind affects steering
 weather = carla.WeatherParameters(
-    cloudiness=50.0,
+    cloudiness=60.0,
     precipitation=0.0,
-    sun_altitude_angle=10.0,
+    sun_altitude_angle=30.0,
     wind_intensity=0.0
 )
 world.set_weather(weather)
