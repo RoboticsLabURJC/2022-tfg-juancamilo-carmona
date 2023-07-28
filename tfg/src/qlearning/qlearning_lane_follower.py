@@ -130,7 +130,8 @@ class QLearningVehicleControl:
 
         # Actualizar la tasa de exploración si es necesario
         if self.exploration_rate_counter > 5:            
-            self.exploration_rate = self.exploration_rate - 0.005
+            #self.exploration_rate = self.exploration_rate - 0.005
+            self.exploration_rate = self.exploration_rate - 0.01
             self.exploration_rate_counter = 0
 
 
@@ -439,9 +440,7 @@ def choose_vehicle_location():
                 carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
 
 
-    location, rotation = random.choice(locations)
-    location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.5), carla.Rotation(pitch=-1.19, yaw=128, roll=0))
-    
+    location, rotation = random.choice(locations)    
     return location, rotation
 
 #This funcion waitf for the first camera image to arrive, we use it to start each episode lane detection
@@ -549,7 +548,18 @@ def spawn_vehicle(renderObject):
     actors.append(collision_sensor)
 
     return vehicle, actors
-        
+
+def choose_random_obstacle_location():
+    
+    locations = [   (carla.Location(x=-108.05, y=-158.886, z=0.3), 
+                    carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
+                    (carla.Location(x=-157.8591, y=-125.4512, z=0.5), 
+                    carla.Rotation(pitch=-4.850, yaw=158.7178, roll=0))   ]
+
+
+    location, rotation = random.choice(locations)    
+    return location, rotation
+
 
 pygame.init()
 image_surface = None
@@ -577,7 +587,7 @@ except RuntimeError:
 weather = carla.WeatherParameters(
     cloudiness=40.0,
     precipitation=0.0,
-    sun_altitude_angle=70.0,
+    sun_altitude_angle=90.0,
     wind_intensity=0.0
 )
 world.set_weather(weather)
@@ -597,11 +607,13 @@ car_crashed = False
 vehicle, actors = spawn_vehicle(renderObject)
 vehicleQlearning = QLearningVehicleControl(vehicle)
 
-blueprint_library = world.get_blueprint_library()
-vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
-location, rotation = (carla.Location(x=-32.48, y=-240.39, z=0.5), carla.Rotation(pitch=-1.19, yaw=128, roll=0))
-transform = carla.Transform(location, rotation)
-vehicle_2 = world.spawn_actor(vehicle_bp, transform)
+if np.random.uniform(0, 1) < 0.3:
+
+    blueprint_library = world.get_blueprint_library()
+    vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
+    location, rotation = choose_random_obstacle_location()
+    transform = carla.Transform(location, rotation)
+    vehicle_2 = world.spawn_actor(vehicle_bp, transform)
 
 num_episodes = 6000
 finished_laps_counter = 0
