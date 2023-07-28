@@ -53,7 +53,7 @@ class QLearningVehicleControl:
             'speed_1',  
             'speed_2',  
             'speed_3',
-            'speed_4'
+            'speed_4',
             'stop'
         ]
 
@@ -155,13 +155,22 @@ class QLearningVehicleControl:
         return int(len(thresholds) / 2), object_in_front
 
     #we use an exponencial function to calculate the reward
-    def reward_function(self, error):
+    def reward_function(self, error, car_crashed):
+
 
         normalized_error = abs(error) / 1024
-        reward = np.exp(-normalized_error)
+        reward = np.exp(-normalized_error) + self.speed
+
+        #if we stop without any obstacle we set a small penalization
+        if not self.object_in_front and self.speed == 0:
+            reward = reward - 100
 
         # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 1:
+            reward = reward - 1000
+
+        #if car crashes we give a big penalization
+        if car_crashed:
             reward = reward - 1000
 
         return reward
@@ -478,19 +487,26 @@ def show_data( episode,acum_reward ,vehicleQlearning):
 
 
 def lidar_callback(point_cloud, vehicleQlearning):
-
     # Convertir datos a un numpy array
     points = np.frombuffer(point_cloud.raw_data, dtype=np.dtype('f4'))
-    points = np.reshape(points, (int(points.shape[0] / 3), 3))
+    
+    # Revisamos que la longitud de los puntos sea divisible por 3
+    if len(points) % 3 != 0:
+        return
 
-    # Filtrar puntos que están en frente y a una cierta altura (para no detectar el suelo)
-    points_in_front = points[(points[:, 0] > 0) & (points[:, 0] < 10) & (points[:, 2] > 0.5) & (points[:, 2] < 3)]
-
+    # Cambiamos la forma del array para tener puntos en 3D (x, y, z)
+    points = points.reshape(-1, 3)
+    points_in_front = points[(points[:, 0] > 0.5) & (points[:, 0] < 6) & 
+                            (abs(points[:, 1]) < 0.1) &
+                            (points[:, 2] > 0.5) & (points[:, 2] < 2)]    
+    print(points_in_front)
+    # Si hay puntos en ese rango, entonces hay un objeto en frente
     if len(points_in_front) > 0:
         vehicleQlearning.object_in_front = True
         print("object in front")
     else:
         vehicleQlearning.object_in_front = False
+
 
 def collision_cb(event):
     global car_crashed
@@ -607,7 +623,7 @@ car_crashed = False
 vehicle, actors = spawn_vehicle(renderObject)
 vehicleQlearning = QLearningVehicleControl(vehicle)
 
-if np.random.uniform(0, 1) < 0.3:
+if np.random.uniform(0, 1) < 0.5:
 
     blueprint_library = world.get_blueprint_library()
     vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
@@ -626,7 +642,6 @@ while start:
         world.tick()        
         
         current_state, current_object_in_front = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
-        speed = vehicleQlearning.choose_speed(current_state)
 
         done = False
         acum_reward = 0
@@ -642,6 +657,7 @@ while start:
                 done = True
                 
             action = vehicleQlearning.choose_action(current_state)
+            speed = vehicleQlearning.choose_speed(current_state)
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action],vehicleQlearning.ACELERATION[speed] )
 
             lane_center= vehicleQlearning.get_lane_center()
