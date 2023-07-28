@@ -11,6 +11,7 @@ import numpy as np
 import csv
 from prettytable import PrettyTable
 import math
+import threading
 
 class QLearningVehicleControl:
     def __init__(self,vehicle, num_actions=15, num_states=11):
@@ -163,7 +164,10 @@ class QLearningVehicleControl:
 
         #if we stop without any obstacle we set a small penalization
         if not self.object_in_front and self.speed == 0:
-            reward = reward - 100
+            reward = reward - 30
+
+        elif self.object_in_front and self.speed == 0:
+            reward = reward - 30
 
         # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 1:
@@ -576,6 +580,13 @@ def choose_random_obstacle_location():
     location, rotation = random.choice(locations)    
     return location, rotation
 
+def destroy_actor(actor):
+    actor.destroy()
+
+def destroy_actor_after_delay(actor, delay):
+    # Programa la llamada para destruir el actor después de 'delay' segundos
+    threading.Timer(delay, lambda: destroy_actor(actor)).start()
+
 
 pygame.init()
 image_surface = None
@@ -622,15 +633,6 @@ car_crashed = False
 
 vehicle, actors = spawn_vehicle(renderObject)
 vehicleQlearning = QLearningVehicleControl(vehicle)
-
-if np.random.uniform(0, 1) < 0.5:
-
-    blueprint_library = world.get_blueprint_library()
-    vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
-    location, rotation = choose_random_obstacle_location()
-    transform = carla.Transform(location, rotation)
-    vehicle_2 = world.spawn_actor(vehicle_bp, transform)
-
 num_episodes = 6000
 finished_laps_counter = 0
 
@@ -639,6 +641,16 @@ while start:
 
     for episode in range(num_episodes):
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
+
+        if np.random.uniform(0, 1) < 0.5:
+
+            blueprint_library = world.get_blueprint_library()
+            vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
+            location, rotation = choose_random_obstacle_location()
+            transform = carla.Transform(location, rotation)
+            obstacle = world.spawn_actor(vehicle_bp, transform)
+            destroy_actor_after_delay(obstacle, 120)
+
         world.tick()        
         
         current_state, current_object_in_front = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
@@ -650,10 +662,7 @@ while start:
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
 
-            if car_crashed:
-                done = True
-                car_crashed = False
-            elif vehicleQlearning.lane_lines < 1:
+            if vehicleQlearning.lane_lines < 1:
                 done = True
                 
             action = vehicleQlearning.choose_action(current_state)
@@ -664,8 +673,12 @@ while start:
             next_state, next_object_in_front = vehicleQlearning.get_state(lane_center)
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
-            reward = vehicleQlearning.reward_function(lane_center_error)
+            reward = vehicleQlearning.reward_function(lane_center_error, car_crashed)
             acum_reward = acum_reward + reward
+
+            if car_crashed:
+                done = True
+                car_crashed = False
 
 
             if vehicleQlearning.latitude < 0.0001358:
