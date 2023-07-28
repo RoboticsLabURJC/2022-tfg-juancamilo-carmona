@@ -54,9 +54,11 @@ class QLearningVehicleControl:
             'speed_2',  
             'speed_3',
             'speed_4'
+            'stop'
         ]
 
-        self.q_table = np.zeros((num_states, num_actions, len(self.ACELERATION) ))
+        self.q_table = np.zeros((num_states, num_actions,len(self.ACELERATION) , 2))
+        #self.q_table = np.zeros((num_states, num_actions, len(self.ACELERATION) ))
 
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
@@ -113,22 +115,24 @@ class QLearningVehicleControl:
         self.table_counter = value
 
     #function to update the qtale
-    def update_q_table(self, current_state, steering_action, acceleration_action, reward, next_state):
-        # Obtener el máximo valor Q para el próximo estado
-        future_max_q = np.max(self.q_table[next_state])
+    #update_q_table(current_state, action, speed , reward, next_state, current_object_in_front, next_object_in_front)
+    def update_q_table(self, current_state, steering_action, acceleration_action,reward,next_state, object_in_front,next_object_in_front):
+        # Obtener el máximo valor Q para el próximo estado y siguiente valor de la variable object_in_front
+        future_max_q = np.max(self.q_table[next_state, :, :, int(next_object_in_front)])
 
         # Calcular el nuevo valor Q para el estado y acción actual
-        current_q_value = self.q_table[current_state][steering_action][acceleration_action]
+        current_q_value = self.q_table[current_state, steering_action, acceleration_action, int(object_in_front)]
         new_q = (1 - self.learning_rate) * current_q_value + \
                 self.learning_rate * (reward + self.discount_factor * future_max_q)
 
         # Actualizar la tabla Q con el nuevo valor
-        self.q_table[current_state][steering_action][acceleration_action] = new_q
+        self.q_table[current_state, steering_action, acceleration_action, int(object_in_front)] = new_q
 
         # Actualizar la tasa de exploración si es necesario
         if self.exploration_rate_counter > 5:            
             self.exploration_rate = self.exploration_rate - 0.005
             self.exploration_rate_counter = 0
+
 
         
 
@@ -140,13 +144,14 @@ class QLearningVehicleControl:
 
     def get_state(self, center_of_lane):
 
+        object_in_front = self.object_in_front
         #threshold for the lines that define the stastes
         thresholds = np.array([0,312,362,412,462,500,524,562,612,662,712,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
-                return i
+                return i, object_in_front
 
-        return int(len(thresholds) / 2)
+        return int(len(thresholds) / 2), object_in_front
 
     #we use an exponencial function to calculate the reward
     def reward_function(self, error):
@@ -220,16 +225,23 @@ class QLearningVehicleControl:
         elif speed == 'speed_4':
             self.speed = 7.0
 
-        
-        
+        elif speed == 'stop':
+            self.speed = 0.0
+
         
         #we try to mantain the same speed all the time
         velocity = self.vehicle.get_velocity()
         speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
 
-        if speed >= self.speed:
+        if self.speed == 0.0:
+            control.throttle = 0.0
+            control.brake = 1.0
+
+        elif speed >= self.speed:
+            control.brake = 0.0
             control.throttle = 0.0
         else:
+            control.brake = 0.0
             control.throttle = 1.0
 
         self.vehicle.apply_control(control)
@@ -263,8 +275,8 @@ def lane_detection_overlay( image, left_mask, right_mask):
     res = np.copy(image)
 
     # We use only points with probability higher than 0.5 of being a lane
-    res[left_mask > 0.5, :] = [255,0,0]
-    res[right_mask > 0.5,:] = [255, 0, 0]
+    res[left_mask > 0.8, :] = [255,0,0]
+    res[right_mask > 0.8,:] = [255, 0, 0]
 
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
@@ -426,9 +438,10 @@ def choose_vehicle_location():
                 (carla.Location(x=-65.380, y=-199.5546, z=0.5), 
                 carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
 
-    
-    location, rotation = random.choice(locations)
 
+    location, rotation = random.choice(locations)
+    location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.5), carla.Rotation(pitch=-1.19, yaw=128, roll=0))
+    
     return location, rotation
 
 #This funcion waitf for the first camera image to arrive, we use it to start each episode lane detection
@@ -476,9 +489,13 @@ def lidar_callback(point_cloud, vehicleQlearning):
 
     if len(points_in_front) > 0:
         vehicleQlearning.object_in_front = True
+        print("object in front")
     else:
         vehicleQlearning.object_in_front = False
 
+def collision_cb(event):
+    global car_crashed
+    car_crashed = True
 
 def spawn_vehicle(renderObject):
     #spawn vehicle
@@ -503,6 +520,7 @@ def spawn_vehicle(renderObject):
     actors.append(dashcam)
 
     # Load DL model
+    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
     dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
@@ -522,18 +540,16 @@ def spawn_vehicle(renderObject):
     lidar_rotation = carla.Rotation(pitch=0, yaw=0, roll=0)
     lidar_transform = carla.Transform(lidar_location, lidar_rotation)
     lidar = world.spawn_actor(lidar_bp, lidar_transform, attach_to=vehicle)
-    lidar.listen(lidar_callback)
-    # If you want the LIDAR to generate data and process it, add a listener similar to the cameras and GNSS sensor.
+    lidar.listen(lambda data: lidar_callback(data, vehicleQlearning))
     # lidar.listen(lambda point_cloud: lidar_callback(point_cloud))
     actors.append(lidar)
 
+    collision_sensor = world.spawn_actor(blueprint_library.find('sensor.other.collision'),carla.Transform(), attach_to=vehicle)
+    collision_sensor.listen(lambda event: collision_cb(event))
+    actors.append(collision_sensor)
+
     return vehicle, actors
-
-
-def tick_world(vehicleQlearning, world):
-    if vehicleQlearning.lane_lines > 0:
-        world.tick()
-
+        
 
 pygame.init()
 image_surface = None
@@ -559,9 +575,9 @@ except RuntimeError:
 
 # Set the weather to be sunny and without wind, wind affects steering
 weather = carla.WeatherParameters(
-    cloudiness=60.0,
+    cloudiness=40.0,
     precipitation=0.0,
-    sun_altitude_angle=30.0,
+    sun_altitude_angle=70.0,
     wind_intensity=0.0
 )
 world.set_weather(weather)
@@ -576,9 +592,16 @@ spectator = world.get_spectator()
 metrics = Metrics()
 
 renderObject = RenderObject()
+car_crashed = False
 
 vehicle, actors = spawn_vehicle(renderObject)
 vehicleQlearning = QLearningVehicleControl(vehicle)
+
+blueprint_library = world.get_blueprint_library()
+vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
+location, rotation = (carla.Location(x=-32.48, y=-240.39, z=0.5), carla.Rotation(pitch=-1.19, yaw=128, roll=0))
+transform = carla.Transform(location, rotation)
+vehicle_2 = world.spawn_actor(vehicle_bp, transform)
 
 num_episodes = 6000
 finished_laps_counter = 0
@@ -590,7 +613,7 @@ while start:
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
         world.tick()        
         
-        current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
+        current_state, current_object_in_front = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
         speed = vehicleQlearning.choose_speed(current_state)
 
         done = False
@@ -600,14 +623,17 @@ while start:
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
 
-            if vehicleQlearning.lane_lines < 1:
+            if car_crashed:
+                done = True
+                car_crashed = False
+            elif vehicleQlearning.lane_lines < 1:
                 done = True
                 
             action = vehicleQlearning.choose_action(current_state)
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action],vehicleQlearning.ACELERATION[speed] )
 
             lane_center= vehicleQlearning.get_lane_center()
-            next_state = vehicleQlearning.get_state(lane_center)
+            next_state, next_object_in_front = vehicleQlearning.get_state(lane_center)
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
             reward = vehicleQlearning.reward_function(lane_center_error)
@@ -628,8 +654,9 @@ while start:
             else:
                 finished_laps_counter = 0
 
-            vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state)
+            vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state, current_object_in_front, next_object_in_front)
             current_state = next_state
+            current_object_in_front = next_object_in_front
 
             world.tick()
 
