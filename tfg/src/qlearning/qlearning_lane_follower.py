@@ -29,6 +29,7 @@ class QLearningVehicleControl:
         self.speed = 4.0
         self.object_in_front = False
         self.steer = 0.0
+        self.start_time = time.time()
         
         self.lane_center_error = 0 
         self.lane_center = 0  
@@ -176,7 +177,7 @@ class QLearningVehicleControl:
 
         # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 1:
-            reward = reward - 1000
+            reward = reward - (1000 - (self.start_time - time.time()))
 
 
         return reward
@@ -434,11 +435,11 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-4.850, yaw=158.7178, roll=0))   ]
     """
     
-    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.1), 
                 carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
-                (carla.Location(x=-65.03, y=-199.5, z=0.5), 
+                (carla.Location(x=-65.03, y=-199.5, z=0.2), 
                 carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
-                (carla.Location(x=-65.380, y=-199.5546, z=0.5), 
+                (carla.Location(x=-65.380, y=-199.5546, z=0.15), 
                 carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
 
     
