@@ -14,7 +14,7 @@ import math
 import threading
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=15, num_states=11):
+    def __init__(self,vehicle, num_actions=16, num_states=11):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -48,15 +48,14 @@ class QLearningVehicleControl:
             'right_4',  
             'right_5', 
             'right_6', 
-            'right_7' 
+            'right_7',
+            'stop' 
         ]
         self.ACELERATION = [ 
             'speed_1',  
             'speed_2',  
             'speed_3',
-            'speed_4',
-            'stop'
-        ]
+            'speed_4'        ]
 
         self.q_table = np.zeros((num_states, num_actions,len(self.ACELERATION) , 2))
         #self.q_table = np.zeros((num_states, num_actions, len(self.ACELERATION) ))
@@ -167,7 +166,7 @@ class QLearningVehicleControl:
             reward = reward - 30
 
         elif self.object_in_front and self.speed == 0:
-            reward = reward - 30
+            reward = reward + 30
 
         # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 1:
@@ -227,6 +226,9 @@ class QLearningVehicleControl:
         elif action == 'right_7':
             control.steer = 0.4
 
+        elif action == 'stop':
+            self.speed = 0.0
+
         if speed == 'speed_1':
             self.speed = 4.0
 
@@ -239,8 +241,6 @@ class QLearningVehicleControl:
         elif speed == 'speed_4':
             self.speed = 7.0
 
-        elif speed == 'stop':
-            self.speed = 0.0
 
         
         #we try to mantain the same speed all the time
@@ -503,7 +503,6 @@ def lidar_callback(point_cloud, vehicleQlearning):
     points_in_front = points[(points[:, 0] > 0.5) & (points[:, 0] < 6) & 
                             (abs(points[:, 1]) < 0.1) &
                             (points[:, 2] > 0.5) & (points[:, 2] < 2)]    
-    print(points_in_front)
     # Si hay puntos en ese rango, entonces hay un objeto en frente
     if len(points_in_front) > 0:
         vehicleQlearning.object_in_front = True
@@ -581,10 +580,12 @@ def choose_random_obstacle_location():
     return location, rotation
 
 def destroy_actor(actor):
-    actor.destroy()
+    try:
+        actor.destroy()
+    except:
+        pass
 
 def destroy_actor_after_delay(actor, delay):
-    # Programa la llamada para destruir el actor después de 'delay' segundos
     threading.Timer(delay, lambda: destroy_actor(actor)).start()
 
 
@@ -650,10 +651,12 @@ while start:
             transform = carla.Transform(location, rotation)
             obstacle = world.spawn_actor(vehicle_bp, transform)
             destroy_actor_after_delay(obstacle, 120)
+            actors.append(obstacle)
 
         world.tick()        
         
         current_state, current_object_in_front = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
+        speed = vehicleQlearning.choose_speed(current_state)
 
         done = False
         acum_reward = 0
@@ -666,7 +669,6 @@ while start:
                 done = True
                 
             action = vehicleQlearning.choose_action(current_state)
-            speed = vehicleQlearning.choose_speed(current_state)
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action],vehicleQlearning.ACELERATION[speed] )
 
             lane_center= vehicleQlearning.get_lane_center()
