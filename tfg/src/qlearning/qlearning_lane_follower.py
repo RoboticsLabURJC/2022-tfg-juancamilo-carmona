@@ -149,14 +149,16 @@ class QLearningVehicleControl:
         return int(len(thresholds) / 2)
 
     #we use an exponencial function to calculate the reward
-    def reward_function(self, error):
+    def reward_function(self, error, car_crashed):
+
 
         normalized_error = abs(error) / 1024
-        reward = np.exp(-normalized_error)
+        reward = np.exp(-normalized_error) + self.speed/100
 
         # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 1:
             reward = reward - 1000
+
 
         return reward
     
