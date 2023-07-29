@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=15, num_states=11):
+    def __init__(self,vehicle, num_actions=11, num_states=11):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -39,16 +39,12 @@ class QLearningVehicleControl:
             'left_2',
             'left_3',  
             'left_4',  
-            'left_5', 
-            'left_6',  
-            'left_7',  
+            'left_5',
             'right_1',  
             'right_2',
             'right_3',  
             'right_4',  
-            'right_5', 
-            'right_6', 
-            'right_7' 
+            'right_5'
         ]
         self.ACELERATION = [ 
             'speed_1',  
@@ -184,12 +180,6 @@ class QLearningVehicleControl:
         elif action == 'left_5':
             self.steer = self.steer-0.2
 
-        elif action == 'left_6':
-            self.steer = self.steer-0.3
-
-        elif action == 'left_7':
-            self.steer = self.steer-0.4
-
         elif action == 'right_1':
             self.steer = self.steer+0.01
 
@@ -204,12 +194,6 @@ class QLearningVehicleControl:
 
         elif action == 'right_5':
             self.steer = self.steer+0.2
-
-        elif action == 'right_6':
-            self.steer = self.steer+0.3
-
-        elif action == 'right_7':
-            self.steer = self.steer+0.4
 
         if speed == 'speed_1':
             self.speed = 4.0
@@ -266,8 +250,8 @@ def lane_detection_overlay( image, left_mask, right_mask):
     res = np.copy(image)
 
     # We use only points with probability higher than 0.5 of being a lane
-    res[left_mask > 0.5, :] = [255,0,0]
-    res[right_mask > 0.5,:] = [255, 0, 0]
+    res[left_mask > 0.8, :] = [255,0,0]
+    res[right_mask > 0.8,:] = [255, 0, 0]
 
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
@@ -529,9 +513,9 @@ except RuntimeError:
 
 # Set the weather to be sunny and without wind, wind affects steering
 weather = carla.WeatherParameters(
-    cloudiness=60.0,
+    cloudiness=40.0,
     precipitation=0.0,
-    sun_altitude_angle=30.0,
+    sun_altitude_angle=90.0,
     wind_intensity=0.0
 )
 world.set_weather(weather)
