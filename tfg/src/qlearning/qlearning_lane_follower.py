@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=11, num_states=11):
+    def __init__(self,vehicle, num_actions=13, num_states=11):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -40,11 +40,13 @@ class QLearningVehicleControl:
             'left_3',  
             'left_4',  
             'left_5',
+            'left_6',
             'right_1',  
             'right_2',
             'right_3',  
             'right_4',  
-            'right_5'
+            'right_5',
+            'right_6'
         ]
         self.ACELERATION = [ 
             'speed_1',  
@@ -200,6 +202,9 @@ class QLearningVehicleControl:
         elif action == 'left_5':
             self.steer = self.steer-0.05
 
+        elif action == 'left_6':
+            self.steer = self.steer-0.1
+
         elif action == 'right_1':
             self.steer = self.steer+0.001
 
@@ -214,6 +219,9 @@ class QLearningVehicleControl:
 
         elif action == 'right_5':
             self.steer = self.steer+0.05
+
+        elif action == 'right_6':
+            self.steer = self.steer + 0.1
 
         if speed == 'speed_1':
             self.speed = 4.0
@@ -572,16 +580,20 @@ while start:
 
     for episode in range(num_episodes):
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
-        speed = vehicleQlearning.choose_speed(current_state)
-        accelerte_vehicle(vehicleQlearning)
-
-        world.tick()        
         
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
+        speed = vehicleQlearning.choose_speed(current_state)
+
+        gameDisplay.blit(renderObject.surface, (0,0))
+        gameDisplay.blit(renderObject.surface2, (800,0))
+        pygame.display.flip()
+        
+        world.tick()
 
         done = False
         acum_reward = 0
         while not done:
+
             gameDisplay.blit(renderObject.surface, (0,0))
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
