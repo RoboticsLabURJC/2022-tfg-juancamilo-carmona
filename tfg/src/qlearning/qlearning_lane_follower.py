@@ -166,34 +166,34 @@ class QLearningVehicleControl:
             self.steer = 0.0
 
         elif action == 'left_1':
-            self.steer = self.steer - 0.01
+            self.steer = self.steer - 0.001
 
         elif action == 'left_2':
-            self.steer = self.steer - 0.05
+            self.steer = self.steer - 0.005
 
         elif action == 'left_3':
-            self.steer = self.steer-0.1
+            self.steer = self.steer-0.01
 
         elif action == 'left_4':
-            self.steer = self.steer-0.15
+            self.steer = self.steer-0.02
 
         elif action == 'left_5':
-            self.steer = self.steer-0.2
+            self.steer = self.steer-0.05
 
         elif action == 'right_1':
-            self.steer = self.steer+0.01
+            self.steer = self.steer+0.001
 
         elif action == 'right_2':
-            self.steer = self.steer+0.05
+            self.steer = self.steer+0.005
 
         elif action == 'right_3':
-            self.steer = self.steer+0.1
+            self.steer = self.steer+0.01
 
         elif action == 'right_4':
-            self.steer = self.steer+0.15
+            self.steer = self.steer+0.02
 
         elif action == 'right_5':
-            self.steer = self.steer+0.2
+            self.steer = self.steer+0.05
 
         if speed == 'speed_1':
             self.speed = 4.0
@@ -476,6 +476,7 @@ def spawn_vehicle(renderObject):
     actors.append(dashcam)
 
     # Load DL model
+    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
     dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
