@@ -55,6 +55,26 @@ class QLearningVehicleControl:
 
         self.q_table = np.zeros((num_states, num_actions, len(self.ACELERATION) ))
 
+    def reach_cruise_speed(self):
+        control = VehicleControl()
+    
+        velocity = self.vehicle.get_velocity()
+        speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
+
+        if speed >= self.speed:
+            control.brake = 0.0
+            control.throttle = 0.0
+            self.vehicle.apply_control(control)
+            print("cruise speed reached")
+
+            return True
+        else:
+            control.brake = 0.0
+            control.throttle = 1.0
+            self.vehicle.apply_control(control)
+
+            return False
+
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
 
@@ -488,6 +508,15 @@ def spawn_vehicle(renderObject):
 
     return vehicle, actors
 
+def accelerte_vehicle(vehicleQlearning):
+
+    speed_reached = False
+    while not speed_reached:
+        speed_reached = vehicleQlearning.reach_cruise_speed()
+        world.tick()
+
+
+
 
 
 pygame.init()
@@ -543,10 +572,12 @@ while start:
 
     for episode in range(num_episodes):
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
+        speed = vehicleQlearning.choose_speed(current_state)
+        accelerte_vehicle(vehicleQlearning)
+
         world.tick()        
         
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
-        speed = vehicleQlearning.choose_speed(current_state)
 
         done = False
         acum_reward = 0
