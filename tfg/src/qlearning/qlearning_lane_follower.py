@@ -28,6 +28,7 @@ class QLearningVehicleControl:
         self.table_counter = 0
         self.speed = 4.0
         self.object_in_front = False
+        self.steer = 0.0
         
         self.lane_center_error = 0 
         self.lane_center = 0  
@@ -149,7 +150,7 @@ class QLearningVehicleControl:
         return int(len(thresholds) / 2)
 
     #we use an exponencial function to calculate the reward
-    def reward_function(self, error, car_crashed):
+    def reward_function(self, error):
 
 
         normalized_error = abs(error) / 1024
@@ -166,49 +167,49 @@ class QLearningVehicleControl:
 
         control = VehicleControl()
         if action == 'forward':
-            control.steer = 0.0
+            self.steer = 0.0
 
         elif action == 'left_1':
-            control.steer = -0.01
+            self.steer = self.steer - 0.01
 
         elif action == 'left_2':
-            control.steer = -0.05
+            self.steer = self.steer - 0.05
 
         elif action == 'left_3':
-            control.steer = -0.1
+            self.steer = self.steer-0.1
 
         elif action == 'left_4':
-            control.steer = -0.15
+            self.steer = self.steer-0.15
 
         elif action == 'left_5':
-            control.steer = -0.2
+            self.steer = self.steer-0.2
 
         elif action == 'left_6':
-            control.steer = -0.3
+            self.steer = self.steer-0.3
 
         elif action == 'left_7':
-            control.steer = -0.4
+            self.steer = self.steer-0.4
 
         elif action == 'right_1':
-            control.steer = 0.01
+            self.steer = self.steer+0.01
 
         elif action == 'right_2':
-            control.steer = 0.05
+            self.steer = self.steer+0.05
 
         elif action == 'right_3':
-            control.steer = 0.1
+            self.steer = self.steer+0.1
 
         elif action == 'right_4':
-            control.steer = 0.15
+            self.steer = self.steer+0.15
 
         elif action == 'right_5':
-            control.steer = 0.2
+            self.steer = self.steer+0.2
 
         elif action == 'right_6':
-            control.steer = 0.3
+            self.steer = self.steer+0.3
 
         elif action == 'right_7':
-            control.steer = 0.4
+            self.steer = self.steer+0.4
 
         if speed == 'speed_1':
             self.speed = 4.0
@@ -222,18 +223,18 @@ class QLearningVehicleControl:
         elif speed == 'speed_4':
             self.speed = 7.0
 
-        
-        
-        
         #we try to mantain the same speed all the time
         velocity = self.vehicle.get_velocity()
         speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
 
         if speed >= self.speed:
+            control.brake = 0.0
             control.throttle = 0.0
         else:
+            control.brake = 0.0
             control.throttle = 1.0
 
+        control.steer = self.steer
         self.vehicle.apply_control(control)
 
 
@@ -467,20 +468,6 @@ def show_data( episode,acum_reward ,vehicleQlearning):
     vehicleQlearning.set_table_counter(0)
 
 
-def lidar_callback(point_cloud, vehicleQlearning):
-
-    # Convertir datos a un numpy array
-    points = np.frombuffer(point_cloud.raw_data, dtype=np.dtype('f4'))
-    points = np.reshape(points, (int(points.shape[0] / 3), 3))
-
-    # Filtrar puntos que están en frente y a una cierta altura (para no detectar el suelo)
-    points_in_front = points[(points[:, 0] > 0) & (points[:, 0] < 10) & (points[:, 2] > 0.5) & (points[:, 2] < 3)]
-
-    if len(points_in_front) > 0:
-        vehicleQlearning.object_in_front = True
-    else:
-        vehicleQlearning.object_in_front = False
-
 
 def spawn_vehicle(renderObject):
     #spawn vehicle
@@ -514,27 +501,8 @@ def spawn_vehicle(renderObject):
     gnss.listen(lambda data: position_cb(data,metrics, vehicleQlearning))
     actors.append(gnss)
 
-    #spawn lidar sensor
-    lidar_bp = blueprint_library.find('sensor.lidar.ray_cast')
-    lidar_bp.set_attribute('channels', '32')
-    lidar_bp.set_attribute('points_per_second', '100000')
-    lidar_bp.set_attribute('rotation_frequency', '10')
-    lidar_bp.set_attribute('range', '100')
-    lidar_location = carla.Location(x=0, y=0, z=2)
-    lidar_rotation = carla.Rotation(pitch=0, yaw=0, roll=0)
-    lidar_transform = carla.Transform(lidar_location, lidar_rotation)
-    lidar = world.spawn_actor(lidar_bp, lidar_transform, attach_to=vehicle)
-    lidar.listen(lidar_callback)
-    # If you want the LIDAR to generate data and process it, add a listener similar to the cameras and GNSS sensor.
-    # lidar.listen(lambda point_cloud: lidar_callback(point_cloud))
-    actors.append(lidar)
-
     return vehicle, actors
 
-
-def tick_world(vehicleQlearning, world):
-    if vehicleQlearning.lane_lines > 0:
-        world.tick()
 
 
 pygame.init()
