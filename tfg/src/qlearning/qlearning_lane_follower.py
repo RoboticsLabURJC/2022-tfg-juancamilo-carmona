@@ -81,6 +81,9 @@ class QLearningVehicleControl:
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
 
+    def reset_time(self):
+        self.start_time = time.time()
+
     def get_lane_center(self):
         return self.lane_center
 
@@ -171,14 +174,16 @@ class QLearningVehicleControl:
     #we use an exponencial function to calculate the reward
     def reward_function(self, error):
 
+        normalized_error = abs(error)
 
-        normalized_error = abs(error) / 1024
-        reward = np.exp(-normalized_error) + self.speed/100
+        if normalized_error == 0.0:
+            reward = 10 + self.speed 
+        else:
+            reward = -(normalized_error) + self.speed 
 
         # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 1:
-            reward = reward - (1000 - (self.start_time - time.time()))
-
+            reward =  -1000
 
         return reward
     
@@ -570,6 +575,7 @@ metrics = Metrics()
 
 renderObject = RenderObject()
 
+
 vehicle, actors = spawn_vehicle(renderObject)
 vehicleQlearning = QLearningVehicleControl(vehicle)
 
@@ -580,6 +586,8 @@ start = True
 while start:
 
     for episode in range(num_episodes):
+        
+        vehicleQlearning.reset_time()
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
         
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
