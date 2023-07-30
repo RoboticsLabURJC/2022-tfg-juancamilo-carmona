@@ -21,7 +21,6 @@ class QLearningVehicleControl:
         self.exploration_rate_counter = 0
         self.vehicle = vehicle
         self.lane_lines = 100
-        self.start = True
         self.latitude = 100
         self.longitude = 100
         self.random_counter = 0
@@ -80,6 +79,20 @@ class QLearningVehicleControl:
 
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
+
+    def reset_variables(self):
+
+        self.lane_lines = 100
+        self.latitude = 100
+        self.longitude = 100
+        self.random_counter = 0
+        self.table_counter = 0
+        self.speed = 4.0
+        self.steer = 0.0
+        self.start_time = time.time()
+        
+        self.lane_center_error = 0 
+        self.lane_center = 0  
 
     def reset_time(self):
         self.start_time = time.time()
@@ -176,14 +189,11 @@ class QLearningVehicleControl:
 
         normalized_error = abs(error)
 
-        if normalized_error == 0.0:
-            reward = 10 + self.speed 
-        else:
-            reward = -(normalized_error) + self.speed 
+        reward = 1/(normalized_error * normalized_error + 1) + self.speed/10
 
         # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 1:
-            reward =  -1000
+            reward =  -10
 
         return reward
     
@@ -658,6 +668,7 @@ while start:
         
         vehicle, actors = spawn_vehicle(renderObject)
         vehicleQlearning.set_vehicle(vehicle)
+        vehicleQlearning.reset_variables()
 
         if vehicleQlearning.exploration_rate > 0.05:
             vehicleQlearning.increment_exploration_counter()
