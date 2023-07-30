@@ -402,7 +402,6 @@ def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
     rgb_img = np.rot90(np.fliplr(rgb_img))
 
     obj.surface = pygame.surfarray.make_surface(rgb_img)
-    imagen_semaforo.release()
 
 
 
@@ -446,12 +445,12 @@ def choose_vehicle_location():
 def wait_for_detection(vehicleQlearning, gameDisplay, renderObject):
 
     vehicleQlearning.lane_lines = 100
+    start = time.time()
     while vehicleQlearning.lane_lines == 100:
         world.tick()
         gameDisplay.blit(renderObject.surface, (0,0))
         gameDisplay.blit(renderObject.surface2, (800,0))
-        pygame.display.flip()
-        time.sleep(1.0)         
+        pygame.display.flip()   
         
 
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
@@ -516,9 +515,16 @@ def tick_world(vehicleQlearning, world):
     if vehicleQlearning.lane_lines > 0:
         world.tick()
 
+def wait_for_action(gameDisplay, renderObject):
+
+    start_time = time.time()
+    while time.time() - start_time < 0.5:
+        world.tick()
+        gameDisplay.blit(renderObject.surface, (0,0))
+        gameDisplay.blit(renderObject.surface2, (800,0))
+        pygame.display.flip()
 
 pygame.init()
-imagen_semaforo = threading.Semaphore(0)
 image_surface = None
 size = 800, 600
 gameDisplay = pygame.display.set_mode(size)
@@ -580,7 +586,6 @@ while start:
         acum_reward = 0
         while not done:
             
-            imagen_semaforo.acquire() 
             gameDisplay.blit(renderObject.surface, (0,0))
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
@@ -590,6 +595,9 @@ while start:
                 
             action = vehicleQlearning.choose_action(current_state)
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action])
+
+            #aqui hay que esperar a que se ejecute la accion
+            wait_for_action(gameDisplay, renderObject)
 
             lane_center= vehicleQlearning.get_lane_center()
             next_state = vehicleQlearning.get_state(lane_center)
