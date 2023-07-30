@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=15, num_states=11):
+    def __init__(self,vehicle, num_actions=15, num_states=1024):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -27,6 +27,8 @@ class QLearningVehicleControl:
         self.longitude = 100
         self.random_counter = 0
         self.table_counter = 0
+        self.steer = 0
+        self.speed = 4.5
         
         self.lane_center_error = 0 
         self.lane_center = 0  
@@ -116,27 +118,80 @@ class QLearningVehicleControl:
         self.exploration_rate =  exploration_rate
 
     def get_state(self, center_of_lane):
-
-        #threshold for the lines that define the stastes
-        thresholds = np.array([0,312,362,412,462,500,524,562,612,662,712,1025]) 
-        for i in range( len(thresholds) - 1 ):
-            if thresholds[i] <= center_of_lane < thresholds[i + 1]:
-                return i
-
-        return int(len(thresholds) / 2)
+        return center_of_lane
 
     #we use an exponencial function to calculate the reward
     def reward_function(self, error):
 
-        normalized_error = abs(error) / 1024
-        reward = np.exp(-normalized_error)
+        normalized_error = abs(error)
+
+        reward = 1/((normalized_error * normalized_error) + 1)
 
         # if we are not detecting both lane lines reward gets a big penalization
         if self.lane_lines < 1:
-            reward = reward - 1000
+            reward =  -10
 
         return reward
     
+
+    def perform_action(self, action):
+
+        control = VehicleControl()
+        if action == 'forward':
+            self.steer = 0.0
+
+        elif action == 'left_1':
+            self.steer = self.steer - 0.001
+
+        elif action == 'left_2':
+            self.steer = self.steer - 0.005
+
+        elif action == 'left_3':
+            self.steer = self.steer-0.01
+
+        elif action == 'left_4':
+            self.steer = self.steer-0.02
+
+        elif action == 'left_5':
+            self.steer = self.steer-0.05
+
+        elif action == 'left_6':
+            self.steer = self.steer-0.1
+
+        elif action == 'right_1':
+            self.steer = self.steer+0.001
+
+        elif action == 'right_2':
+            self.steer = self.steer+0.005
+
+        elif action == 'right_3':
+            self.steer = self.steer+0.01
+
+        elif action == 'right_4':
+            self.steer = self.steer+0.02
+
+        elif action == 'right_5':
+            self.steer = self.steer+0.05
+
+        elif action == 'right_6':
+            self.steer = self.steer + 0.1
+            
+
+        #we try to mantain the same speed all the time
+        velocity = self.vehicle.get_velocity()
+        speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
+
+        if speed >= self.speed:
+            control.brake = 0.0
+            control.throttle = 0.0
+        else:
+            control.brake = 0.0
+            control.throttle = 1.0
+
+        control.steer = self.steer
+        self.vehicle.apply_control(control)
+
+    """
     def perform_action(self, action):
 
         control = VehicleControl()
@@ -197,7 +252,7 @@ class QLearningVehicleControl:
             control.throttle = 1.0
 
         self.vehicle.apply_control(control)
-
+    """
 
 class RenderObject(object):
     def __init__(self):
