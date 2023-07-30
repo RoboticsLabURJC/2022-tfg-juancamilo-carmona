@@ -568,10 +568,10 @@ start = True
 while start:
 
     for episode in range(num_episodes):
-        wait_for_detection(vehicleQlearning, gameDisplay, renderObject)
-        world.tick()        
-        
+        wait_for_detection(vehicleQlearning, gameDisplay, renderObject)        
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
+
+        world.tick()        
 
         done = False
         acum_reward = 0
@@ -593,8 +593,6 @@ while start:
             reward = vehicleQlearning.reward_function(lane_center_error)
             acum_reward = acum_reward + reward
 
-            current_state = next_state
-
             if vehicleQlearning.latitude < 0.0001358:
                 done = True
                 reward = reward + 500
@@ -610,6 +608,7 @@ while start:
                 finished_laps_counter = 0
 
             vehicleQlearning.update_q_table(current_state, action, reward, next_state)
+            current_state = next_state
 
             world.tick()
 
