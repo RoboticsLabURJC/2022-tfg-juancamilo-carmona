@@ -11,6 +11,7 @@ import numpy as np
 import csv
 from prettytable import PrettyTable
 import math
+import threading
 
 class QLearningVehicleControl:
     def __init__(self,vehicle, num_actions=15, num_states=1024):
@@ -133,7 +134,7 @@ class QLearningVehicleControl:
 
         return reward
     
-
+    """
     def perform_action(self, action):
 
         control = VehicleControl()
@@ -252,7 +253,6 @@ class QLearningVehicleControl:
             control.throttle = 1.0
 
         self.vehicle.apply_control(control)
-    """
 
 class RenderObject(object):
     def __init__(self):
@@ -402,6 +402,7 @@ def first_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
     rgb_img = np.rot90(np.fliplr(rgb_img))
 
     obj.surface = pygame.surfarray.make_surface(rgb_img)
+    imagen_semaforo.release()
 
 
 
@@ -517,6 +518,7 @@ def tick_world(vehicleQlearning, world):
 
 
 pygame.init()
+imagen_semaforo = threading.Semaphore(0)
 image_surface = None
 size = 800, 600
 gameDisplay = pygame.display.set_mode(size)
@@ -568,6 +570,7 @@ start = True
 while start:
 
     for episode in range(num_episodes):
+
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)        
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
 
@@ -576,6 +579,8 @@ while start:
         done = False
         acum_reward = 0
         while not done:
+            
+            imagen_semaforo.acquire() 
             gameDisplay.blit(renderObject.surface, (0,0))
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
