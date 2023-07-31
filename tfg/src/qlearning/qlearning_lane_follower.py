@@ -411,7 +411,7 @@ def position_cb( pos, metrics, vehicleQlearning):
     vehicleQlearning.longitude = longitude
 
 
-def third_person_image_cb(image, obj ):
+def third_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
 
     array = np.frombuffer(image.raw_data, dtype=np.dtype('uint8'))
     array = np.reshape(array, (image.height, image.width, 4))
@@ -500,6 +500,24 @@ def spawn_vehicle(renderObject):
 
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
+    # Spawn camera third person view
+    camera_bp_third_person = blueprint_library.find('sensor.camera.rgb')
+    camera_bp_third_person.set_attribute('image_size_x', '800')
+    camera_bp_third_person.set_attribute('image_size_y', '600')
+    camera_bp_third_person.set_attribute('fov', '120')
+
+    # Posición y rotación detrás y por encima del vehículo.
+    third_person_location = carla.Location(x=-5, y=0.0, z=3)  # 'x=-5' posiciona la cámara detrás del vehículo
+    third_person_rotation = carla.Rotation(pitch=-10, yaw=0, roll=0)  # 'pitch=-10' es un ligero ángulo hacia abajo
+    third_person_transform = carla.Transform(third_person_location, third_person_rotation)
+
+    third_person_cam = world.spawn_actor(camera_bp_third_person, third_person_transform, attach_to=vehicle)
+    actors.append(third_person_cam)
+
+    # Escuchar imágenes de la cámara en tercera persona
+    third_person_cam.listen(lambda image: third_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
+
+
     #spawn gnss sensor
     gnss_bp = blueprint_library.find('sensor.other.gnss')
     gnss = world.spawn_actor(gnss_bp, carla.Transform(carla.Location(x=1.0, z=2.8)), attach_to=vehicle)
@@ -527,7 +545,7 @@ def collision_cb(event):
     
 pygame.init()
 image_surface = None
-size = 800, 600
+size = 1600, 600
 gameDisplay = pygame.display.set_mode(size)
 pygame.display.set_caption("qlearning and DL")
 pygame.display.flip()
@@ -549,9 +567,9 @@ except RuntimeError:
 
 # Set the weather to be sunny and without wind, wind affects steering
 weather = carla.WeatherParameters(
-    cloudiness=0.0,
+    cloudiness=40.0,
     precipitation=0.0,
-    sun_altitude_angle=70.0,
+    sun_altitude_angle=90.0,
     wind_intensity=0.0
 )
 world.set_weather(weather)
