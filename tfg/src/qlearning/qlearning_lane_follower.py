@@ -152,18 +152,28 @@ class QLearningVehicleControl:
         return int(len(thresholds) / 2)
 
     #we use an exponencial function to calculate the reward
-    def reward_function(self, error):
+    def reward_function(self, error, angle_error):
 
         normalized_error = abs(error)
 
-        reward = 1/((normalized_error) + 1)
+        # Estrategia para el error original
+        reward_error = 1 / (normalized_error + 1)
 
-        # if we are not detecting both lane lines reward gets a big penalization
+        # Si el error del ángulo es menor a 0.2, no queremos penalizarlo.
+        if angle_error < 0.2:
+            angle_penalty = 1
+        else:
+            # Estrategia para el error de ángulo (penalización exponencial)
+            angle_penalty = np.exp(5 * angle_error - 1)
+
+        combined_reward = reward_error / angle_penalty
+
+        # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
-            reward =  -10
-	
-        print("reward: ",reward)
-        return reward
+            combined_reward = -10
+
+        #print("reward: ", combined_reward)
+        return combined_reward
     
 
     def perform_action(self, action, speed):
@@ -249,9 +259,30 @@ class QLearningVehicleControl:
             control.brake = 0.0
             control.throttle = 1.0
 
-        print("stering: ",self.steer, "    speed: ", self.speed)
-        self.vehicle.apply_control(control)
+        #print("stering: ",self.steer, "    speed: ", self.speed)
+        #self.vehicle.apply_control(control)
 
+    def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
+        """Calcula el ángulo entre la línea ajustada a los puntos y el eje vertical de la imagen."""
+        
+        # Extraer las coordenadas x y y de los puntos
+        x, y = right_lane_x, right_lane_y
+        
+        # Ajuste lineal a los puntos
+        m, b = np.polyfit(x, y, 1)  # Esto devuelve la pendiente (m) y la intercepción (b) de la línea
+        
+        # Calcular el ángulo entre la línea del carril y el eje horizontal
+        theta_horizontal = np.arctan(m)
+        
+        # Convertirlo a grados
+        theta_horizontal_deg = np.degrees(theta_horizontal)
+        
+        # Ángulo entre la línea del carril y el eje vertical
+        theta_vertical = 90 - theta_horizontal_deg
+
+        angle_error = abs(55 - theta_vertical)
+
+        return angle_error
 
 class RenderObject(object):
     def __init__(self):
@@ -278,6 +309,10 @@ def get_prediction( img_array, deeplearning_model):
     return model_output
 
 def lane_detection_overlay( image, left_mask, right_mask):
+
+    global right_lane_y
+    global right_lane_x
+
     res = np.copy(image)
 
     # We use only points with probability higher than 0.5 of being a lane
@@ -286,6 +321,9 @@ def lane_detection_overlay( image, left_mask, right_mask):
 
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
+
+    right_lane_y = right_y
+    right_lane_x = right_x
 
     #cv2.line(res, (0, 400), (1000, 400), [255, 0, 255], 1)    
 
@@ -422,11 +460,11 @@ def third_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
 
 #choose the vehicle initial location from a pool of locations
 def choose_vehicle_location():
-    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.5), 
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2), 
                   carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
-                   (carla.Location(x=-65.03, y=-199.5, z=0.5), 
+                   (carla.Location(x=-65.03, y=-199.5, z=0.2), 
                     carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
-                    (carla.Location(x=-65.380, y=-199.5546, z=0.5), 
+                    (carla.Location(x=-65.380, y=-199.5546, z=0.2), 
                     carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)),
                     (carla.Location(x=-108.05, y=-158.886, z=0.3), 
                     carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
@@ -436,6 +474,7 @@ def choose_vehicle_location():
     
     location, rotation = random.choice(locations)
 
+    location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.2), carla.Rotation(pitch=-1.19, yaw=150, roll=0))
     return location, rotation
 
 #This funcion waitf for the first camera image to arrive, we use it to start each episode lane detection
@@ -542,6 +581,8 @@ def wait_for_action(gameDisplay, renderObject):
 def collision_cb(event):
     global car_crashed
     car_crashed = True
+
+
     
 pygame.init()
 image_surface = None
@@ -549,6 +590,9 @@ size = 1600, 600
 gameDisplay = pygame.display.set_mode(size)
 pygame.display.set_caption("qlearning and DL")
 pygame.display.flip()
+
+right_lane_y = []
+right_lane_x = []
 
 #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
@@ -616,7 +660,8 @@ while start:
             next_state = vehicleQlearning.get_state(lane_center)
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
-            reward = vehicleQlearning.reward_function(lane_center_error)
+            angle_error = vehicleQlearning.calculate_lane_angle_error( right_lane_x, right_lane_y )
+            reward = vehicleQlearning.reward_function(lane_center_error, angle_error)
             acum_reward = acum_reward + reward
 
             if vehicleQlearning.latitude < 0.0001358:
