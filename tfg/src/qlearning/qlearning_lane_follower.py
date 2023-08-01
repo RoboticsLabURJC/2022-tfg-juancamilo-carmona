@@ -157,23 +157,14 @@ class QLearningVehicleControl:
         normalized_error = abs(error)
 
         # Estrategia para el error original
-        reward_error = 1 / (normalized_error + 1)
-
-        # Si el error del ángulo es menor a 0.2, no queremos penalizarlo.
-        if angle_error < 0.2:
-            angle_penalty = 1
-        else:
-            # Estrategia para el error de ángulo (penalización exponencial)
-            angle_penalty = np.exp(5 * angle_error - 1)
-
-        combined_reward = reward_error / angle_penalty
+        reward = (1 / (normalized_error + angle_error + 1)) + self.speed/10
 
         # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
-            combined_reward = -10
+            reward = -10
 
-        print("reward: ", combined_reward)
-        return combined_reward
+        print("reward: ", reward)
+        return reward
     
 
     def perform_action(self, action, speed):
