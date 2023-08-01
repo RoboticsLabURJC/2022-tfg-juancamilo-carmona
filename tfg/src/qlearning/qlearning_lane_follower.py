@@ -263,24 +263,26 @@ class QLearningVehicleControl:
         self.vehicle.apply_control(control)
 
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
-        """Calcula el ángulo entre la línea ajustada a los puntos y el eje vertical de la imagen."""
-        
-        # Extraer las coordenadas x y y de los puntos
-        x, y = right_lane_x, right_lane_y
-        
-        # Ajuste lineal a los puntos
-        m, b = np.polyfit(x, y, 1)  # Esto devuelve la pendiente (m) y la intercepción (b) de la línea
-        
-        # Calcular el ángulo entre la línea del carril y el eje horizontal
-        theta_horizontal = np.arctan(m)
-        
-        # Convertirlo a grados
-        theta_horizontal_deg = np.degrees(theta_horizontal)
-        
-        # Ángulo entre la línea del carril y el eje vertical
-        theta_vertical = 90 - theta_horizontal_deg
 
-        angle_error = abs(55 - theta_vertical)
+        if self.lane_lines > 1:
+            # Extraer las coordenadas x y y de los puntos
+            x, y = right_lane_x, right_lane_y
+            
+            # Ajuste lineal a los puntos
+            m, b = np.polyfit(x, y, 1)  # Esto devuelve la pendiente (m) y la intercepción (b) de la línea
+            
+            # Calcular el ángulo entre la línea del carril y el eje horizontal
+            theta_horizontal = np.arctan(m)
+            
+            # Convertirlo a grados
+            theta_horizontal_deg = np.degrees(theta_horizontal)
+            
+            # Ángulo entre la línea del carril y el eje vertical
+            theta_vertical = 90 - theta_horizontal_deg
+
+            angle_error = abs(55 - theta_vertical)
+        else:
+            angle_error = 10
 
         return angle_error
 
@@ -321,7 +323,7 @@ def lane_detection_overlay( image, left_mask, right_mask):
 
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
-
+    
     right_lane_y = right_y
     right_lane_x = right_x
 
@@ -666,6 +668,7 @@ while start:
             next_state = vehicleQlearning.get_state(lane_center)
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
+            print(right_lane_x, right_lane_y)
             angle_error = vehicleQlearning.calculate_lane_angle_error( right_lane_x, right_lane_y )
             print("angle error: ",angle_error)
             reward = vehicleQlearning.reward_function(lane_center_error, angle_error)
