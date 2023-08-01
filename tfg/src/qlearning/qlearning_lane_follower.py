@@ -172,7 +172,7 @@ class QLearningVehicleControl:
         if self.lane_lines < 1:
             combined_reward = -10
 
-        #print("reward: ", combined_reward)
+        print("reward: ", combined_reward)
         return combined_reward
     
 
@@ -259,8 +259,8 @@ class QLearningVehicleControl:
             control.brake = 0.0
             control.throttle = 1.0
 
-        #print("stering: ",self.steer, "    speed: ", self.speed)
-        #self.vehicle.apply_control(control)
+        print("stering: ",self.steer, "    speed: ", self.speed)
+        self.vehicle.apply_control(control)
 
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
         """Calcula el ángulo entre la línea ajustada a los puntos y el eje vertical de la imagen."""
@@ -460,6 +460,7 @@ def third_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
 
 #choose the vehicle initial location from a pool of locations
 def choose_vehicle_location():
+    """
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2), 
                   carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
                    (carla.Location(x=-65.03, y=-199.5, z=0.2), 
@@ -470,11 +471,16 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
                     (carla.Location(x=-157.8591, y=-125.4512, z=0.5), 
                     carla.Rotation(pitch=-4.850, yaw=158.7178, roll=0))   ]
-
+    """
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2), 
+                  carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
+                   (carla.Location(x=-65.03, y=-199.5, z=0.2), 
+                    carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
+                    (carla.Location(x=-65.380, y=-199.5546, z=0.2), 
+                    carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
     
     location, rotation = random.choice(locations)
 
-    location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.2), carla.Rotation(pitch=-1.19, yaw=150, roll=0))
     return location, rotation
 
 #This funcion waitf for the first camera image to arrive, we use it to start each episode lane detection
@@ -661,6 +667,7 @@ while start:
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
             angle_error = vehicleQlearning.calculate_lane_angle_error( right_lane_x, right_lane_y )
+            print("angle error: ",angle_error)
             reward = vehicleQlearning.reward_function(lane_center_error, angle_error)
             acum_reward = acum_reward + reward
 
