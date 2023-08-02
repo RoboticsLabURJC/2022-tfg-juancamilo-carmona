@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=29, num_states=23):
+    def __init__(self,vehicle, num_actions=29, num_states=12):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -154,7 +154,8 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
-        thresholds = np.array([0,292,312,332,352,372,392,412,432,452,472,492,512,532,552,572,592,612,632,652,672,692,712,1025]) 
+        #thresholds = np.array([0,292,312,332,352,372,392,412,432,452,472,492,512,532,552,572,592,612,632,652,672,692,712,1025]) 
+        thresholds = np.array([0,312,352,392,432,472,512,552,592,632,672,712,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
@@ -167,7 +168,7 @@ class QLearningVehicleControl:
         normalized_error = abs(error)
 
         # Estrategia para el error original
-        reward = (1 / (normalized_error + angle_error + 1)) + self.speed/10
+        reward = (1 / (normalized_error + 1)) + self.speed/100 - angle_error/10
 
         # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
@@ -291,7 +292,7 @@ class QLearningVehicleControl:
             control.throttle = 1.0
 
         print("stering: ",self.steer, "    speed: ", self.speed)
-        self.vehicle.apply_control(control)
+        #self.vehicle.apply_control(control)
 
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
 
@@ -410,7 +411,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
             VehicleQlearning.lane_lines = 0
 
 
-    thresholds = np.array([292,312,332,352,372,392,412,432,452,472,492,512,532,552,572,592,612,632,652,672,692,712]) 
+    thresholds = np.array([312,352,392,432,472,512,552,592,632,672,712]) 
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
 
@@ -513,6 +514,7 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
     
     location, rotation = random.choice(locations)
+    location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.2), carla.Rotation(pitch=-1.19, yaw=138, roll=0))
 
     return location, rotation
 
@@ -699,7 +701,6 @@ while start:
             next_state = vehicleQlearning.get_state(lane_center)
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
-            print(right_lane_x, right_lane_y)
             angle_error = vehicleQlearning.calculate_lane_angle_error( right_lane_x, right_lane_y )
             print("angle error: ",angle_error)
             reward = vehicleQlearning.reward_function(lane_center_error, angle_error)
