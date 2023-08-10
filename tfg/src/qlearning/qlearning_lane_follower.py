@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=29, num_states=23):
+    def __init__(self,vehicle, num_actions=21, num_states=23):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -44,10 +44,6 @@ class QLearningVehicleControl:
             'left_8',  
             'left_9', 
             'left_10',  
-            'left_11',
-            'left_12',  
-            'left_13',  
-            'left_14',   
             'right_1',  
             'right_2',
             'right_3',  
@@ -57,11 +53,7 @@ class QLearningVehicleControl:
             'right_7', 
             'right_8', 
             'right_9',
-            'right_10',  
-            'right_11',
-            'right_12',  
-            'right_13',  
-            'right_14'  
+            'right_10'  
         ]
         self.SPEED = [ 
             'speed_1',  
@@ -135,7 +127,7 @@ class QLearningVehicleControl:
         # Update the Q-value.
         self.q_table[current_state, steering_action, speed_action] = new_q
 
-        if self.exploration_rate_counter >25:            
+        if self.exploration_rate_counter >50:            
             self.exploration_rate = self.exploration_rate - 0.1
             self.exploration_rate_counter = 0
 
@@ -154,7 +146,7 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
-        thresholds = np.array([0,312,352,392,432,472,512,552,592,632,672,712,1025]) 
+        thresholds = np.array([0,292,312,332,352,372,392,412,432,452,472,492,512,532,552,572,592,612,632,652,672,692,712,1025]) 
         #thresholds = np.array([0,312,352,392,432,472,512,552,592,632,672,712,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
@@ -168,7 +160,7 @@ class QLearningVehicleControl:
         normalized_error = abs(error)
 
         # Estrategia para el error original
-        reward = ((((1 / (normalized_error + 1)) + self.speed/100) - angle_error/100) - self.steer)
+        reward = ((((1 / (normalized_error + 1)) + self.speed/100) - angle_error/100))
 
         # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
@@ -177,6 +169,10 @@ class QLearningVehicleControl:
         print("reward: ", reward)
         return reward
     
+    def accelerate(self):
+        control = VehicleControl()  
+        control.throttle = 0.5
+        self.vehicle.apply_control(control)      
 
     def perform_action(self, action, speed):
 
@@ -211,21 +207,6 @@ class QLearningVehicleControl:
         elif action == 'left_9':
             control.steer = -0.12
 
-        elif action == 'left_10':
-            control.steer = -0.13
-
-        elif action == 'left_11':
-            control.steer = -0.14
-
-        elif action == 'left_12':
-            control.steer = -0.15
-
-        elif action == 'left_13':
-            control.steer = -0.17
-
-        elif action == 'left_14':
-            control.steer = -0.18
-
         elif action == 'right_1':
             control.steer = 0.01
 
@@ -253,18 +234,6 @@ class QLearningVehicleControl:
         elif action == 'right_9':
             control.steer = 0.12
 
-        elif action == 'right_10':
-            control.steer = 0.13
-
-        elif action == 'right_11':
-            control.steer = 0.14
-
-        elif action == 'right_12':
-            control.steer = 0.15
-
-        elif action == 'right_13':
-            control.steer = 0.17
-
         elif action == 'right_14':
             control.steer = 0.18
         
@@ -291,7 +260,7 @@ class QLearningVehicleControl:
             control.throttle = 0.0
         else:
             control.brake = 0.0
-            control.throttle = 1.0
+            control.throttle = 0.5
 
         print("stering: ",self.steer, "    speed: ", self.speed)
         self.vehicle.apply_control(control)
@@ -413,7 +382,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
             VehicleQlearning.lane_lines = 0
 
 
-    thresholds = np.array([312,352,392,432,472,512,552,592,632,672,712]) 
+    thresholds = np.array([292,312,332,352,372,392,412,432,452,472,492,512,532,552,572,592,612,632,652,672,692,712]) 
     for i in thresholds:
         cv2.line(img, (i, 0), (i, 600), [0, 255, 255], 1)
 
@@ -531,6 +500,16 @@ def wait_for_detection(vehicleQlearning, gameDisplay, renderObject):
         time.sleep(1.0)         
         
 
+def wait_for_spawning(vehicleQlearning, gameDisplay, renderObject):
+
+    start = time.time()
+    while time.time() - start < 1:
+        world.tick()
+        gameDisplay.blit(renderObject.surface, (0,0))
+        gameDisplay.blit(renderObject.surface2, (800,0))
+        pygame.display.flip()
+        vehicleQlearning.accelerate()
+        
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
@@ -683,7 +662,8 @@ start = True
 while start:
 
     for episode in range(num_episodes):
-        wait_for_detection(vehicleQlearning, gameDisplay, renderObject)        
+        wait_for_detection(vehicleQlearning, gameDisplay, renderObject)     
+        wait_for_spawning(vehicleQlearning, gameDisplay, renderObject) 
         current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
 
         world.tick()        
@@ -757,7 +737,7 @@ while start:
         if vehicleQlearning.exploration_rate > 0.05:
             vehicleQlearning.increment_exploration_counter()
         else:
-            vehicleQlearning.set_exploration_rate(0.05)
+            vehicleQlearning.set_exploration_rate(0.001)
 
 
             
