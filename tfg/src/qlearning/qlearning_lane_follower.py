@@ -664,7 +664,7 @@ world.set_weather(weather)
 # Set up the simulator in synchronous mode
 settings = world.get_settings()
 settings.synchronous_mode = True
-settings.fixed_delta_seconds = 0.05
+settings.fixed_delta_seconds = 0.1
 world.apply_settings(settings)
 spectator = world.get_spectator()
 
@@ -698,7 +698,7 @@ while start:
             action = vehicleQlearning.choose_action(current_state)
             speed = vehicleQlearning.choose_speed(current_state)
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action], vehicleQlearning.SPEED[speed])
-            wait_for_action(gameDisplay, renderObject)
+            world.tick()
             lane_center= vehicleQlearning.get_lane_center()
             next_state = vehicleQlearning.get_state(lane_center)
 
@@ -712,7 +712,7 @@ while start:
                 done = True
                 reward = reward + 50
                 finished_laps_counter += 1
-                if finished_laps_counter > 50:
+                if finished_laps_counter > 25:
                     print("algorithm converged! finishing training")
                     q_table = vehicleQlearning.q_table
                     print(vehicleQlearning.q_table)
