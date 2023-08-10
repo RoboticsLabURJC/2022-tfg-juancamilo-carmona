@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 import math
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=29, num_states=12):
+    def __init__(self,vehicle, num_actions=29, num_states=23):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -26,7 +26,7 @@ class QLearningVehicleControl:
         self.longitude = 100
         self.random_counter = 0
         self.table_counter = 0
-        self.steer = 0
+        self.steer = 0.0
         self.speed = 4.0
         
         self.lane_center_error = 0 
@@ -135,7 +135,7 @@ class QLearningVehicleControl:
         # Update the Q-value.
         self.q_table[current_state, steering_action, speed_action] = new_q
 
-        if self.exploration_rate_counter > 25:            
+        if self.exploration_rate_counter >25:            
             self.exploration_rate = self.exploration_rate - 0.1
             self.exploration_rate_counter = 0
 
@@ -154,8 +154,8 @@ class QLearningVehicleControl:
     def get_state(self, center_of_lane):
 
         #threshold for the lines that define the stastes
-        #thresholds = np.array([0,292,312,332,352,372,392,412,432,452,472,492,512,532,552,572,592,612,632,652,672,692,712,1025]) 
         thresholds = np.array([0,312,352,392,432,472,512,552,592,632,672,712,1025]) 
+        #thresholds = np.array([0,312,352,392,432,472,512,552,592,632,672,712,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
@@ -168,11 +168,11 @@ class QLearningVehicleControl:
         normalized_error = abs(error)
 
         # Estrategia para el error original
-        reward = (1 / (normalized_error + 1)) + self.speed/100 - angle_error/10
+        reward = ((((1 / (normalized_error + 1)) + self.speed/100) - angle_error/100) - self.steer)
 
         # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
-            reward = -10
+            reward = reward - 20
 
         print("reward: ", reward)
         return reward
@@ -269,21 +269,23 @@ class QLearningVehicleControl:
             control.steer = 0.18
         
         if speed == 'speed_1':
-            self.speed = 4.0
+            self.speed = 3.5
 
         elif speed == 'speed_2':
-            self.speed = 5.0
+            self.speed = 4.0
 
         elif speed == 'speed_3':
-            self.speed = 6.0
+            self.speed = 4.5
 
         elif speed == 'speed_4':
-            self.speed = 7.0
+            self.speed = 5.0
 
         #we try to mantain the same speed all the time
         velocity = self.vehicle.get_velocity()
         speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
 
+        self.steer = control.steer
+	
         if speed >= self.speed:
             control.brake = 0.0
             control.throttle = 0.0
@@ -292,7 +294,7 @@ class QLearningVehicleControl:
             control.throttle = 1.0
 
         print("stering: ",self.steer, "    speed: ", self.speed)
-        #self.vehicle.apply_control(control)
+        self.vehicle.apply_control(control)
 
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
 
@@ -361,8 +363,8 @@ def lane_detection_overlay( image, left_mask, right_mask):
 
     #cv2.line(res, (0, 400), (1000, 400), [255, 0, 255], 1)    
 
-    left_lane_coordinates = left_x[(left_y < 400)]
-    right_lane_coordinates = right_x[(right_y < 400)]
+    left_lane_coordinates = left_x[(left_y < 350)]
+    right_lane_coordinates = right_x[(right_y < 350)]
 
     
     left_lane_coordinates_list = left_lane_coordinates.tolist()
@@ -381,7 +383,7 @@ def draw_centers( img, VehicleQlearning, left_line, right_line ):
     elif (not left_line and right_line):
         VehicleQlearning.lane_lines = 1
         
-        center = int((np.mean(right_line)) - 125)
+        center = int((np.mean(right_line)) - 123)
         center_x = int(img.shape[1]/2)
     
         cv2.line(img, (center_x, 400), (center_x, 512), [0, 0, 255], 2)    
@@ -514,7 +516,6 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
     
     location, rotation = random.choice(locations)
-    location, rotation = (carla.Location(x=-26.48, y=-249.39, z=0.2), carla.Rotation(pitch=-1.19, yaw=138, roll=0))
 
     return location, rotation
 
@@ -533,8 +534,8 @@ def wait_for_detection(vehicleQlearning, gameDisplay, renderObject):
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
-    #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-    file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    #file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
         csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
@@ -575,8 +576,8 @@ def spawn_vehicle(renderObject):
     actors.append(dashcam)
 
 
-    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-    dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    #dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
@@ -632,11 +633,12 @@ gameDisplay = pygame.display.set_mode(size)
 pygame.display.set_caption("qlearning and DL")
 pygame.display.flip()
 
+
 right_lane_y = []
 right_lane_x = []
 
-#file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+#file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
     csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward'])
