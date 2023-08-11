@@ -127,7 +127,7 @@ class QLearningVehicleControl:
         # Update the Q-value.
         self.q_table[current_state, steering_action, speed_action] = new_q
 
-        if self.exploration_rate_counter >50:            
+        if self.exploration_rate_counter > 200:            
             self.exploration_rate = self.exploration_rate - 0.1
             self.exploration_rate_counter = 0
 
@@ -147,7 +147,7 @@ class QLearningVehicleControl:
 
         #threshold for the lines that define the stastes
         thresholds = np.array([0,292,312,332,352,372,392,412,432,452,472,492,512,532,552,572,592,612,632,652,672,692,712,1025]) 
-        #thresholds = np.array([0,312,352,392,432,472,512,552,592,632,672,712,1025]) 
+        #thresholds = np.array([0,312,352,392,432,472,492,512,532,552,592,632,672,712,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
                 return i
