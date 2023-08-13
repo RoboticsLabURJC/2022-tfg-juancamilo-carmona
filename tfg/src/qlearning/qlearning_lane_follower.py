@@ -92,17 +92,20 @@ class QLearningVehicleControl:
             action = np.random.randint(len(self.ACTIONS))
             self.random_counter += 1
         else:
-            action = np.argmax(np.max(self.q_table[state, :, :], axis=1))
+            action_values = self.q_table[state]
+            action = np.unravel_index(action_values.argmax(), action_values.shape)[0]
             self.table_counter += 1
 
         return action
     
     def choose_speed(self, state):
+        action_values = self.q_table[state]
         if np.random.uniform(0, 1) < self.exploration_rate:
             action = np.random.randint(len(self.SPEED))
             self.random_counter += 1
         else:
-            action = np.argmax(np.max(self.q_table[state, :, :], axis=0))
+            action_values = self.q_table[state]
+            action = np.unravel_index(action_values.argmax(), action_values.shape)[1]
             self.table_counter += 1
 
         return action
@@ -774,7 +777,7 @@ while start:
             lane_center_error = vehicleQlearning.get_lane_center_error()
             angle_error = vehicleQlearning.calculate_lane_angle_error( right_lane_x, right_lane_y )
             print("angle error: ",angle_error)
-            reward = vehicleQlearning.reward_function(lane_center_error, angle_error)
+            reward = vehicleQlearning.reward_function(lane_center_error, angle_error, car_crashed)
             acum_reward = acum_reward + reward
 
             if vehicleQlearning.latitude < 0.0001358:
