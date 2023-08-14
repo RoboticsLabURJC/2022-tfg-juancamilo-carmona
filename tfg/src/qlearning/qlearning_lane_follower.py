@@ -345,8 +345,8 @@ def lane_detection_overlay( image, left_mask, right_mask):
     res = np.copy(image)
 
     # We use only points with probability higher than 0.5 of being a lane
-    res[left_mask > 0.8, :] = [255,0,0]
-    res[right_mask > 0.8,:] = [255, 0, 0]
+    res[left_mask > 0.6, :] = [255,0,0]
+    res[right_mask > 0.6,:] = [255, 0, 0]
 
     left_y, left_x = np.where(left_mask > 0.5)
     right_y, right_x = np.where(right_mask > 0.5)
