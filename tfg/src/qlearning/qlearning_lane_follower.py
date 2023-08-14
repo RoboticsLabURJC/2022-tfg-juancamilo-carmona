@@ -174,7 +174,7 @@ class QLearningVehicleControl:
             reward = reward - 0.1
 
         elif self.object_in_front and self.speed == 0.0:
-            reward = reward + 0.1
+            reward = reward + 0.01
 
         # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
@@ -565,7 +565,7 @@ def lidar_callback(point_cloud, vehicleQlearning):
 
     # Cambiamos la forma del array para tener puntos en 3D (x, y, z)
     points = points.reshape(-1, 3)
-    points_in_front = points[(points[:, 0] > 0.5) & (points[:, 0] < 6) & 
+    points_in_front = points[(points[:, 0] > 0.5) & (points[:, 0] < 8) & 
                             (abs(points[:, 1]) < 0.1) &
                             (points[:, 2] > 0.5) & (points[:, 2] < 2)]    
     # Si hay puntos en ese rango, entonces hay un objeto en frente
