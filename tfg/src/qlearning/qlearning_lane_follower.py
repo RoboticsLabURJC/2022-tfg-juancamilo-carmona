@@ -12,6 +12,7 @@ import csv
 from prettytable import PrettyTable
 import math
 import threading
+import matplotlib.pyplot as plt
 
 class QLearningVehicleControl:
     def __init__(self,vehicle, num_actions=21, num_states=23):
@@ -255,7 +256,6 @@ class QLearningVehicleControl:
         elif action == 'right_14':
             control.steer = 0.18
         
-
         elif speed == 'speed_1':
             self.speed = 4.0
 
@@ -287,7 +287,8 @@ class QLearningVehicleControl:
                 control.throttle = 0.5
 
         print("stering: ",self.steer, "    speed: ", self.speed)
-        #self.vehicle.apply_control(control)
+        self.vehicle.apply_control(control)
+
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
 
         if self.lane_lines > 1:
@@ -508,8 +509,6 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
     
     location, rotation = random.choice(locations)
-    location, rotation = (carla.Location(x=-65.03, y=-199.5, z=0.2), 
-                    carla.Rotation(pitch=-6.46, yaw=133.11, roll=0))
 
     return location, rotation
 
@@ -556,6 +555,50 @@ def show_data( episode,acum_reward ,vehicleQlearning):
     vehicleQlearning.set_random_counter(0)
     vehicleQlearning.set_table_counter(0)
 
+
+def visualize_lidar(lidar_data):
+    """
+    Visualiza los datos del LIDAR en un plot 2D y muestra puntos de objetos detectados.
+    
+    :param lidar_data: Datos recibidos del sensor LIDAR.
+    """
+    # Convertir datos LIDAR en un array numpy
+    points = np.frombuffer(lidar_data.raw_data, dtype=np.dtype('f4'))
+    points = np.reshape(points, (int(points.shape[0] / 3), 3))
+
+    # Para una vista superior, consideraremos x como "adelante" y y como "lado".
+    forward, side = points[:, 0], points[:, 1]
+    
+    # Filtrar solo puntos que estén delante del vehículo entre 0.5 y 8 metros
+    mask = (1 <= forward) & (forward <= 8) & (side <= 0.3) & (side >= -0.3)
+    forward_filtered = forward[mask]
+    side_filtered = side[mask]
+
+    print("len: ",len(forward_filtered))
+    if len(forward_filtered) > 0:
+        print("Objetos detectados en las siguientes coordenadas:")
+
+
+    plt.figure(figsize=(10, 10))
+
+    # Dibujar puntos LIDAR
+    plt.scatter(side_filtered, forward_filtered, s=1)
+
+    # Configuración de la visualización
+    plt.xlim(-8, 8)  # Ajustado para centrar en el vehículo
+    plt.ylim(0, 8)  # Ajustado para mostrar solo puntos delante del coche
+    plt.xlabel('Lado (m)')
+    plt.ylabel('Adelante (m)')
+    plt.title('Visualización LIDAR 2D')
+    plt.grid(True)
+    plt.axvline(0, color='grey', linewidth=1)
+    plt.axhline(0.5, color='grey', linewidth=1)  # Línea inicial del rango
+    plt.gca().set_aspect('equal', adjustable='box')
+
+    # Mostrar visualización
+    plt.show()
+
+
 def lidar_callback(point_cloud, vehicleQlearning):
     # Convertir datos a un numpy array
     points = np.frombuffer(point_cloud.raw_data, dtype=np.dtype('f4'))
@@ -566,15 +609,22 @@ def lidar_callback(point_cloud, vehicleQlearning):
 
     # Cambiamos la forma del array para tener puntos en 3D (x, y, z)
     points = points.reshape(-1, 3)
-    points_in_front = points[(points[:, 0] > 0.5) & (points[:, 0] < 8) & 
-                            (abs(points[:, 1]) < 0.1) &
-                            (points[:, 2] > 0.5) & (points[:, 2] < 2)]    
+
+    # Para una vista superior, consideraremos x como "adelante" y y como "lado".
+    forward, side = points[:, 0], points[:, 1]
+
+    # Filtrar solo puntos que estén delante del vehículo entre 1 y 8 metros y lateralmente dentro de +/- 0.3 metros
+    mask = (1 <= forward) & (forward <= 8) & (side <= 0.3) & (side >= -0.3)
+    forward_filtered = forward[mask]
+    side_filtered = side[mask]
+    
     # Si hay puntos en ese rango, entonces hay un objeto en frente
-    if len(points_in_front) > 0:
+    if len(forward_filtered) > 50:
         vehicleQlearning.object_in_front = True
         print("object in front")
     else:
         vehicleQlearning.object_in_front = False
+
 
 
 def spawn_vehicle(renderObject):
@@ -639,7 +689,7 @@ def spawn_vehicle(renderObject):
     lidar_bp.set_attribute('points_per_second', '100000')
     lidar_bp.set_attribute('rotation_frequency', '10')
     lidar_bp.set_attribute('range', '100')
-    lidar_location = carla.Location(x=0, y=0, z=2)
+    lidar_location = carla.Location(x=1.5, y=0, z=1.2)
     lidar_rotation = carla.Rotation(pitch=0, yaw=0, roll=0)
     lidar_transform = carla.Transform(lidar_location, lidar_rotation)
     lidar = world.spawn_actor(lidar_bp, lidar_transform, attach_to=vehicle)
@@ -661,9 +711,7 @@ def choose_random_obstacle_location():
                     carla.Rotation(pitch=-4.850, yaw=158.7178, roll=0))   ]
 
 
-    location, rotation = random.choice(locations)
-    location, rotation =  (carla.Location(x=-69.03, y=-195.5, z=0.2), 
-                    carla.Rotation(pitch=-6.46, yaw=133.11, roll=0))    
+    location, rotation = random.choice(locations) 
     return location, rotation
 
 def wait_for_action(gameDisplay, renderObject):
@@ -747,7 +795,7 @@ while start:
 
     for episode in range(num_episodes):
 
-        if np.random.uniform(0, 1) < 1:
+        if np.random.uniform(0, 1) < 0.5:
 
             blueprint_library = world.get_blueprint_library()
             vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
