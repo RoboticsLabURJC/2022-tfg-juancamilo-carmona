@@ -287,8 +287,7 @@ class QLearningVehicleControl:
                 control.throttle = 0.5
 
         print("stering: ",self.steer, "    speed: ", self.speed)
-        self.vehicle.apply_control(control)
-
+        #self.vehicle.apply_control(control)
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
 
         if self.lane_lines > 1:
@@ -509,6 +508,8 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
     
     location, rotation = random.choice(locations)
+    location, rotation = (carla.Location(x=-65.03, y=-199.5, z=0.2), 
+                    carla.Rotation(pitch=-6.46, yaw=133.11, roll=0))
 
     return location, rotation
 
@@ -537,8 +538,8 @@ def wait_for_spawning(vehicleQlearning, gameDisplay, renderObject):
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
-    file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-    #file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
         csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
@@ -599,8 +600,8 @@ def spawn_vehicle(renderObject):
     actors.append(dashcam)
 
 
-    dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-    #dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
@@ -660,7 +661,9 @@ def choose_random_obstacle_location():
                     carla.Rotation(pitch=-4.850, yaw=158.7178, roll=0))   ]
 
 
-    location, rotation = random.choice(locations)    
+    location, rotation = random.choice(locations)
+    location, rotation =  (carla.Location(x=-69.03, y=-195.5, z=0.2), 
+                    carla.Rotation(pitch=-6.46, yaw=133.11, roll=0))    
     return location, rotation
 
 def wait_for_action(gameDisplay, renderObject):
@@ -697,8 +700,8 @@ pygame.display.flip()
 right_lane_y = []
 right_lane_x = []
 
-file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-#file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+#file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
     csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward'])
@@ -744,7 +747,7 @@ while start:
 
     for episode in range(num_episodes):
 
-        if np.random.uniform(0, 1) < 0.5:
+        if np.random.uniform(0, 1) < 1:
 
             blueprint_library = world.get_blueprint_library()
             vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
