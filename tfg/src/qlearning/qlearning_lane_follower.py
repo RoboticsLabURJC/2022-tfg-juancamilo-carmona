@@ -792,6 +792,7 @@ car_crashed = False
 start = True
 obstacle_control = False
 obstacle_spawn = time.time()
+obstacle_prob = 0.025
 while start:
 
     for episode in range(num_episodes):
@@ -811,7 +812,7 @@ while start:
                 obstacle_control = False
                 print("------------------------------ FRONT FREE ----------------------------------")
 
-            if np.random.uniform(0, 1) < 0.025 and not obstacle_control:
+            if np.random.uniform(0, 1) < obstacle_prob and not obstacle_control:
                 vehicleQlearning.object_in_front = True
                 obstacle_control = True
                 print("------------------------------ OBSTACLE IN FRONT ----------------------------------")
@@ -853,6 +854,10 @@ while start:
             if car_crashed:
                 done = True
                 car_crashed = False
+            
+            if episode > 2500:
+                obstacle_prob = 0.008
+
                         
             vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state, current_object_in_front, next_object_in_front)
 
