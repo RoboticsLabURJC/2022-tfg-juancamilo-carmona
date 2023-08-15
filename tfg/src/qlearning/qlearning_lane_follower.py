@@ -173,9 +173,11 @@ class QLearningVehicleControl:
         #if we stop without any obstacle we set a small penalization
         if not self.object_in_front and self.speed == 0.0:
             reward = reward - 0.1
+            print("penaliza por no parar ", self.speed)
 
         elif self.object_in_front and self.speed == 0.0:
-            reward = reward + 0.01
+            reward = reward + 0.1
+            print("premia por parar ", self.speed)
 
         # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
@@ -537,8 +539,8 @@ def wait_for_spawning(vehicleQlearning, gameDisplay, renderObject):
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
-    #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-    file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    #file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
         csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
@@ -649,8 +651,8 @@ def spawn_vehicle(renderObject):
     actors.append(dashcam)
 
 
-    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-    dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    #dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
@@ -683,6 +685,7 @@ def spawn_vehicle(renderObject):
     actors.append(collision_sensor)
 
     #spawn lidar sensor
+    """
     lidar_bp = blueprint_library.find('sensor.lidar.ray_cast')
     lidar_bp.set_attribute('channels', '32')
     lidar_bp.set_attribute('points_per_second', '100000')
@@ -695,6 +698,7 @@ def spawn_vehicle(renderObject):
     lidar.listen(lambda data: lidar_callback(data, vehicleQlearning))
     # lidar.listen(lambda point_cloud: lidar_callback(point_cloud))
     actors.append(lidar)
+    """
 
     collision_sensor = world.spawn_actor(blueprint_library.find('sensor.other.collision'),carla.Transform(), attach_to=vehicle)
     collision_sensor.listen(lambda event: collision_cb(event))
@@ -747,8 +751,8 @@ pygame.display.flip()
 right_lane_y = []
 right_lane_x = []
 
-#file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+#file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
     csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward'])
@@ -792,7 +796,7 @@ car_crashed = False
 start = True
 obstacle_control = False
 obstacle_spawn = time.time()
-obstacle_prob = 0.025
+obstacle_prob = 0.05
 while start:
 
     for episode in range(num_episodes):
