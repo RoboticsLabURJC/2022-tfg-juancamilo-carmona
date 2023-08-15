@@ -18,7 +18,7 @@ class QLearningVehicleControl:
     def __init__(self,vehicle, num_actions=21, num_states=23):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
-        self.exploration_rate = 0.95
+        self.exploration_rate = 0.0
         self.num_actions = num_actions
         self.exploration_rate_counter = 0
         self.vehicle = vehicle
@@ -66,6 +66,7 @@ class QLearningVehicleControl:
         ]
 
         self.q_table = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED), 2 ))
+        self.load_q_table("/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/q_table.pkl")
 
 
     def load_q_table(self, file_path):
@@ -695,7 +696,6 @@ def spawn_vehicle(renderObject):
     actors.append(collision_sensor)
 
     #spawn lidar sensor
-    """
     lidar_bp = blueprint_library.find('sensor.lidar.ray_cast')
     lidar_bp.set_attribute('channels', '32')
     lidar_bp.set_attribute('points_per_second', '100000')
@@ -708,7 +708,6 @@ def spawn_vehicle(renderObject):
     lidar.listen(lambda data: lidar_callback(data, vehicleQlearning))
     # lidar.listen(lambda point_cloud: lidar_callback(point_cloud))
     actors.append(lidar)
-    """
 
     collision_sensor = world.spawn_actor(blueprint_library.find('sensor.other.collision'),carla.Transform(), attach_to=vehicle)
     collision_sensor.listen(lambda event: collision_cb(event))
@@ -805,8 +804,6 @@ finished_laps_counter = 0
 car_crashed = False
 start = True
 obstacle_control = False
-obstacle_spawn = time.time()
-obstacle_prob = 0.05
 while start:
 
     for episode in range(num_episodes):
@@ -821,16 +818,15 @@ while start:
         acum_reward = 0
         while not done:
 
-            if time.time() - obstacle_spawn > 5:
-                vehicleQlearning.object_in_front = False
-                obstacle_control = False
-                print("------------------------------ FRONT FREE ----------------------------------")
+            if np.random.uniform(0, 1) < 0.5:
 
-            if np.random.uniform(0, 1) < obstacle_prob and not obstacle_control:
-                vehicleQlearning.object_in_front = True
-                obstacle_control = True
-                print("------------------------------ OBSTACLE IN FRONT ----------------------------------")
-                obstacle_spawn = time.time()
+                blueprint_library = world.get_blueprint_library()
+                vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
+                location, rotation = choose_random_obstacle_location()
+                transform = carla.Transform(location, rotation)
+                obstacle = world.spawn_actor(vehicle_bp, transform)
+                destroy_actor_after_delay(obstacle, 120)
+                actors.append(obstacle)
 
             gameDisplay.blit(renderObject.surface, (0,0))
             gameDisplay.blit(renderObject.surface2, (800,0))
@@ -869,9 +865,6 @@ while start:
                 done = True
                 car_crashed = False
             
-            if episode > 2500:
-                obstacle_prob = 0.008
-
                         
             vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state, current_object_in_front, next_object_in_front)
 
