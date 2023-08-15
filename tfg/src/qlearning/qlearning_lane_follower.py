@@ -185,7 +185,7 @@ class QLearningVehicleControl:
         if car_crashed:
             reward = reward - 20
 
-        print("reward: ", reward)
+        #print("reward: ", reward)
         return reward
     
     def accelerate(self):
@@ -286,7 +286,7 @@ class QLearningVehicleControl:
                 control.brake = 0.0
                 control.throttle = 0.5
 
-        print("stering: ",self.steer, "    speed: ", self.speed)
+        #print("stering: ",self.steer, "    speed: ", self.speed)
         self.vehicle.apply_control(control)
 
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
@@ -574,8 +574,7 @@ def visualize_lidar(lidar_data):
     forward_filtered = forward[mask]
     side_filtered = side[mask]
 
-    print("len: ",len(forward_filtered))
-    if len(forward_filtered) > 0:
+    if len(forward_filtered) > 50:
         print("Objetos detectados en las siguientes coordenadas:")
 
 
@@ -791,19 +790,11 @@ finished_laps_counter = 0
 
 car_crashed = False
 start = True
+obstacle_control = False
+obstacle_spawn = time.time()
 while start:
 
     for episode in range(num_episodes):
-
-        if np.random.uniform(0, 1) < 0.5:
-
-            blueprint_library = world.get_blueprint_library()
-            vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
-            location, rotation = choose_random_obstacle_location()
-            transform = carla.Transform(location, rotation)
-            obstacle = world.spawn_actor(vehicle_bp, transform)
-            destroy_actor_after_delay(obstacle, 120)
-            actors.append(obstacle)
 
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)     
         wait_for_spawning(vehicleQlearning, gameDisplay, renderObject) 
@@ -814,6 +805,18 @@ while start:
         done = False
         acum_reward = 0
         while not done:
+
+            if time.time() - obstacle_spawn > 5:
+                vehicleQlearning.object_in_front = False
+                obstacle_control = False
+                print("------------------------------ FRONT FREE ----------------------------------")
+
+            if np.random.uniform(0, 1) < 0.025 and not obstacle_control:
+                vehicleQlearning.object_in_front = True
+                obstacle_control = True
+                print("------------------------------ OBSTACLE IN FRONT ----------------------------------")
+                obstacle_spawn = time.time()
+
             gameDisplay.blit(renderObject.surface, (0,0))
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
@@ -827,7 +830,6 @@ while start:
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
             angle_error = vehicleQlearning.calculate_lane_angle_error( right_lane_x, right_lane_y )
-            print("angle error: ",angle_error)
             reward = vehicleQlearning.reward_function(lane_center_error, angle_error, car_crashed)
             acum_reward = acum_reward + reward
 
