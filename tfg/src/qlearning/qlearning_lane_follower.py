@@ -67,6 +67,16 @@ class QLearningVehicleControl:
 
         self.q_table = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED), 2 ))
 
+
+    def load_q_table(self, file_path):
+        with open(file_path, 'rb') as f:
+            loaded_q_table = pickle.load(f)
+        if loaded_q_table.shape == self.q_table.shape:
+            self.q_table = loaded_q_table
+            print("Loaded Q-table successfully.")
+        else:
+            print("Loaded Q-table has incompatible shape.")
+
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
 
@@ -173,9 +183,11 @@ class QLearningVehicleControl:
         #if we stop without any obstacle we set a small penalization
         if not self.object_in_front and self.speed == 0.0:
             reward = reward - 0.1
+            print("penaliza por no parar ", self.speed)
 
         elif self.object_in_front and self.speed == 0.0:
-            reward = reward + 0.01
+            reward = reward + 0.1
+            print("premia por parar ", self.speed)
 
         # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
@@ -185,7 +197,7 @@ class QLearningVehicleControl:
         if car_crashed:
             reward = reward - 20
 
-        print("reward: ", reward)
+        #print("reward: ", reward)
         return reward
     
     def accelerate(self):
@@ -286,7 +298,7 @@ class QLearningVehicleControl:
                 control.brake = 0.0
                 control.throttle = 0.5
 
-        print("stering: ",self.steer, "    speed: ", self.speed)
+        #print("stering: ",self.steer, "    speed: ", self.speed)
         self.vehicle.apply_control(control)
 
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
@@ -537,8 +549,8 @@ def wait_for_spawning(vehicleQlearning, gameDisplay, renderObject):
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
-    #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-    file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    #file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
         csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
@@ -574,8 +586,7 @@ def visualize_lidar(lidar_data):
     forward_filtered = forward[mask]
     side_filtered = side[mask]
 
-    print("len: ",len(forward_filtered))
-    if len(forward_filtered) > 0:
+    if len(forward_filtered) > 50:
         print("Objetos detectados en las siguientes coordenadas:")
 
 
@@ -650,8 +661,8 @@ def spawn_vehicle(renderObject):
     actors.append(dashcam)
 
 
-    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-    dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    #dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
@@ -684,6 +695,7 @@ def spawn_vehicle(renderObject):
     actors.append(collision_sensor)
 
     #spawn lidar sensor
+    """
     lidar_bp = blueprint_library.find('sensor.lidar.ray_cast')
     lidar_bp.set_attribute('channels', '32')
     lidar_bp.set_attribute('points_per_second', '100000')
@@ -696,6 +708,7 @@ def spawn_vehicle(renderObject):
     lidar.listen(lambda data: lidar_callback(data, vehicleQlearning))
     # lidar.listen(lambda point_cloud: lidar_callback(point_cloud))
     actors.append(lidar)
+    """
 
     collision_sensor = world.spawn_actor(blueprint_library.find('sensor.other.collision'),carla.Transform(), attach_to=vehicle)
     collision_sensor.listen(lambda event: collision_cb(event))
@@ -748,8 +761,8 @@ pygame.display.flip()
 right_lane_y = []
 right_lane_x = []
 
-#file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+#file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
     csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward'])
@@ -791,19 +804,12 @@ finished_laps_counter = 0
 
 car_crashed = False
 start = True
+obstacle_control = False
+obstacle_spawn = time.time()
+obstacle_prob = 0.05
 while start:
 
     for episode in range(num_episodes):
-
-        if np.random.uniform(0, 1) < 0.5:
-
-            blueprint_library = world.get_blueprint_library()
-            vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
-            location, rotation = choose_random_obstacle_location()
-            transform = carla.Transform(location, rotation)
-            obstacle = world.spawn_actor(vehicle_bp, transform)
-            destroy_actor_after_delay(obstacle, 120)
-            actors.append(obstacle)
 
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)     
         wait_for_spawning(vehicleQlearning, gameDisplay, renderObject) 
@@ -814,6 +820,18 @@ while start:
         done = False
         acum_reward = 0
         while not done:
+
+            if time.time() - obstacle_spawn > 5:
+                vehicleQlearning.object_in_front = False
+                obstacle_control = False
+                print("------------------------------ FRONT FREE ----------------------------------")
+
+            if np.random.uniform(0, 1) < obstacle_prob and not obstacle_control:
+                vehicleQlearning.object_in_front = True
+                obstacle_control = True
+                print("------------------------------ OBSTACLE IN FRONT ----------------------------------")
+                obstacle_spawn = time.time()
+
             gameDisplay.blit(renderObject.surface, (0,0))
             gameDisplay.blit(renderObject.surface2, (800,0))
             pygame.display.flip()
@@ -827,7 +845,6 @@ while start:
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
             angle_error = vehicleQlearning.calculate_lane_angle_error( right_lane_x, right_lane_y )
-            print("angle error: ",angle_error)
             reward = vehicleQlearning.reward_function(lane_center_error, angle_error, car_crashed)
             acum_reward = acum_reward + reward
 
@@ -851,6 +868,10 @@ while start:
             if car_crashed:
                 done = True
                 car_crashed = False
+            
+            if episode > 2500:
+                obstacle_prob = 0.008
+
                         
             vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state, current_object_in_front, next_object_in_front)
 
