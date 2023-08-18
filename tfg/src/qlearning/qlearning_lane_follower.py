@@ -65,7 +65,8 @@ class QLearningVehicleControl:
             'speed_4'
         ]
 
-        self.q_table = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED), 2 ))
+        current_q_table = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED) ))
+        current_q_table = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED) ))
 
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
@@ -89,23 +90,35 @@ class QLearningVehicleControl:
         self.vehicle = vehicle
 
     def choose_action(self, state):
+
+        if self.object_in_front:
+            current_q_table = self.q_table_with_object
+        else:
+            current_q_table = self.q_table_without_object
+    
         if np.random.uniform(0, 1) < self.exploration_rate:
             action = np.random.randint(len(self.ACTIONS))
             self.random_counter += 1
         else:
-            action_values = self.q_table[state]
+            action_values = current_q_table[state]
             action = np.unravel_index(action_values.argmax(), action_values.shape)[0]
             self.table_counter += 1
 
         return action
     
     def choose_speed(self, state):
-        action_values = self.q_table[state]
+
+        if self.object_in_front:
+            current_q_table = self.q_table_with_object
+        else:
+            current_q_table = self.q_table_without_object
+    
+
         if np.random.uniform(0, 1) < self.exploration_rate:
             action = np.random.randint(len(self.SPEED))
             self.random_counter += 1
         else:
-            action_values = self.q_table[state]
+            action_values = current_q_table[state]
             action = np.unravel_index(action_values.argmax(), action_values.shape)[1]
             self.table_counter += 1
 
@@ -122,26 +135,30 @@ class QLearningVehicleControl:
     def set_table_counter(self, value):
         self.table_counter = value
 
-    def update_q_table(self, current_state, steering_action, acceleration_action,reward,next_state, object_in_front,next_object_in_front):
-        # Obtener el máximo valor Q para el próximo estado y siguiente valor de la variable object_in_front
-        future_max_q = np.max(self.q_table[next_state, :, :, int(next_object_in_front)])
+
+    def update_q_table(self, current_state, steering_action, acceleration_action, reward, next_state, object_in_front):
+        # Seleccionar la tabla Q adecuada basándose en object_in_front
+        if object_in_front:
+            current_q_table = self.q_table_with_object
+        else:
+            current_q_table = self.q_table_without_object
+
+        # Obtener el máximo valor Q para el próximo estado
+        future_max_q = np.max(current_q_table[next_state, :, :])
 
         # Calcular el nuevo valor Q para el estado y acción actual
-        current_q_value = self.q_table[current_state, steering_action, acceleration_action, int(object_in_front)]
+        current_q_value = current_q_table[current_state, steering_action, acceleration_action]
         new_q = (1 - self.learning_rate) * current_q_value + \
                 self.learning_rate * (reward + self.discount_factor * future_max_q)
 
-        # Actualizar la tabla Q con el nuevo valor
-        self.q_table[current_state, steering_action, acceleration_action, int(object_in_front)] = new_q
+        # Actualizar la tabla Q seleccionada con el nuevo valor
+        current_q_table[current_state, steering_action, acceleration_action] = new_q
 
         if self.exploration_rate_counter > 200:            
             self.exploration_rate = self.exploration_rate - 0.1
             self.exploration_rate_counter = 0
 
-        # Optional: Consider removing this part or adjusting it as per your requirements.
-        #if self.exploration_rate < 0.01:
-            #print("exploration rate is lower than 0.1 finishing training")
-            #exit()
+
 
 
     def increment_exploration_counter(self):
