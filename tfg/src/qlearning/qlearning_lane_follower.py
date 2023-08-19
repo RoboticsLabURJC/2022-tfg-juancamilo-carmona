@@ -65,8 +65,8 @@ class QLearningVehicleControl:
             'speed_4'
         ]
 
-        current_q_table = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED) ))
-        current_q_table = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED) ))
+        self.q_table_with_object = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED) ))
+        self.q_table_without_object = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED) ))
 
     def set_new_actuators(self, vehicle):
         self.vehicle = vehicle
@@ -154,7 +154,7 @@ class QLearningVehicleControl:
         # Actualizar la tabla Q seleccionada con el nuevo valor
         current_q_table[current_state, steering_action, acceleration_action] = new_q
 
-        if self.exploration_rate_counter > 200:            
+        if self.exploration_rate_counter > 400:            
             self.exploration_rate = self.exploration_rate - 0.1
             self.exploration_rate_counter = 0
 
@@ -168,16 +168,14 @@ class QLearningVehicleControl:
         self.exploration_rate =  exploration_rate
 
     def get_state(self, center_of_lane):
-
-        object_in_front = self.object_in_front
         #threshold for the lines that define the stastes
         thresholds = np.array([0,292,312,332,352,372,392,412,432,452,472,492,512,532,552,572,592,612,632,652,672,692,712,1025]) 
         #thresholds = np.array([0,312,352,392,432,472,492,512,532,552,592,632,672,712,1025]) 
         for i in range( len(thresholds) - 1 ):
             if thresholds[i] <= center_of_lane < thresholds[i + 1]:
-                return i, object_in_front
+                return i
 
-        return int(len(thresholds) / 2), object_in_front
+        return int(len(thresholds) / 2)
 
     #we use an exponencial function to calculate the reward
     def reward_function(self, error, angle_error,car_crashed):
@@ -189,11 +187,11 @@ class QLearningVehicleControl:
 
         #if we stop without any obstacle we set a small penalization
         if not self.object_in_front and self.speed == 0.0:
-            reward = reward - 0.1
-            print("penaliza por no parar ", self.speed)
+            reward = -1.0
+            print("penaliza por parar ", self.speed)
 
         elif self.object_in_front and self.speed == 0.0:
-            reward = reward + 0.1
+            reward = 1.0
             print("premia por parar ", self.speed)
 
         # Si no detectamos ambas líneas del carril, se aplica una gran penalización
@@ -204,7 +202,7 @@ class QLearningVehicleControl:
         if car_crashed:
             reward = reward - 20
 
-        #print("reward: ", reward)
+        print("reward: ", reward)
         return reward
     
     def accelerate(self):
@@ -820,7 +818,7 @@ while start:
 
         wait_for_detection(vehicleQlearning, gameDisplay, renderObject)     
         wait_for_spawning(vehicleQlearning, gameDisplay, renderObject) 
-        current_state, current_object_in_front = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
+        current_state = vehicleQlearning.get_state(vehicleQlearning.get_lane_center())
 
         world.tick()        
 
@@ -848,7 +846,7 @@ while start:
             vehicleQlearning.perform_action(vehicleQlearning.ACTIONS[action], vehicleQlearning.SPEED[speed])
             world.tick()
             lane_center= vehicleQlearning.get_lane_center()
-            next_state, next_object_in_front = vehicleQlearning.get_state(lane_center)
+            next_state = vehicleQlearning.get_state(lane_center)
 
             lane_center_error = vehicleQlearning.get_lane_center_error()
             angle_error = vehicleQlearning.calculate_lane_angle_error( right_lane_x, right_lane_y )
@@ -861,10 +859,11 @@ while start:
                 finished_laps_counter += 1
                 if finished_laps_counter > 25:
                     print("algorithm converged! finishing training")
-                    q_table = vehicleQlearning.q_table
-                    print(vehicleQlearning.q_table)
-                    with open('q_table.pkl', 'wb') as f:
-                        pickle.dump(q_table, f)
+                    with open('q_table_with_object.pkl', 'wb') as f:
+                        pickle.dump(vehicleQlearning.q_table_with_object, f)
+
+                    with open('q_table_without_object.pkl', 'wb') as f2:
+                        pickle.dump(vehicleQlearning.q_table_without_object, f2)
 
             else:
                 finished_laps_counter = 0
@@ -880,10 +879,9 @@ while start:
                 obstacle_prob = 0.008
 
                         
-            vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state, current_object_in_front, next_object_in_front)
+            vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state, vehicleQlearning.object_in_front)
 
             current_state = next_state
-            current_object_in_front = next_object_in_front
 
 
             world.tick()
@@ -897,10 +895,12 @@ while start:
 
         actors = []               
 
-        q_table = vehicleQlearning.q_table
-        with open('q_table.pkl', 'wb') as f:
-            pickle.dump(q_table, f)
+        with open('q_table_with_object.pkl', 'wb') as f:
+            pickle.dump(vehicleQlearning.q_table_with_object, f)
 
+        with open('q_table_without_object.pkl', 'wb') as f2:
+            pickle.dump(vehicleQlearning.q_table_with_object, f2)
+            
         save_data(csv_writer,episode,acum_reward ,vehicleQlearning)
         show_data(episode,acum_reward ,vehicleQlearning)
 
