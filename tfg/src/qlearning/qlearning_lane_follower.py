@@ -194,11 +194,11 @@ class QLearningVehicleControl:
             print("premia por parar ", self.speed)
 
         if self.lane_lines < 1:
-            reward = reward - 100
+            reward = - 1.0
             
         #if car crashes we give a big penalization
         if car_crashed:
-            reward = reward - 100
+            reward = - 1.0
 
         print("reward: ", reward)
         return reward
@@ -549,14 +549,14 @@ def wait_for_spawning(vehicleQlearning, gameDisplay, renderObject):
         pygame.display.flip()
         vehicleQlearning.accelerate()
         
-def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):   
+def save_data(csv_writer, episode,acum_reward ,vehicleQlearning, iteration_counter):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
     file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     #file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
-        csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
+        csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward, iteration_counter])
 
 
 def show_data( episode,acum_reward ,vehicleQlearning):   
@@ -664,8 +664,8 @@ def spawn_vehicle(renderObject):
     actors.append(dashcam)
 
 
-    dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-    #dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
@@ -764,11 +764,11 @@ pygame.display.flip()
 right_lane_y = []
 right_lane_x = []
 
-file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-#file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+#file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
-    csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward'])
+    csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward', 'iterations'])
 
 # Connect to the client and retrieve the world object
 client = carla.Client('localhost', 2016)
@@ -810,6 +810,7 @@ start = True
 obstacle_control = False
 obstacle_spawn = time.time()
 obstacle_prob = 0.05
+iteration_counter = 0
 while start:
 
     for episode in range(num_episodes):
@@ -823,8 +824,8 @@ while start:
         done = False
         acum_reward = 0
         while not done:
-
-            if time.time() - obstacle_spawn > 5:
+            iteration_counter += 1
+            if time.time() - obstacle_spawn > 5:    
                 vehicleQlearning.object_in_front = False
                 obstacle_control = False
                 print("------------------------------ FRONT FREE ----------------------------------")
@@ -852,6 +853,7 @@ while start:
             acum_reward = acum_reward + reward
 
             if vehicleQlearning.latitude < 0.0001358:
+                print("entra")
                 done = True
                 finished_laps_counter += 1
                 if finished_laps_counter > 25:
@@ -864,6 +866,7 @@ while start:
 
             else:
                 finished_laps_counter = 0
+            
 
             if vehicleQlearning.lane_lines < 1:
                 done = True
@@ -898,7 +901,7 @@ while start:
         with open('q_table_without_object.pkl', 'wb') as f2:
             pickle.dump(vehicleQlearning.q_table_with_object, f2)
             
-        save_data(csv_writer,episode,acum_reward ,vehicleQlearning)
+        save_data(csv_writer,episode,acum_reward ,vehicleQlearning, iteration_counter)
         show_data(episode,acum_reward ,vehicleQlearning)
 
         
@@ -909,6 +912,8 @@ while start:
             vehicleQlearning.increment_exploration_counter()
         else:
             vehicleQlearning.set_exploration_rate(0.001)
+    
+        iteration_counter = 0
 
 
             
