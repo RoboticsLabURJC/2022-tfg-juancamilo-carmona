@@ -154,7 +154,7 @@ class QLearningVehicleControl:
         # Actualizar la tabla Q seleccionada con el nuevo valor
         current_q_table[current_state, steering_action, acceleration_action] = new_q
 
-        if self.exploration_rate_counter > 400:            
+        if self.exploration_rate_counter > 200:            
             self.exploration_rate = self.exploration_rate - 0.1
             self.exploration_rate_counter = 0
 
@@ -182,7 +182,6 @@ class QLearningVehicleControl:
 
         normalized_error = abs(error)
 
-        # Estrategia para el error original
         reward = ((((1 / (normalized_error + 1)) + self.speed/100) - angle_error/100))
 
         #if we stop without any obstacle we set a small penalization
@@ -194,13 +193,12 @@ class QLearningVehicleControl:
             reward = 1.0
             print("premia por parar ", self.speed)
 
-        # Si no detectamos ambas líneas del carril, se aplica una gran penalización
         if self.lane_lines < 1:
-            reward = reward - 20
+            reward = reward - 100
             
         #if car crashes we give a big penalization
         if car_crashed:
-            reward = reward - 20
+            reward = reward - 100
 
         print("reward: ", reward)
         return reward
@@ -804,7 +802,7 @@ renderObject = RenderObject()
 vehicle, actors = spawn_vehicle(renderObject)
 vehicleQlearning = QLearningVehicleControl(vehicle)
 
-num_episodes = 6000
+num_episodes = 10000
 finished_laps_counter = 0
 
 car_crashed = False
@@ -855,7 +853,6 @@ while start:
 
             if vehicleQlearning.latitude < 0.0001358:
                 done = True
-                reward = reward + 50
                 finished_laps_counter += 1
                 if finished_laps_counter > 25:
                     print("algorithm converged! finishing training")
@@ -875,8 +872,8 @@ while start:
                 done = True
                 car_crashed = False
             
-            if episode > 2500:
-                obstacle_prob = 0.008
+            if episode > 1800:
+                obstacle_prob = 0.004
 
                         
             vehicleQlearning.update_q_table(current_state, action, speed , reward, next_state, vehicleQlearning.object_in_front)
