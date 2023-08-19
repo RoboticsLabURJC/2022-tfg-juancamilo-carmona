@@ -34,7 +34,7 @@ class QLearningVehicleControl:
         
         self.lane_center_error = 0 
         self.lane_center = 0  
-
+        self.episode_actions = []
         self.ACTIONS = [ 
             'forward',  
             'left_1',  
@@ -300,6 +300,7 @@ class QLearningVehicleControl:
                 control.throttle = 0.5
 
         #print("stering: ",self.steer, "    speed: ", self.speed)
+        self.episode_actions.append( [control.steer, self.speed] )
         self.vehicle.apply_control(control)
 
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
@@ -556,6 +557,16 @@ def save_data(csv_writer, episode,acum_reward ,vehicleQlearning):
         csv_writer = csv.writer(csv_file)        
         csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward])
 
+def save_action(actions):   
+    file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/actions_1.csv'
+    # file_name = '/home/camilo/Escritorio/qlearning_metrics/actions_1.csv'
+    
+    with open(file_name, 'a') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        
+        # Assuming 'episode' is defined somewhere outside of this function or you can pass it as an argument
+        for action in actions:
+            csv_writer.writerow([ action[0], action[1] ])
 
 def show_data( episode,acum_reward ,vehicleQlearning):   
     learning_rate, discount_factor, exploration_rate = vehicleQlearning.get_qlearning_parameters()
@@ -889,6 +900,7 @@ while start:
 
         save_data(csv_writer,episode,acum_reward ,vehicleQlearning)
         show_data(episode,acum_reward ,vehicleQlearning)
+        save_action(vehicleQlearning.episode_actions)
 
         
         vehicle, actors = spawn_vehicle(renderObject)
