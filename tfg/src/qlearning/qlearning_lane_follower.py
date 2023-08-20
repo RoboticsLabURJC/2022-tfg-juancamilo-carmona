@@ -521,7 +521,9 @@ def choose_vehicle_location():
                    (carla.Location(x=-65.03, y=-199.5, z=0.2), 
                     carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
                     (carla.Location(x=-65.380, y=-199.5546, z=0.2), 
-                    carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
+                    carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)), 
+                    (carla.Location(x=-266, y=-88.7, z=0.2), 
+                     carla.Rotation(pitch=-5.6, yaw=176, roll=0))  ]
     
     location, rotation = random.choice(locations)
 
@@ -552,8 +554,8 @@ def wait_for_spawning(vehicleQlearning, gameDisplay, renderObject):
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning, iteration_counter):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
-    file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-    #file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
         csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward, iteration_counter])
