@@ -901,7 +901,7 @@ while start:
             pickle.dump(vehicleQlearning.q_table_with_object, f)
 
         with open('q_table_without_object.pkl', 'wb') as f2:
-            pickle.dump(vehicleQlearning.q_table_with_object, f2)
+            pickle.dump(vehicleQlearning.q_table_without_object, f2)
             
         save_data(csv_writer,episode,acum_reward ,vehicleQlearning, iteration_counter)
         show_data(episode,acum_reward ,vehicleQlearning)
