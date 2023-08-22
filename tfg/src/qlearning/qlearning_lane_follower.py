@@ -215,62 +215,101 @@ class QLearningVehicleControl:
             control.steer = 0.0
 
         elif action == 'left_1':
-            control.steer = -0.01
-
-        elif action == 'left_2':
             control.steer = -0.02
 
-        elif action == 'left_3':
+        elif action == 'left_2':
             control.steer = -0.04
 
-        elif action == 'left_4':
-            control.steer = -0.05
-
-        elif action == 'left_5':
+        elif action == 'left_3':
             control.steer = -0.06
 
-        elif action == 'left_6':
+        elif action == 'left_4':
             control.steer = -0.08
 
-        elif action == 'left_7':
-            control.steer = -0.1
-            
-        elif action == 'left_8':
-            control.steer = -0.11
+        elif action == 'left_5':
+            control.steer = -0.01
 
-        elif action == 'left_9':
+        elif action == 'left_6':
             control.steer = -0.12
 
-        elif action == 'right_1':
-            control.steer = 0.01
+        elif action == 'left_7':
+            control.steer = -0.14
+            
+        elif action == 'left_8':
+            control.steer = -0.16
 
-        elif action == 'right_2':
+        elif action == 'left_9':
+            control.steer = -0.18
+
+        elif action == 'left_10':
+            control.steer = -0.2
+
+        elif action == 'left_11':
+            control.steer = -0.22
+
+        elif action == 'left_12':
+            control.steer = -0.24
+
+        elif action == 'left_13':
+            control.steer = -0.26
+
+        elif action == 'left_14':
+            control.steer = -0.28
+
+        elif action == 'left_15':
+            control.steer = -0.3
+
+        elif action == 'left_16':
+            control.steer = -0.35
+
+        elif action == 'right_1':
             control.steer = 0.02
 
-        elif action == 'right_3':
+        elif action == 'right_2':
             control.steer = 0.04
 
-        elif action == 'right_4':
-            control.steer = 0.05
-
-        elif action == 'right_5':
+        elif action == 'right_3':
             control.steer = 0.06
 
-        elif action == 'right_6':
+        elif action == 'right_4':
             control.steer = 0.08
 
-        elif action == 'right_7':
+        elif action == 'right_5':
             control.steer = 0.1
-        
-        elif action == 'right_8':
-            control.steer = 0.11
 
-        elif action == 'right_9':
+        elif action == 'right_6':
             control.steer = 0.12
 
-        elif action == 'right_14':
-            control.steer = 0.18
+        elif action == 'right_7':
+            control.steer = 0.14
         
+        elif action == 'right_8':
+            control.steer = 0.16
+
+        elif action == 'right_9':
+            control.steer = 0.18
+
+        elif action == 'right_10':
+            control.steer = 0.2
+
+        elif action == 'right_11':
+            control.steer = 0.22
+
+        elif action == 'right_12':
+            control.steer = 0.24
+
+        elif action == 'right_13':
+            control.steer = 0.26
+
+        elif action == 'right_14':
+            control.steer = 0.28
+
+        elif action == 'right_15':
+            control.steer = 0.3
+
+        elif action == 'left_16':
+            control.steer = 0.35
+
         elif speed == 'speed_1':
             self.speed = 4.0
 
