@@ -15,7 +15,7 @@ import threading
 import matplotlib.pyplot as plt
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=21, num_states=23):
+    def __init__(self,vehicle, num_actions=33, num_states=23):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -46,7 +46,13 @@ class QLearningVehicleControl:
             'left_7',
             'left_8',  
             'left_9', 
-            'left_10',  
+            'left_10',
+            'left_11',
+            'left_12',  
+            'left_13', 
+            'left_14',  
+            'left_15',  
+            'left_16', 
             'right_1',  
             'right_2',
             'right_3',  
@@ -56,7 +62,13 @@ class QLearningVehicleControl:
             'right_7', 
             'right_8', 
             'right_9',
-            'right_10'  
+            'right_10',  
+            'right_11', 
+            'right_12', 
+            'right_13', 
+            'right_14', 
+            'right_15',
+            'right_16'
         ]
         self.SPEED = [ 
             'speed_1',  
