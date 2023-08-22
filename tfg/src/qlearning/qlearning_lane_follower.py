@@ -18,7 +18,7 @@ class QLearningVehicleControl:
     def __init__(self,vehicle, num_actions=21, num_states=23):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
-        self.exploration_rate = 0.95
+        self.exploration_rate = 0
         self.num_actions = num_actions
         self.exploration_rate_counter = 0
         self.vehicle = vehicle
@@ -66,20 +66,15 @@ class QLearningVehicleControl:
             'speed_4'
         ]
 
-        self.q_table_with_object = self.load_q_table()
-        self.q_table_without_object = self.load_q_table()
+        self.q_table_with_object = self.load_q_table('/home/alumnos/camilo/Escritorio/tablasq/qlearning_obstacles/se_sale_y_para/q_table_with_object.pkl')
+        self.q_table_without_object = self.load_q_table('/home/alumnos/camilo/Escritorio/tablasq/qlearning_obstacles/se_sale_y_para/q_table_without_object.pkl')
 
     def load_q_table(self, file_path):
         with open(file_path, 'rb') as f:
             loaded_q_table = pickle.load(f)
-        
-        if loaded_q_table.shape == self.q_table.shape:
+            
+        return loaded_q_table
 
-            print("Loaded Q-table successfully.")
-            return loaded_q_table
-        else:
-            print("Loaded Q-table has incompatible shape.")
-            return -1
 
 
     def set_new_actuators(self, vehicle):
@@ -224,61 +219,59 @@ class QLearningVehicleControl:
             control.steer = 0.0
 
         elif action == 'left_1':
-            control.steer = -0.01
-
-        elif action == 'left_2':
             control.steer = -0.02
 
-        elif action == 'left_3':
+        elif action == 'left_2':
             control.steer = -0.04
 
-        elif action == 'left_4':
-            control.steer = -0.05
-
-        elif action == 'left_5':
+        elif action == 'left_3':
             control.steer = -0.06
 
-        elif action == 'left_6':
+        elif action == 'left_4':
             control.steer = -0.08
 
-        elif action == 'left_7':
+        elif action == 'left_5':
             control.steer = -0.1
-            
-        elif action == 'left_8':
-            control.steer = -0.11
 
-        elif action == 'left_9':
+        elif action == 'left_6':
             control.steer = -0.12
 
-        elif action == 'right_1':
-            control.steer = 0.01
+        elif action == 'left_7':
+            control.steer = -0.14
+            
+        elif action == 'left_8':
+            control.steer = -0.16
 
-        elif action == 'right_2':
+        elif action == 'left_9':
+            control.steer = -0.18
+
+        elif action == 'right_1':
             control.steer = 0.02
 
-        elif action == 'right_3':
+        elif action == 'right_2':
             control.steer = 0.04
 
-        elif action == 'right_4':
-            control.steer = 0.05
-
-        elif action == 'right_5':
+        elif action == 'right_3':
             control.steer = 0.06
 
-        elif action == 'right_6':
+        elif action == 'right_4':
             control.steer = 0.08
 
-        elif action == 'right_7':
+        elif action == 'right_5':
             control.steer = 0.1
-        
-        elif action == 'right_8':
-            control.steer = 0.11
 
-        elif action == 'right_9':
+        elif action == 'right_6':
             control.steer = 0.12
 
-        elif action == 'right_14':
+        elif action == 'right_7':
+            control.steer = 0.14
+        
+        elif action == 'right_8':
+            control.steer = 0.16
+
+        elif action == 'right_9':
             control.steer = 0.18
+
         
         elif speed == 'speed_1':
             self.speed = 4.0
@@ -567,8 +560,8 @@ def wait_for_spawning(vehicleQlearning, gameDisplay, renderObject):
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning, iteration_counter):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
-    #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-    file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    #file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
         csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward, iteration_counter])
@@ -689,8 +682,8 @@ def spawn_vehicle(renderObject):
     actors.append(dashcam)
 
 
-    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-    dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    #dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
@@ -789,8 +782,8 @@ pygame.display.flip()
 right_lane_y = []
 right_lane_x = []
 
-#file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+#file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
     csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward', 'iterations'])
@@ -834,7 +827,7 @@ car_crashed = False
 start = True
 obstacle_control = False
 obstacle_spawn = time.time()
-obstacle_prob = 0.05
+obstacle_prob = 0.004
 iteration_counter = 0
 while start:
 
@@ -934,10 +927,6 @@ while start:
         vehicle, actors = spawn_vehicle(renderObject)
         vehicleQlearning.set_vehicle(vehicle)
 
-        if vehicleQlearning.exploration_rate > 0.05:
-            vehicleQlearning.increment_exploration_counter()
-        else:
-            vehicleQlearning.set_exploration_rate(0.001)
     
         iteration_counter = 0
 

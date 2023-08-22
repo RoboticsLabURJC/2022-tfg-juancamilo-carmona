@@ -11,7 +11,7 @@ with open(file_name, 'r') as csv_file:
         steer_values.append(float(row[0]))
 
 # Mostrar el histograma
-plt.hist(steer_values, bins=30, color='blue', edgecolor='black')
+plt.hist(steer_values, bins=21, color='blue', edgecolor='black')
 plt.xlabel('Steer Values')
 plt.ylabel('Frequency')
 plt.title('Histogram of Steer Values')
