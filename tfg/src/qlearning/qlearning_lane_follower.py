@@ -15,7 +15,7 @@ import threading
 import matplotlib.pyplot as plt
 
 class QLearningVehicleControl:
-    def __init__(self,vehicle, num_actions=33, num_states=23):
+    def __init__(self,vehicle, num_actions=21, num_states=23):
         self.learning_rate = 0.5
         self.discount_factor = 0.95
         self.exploration_rate = 0.95
@@ -46,13 +46,7 @@ class QLearningVehicleControl:
             'left_7',
             'left_8',  
             'left_9', 
-            'left_10',
-            'left_11',
-            'left_12',  
-            'left_13', 
-            'left_14',  
-            'left_15',  
-            'left_16', 
+            'left_10',  
             'right_1',  
             'right_2',
             'right_3',  
@@ -62,13 +56,7 @@ class QLearningVehicleControl:
             'right_7', 
             'right_8', 
             'right_9',
-            'right_10',  
-            'right_11', 
-            'right_12', 
-            'right_13', 
-            'right_14', 
-            'right_15',
-            'right_16'
+            'right_10'  
         ]
         self.SPEED = [ 
             'speed_1',  
@@ -239,7 +227,7 @@ class QLearningVehicleControl:
             control.steer = -0.08
 
         elif action == 'left_5':
-            control.steer = -0.01
+            control.steer = -0.1
 
         elif action == 'left_6':
             control.steer = -0.12
@@ -252,27 +240,6 @@ class QLearningVehicleControl:
 
         elif action == 'left_9':
             control.steer = -0.18
-
-        elif action == 'left_10':
-            control.steer = -0.2
-
-        elif action == 'left_11':
-            control.steer = -0.22
-
-        elif action == 'left_12':
-            control.steer = -0.24
-
-        elif action == 'left_13':
-            control.steer = -0.26
-
-        elif action == 'left_14':
-            control.steer = -0.28
-
-        elif action == 'left_15':
-            control.steer = -0.3
-
-        elif action == 'left_16':
-            control.steer = -0.35
 
         elif action == 'right_1':
             control.steer = 0.02
@@ -300,28 +267,7 @@ class QLearningVehicleControl:
 
         elif action == 'right_9':
             control.steer = 0.18
-
-        elif action == 'right_10':
-            control.steer = 0.2
-
-        elif action == 'right_11':
-            control.steer = 0.22
-
-        elif action == 'right_12':
-            control.steer = 0.24
-
-        elif action == 'right_13':
-            control.steer = 0.26
-
-        elif action == 'right_14':
-            control.steer = 0.28
-
-        elif action == 'right_15':
-            control.steer = 0.3
-
-        elif action == 'left_16':
-            control.steer = 0.35
-
+        
         elif speed == 'speed_1':
             self.speed = 4.0
 
@@ -554,7 +500,7 @@ def third_person_image_cb(image, obj, metrics, dl_model, VehicleQlearning):
     
 
 #choose the vehicle initial location from a pool of locations
-def choose_vehicle_location():
+def choose_vehicle_location_1():
     """
     locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2), 
                   carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
@@ -575,6 +521,31 @@ def choose_vehicle_location():
                     carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)), 
                     (carla.Location(x=-266, y=-88.7, z=0.2), 
                      carla.Rotation(pitch=-5.6, yaw=176, roll=0))  ]
+    
+    location, rotation = random.choice(locations)
+
+    return location, rotation
+
+#choose the vehicle initial location from a pool of locations
+def choose_vehicle_location_2():
+    """
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2), 
+                  carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
+                   (carla.Location(x=-65.03, y=-199.5, z=0.2), 
+                    carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
+                    (carla.Location(x=-65.380, y=-199.5546, z=0.2), 
+                    carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)),
+                    (carla.Location(x=-108.05, y=-158.886, z=0.3), 
+                    carla.Rotation(pitch=-1.85553, yaw=142.7858, roll=0)),
+                    (carla.Location(x=-157.8591, y=-125.4512, z=0.5), 
+                    carla.Rotation(pitch=-4.850, yaw=158.7178, roll=0))   ]
+    """
+    locations = [(carla.Location(x=-26.48, y=-249.39, z=0.2), 
+                  carla.Rotation(pitch=-1.19, yaw=128, roll=0)), 
+                   (carla.Location(x=-65.03, y=-199.5, z=0.2), 
+                    carla.Rotation(pitch=-6.46, yaw=133.11, roll=0)),
+                    (carla.Location(x=-65.380, y=-199.5546, z=0.2), 
+                    carla.Rotation(pitch=-2.0072, yaw=132.0, roll=0)) ]
     
     location, rotation = random.choice(locations)
 
@@ -694,11 +665,14 @@ def lidar_callback(point_cloud, vehicleQlearning):
 
 
 
-def spawn_vehicle(renderObject):
+def spawn_vehicle(renderObject, vehicle_location_offset):
     #spawn vehicle
     blueprint_library = world.get_blueprint_library()
     vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
-    location,rotation = choose_vehicle_location()
+    if vehicle_location_offset == 1:
+        location,rotation = choose_vehicle_location_1()
+    else:
+        location,rotation = choose_vehicle_location_2()
     transform = carla.Transform(location, rotation)
     vehicle = world.spawn_actor(vehicle_bp, transform)
 
@@ -852,7 +826,7 @@ metrics = Metrics()
 
 renderObject = RenderObject()
 
-vehicle, actors = spawn_vehicle(renderObject)
+vehicle, actors = spawn_vehicle(renderObject, 1)
 vehicleQlearning = QLearningVehicleControl(vehicle)
 
 num_episodes = 10000
@@ -957,8 +931,11 @@ while start:
         save_data(csv_writer,episode,acum_reward ,vehicleQlearning, iteration_counter)
         show_data(episode,acum_reward ,vehicleQlearning)
 
-        
-        vehicle, actors = spawn_vehicle(renderObject)
+        if vehicleQlearning.exploration_rate < 0.05:
+            vehicle, actors = spawn_vehicle(renderObject,1 )
+        else:
+            vehicle, actors = spawn_vehicle(renderObject, 2)
+
         vehicleQlearning.set_vehicle(vehicle)
 
         if vehicleQlearning.exploration_rate > 0.05:
