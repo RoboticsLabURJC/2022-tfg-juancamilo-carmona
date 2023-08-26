@@ -35,36 +35,36 @@ class QLearningVehicleControl:
         self.lane_center_error = 0 
         self.lane_center = 0  
 
-        self.ACTIONS = [ 
-            'forward',  
-            'left_1',  
-            'left_2',
-            'left_3',  
-            'left_4',  
-            'left_5', 
-            'left_6',  
-            'left_7',
-            'left_8',  
-            'left_9', 
-            'left_10',  
-            'right_1',  
-            'right_2',
-            'right_3',  
-            'right_4',  
-            'right_5', 
-            'right_6', 
-            'right_7', 
-            'right_8', 
-            'right_9',
-            'right_10'  
-        ]
+        self.ACTIONS = { 
+            'forward': 0.0,
+            'left_1': -0.02,
+            'left_2': -0.04,
+            'left_3': -0.06,
+            'left_4': -0.08,
+            'left_5': -0.1,
+            'left_6': -0.12,
+            'left_7': -0.14,
+            'left_8': -0.16,
+            'left_9': -0.18,
+            'left_10': -0.20,
+            'right_1': 0.02,
+            'right_2': 0.04,
+            'right_3': 0.06,
+            'right_4': 0.08,
+            'right_5': 0.1,
+            'right_6': 0.12,
+            'right_7': 0.14,
+            'right_8': 0.16,
+            'right_9': 0.18,
+            'right_10': 0.20
+        }
 
-        self.SPEED = [ 
-            'speed_1',  
-            'speed_2',  
-            'speed_3',
-            'speed_4'
-        ]
+        self.SPEED = { 
+            'speed_1': 4.0,
+            'speed_2': 4.5,
+            'speed_3': 5.0,
+            'speed_4': 0.0
+        }
 
         self.q_table_with_object = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED) ))
         self.q_table_without_object = np.zeros((num_states, len(self.ACTIONS), len(self.SPEED) ))
@@ -221,97 +221,34 @@ class QLearningVehicleControl:
         control.throttle = 0.5
         self.vehicle.apply_control(control)      
 
-    def perform_action(self, action, speed):
+    def perform_action(self, action, speed_name):
 
         control = VehicleControl()
-        if action == 'forward':
-            control.steer = 0.0
 
-        elif action == 'left_1':
-            control.steer = -0.02
+        # Set steering based on action
+        control.steer = self.ACTIONS.get(action, 0.0)  # Returns 0.0 if action is not in the dictionary
 
-        elif action == 'left_2':
-            control.steer = -0.04
+        # Set desired speed based on speed name
+        desired_speed = self.SPEED.get(speed_name, 0.0)  # Returns 0.0 if speed_name is not in the dictionary
 
-        elif action == 'left_3':
-            control.steer = -0.06
-
-        elif action == 'left_4':
-            control.steer = -0.08
-
-        elif action == 'left_5':
-            control.steer = -0.1
-
-        elif action == 'left_6':
-            control.steer = -0.12
-
-        elif action == 'left_7':
-            control.steer = -0.14
-            
-        elif action == 'left_8':
-            control.steer = -0.16
-
-        elif action == 'left_9':
-            control.steer = -0.18
-
-        elif action == 'right_1':
-            control.steer = 0.02
-
-        elif action == 'right_2':
-            control.steer = 0.04
-
-        elif action == 'right_3':
-            control.steer = 0.06
-
-        elif action == 'right_4':
-            control.steer = 0.08
-
-        elif action == 'right_5':
-            control.steer = 0.1
-
-        elif action == 'right_6':
-            control.steer = 0.12
-
-        elif action == 'right_7':
-            control.steer = 0.14
-        
-        elif action == 'right_8':
-            control.steer = 0.16
-
-        elif action == 'right_9':
-            control.steer = 0.18
-        
-        elif speed == 'speed_1':
-            self.speed = 4.0
-
-        elif speed == 'speed_2':
-            self.speed = 4.5
-
-        elif speed == 'speed_3':
-            self.speed = 5.0
-
-        elif speed == 'speed_4':
-            self.speed = 0.0
-
-        #we try to mantain the same speed all the time
+        # Maintain the same speed all the time
         velocity = self.vehicle.get_velocity()
-        speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
+        current_speed = math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
 
         self.steer = control.steer
 
-        if speed == 0.0:
+        if current_speed == 0.0:
             control.brake = 1.0
-            control.throttle = 0.0            
-
+            control.throttle = 0.0
         else:
-            if speed >= self.speed:
+            if current_speed >= desired_speed:
                 control.brake = 0.0
                 control.throttle = 0.0
             else:
                 control.brake = 0.0
                 control.throttle = 0.5
 
-        #print("stering: ",self.steer, "    speed: ", self.speed)
+        #print("steering: ", self.steer, "    desired speed: ", desired_speed)
         self.vehicle.apply_control(control)
 
     def calculate_lane_angle_error(self, right_lane_x,right_lane_y ):
