@@ -254,6 +254,9 @@ class QLearningVehicleControl:
         elif action == 'left_9':
             control.steer = -0.18
 
+        elif action == 'left_9':
+            control.steer = -0.2
+
         elif action == 'right_1':
             control.steer = 0.02
 
@@ -280,7 +283,10 @@ class QLearningVehicleControl:
 
         elif action == 'right_9':
             control.steer = 0.18
-        
+
+        elif action == 'right_10':
+            control.steer = 0.2
+
         elif speed == 'speed_1':
             self.speed = 4.0
 
