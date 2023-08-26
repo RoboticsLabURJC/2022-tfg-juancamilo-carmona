@@ -58,6 +58,7 @@ class QLearningVehicleControl:
             'right_9',
             'right_10'  
         ]
+
         self.SPEED = [ 
             'speed_1',  
             'speed_2',  
@@ -177,31 +178,43 @@ class QLearningVehicleControl:
 
         return int(len(thresholds) / 2)
 
-    #we use an exponencial function to calculate the reward
-    def reward_function(self, error, angle_error,car_crashed):
 
-        normalized_error = abs(error)
 
-        reward = ((((1 / (normalized_error + 1)) + self.speed/100) - angle_error/100))
+    def reward_function(self, error, angle_error, car_crashed):
+        # Sigmoide para mapear los errores al rango [0, 1]
+        def sigmoid(x):
+            return 1 / (1 + math.exp(-x))
 
-        #if we stop without any obstacle we set a small penalization
+        # Para centrado en el carril (60%)
+        lane_center_reward = sigmoid(-abs(error))
+
+        # Para el ángulo respecto al carril (20%)
+        angle_reward = sigmoid(-abs(angle_error))
+
+        # Para la velocidad (20%)
+        # Asumiendo que la velocidad máxima es 100 (puedes ajustar este valor)
+        speed_reward = self.speed / 100
+
+        # Penalizaciones y premios específicos
         if not self.object_in_front and self.speed == 0.0:
-            reward = -1.0
-            print("penaliza por parar ", self.speed)
+            return 0.0  # penaliza completamente por parar sin obstáculos
 
-        elif self.object_in_front and self.speed == 0.0:
-            reward = 1.0
-            print("premia por parar ", self.speed)
+        if self.object_in_front and self.speed == 0.0:
+            return 1.0  # premia completamente por parar con un obstáculo
 
-        if self.lane_lines < 1:
-            reward = - 1.0
-            
-        #if car crashes we give a big penalization
-        if car_crashed:
-            reward = - 1.0
+        if self.object_in_front and self.speed > 0.0:
+            return 0.0  # penaliza completamente por avanzar cuando hay un obstáculo
 
-        print("reward: ", reward)
-        return reward
+        if self.lane_lines < 1 or car_crashed:
+            return 0.0  # penaliza completamente si no hay líneas detectadas o si hay un choque
+
+        # Calcula la recompensa total basada en los criterios
+        total_reward = 0.6 * lane_center_reward + 0.2 * angle_reward + 0.2 * speed_reward
+        
+        print("reward:", total_reward)
+        return total_reward
+
+
     
     def accelerate(self):
         control = VehicleControl()  
