@@ -58,7 +58,6 @@ class QLearningVehicleControl:
             'right_9',
             'right_10'  
         ]
-
         self.SPEED = [ 
             'speed_1',  
             'speed_2',  
@@ -178,44 +177,42 @@ class QLearningVehicleControl:
 
         return int(len(thresholds) / 2)
 
+    #we use an exponencial function to calculate the reward
+    def reward_function(self, error, angle_error,car_crashed):
 
-
-    def reward_function(self, error, angle_error, car_crashed):
-        # Sigmoide para mapear los errores al rango [0, 1]
-        def sigmoid(x):
-            return 1 / (1 + math.exp(-x))
-
-        # Para centrado en el carril (60%)
-        lane_center_reward = sigmoid(-abs(error))
-
-        # Para el ángulo respecto al carril (20%)
-        angle_reward = sigmoid(-abs(angle_error))
-
-        # Para la velocidad (20%)
-        # Asumiendo que la velocidad máxima es 100 (puedes ajustar este valor)
-        speed_reward = self.speed / 100
-
-        # Penalizaciones y premios específicos
+        #if we stop without any obstacle we set a small penalization
         if not self.object_in_front and self.speed == 0.0:
-            return 0.0  # penaliza completamente por parar sin obstáculos
+            reward = 0.0
+            print("penaliza por parar ", self.speed)
+            return reward
 
-        if self.object_in_front and self.speed == 0.0:
-            return 1.0  # premia completamente por parar con un obstáculo
+        elif self.object_in_front and self.speed == 0.0:
+            reward = 1.0
+            print("premia por parar ", self.speed)
+            return reward
 
-        if self.object_in_front and self.speed > 0.0:
-            return 0.0  # penaliza completamente por avanzar cuando hay un obstáculo
+        if self.lane_lines < 1:
+            reward = 0.0
+            return reward
+        #if car crashes we give a big penalization
+        if car_crashed:
+            reward = 0.0
+            return reward
 
-        if self.lane_lines < 1 or car_crashed:
-            return 0.0  # penaliza completamente si no hay líneas detectadas o si hay un choque
 
-        # Calcula la recompensa total basada en los criterios
-        total_reward = 0.6 * lane_center_reward + 0.2 * angle_reward + 0.2 * speed_reward
+        normalized_error = abs(error)
+
+        reward = ((((1 / (normalized_error + 1)) + self.speed/100) - angle_error/100))
+
+        # Asegurarse de que reward_condition esté en el rango [-1,1]
+        reward = np.clip(reward, -1.0, 1.0)
+
+        # Aplicar la función sigmoide para mapear la recompensa al rango [0,1]
+        reward = 1 / (1 + np.exp(-reward))
+
+        print("reward: ", reward)
+        return reward
         
-        print("reward:", total_reward)
-        return total_reward
-
-
-    
     def accelerate(self):
         control = VehicleControl()  
         control.throttle = 0.5
@@ -254,9 +251,6 @@ class QLearningVehicleControl:
         elif action == 'left_9':
             control.steer = -0.18
 
-        elif action == 'left_9':
-            control.steer = -0.2
-
         elif action == 'right_1':
             control.steer = 0.02
 
@@ -283,10 +277,7 @@ class QLearningVehicleControl:
 
         elif action == 'right_9':
             control.steer = 0.18
-
-        elif action == 'right_10':
-            control.steer = 0.2
-
+        
         elif speed == 'speed_1':
             self.speed = 4.0
 
@@ -595,8 +586,8 @@ def wait_for_spawning(vehicleQlearning, gameDisplay, renderObject):
 def save_data(csv_writer, episode,acum_reward ,vehicleQlearning, iteration_counter):   
         
     learning_rate,discount_factor,exploration_rate = vehicleQlearning.get_qlearning_parameters()
-    #file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-    file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+    #file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
     with open(file_name, 'a') as csv_file:
         csv_writer = csv.writer(csv_file)        
         csv_writer.writerow([ episode, learning_rate , discount_factor,exploration_rate, acum_reward, iteration_counter])
@@ -710,8 +701,8 @@ def spawn_vehicle(renderObject, vehicle_location_offset):
     actors.append(dashcam)
 
 
-    #dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
-    dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    dl_model = torch.load('/home/alumnos/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
+    #dl_model = torch.load('/home/camilo/2022-tfg-juancamilo-carmona/tfg/src/qlearning/model/fastai_torch_lane_detector_model.pth')
 
     dashcam.listen(lambda image: first_person_image_cb(image, renderObject, metrics, dl_model, vehicleQlearning))
 
@@ -810,8 +801,8 @@ pygame.display.flip()
 right_lane_y = []
 right_lane_x = []
 
-#file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
-file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+file_name = '/home/alumnos/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
+#file_name = '/home/camilo/Escritorio/qlearning_metrics/metrics_1.csv'
 with open(file_name, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)      
     csv_writer.writerow(['num episodio','learning constant','discount factor','exploration factor','acumulated reward', 'iterations'])
@@ -951,9 +942,9 @@ while start:
         show_data(episode,acum_reward ,vehicleQlearning)
 
         if vehicleQlearning.exploration_rate < 0.05:
-            vehicle, actors = spawn_vehicle(renderObject,1 )
+            vehicle, actors = spawn_vehicle(renderObject,2 )
         else:
-            vehicle, actors = spawn_vehicle(renderObject, 2)
+            vehicle, actors = spawn_vehicle(renderObject, 1)
 
         vehicleQlearning.set_vehicle(vehicle)
 
