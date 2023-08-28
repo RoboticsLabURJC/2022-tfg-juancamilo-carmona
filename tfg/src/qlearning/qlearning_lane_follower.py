@@ -278,7 +278,7 @@ class QLearningVehicleControl:
         elif action == 'right_9':
             control.steer = 0.18
         
-        elif speed == 'speed_1':
+        if speed == 'speed_1':
             self.speed = 4.0
 
         elif speed == 'speed_2':
