@@ -154,7 +154,7 @@ class QLearningVehicleControl:
         # Actualizar la tabla Q seleccionada con el nuevo valor
         current_q_table[current_state, steering_action, acceleration_action] = new_q
 
-        if self.exploration_rate_counter > 200:            
+        if self.exploration_rate_counter > 800:            
             self.exploration_rate = self.exploration_rate - 0.1
             self.exploration_rate_counter = 0
 
