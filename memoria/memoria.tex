@@ -1,0 +1,58 @@
+\input{estilo.tex} % archivo de configuracion de estilo
+
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black
+}
+
+\makeindex
+
+\begin{document}
+\baselineskip 1.35\baselineskip
+
+\frontmatter
+
+\input{portada/indice.tex} % aqui se cargan todas las "primeras paginas"
+
+% Bibliografia
+\let\OLDthebibliography=\thebibliography
+\def\thebibliography#1{\OLDthebibliography{#1}
+  \addcontentsline{toc}{chapter}{\bibname}}
+
+\mainmatter
+
+\setcounter{page}{1}
+\input{capitulos/capitulo1}
+
+\input{capitulos/capitulo2}
+
+\input{capitulos/capitulo3}
+
+\input{capitulos/capitulo4}
+
+\input{capitulos/capitulo5}
+
+\input{anexo}
+
+\input{epilogo}
+
+\printindex \nocite{*}
+\appendix
+
+\bibliographystyle{unsrt}
+
+\bibliography{bibliografia}
+
+\input{dedicatoria}
+
+\end{document}
+

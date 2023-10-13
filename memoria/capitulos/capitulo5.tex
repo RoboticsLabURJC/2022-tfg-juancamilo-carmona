@@ -1,0 +1,84 @@
+\chapter{Conclusiones}
+\label{cap:capitulo5}
+
+En este \acs{TFG} se han tres objetivos principales: Primero la creación de una solución de conducción autónoma para el problema concreto de un seguimiento de carril, segundo comparar distintas técnicas de filtrado de carril, tanto basadas en visión artificial convencional como en inteligencia artificial, con el fin de evaluar sus ventajas y desventajas para determinar cuál es el método más eficaz. Tercero, analizar la viabilidad del desarrollo de aplicaciones de conducción autónoma utilizando el simulador foto-realista CARLA y el framework de robótica ROS 2 empleando como medio de comunicación el \textit{CARLA to ROS bridge}
+
+Finalizamos este trabajo comentando los objetivos que se han cumplido a lo largo del desarrollo del proyecto, cómo se han satisfecho los requisitos expuestos en el capítulo \ref{cap:capitulo2}, así como posibles líneas futuras de investigación, englobando mejoras al proyecto propuesto.
+
+\section{Objetivos cumplidos}
+\label{sec:objetivos_cumplidos}
+
+De los objetivos presentados en la sección \ref{sec:Objetivos}, todos ellos han sido logrados exitosamente
+\begin{enumerate}
+	\item Se  logró la instalación y configuración de CARLA y ROS 2, y se estableció una comunicación efectiva entre ambos utilizando el  \textit{CARLA to ROS bridge}
+	
+	\item Se llegó a una conclusión sobre la viabilidad de desarrollar aplicaciones de conducción autónoma mediante el uso del simulador foto-realista CARLA y el framework ROS 2, utilizando  \textit{CARLA to ROS bridge}  como medio de comunicacicón.
+	
+	\item Se implementó con éxito un sistema de seguimiento de carril usando aprendizaje por refuerzo y redes neuronales como métodos de control y percepción visual.
+	
+	\item Se diseñó un algoritmo de seguimiento de carril, con la funcionalidad añadida de frenar al encontrar obstáculos en la vía.
+	
+	\item Se desarrolló una implementación de conducción autónoma capaz de navegar por un carril adaptándose al flujo del tráfico mediante el uso de aprendizaje por refuerzo.
+	
+	\item Se han llevado a cabo análisis rigurosos para cada uno de los métodos de detección de carril y se contrastaron sus métricas de forma exitosa.
+	
+\end{enumerate}
+
+
+\section{Requisitos satisfechos}
+\label{sec:requisitos_satisfechos}
+
+En cuanto a los requisitos solicitados a cumplir en el apartado \ref{sec:requisitos}, nuevamente todos ellos han sido satisfechos con éxito:
+\begin{enumerate}
+	\item Como se estableció, el trabajo se ha realizado enteramente en el simulador foto-realista de conducción autónoma CARLA.
+	\item Todos los que se han desarrollado han sido reactivos, a pesar de las limitaciones de \ac{FPS} encontradas.
+	\item En todos los algoritmos vehículo ha navegado de manera adecuada, natural y segura.
+\end{enumerate}
+
+\section{Balance global y competencias adquiridas}
+\label{sec:balance_global_competencias_adquiridas}
+
+
+En este \ac{TFG} se han logrado avances altamente positivos en varios frentes del desarrollo y la investigación en el campo de la conducción autónoma. Se han implementado múltiples técnicas para el seguimiento de carriles, incluyendo desde enfoques más tradicionales hasta métodos más actuales que hacen uso de la inteligencia artificial. Esto no solo ha enriquecido la comprensión de los sistemas de seguimiento de carriles, sino que también ha permitido una comparativa profunda de la eficacia de distintas estrategias.
+
+\bigskip
+
+Más allá del seguimiento de carriles, se ha avanzado en crear soluciones de conducción autónoma con comportamientos más complejos. Los algoritmos finales desarrollados son capaces de detener el vehículo al encontrar obstáculos y adaptar su velocidad si dichos obstáculos están en movimiento, lo que añade una capa adicional de robustez y versatilidad al sistema.
+
+\bigskip
+
+Adicionalmente, se ha profundizado en la sinergia entre ROS 2 y el simulador CARLA, lo que ha abierto un amplio abanico de posibilidades para la creación de aplicaciones de conducción autónoma en ROS 2, pero también ha expuesto algunas limitaciones que deben ser consideradas en caso de querer llevar estas aplicaciones más haya de la fase de prototipo. Esta experiencia ha proporcionado una visión realista y práctica de cómo estas dos plataformas pueden interactuar, destacando tanto sus ventajas como sus inconvenientes.
+
+\bigskip
+
+Finalmente, el proyecto ha servido como una incursión significativa en el campo de la inteligencia artificial aplicada a la conducción autónoma. Se ha evidenciado que esta tecnología, en constante evolución, tiene un gran potencial para superar muchos de los desafíos actuales en este ámbito. Su capacidad para aprender y adaptarse a distintas situaciones  la convierte en una herramienta extremadamente poderosa para el desarrollo de sistemas de transporte más seguros, eficientes y rápidos.
+
+\bigskip
+
+
+A lo largo del desarrollo de este trabajo, se han ido adquiriendo una serie de habilidades y competencias, entre las que se incluyen:
+\begin{itemize}
+	\item Organización del tiempo y trabajo.
+	\item Resolución de problemas durante las reuniones.
+	\item Familiarización con la metodología de trabajo scrum 
+	\item Aumento general de la destreza en la programación.
+	\item Gran aumento de destreza y conocimiento en el uso de redes neuronales
+	\item Gran aumento de destreza y conocimiento en la implementación y uso de técnicas de aprendizaje por refuerzo
+	\item Mejora en la capacidad para desarrollar algoritmos de visión artificial y en el procesamiento de imágenes
+	\item Avance significativo en la maestría de ROS 2 y su integración con aplicaciones externas
+	\item Mejora en la competencia y entendimiento para el desarrollo de aplicaciones de conducción autónoma
+\end{itemize}
+
+\section{Líneas futuras}
+\label{sec:lineas_futuras}
+
+A pesar de que todos los objetivos de este proyecto se han logrado satisfactoriamente, la conducción autónoma es un mundo muy amplio y varias líneas de investigación podrían nacer a partir de este \ac{TFG}.
+\begin{enumerate}
+	\item Mejora de los sistemas de seguimiento de carril finales utilizando enfoques de aprendizaje por refuerzo más sofisticados sin las limitaciones propias del algoritmo de Q-learning
+	\item Exploración de otros métodos de \ac{IA} como deep learning o imitation learning para el control del vehículo en sustitución de Q-learning
+	\item Ampliación de las funcionalidades del sistema final de sigue carril con adaptación al tráfico: funcionalidad para adelantar, para cambios de carril, para reconocimiento de intersecciones etc.
+	\item Búsqueda de una solución para el cuello de botella generado en los \ac{FPS} de programas desarrollados utilizando el \textit{CARLA to ROS bridge} para así migrar las implementaciones finales de la \ac{API} de CARLA a ROS 2
+	\item Testear este \ac{TFG} en escenarios distintos, con mas tráfico, con situaciones meteorológicas adversas etc.
+\end{enumerate}
+
+

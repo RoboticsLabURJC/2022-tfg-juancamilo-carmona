@@ -1,0 +1,3614 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.12)  7 OCT 2023 16:19
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**C:/Users/juanc/Desktop/tfg/memoria/memoria.tex
+(C:/Users/juanc/Desktop/tfg/memoria/memoria.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-03-30>
+(C:/Users/juanc/Desktop/tfg/memoria\estilo.tex
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/base\bk12.clo
+File: bk12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@chapter=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2023/03/28 3.87 The Babel package
+\babel@savecnt=\count194
+\U@D=\dimen141
+\l@unhyphenated=\language79
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count195
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.l
+df
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks16
+\es@quotdepth=\count196
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
+))
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/es\babel
+-spanish.tex
+Package babel Info: Importing font and identification data for spanish
+(babel)             from babel-es.ini. Reported on input line 11.
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count197
+\Gm@cntv=\count198
+\c@Gm@tempcnt=\count199
+\Gm@bindingoffset=\dimen142
+\Gm@wd@mp=\dimen143
+\Gm@odd@mp=\dimen144
+\Gm@even@mp=\dimen145
+\Gm@layoutwidth=\dimen146
+\Gm@layoutheight=\dimen147
+\Gm@layouthoffset=\dimen148
+\Gm@layoutvoffset=\dimen149
+\Gm@dimlist=\toks20
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/base\makeidx.sty
+Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen150
+\Gin@req@width=\dimen151
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/07/31 v3.6n Customizing captions (AR)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen152
+\captionmargin=\dimen153
+\caption@leftmargin=\dimen154
+\caption@rightmargin=\dimen155
+\caption@width=\dimen156
+\caption@indent=\dimen157
+\caption@parindent=\dimen158
+\caption@hangindent=\dimen159
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count266
+\c@continuedfloat=\count267
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/acronym\acronym.sty
+Package: acronym 2020/04/17 v1.47 Support for acronyms (Tobias Oetiker)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/bigfoot\suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
+\xs_counta=\count268
+\xs_countb=\count269
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+)
+\AC@clearlist=\toks21
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/hyphenat\hyphenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+\langwohyphens=\language80
+LaTeX Info: Redefining \_ on input line 43.
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/a4wide\a4wide.sty
+Package: a4wide 1994/08/30
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/ntgclass\a4.sty
+Package: a4 2023/01/10 v1.2g A4 based page layout
+))
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.sty
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip50
+\subfigcapskip=\skip51
+\subfigcaptopadj=\dimen160
+\subfigbottomskip=\skip52
+\subfigcapmargin=\dimen161
+\subfiglabelskip=\skip53
+\c@subfigure=\count270
+\c@lofdepth=\count271
+\c@subtable=\count272
+\c@lotdepth=\count273
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.cfg
+)
+\subfig@top=\skip54
+\subfig@bottom=\skip55
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count274
+\float@exts=\toks22
+\float@box=\box51
+\@float@everytoks=\toks23
+\@floatcapt=\box52
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box53
+\beforetitleunit=\skip56
+\aftertitleunit=\skip57
+\ttl@plus=\dimen162
+\ttl@minus=\dimen163
+\ttl@toksa=\toks24
+\titlewidth=\dimen164
+\titlewidthlast=\dimen165
+\titlewidthfirst=\dimen166
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/fncychap\fncychap.sty
+Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
+\RW=\skip58
+\mylen=\skip59
+\myhi=\skip60
+\px=\skip61
+\py=\skip62
+\pyy=\skip63
+\pxx=\skip64
+)
+(C:/Users/juanc/Desktop/tfg/memoria\listings.sty
+\lst@mode=\count275
+\lst@gtempboxa=\box54
+\lst@token=\toks25
+\lst@length=\count276
+\lst@currlwidth=\dimen167
+\lst@column=\count277
+\lst@pos=\count278
+\lst@lostspace=\dimen168
+\lst@width=\dimen169
+\lst@newlines=\count279
+\lst@lineno=\count280
+\lst@maxwidth=\dimen170
+
+(C:/Users/juanc/Desktop/tfg/memoria\lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count281
+\lst@skipnumbers=\count282
+\lst@framebox=\box55
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/eurosym\eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box56
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count283
+)
+\@linkdim=\dimen171
+\Hy@linkcounter=\count284
+\Hy@pagecounter=\count285
+ (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count286
+ (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4177.
+Package hyperref Info: Link nesting OFF on input line 4182.
+Package hyperref Info: Hyper index ON on input line 4185.
+Package hyperref Info: Plain pages OFF on input line 4192.
+Package hyperref Info: Backreferencing OFF on input line 4197.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4425.
+\c@Hy@tempcnt=\count287
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen172
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count288
+\Field@Width=\dimen173
+\Fld@charsize=\dimen174
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count289
+\c@Item=\count290
+\c@Hfootnote=\count291
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count292
+\c@bookmark@seq@number=\count293
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip65
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
+\@mathmargin=\skip66
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks26
+\ex@=\dimen175
+))
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen176
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count294
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count295
+\leftroot@=\count296
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count297
+\DOTSCASE@=\count298
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box57
+\strutbox@=\box58
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen177
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count299
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count300
+\dotsspace@=\muskip17
+\c@parentequation=\count301
+\dspbrk@lvl=\count302
+\tag@help=\toks27
+\row@=\count303
+\column@=\count304
+\maxfields@=\count305
+\andhelp@=\toks28
+\eqnshift@=\dimen178
+\alignsep@=\dimen179
+\tagshift@=\dimen180
+\tagwidth@=\dimen181
+\totwidth@=\dimen182
+\lineht@=\dimen183
+\@envbody=\toks29
+\multlinegap=\skip67
+\multlinetaggap=\skip68
+\mathdisplay@stack=\toks30
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks31
+\thm@bodyfont=\toks32
+\thm@headfont=\toks33
+\thm@notefont=\toks34
+\thm@headpunct=\toks35
+\thm@preskip=\skip69
+\thm@postskip=\skip70
+\thm@headsep=\skip71
+\dth@everypar=\toks36
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/tools\afterpage.sty
+Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
+\AP@output=\toks37
+\AP@partial=\box59
+\AP@footins=\box60
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+(C:/Users/juanc/Desktop/tfg/memoria\lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+Package caption Info: Option `declare type' requires the `newfloat' package on 
+input line 105.
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/newfloat\newfloat.sty
+Package: newfloat 2019/09/02 v1.1l Defining new floating environments (AR)
+Package newfloat Info: Unsupported document class, or \@chapter 
+(newfloat)             was already redefined by another package.
+Package newfloat Info: \@chapter = macro:->\def \Hy@next {\Hy@MakeCurrentHrefAu
+to {\Hy@chapapp *}\Hy@raisedlink {\hyper@anchorstart {\@currentHref }\hyper@anc
+horend }}\ifnum \c@secnumdepth >\m@ne \ltx@IfUndefined {if@mainmatter}\iftrue {
+\csname if@mainmatter\endcsname }\let \Hy@next \relax \fi \fi \Hy@next \Hy@org@
+chapter .
+Package newfloat Info: \Hy@org@chapter = macro:[#1]#2->\NR@gettitle {#1}\NR@cha
+pter [{#1}]{#2}.
+)
+Package newfloat Info: New float `code' with options `' on input line 105.
+\c@code=\count306
+Package newfloat Info: float type `code'=4 on input line 105.
+\c@locodedepth=\count307
+Package newfloat Info: New float `myequation' with options `' on input line 106
+.
+\c@myequation=\count308
+Package newfloat Info: float type `myequation'=8 on input line 106.
+\c@lomyequationdepth=\count309
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen184
+\ar@mcellbox=\box61
+\extrarowheight=\dimen185
+\NC@list=\toks38
+\extratabsurround=\skip72
+\backup@length=\skip73
+\ar@cellbox=\box62
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip74
+\multirow@cntb=\count310
+\multirow@dima=\skip75
+\bigstrutjot=\dimen186
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip76
+\bibsep=\skip77
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count311
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/svg\svg.sty
+Package: svg 2020/11/26 v2.02k (include SVG pictures)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrbase.sty
+Package: scrbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile.st
+y
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile-ho
+ok.sty
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
+
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlogo.sty
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 368.
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.s
+ty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\c@svg@param@lastpage=\count312
+\svg@box=\box63
+\c@svg@param@currpage=\count313
+) (C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transparent
+.sty
+Package: transparent 2022-10-27 v1.5 Transparency with color stacks
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transparent
+-nometadata.sty
+Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color
+ stack (HO)
+))
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks39
+\pgfutil@tempdima=\dimen187
+\pgfutil@tempdimb=\dimen188
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
+\pgfutil@abb=\box64
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
+\pgfkeys@pathtoks=\toks40
+\pgfkeys@temptoks=\toks41
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+libraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks42
+))
+\pgf@x=\dimen189
+\pgf@y=\dimen190
+\pgf@xa=\dimen191
+\pgf@ya=\dimen192
+\pgf@xb=\dimen193
+\pgf@yb=\dimen194
+\pgf@xc=\dimen195
+\pgf@yc=\dimen196
+\pgf@xd=\dimen197
+\pgf@yd=\dimen198
+\w@pgf@writea=\write3
+\r@pgf@reada=\read3
+\c@pgf@counta=\count314
+\c@pgf@countb=\count315
+\c@pgf@countc=\count316
+\c@pgf@countd=\count317
+\t@pgf@toka=\toks43
+\t@pgf@tokb=\toks44
+\t@pgf@tokc=\toks45
+\pgf@sys@id@count=\count318
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count319
+\pgfsyssoftpath@bigbuffer@items=\count320
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+LaTeX Info: Redefining \subref on input line 189.
+Package subcaption Info: The counter `subfigure' was already defined by
+(subcaption)             an unknown document class or package on input line 238
+.
+Package subcaption Info: The counter `subtable' was already defined by
+(subcaption)             an unknown document class or package on input line 238
+.
+Package caption Info: New subtype `subcode' on input line 238.
+\c@subcode=\count321
+Package caption Info: New subtype `submyequation' on input line 238.
+\c@submyequation=\count322
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 15.
+\@indexfile=\write4
+\openout4 = `memoria.idx'.
+
+Writing index file memoria.idx
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2023-03-30 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count323
+\l__pdf_internal_box=\box65
+)
+No file memoria.aux.
+\openout1 = `memoria.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Info: Redefining \. on input line 19.
+LaTeX Info: Redefining \% on input line 19.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(99.58464pt, 441.01773pt, 56.9055pt)
+* v-part:(T,H,B)=(85.35826pt, 702.78308pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=441.01773pt
+* \textheight=702.78308pt
+* \oddsidemargin=27.31465pt
+* \evensidemargin=27.31465pt
+* \topmargin=-41.59085pt
+* \headheight=12.0pt
+* \headsep=42.67912pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=54.2025pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count324
+\scratchdimen=\dimen199
+\scratchbox=\box66
+\nofMPsegments=\count325
+\nofMParguments=\count326
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen256
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
+\everyMPtoPDFconversion=\toks47
+)
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: subfigure package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count330
+Package hyperref Info: Link coloring ON on input line 19.
+\@outlinefile=\write5
+\openout5 = `memoria.out'.
+
+Package newfloat Info: Trying Plan B...
+Package newfloat Info: `float' package detected.
+ (C:/Users/juanc/Desktop/tfg/memoria\portada/indice.tex
+(C:/Users/juanc/Desktop/tfg/memoria\portada/portada.tex
+<imagenes/cap1/logo_urjc.jpg, id=6, 525.965pt x 210.7875pt>
+File: imagenes/cap1/logo_urjc.jpg Graphic file (type jpg)
+<use imagenes/cap1/logo_urjc.jpg>
+Package pdftex.def Info: imagenes/cap1/logo_urjc.jpg  used on input line 7.
+(pdftex.def)             Requested size: 176.40439pt x 70.69545pt.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <15.5> not available
+(Font)              size <14.4> substituted on input line 11.
+
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
+18.
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmss.fd
+File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <15.7> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 18.
+ [1
+
+
+
+{C:/Users/juanc/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/juan
+c/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc} <C:/Users/juanc/D
+esktop/tfg/memoria/imagenes/cap1/logo_urjc.jpg>])
+(C:/Users/juanc/Desktop/tfg/memoria\portada/agradecimientos.tex)
+(C:/Users/juanc/Desktop/tfg/memoria\portada/resumen.tex
+pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \cleardoublepage
+                     [1
+
+
+] [2
+
+
+])
+(C:/Users/juanc/Desktop/tfg/memoria\portada/acronimos.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [3]
+
+LaTeX Warning: Hyper reference `acro:TFG' on page \es@scroman {iv} undefined on
+ input line 7.
+
+
+LaTeX Warning: Hyper reference `acro:TFG' on page \es@scroman {iv} undefined on
+ input line 7.
+
+
+LaTeX Warning: Hyper reference `acro:IA' on page \es@scroman {iv} undefined on 
+input line 8.
+
+
+LaTeX Warning: Hyper reference `acro:IA' on page \es@scroman {iv} undefined on 
+input line 8.
+
+
+LaTeX Warning: Hyper reference `acro:PID' on page \es@scroman {iv} undefined on
+ input line 9.
+
+
+LaTeX Warning: Hyper reference `acro:PID' on page \es@scroman {iv} undefined on
+ input line 9.
+
+
+LaTeX Warning: Hyper reference `acro:GUI' on page \es@scroman {iv} undefined on
+ input line 10.
+
+
+LaTeX Warning: Hyper reference `acro:GUI' on page \es@scroman {iv} undefined on
+ input line 10.
+
+
+LaTeX Warning: Hyper reference `acro:TF' on page \es@scroman {iv} undefined on 
+input line 11.
+
+
+LaTeX Warning: Hyper reference `acro:TF' on page \es@scroman {iv} undefined on 
+input line 11.
+
+
+LaTeX Warning: Hyper reference `acro:FPS' on page \es@scroman {iv} undefined on
+ input line 12.
+
+
+LaTeX Warning: Hyper reference `acro:FPS' on page \es@scroman {iv} undefined on
+ input line 12.
+
+
+LaTeX Warning: Hyper reference `acro:SAE' on page \es@scroman {iv} undefined on
+ input line 13.
+
+
+LaTeX Warning: Hyper reference `acro:SAE' on page \es@scroman {iv} undefined on
+ input line 13.
+
+
+LaTeX Warning: Hyper reference `acro:ADAS' on page \es@scroman {iv} undefined o
+n input line 14.
+
+
+LaTeX Warning: Hyper reference `acro:ADAS' on page \es@scroman {iv} undefined o
+n input line 14.
+
+
+LaTeX Warning: Hyper reference `acro:ISA' on page \es@scroman {iv} undefined on
+ input line 15.
+
+
+LaTeX Warning: Hyper reference `acro:ISA' on page \es@scroman {iv} undefined on
+ input line 15.
+
+
+LaTeX Warning: Hyper reference `acro:LKA' on page \es@scroman {iv} undefined on
+ input line 16.
+
+
+LaTeX Warning: Hyper reference `acro:LKA' on page \es@scroman {iv} undefined on
+ input line 16.
+
+
+LaTeX Warning: Hyper reference `acro:REV' on page \es@scroman {iv} undefined on
+ input line 17.
+
+
+LaTeX Warning: Hyper reference `acro:REV' on page \es@scroman {iv} undefined on
+ input line 17.
+
+
+LaTeX Warning: Hyper reference `acro:RL' on page \es@scroman {iv} undefined on 
+input line 18.
+
+
+LaTeX Warning: Hyper reference `acro:RL' on page \es@scroman {iv} undefined on 
+input line 18.
+
+
+LaTeX Warning: Hyper reference `acro:DL' on page \es@scroman {iv} undefined on 
+input line 19.
+
+
+LaTeX Warning: Hyper reference `acro:DL' on page \es@scroman {iv} undefined on 
+input line 19.
+
+
+LaTeX Warning: Hyper reference `acro:RT' on page \es@scroman {iv} undefined on 
+input line 20.
+
+
+LaTeX Warning: Hyper reference `acro:RT' on page \es@scroman {iv} undefined on 
+input line 20.
+
+
+LaTeX Warning: Hyper reference `acro:ROS' on page \es@scroman {iv} undefined on
+ input line 21.
+
+
+LaTeX Warning: Hyper reference `acro:ROS' on page \es@scroman {iv} undefined on
+ input line 21.
+
+
+LaTeX Warning: Hyper reference `acro:TFM' on page \es@scroman {iv} undefined on
+ input line 22.
+
+
+LaTeX Warning: Hyper reference `acro:TFM' on page \es@scroman {iv} undefined on
+ input line 22.
+
+
+LaTeX Warning: Hyper reference `acro:ROS' on page \es@scroman {iv} undefined on
+ input line 23.
+
+
+LaTeX Warning: Hyper reference `acro:ROS' on page \es@scroman {iv} undefined on
+ input line 23.
+
+) [4
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{ROS}) has bee
+n already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.9 \cleardoublepage
+                    ]
+No file memoria.toc.
+\tf@toc=\write6
+\openout6 = `memoria.toc'.
+
+[5
+
+
+]
+No file memoria.lof.
+\tf@lof=\write7
+\openout7 = `memoria.lof'.
+
+[6
+
+]
+No file memoria.locode.
+\tf@locode=\write8
+\openout8 = `memoria.locode'.
+
+[7
+
+]
+No file memoria.lot.
+\tf@lot=\write9
+\openout9 = `memoria.lot'.
+
+[8
+
+]) (C:/Users/juanc/Desktop/tfg/memoria\capitulos/capitulo1.tex
+Cap\'{\i }tulo 1.
+Package newfloat Info: Setting Plan B file extension to `lof'... on input line 
+1.
+
+Package natbib Warning: Citation `wikipedia-de-robot' on page 1 undefined on in
+put line 8.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+<imagenes/cap1/disciplinas_robotica.jpg, id=75, 468.24937pt x 288.3272pt>
+File: imagenes/cap1/disciplinas_robotica.jpg Graphic file (type jpg)
+<use imagenes/cap1/disciplinas_robotica.jpg>
+Package pdftex.def Info: imagenes/cap1/disciplinas_robotica.jpg  used on input 
+line 14.
+(pdftex.def)             Requested size: 308.71106pt x 190.09854pt.
+[1
+
+
+
+ <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap1/disciplinas_robotica.jpg>]
+
+Package natbib Warning: Citation `los-robots-móviles' on page 2 undefined on i
+nput line 28.
+
+<imagenes/cap1/robot_movil.png, id=83, 1027.84pt x 1027.84pt>
+File: imagenes/cap1/robot_movil.png Graphic file (type png)
+<use imagenes/cap1/robot_movil.png>
+Package pdftex.def Info: imagenes/cap1/robot_movil.png  used on input line 34.
+(pdftex.def)             Requested size: 308.71106pt x 308.7151pt.
+
+Package acronym Warning: Acronym `IA' is not defined on input line 35.
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 35.
+
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
+[2 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap1/robot_movil.png (PNG copy)
+>]
+LaTeX Info: Redefining \. on input line 58.
+LaTeX Info: Redefining \% on input line 58.
+ [3]
+
+Package natbib Warning: Citation `la_conducción_autónoma' on page 4 undefined
+ on input line 61.
+
+<imagenes/cap1/conduccion_autónoma.png, id=95, 1027.84pt x 1027.84pt>
+File: imagenes/cap1/conduccion_autónoma.png Graphic file (type png)
+<use imagenes/cap1/conduccion_autónoma.png>
+Package pdftex.def Info: imagenes/cap1/conduccion_autónoma.png  used on input 
+line 65.
+(pdftex.def)             Requested size: 308.71106pt x 308.7151pt.
+
+Package acronym Warning: Acronym `IA' is not defined on input line 66.
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 66.
+
+Package acronym Info: Label `acro:IA' newly defined as it shall be overridden
+although it is yet undefined on input line 66.
+
+Package acronym Warning: Acronym `IA' is not defined on input line 66.
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 66.
+
+LaTeX Info: Redefining \. on input line 71.
+LaTeX Info: Redefining \% on input line 71.
+[4 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap1/conduccion_autónoma.png (
+PNG copy)>]
+Package acronym Info: Label `acro:SAE' newly defined as it shall be overridden
+although it is yet undefined on input line 75.
+
+
+Package acronym Warning: Acronym `SAE' is not defined on input line 75.
+
+
+Package acronym Warning: Acronym `SAE' is not defined on input line 75.
+
+
+Package natbib Warning: Citation `estándar-j3016' on page 5 undefined on input
+ line 75.
+
+LaTeX Info: Redefining \. on input line 113.
+LaTeX Info: Redefining \% on input line 113.
+[5]
+<imagenes/cap1/niveles_conduccion_autonoma.jpg, id=114, 1003.75pt x 682.55pt>
+File: imagenes/cap1/niveles_conduccion_autonoma.jpg Graphic file (type jpg)
+<use imagenes/cap1/niveles_conduccion_autonoma.jpg>
+Package pdftex.def Info: imagenes/cap1/niveles_conduccion_autonoma.jpg  used on
+ input line 117.
+(pdftex.def)             Requested size: 441.01773pt x 299.89592pt.
+Package acronym Info: Label `acro:ADAS' newly defined as it shall be overridden
+
+although it is yet undefined on input line 124.
+
+
+Package acronym Warning: Acronym `ADAS' is not defined on input line 124.
+
+
+Package acronym Warning: Acronym `ADAS' is not defined on input line 124.
+
+
+Package natbib Warning: Citation `ADAS_DGT' on page 6 undefined on input line 1
+24.
+
+Package acronym Info: Label `acro:ISA' newly defined as it shall be overridden
+although it is yet undefined on input line 124.
+
+Package acronym Warning: Acronym `ISA' is not defined on input line 124.
+
+
+Package acronym Warning: Acronym `ISA' is not defined on input line 124.
+
+Package acronym Info: Label `acro:REV' newly defined as it shall be overridden
+although it is yet undefined on input line 124.
+
+Package acronym Warning: Acronym `REV' is not defined on input line 124.
+
+
+Package acronym Warning: Acronym `REV' is not defined on input line 124.
+
+Package acronym Info: Label `acro:LKA' newly defined as it shall be overridden
+although it is yet undefined on input line 124.
+
+Package acronym Warning: Acronym `LKA' is not defined on input line 124.
+
+
+Package acronym Warning: Acronym `LKA' is not defined on input line 124.
+
+
+Package acronym Warning: Acronym `ADAS' is not defined on input line 124.
+
+
+Package natbib Warning: Citation `tesla_y_robotaxi' on page 6 undefined on inpu
+t line 124.
+
+LaTeX Info: Redefining \. on input line 126.
+LaTeX Info: Redefining \% on input line 126.
+[6 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap1/niveles_conduccion_autonom
+a.jpg>]
+<imagenes/cap1/tesla.jpg, id=124, 1343.0175pt x 754.82pt>
+File: imagenes/cap1/tesla.jpg Graphic file (type jpg)
+<use imagenes/cap1/tesla.jpg>
+Package pdftex.def Info: imagenes/cap1/tesla.jpg  used on input line 130.
+(pdftex.def)             Requested size: 308.71106pt x 173.5013pt.
+
+
+Package natbib Warning: Citation `robotaxi' on page 7 undefined on input line 1
+38.
+
+
+LaTeX Warning: Reference `fig:robotaxi' on page 7 undefined on input line 138.
+
+<imagenes/cap1/waymo_robotaxi.jpg, id=125, 977.15062pt x 656.4525pt>
+File: imagenes/cap1/waymo_robotaxi.jpg Graphic file (type jpg)
+<use imagenes/cap1/waymo_robotaxi.jpg>
+Package pdftex.def Info: imagenes/cap1/waymo_robotaxi.jpg  used on input line 1
+44.
+(pdftex.def)             Requested size: 308.71106pt x 207.39464pt.
+LaTeX Info: Redefining \. on input line 150.
+LaTeX Info: Redefining \% on input line 150.
+[7 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap1/tesla.jpg> <C:/Users/juanc
+/Desktop/tfg/memoria/imagenes/cap1/waymo_robotaxi.jpg>]
+
+Package natbib Warning: Citation `estado_del_arte_conducción_autónoma' on pag
+e 8 undefined on input line 152.
+
+
+Package natbib Warning: Citation `peligros_conducción_autónoma' on page 8 und
+efined on input line 152.
+
+
+Package natbib Warning: Citation `la_revolución_de_la_conducción_autónoma' o
+n page 8 undefined on input line 156.
+
+LaTeX Info: Redefining \. on input line 158.
+LaTeX Info: Redefining \% on input line 158.
+[8]
+Underfull \hbox (badness 1931) in paragraph at lines 158--158
+|[]\OT1/cmr/bx/n/17.28 La inteligencia artificial en la conducci^^Son
+ []
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 161.
+
+
+Package natbib Warning: Citation `detección_de_objetos_con_redes_neuronales' o
+n page 9 undefined on input line 163.
+
+
+Package natbib Warning: Citation `aprendizaje_por_refuerzo' on page 9 undefined
+ on input line 165.
+
+
+Underfull \hbox (badness 2111) in paragraph at lines 165--166
+\OT1/cmr/m/n/12 aut^^Sonoma. Este m^^Setodo entrena modelos de IA a trav^^Ses d
+e recompensas y
+ []
+
+Package acronym Info: Label `acro:TFM' newly defined as it shall be overridden
+although it is yet undefined on input line 167.
+
+Package acronym Warning: Acronym `TFM' is not defined on input line 167.
+
+
+Package acronym Warning: Acronym `TFM' is not defined on input line 167.
+
+
+Package natbib Warning: Citation `conducción_autónoma_imitation_learning' on 
+page 9 undefined on input line 167.
+
+LaTeX Info: Redefining \. on input line 169.
+LaTeX Info: Redefining \% on input line 169.
+[9]
+<imagenes/cap1/red_neuronal.jpeg, id=142, 964.60374pt x 602.25pt>
+File: imagenes/cap1/red_neuronal.jpeg Graphic file (type jpg)
+<use imagenes/cap1/red_neuronal.jpeg>
+Package pdftex.def Info: imagenes/cap1/red_neuronal.jpeg  used on input line 17
+3.
+(pdftex.def)             Requested size: 308.71106pt x 192.74231pt.
+Package acronym Info: Label `acro:TFG' newly defined as it shall be overridden
+although it is yet undefined on input line 183.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 183.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 183.
+
+) (C:/Users/juanc/Desktop/tfg/memoria\capitulos/capitulo2.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [10 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap1/red_neuronal.jpeg>]
+Cap\'{\i }tulo 2.
+Package acronym Info: Label `acro:RL' newly defined as it shall be overridden
+although it is yet undefined on input line 16.
+
+Package acronym Warning: Acronym `RL' is not defined on input line 16.
+
+
+Package acronym Warning: Acronym `RL' is not defined on input line 16.
+
+Package acronym Info: Label `acro:DL' newly defined as it shall be overridden
+although it is yet undefined on input line 16.
+
+Package acronym Warning: Acronym `DL' is not defined on input line 16.
+
+
+Package acronym Warning: Acronym `DL' is not defined on input line 16.
+
+
+Package acronym Warning: Acronym `RL' is not defined on input line 18.
+
+[11
+
+]
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 36.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 38.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
+
+
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<imagenes/cap2/scrum.jpg, id=169, 555.07375pt x 556.0775pt>
+File: imagenes/cap2/scrum.jpg Graphic file (type jpg)
+<use imagenes/cap2/scrum.jpg>
+Package pdftex.def Info: imagenes/cap2/scrum.jpg  used on input line 46.
+(pdftex.def)             Requested size: 308.71106pt x 309.27153pt.
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
+
+[12]
+
+Package acronym Warning: Acronym `DL' is not defined on input line 62.
+
+
+Package acronym Warning: Acronym `RL' is not defined on input line 62.
+
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
+[13 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap2/scrum.jpg>]
+Underfull \hbox (badness 2302) in paragraph at lines 64--65
+\OT1/cmr/m/n/12 que se adaptara al tr^^Safico, navegando por el carril correcta
+mente,
+ []
+
+) (C:/Users/juanc/Desktop/tfg/memoria\capitulos/capitulo3.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [14]
+Cap\'{\i }tulo 3.
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 4.
+
+
+Package natbib Warning: Citation `que_es_python_1' on page 15 undefined on inpu
+t line 12.
+
+
+Package natbib Warning: Citation `python_y_la_ia' on page 15 undefined on input
+ line 12.
+
+
+Package xcolor Warning: Incompatible color definition on input line 16.
+
+
+Package xcolor Warning: Incompatible color definition on input line 16.
+
+
+Package xcolor Warning: Incompatible color definition on input line 16.
+
+
+Package xcolor Warning: Incompatible color definition on input line 16.
+
+
+Package xcolor Warning: Incompatible color definition on input line 16.
+
+Package hyperref Info: bookmark level for unknown code defaults to 0 on input l
+ine 18.
+[15
+
+]
+Underfull \hbox (badness 1019) in paragraph at lines 31--32
+\OT1/cmr/m/n/12 encontramos un sinf^^S^^Pn de opciones. Sin embargo, entre toda
+ esta variedad de
+ []
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 39.
+
+<imagenes/cap3/carla.jpg, id=205, 752.8125pt x 481.8pt>
+File: imagenes/cap3/carla.jpg Graphic file (type jpg)
+<use imagenes/cap3/carla.jpg>
+Package pdftex.def Info: imagenes/cap3/carla.jpg  used on input line 49.
+(pdftex.def)             Requested size: 355.65984pt x 227.62204pt.
+LaTeX Info: Redefining \. on input line 54.
+LaTeX Info: Redefining \% on input line 54.
+
+Overfull \hbox (33.42328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAP[]ITULO 3.  PLATAFORMAS DE DESARROLLO Y HERRAMIENTAS UTILIZ
+ADAS \OT1/cmr/m/n/12 16
+ []
+
+[16]
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 55.
+
+
+Package natbib Warning: Citation `introducción_a_ros' on page 17 undefined on 
+input line 61.
+
+<imagenes/cap3/ros2_logo.png, id=215, 1927.2pt x 558.085pt>
+File: imagenes/cap3/ros2_logo.png Graphic file (type png)
+<use imagenes/cap3/ros2_logo.png>
+Package pdftex.def Info: imagenes/cap3/ros2_logo.png  used on input line 66.
+(pdftex.def)             Requested size: 393.0201pt x 113.81102pt.
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
+
+Overfull \hbox (33.42328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAP[]ITULO 3.  PLATAFORMAS DE DESARROLLO Y HERRAMIENTAS UTILIZ
+ADAS \OT1/cmr/m/n/12 17
+ []
+
+[17 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap3/carla.jpg>]
+Underfull \hbox (badness 1072) in paragraph at lines 80--81
+\OT1/cmr/m/n/12 CARLA.Esta herramienta tiene el objetivo de ser, un medio de co
+municaci^^Son
+ []
+
+<imagenes/cap3/carla_to_ros_bridge.png, id=227, 1204.5pt x 602.25pt>
+File: imagenes/cap3/carla_to_ros_bridge.png Graphic file (type png)
+<use imagenes/cap3/carla_to_ros_bridge.png>
+Package pdftex.def Info: imagenes/cap3/carla_to_ros_bridge.png  used on input l
+ine 84.
+(pdftex.def)             Requested size: 455.25195pt x 227.62204pt.
+
+Overfull \hbox (14.23422pt too wide) in paragraph at lines 84--85
+ [] 
+ []
+
+LaTeX Info: Redefining \. on input line 89.
+LaTeX Info: Redefining \% on input line 89.
+
+Overfull \hbox (33.42328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAP[]ITULO 3.  PLATAFORMAS DE DESARROLLO Y HERRAMIENTAS UTILIZ
+ADAS \OT1/cmr/m/n/12 18
+ []
+
+[18 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap3/ros2_logo.png (PNG copy)>
+]
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 89.
+
+<imagenes/cap3/vsc-logo.png, id=239, 1131.22626pt x 580.1675pt>
+File: imagenes/cap3/vsc-logo.png Graphic file (type png)
+<use imagenes/cap3/vsc-logo.png>
+Package pdftex.def Info: imagenes/cap3/vsc-logo.png  used on input line 100.
+(pdftex.def)             Requested size: 221.9087pt x 113.81102pt.
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 106.
+
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
+
+Overfull \hbox (33.42328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAP[]ITULO 3.  PLATAFORMAS DE DESARROLLO Y HERRAMIENTAS UTILIZ
+ADAS \OT1/cmr/m/n/12 19
+ []
+
+[19 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap3/carla_to_ros_bridge.png> 
+<C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap3/vsc-logo.png>]
+
+Package acronym Warning: Acronym `IA' is not defined on input line 111.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 111.
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 111.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 115.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 119.
+
+Package acronym Info: Label `acro:RT' newly defined as it shall be overridden
+although it is yet undefined on input line 119.
+
+Package acronym Warning: Acronym `RT' is not defined on input line 119.
+
+
+Package acronym Warning: Acronym `RT' is not defined on input line 119.
+
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
+
+Overfull \hbox (33.42328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAP[]ITULO 3.  PLATAFORMAS DE DESARROLLO Y HERRAMIENTAS UTILIZ
+ADAS \OT1/cmr/m/n/12 20
+ []
+
+[20]
+
+Package acronym Warning: Acronym `DL' is not defined on input line 131.
+
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+
+Overfull \hbox (33.42328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAP[]ITULO 3.  PLATAFORMAS DE DESARROLLO Y HERRAMIENTAS UTILIZ
+ADAS \OT1/cmr/m/n/12 21
+ []
+
+[21]
+
+Package natbib Warning: Citation `reinforcement_learning' on page 22 undefined 
+on input line 152.
+
+) (C:/Users/juanc/Desktop/tfg/memoria\capitulos/capitulo4.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+Overfull \hbox (33.42328pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAP[]ITULO 3.  PLATAFORMAS DE DESARROLLO Y HERRAMIENTAS UTILIZ
+ADAS \OT1/cmr/m/n/12 22
+ []
+
+[22]
+Cap\'{\i }tulo 4.
+
+Package acronym Warning: Acronym `IA' is not defined on input line 12.
+
+
+Package acronym Warning: Acronym `DL' is not defined on input line 12.
+
+[23
+
+]
+
+Package acronym Warning: Acronym `IA' is not defined on input line 20.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 35.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 37.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 45.
+
+Package acronym Info: Label `acro:ROS' newly defined as it shall be overridden
+although it is yet undefined on input line 45.
+
+Package acronym Warning: Acronym `ROS' is not defined on input line 45.
+
+
+Package acronym Warning: Acronym `ROS' is not defined on input line 45.
+
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
+[24]
+Package acronym Info: Label `acro:PID' newly defined as it shall be overridden
+although it is yet undefined on input line 52.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 52.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 52.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 54.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 56.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 58.
+
+
+LaTeX Warning: Reference `fig:Arquitectura del TFG' on page 25 undefined on inp
+ut line 77.
+
+
+
+pdfTeX warning: pdflatex (file C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4
+/Arquitectura.pdf): PDF inclusion: found PDF version <1.7>, but at most version
+ <1.5> allowed
+<imagenes/cap4/Arquitectura.pdf, id=282, 845.07718pt x 600.32281pt>
+File: imagenes/cap4/Arquitectura.pdf Graphic file (type pdf)
+<use imagenes/cap4/Arquitectura.pdf>
+Package pdftex.def Info: imagenes/cap4/Arquitectura.pdf  used on input line 84.
+
+(pdftex.def)             Requested size: 480.64162pt x 341.43306pt.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
+[25]
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 94.
+
+LaTeX Info: Redefining \. on input line 104.
+LaTeX Info: Redefining \% on input line 104.
+[26 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/Arquitectura.pdf>]
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+108.
+(C:\Users\juanc\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 108.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 127.
+
+
+Package natbib Warning: Citation `distribuciones_ros' on page 27 undefined on i
+nput line 145.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 145.
+
+LaTeX Info: Redefining \. on input line 146.
+LaTeX Info: Redefining \% on input line 146.
+[27]
+<imagenes/cap4/ros_2_foxy.png, id=334, 190.46156pt x 225.84375pt>
+File: imagenes/cap4/ros_2_foxy.png Graphic file (type png)
+<use imagenes/cap4/ros_2_foxy.png>
+Package pdftex.def Info: imagenes/cap4/ros_2_foxy.png  used on input line 153.
+(pdftex.def)             Requested size: 191.97229pt x 227.62204pt.
+
+
+Package natbib Warning: Citation `carla_to_ros_bridge' on page 28 undefined on 
+input line 163.
+
+LaTeX Info: Redefining \. on input line 165.
+LaTeX Info: Redefining \% on input line 165.
+[28 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/ros_2_foxy.png>]
+
+LaTeX Warning: Reference `cod:Ejemplo de uso del carla to ros bridge' on page 2
+9 undefined on input line 207.
+
+
+Package xcolor Warning: Incompatible color definition on input line 215.
+
+
+Package xcolor Warning: Incompatible color definition on input line 215.
+
+
+Package xcolor Warning: Incompatible color definition on input line 215.
+
+
+Package xcolor Warning: Incompatible color definition on input line 215.
+
+
+Package xcolor Warning: Incompatible color definition on input line 215.
+
+
+Package xcolor Warning: Incompatible color definition on input line 215.
+
+
+Package xcolor Warning: Incompatible color definition on input line 215.
+
+
+Package xcolor Warning: Incompatible color definition on input line 215.
+
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
+[29]
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 235.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 239.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 239.
+
+LaTeX Info: Redefining \. on input line 245.
+LaTeX Info: Redefining \% on input line 245.
+[30]
+
+Package natbib Warning: Citation `pygame' on page 31 undefined on input line 25
+6.
+
+Package acronym Info: Label `acro:FPS' newly defined as it shall be overridden
+although it is yet undefined on input line 260.
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 260.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 260.
+
+
+LaTeX Warning: Reference `fig: HMI de un teleoperador para un vehículo de CARL
+A' on page 31 undefined on input line 260.
+
+LaTeX Info: Redefining \. on input line 261.
+LaTeX Info: Redefining \% on input line 261.
+[31]
+<imagenes/cap4/vehicle_teleop_hmi.png, id=403, 1916.15875pt x 1084.05pt>
+File: imagenes/cap4/vehicle_teleop_hmi.png Graphic file (type png)
+<use imagenes/cap4/vehicle_teleop_hmi.png>
+Package pdftex.def Info: imagenes/cap4/vehicle_teleop_hmi.png  used on input li
+ne 264.
+(pdftex.def)             Requested size: 402.3175pt x 227.62204pt.
+Package acronym Info: Label `acro:GUI' newly defined as it shall be overridden
+although it is yet undefined on input line 271.
+
+
+Package acronym Warning: Acronym `GUI' is not defined on input line 271.
+
+
+Package acronym Warning: Acronym `GUI' is not defined on input line 271.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 271.
+
+
+Package acronym Warning: Acronym `GUI' is not defined on input line 271.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 271.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 271.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 271.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 271.
+
+
+Package acronym Warning: Acronym `GUI' is not defined on input line 275.
+
+
+LaTeX Warning: Reference `cod:Eventos de pygame para controlar el teleoperador'
+ on page 32 undefined on input line 275.
+
+LaTeX Info: Redefining \. on input line 276.
+LaTeX Info: Redefining \% on input line 276.
+[32 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/vehicle_teleop_hmi.png>]
+
+Package xcolor Warning: Incompatible color definition on input line 316.
+
+
+Package xcolor Warning: Incompatible color definition on input line 316.
+
+
+Package xcolor Warning: Incompatible color definition on input line 316.
+
+
+Package xcolor Warning: Incompatible color definition on input line 316.
+
+
+Package xcolor Warning: Incompatible color definition on input line 316.
+
+LaTeX Info: Redefining \. on input line 326.
+LaTeX Info: Redefining \% on input line 326.
+[33]
+LaTeX Info: Redefining \. on input line 333.
+LaTeX Info: Redefining \% on input line 333.
+ [34]
+Underfull \hbox (badness 1931) in paragraph at lines 334--335
+[]\OT1/cmr/m/n/12 En el siguiente [][]\OT1/cmr/bx/n/12 video[][] \OT1/cmr/m/n/1
+2 en la plataforma YouTube, se puede visualizar el
+ []
+
+
+Underfull \hbox (badness 3769) in paragraph at lines 339--339
+|[] \OT1/cmr/bx/n/17.28 Sigue carril basado en visi^^Son artificial
+ []
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 346.
+
+
+Package acronym Warning: Acronym `TFG' is not defined on input line 346.
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 346.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 350.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 354.
+
+LaTeX Info: Redefining \. on input line 355.
+LaTeX Info: Redefining \% on input line 355.
+[35]
+
+Package xcolor Warning: Incompatible color definition on input line 362.
+
+
+Package xcolor Warning: Incompatible color definition on input line 362.
+
+
+Package xcolor Warning: Incompatible color definition on input line 363.
+
+
+Package xcolor Warning: Incompatible color definition on input line 363.
+
+
+Package xcolor Warning: Incompatible color definition on input line 363.
+
+
+Package xcolor Warning: Incompatible color definition on input line 363.
+
+
+Package xcolor Warning: Incompatible color definition on input line 365.
+
+
+Package xcolor Warning: Incompatible color definition on input line 365.
+
+
+Package xcolor Warning: Incompatible color definition on input line 365.
+
+
+Package xcolor Warning: Incompatible color definition on input line 365.
+
+LaTeX Info: Redefining \. on input line 406.
+LaTeX Info: Redefining \% on input line 406.
+[36]
+LaTeX Info: Redefining \. on input line 410.
+LaTeX Info: Redefining \% on input line 410.
+ [37]
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 443.
+
+LaTeX Info: Redefining \. on input line 456.
+LaTeX Info: Redefining \% on input line 456.
+[38]
+
+LaTeX Warning: Reference `cod: filtro canny' on page 39 undefined on input line
+ 457.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 461.
+
+
+LaTeX Warning: Reference `fig:Gráfica de tasa de fps del sigue carril basado e
+n canny' on page 39 undefined on input line 461.
+
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ canny' on page 39 undefined on input line 461.
+
+<imagenes/cap4/graphichs_canny/fps.pdf, id=545, 1112.60738pt x 555.19254pt>
+File: imagenes/cap4/graphichs_canny/fps.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphichs_canny/fps.pdf>
+Package pdftex.def Info: imagenes/cap4/graphichs_canny/fps.pdf  used on input l
+ine 467.
+(pdftex.def)             Requested size: 342.10352pt x 170.71652pt.
+<imagenes/cap4/graphichs_canny/cpu_usage.pdf, id=546, 1112.74852pt x 555.19254p
+t>
+File: imagenes/cap4/graphichs_canny/cpu_usage.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphichs_canny/cpu_usage.pdf>
+Package pdftex.def Info: imagenes/cap4/graphichs_canny/cpu_usage.pdf  used on i
+nput line 474.
+(pdftex.def)             Requested size: 342.14691pt x 170.71652pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 481.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 481.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 481.
+
+LaTeX Info: Redefining \. on input line 484.
+LaTeX Info: Redefining \% on input line 484.
+[39 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphichs_canny/fps.pdf>]
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ canny' on page 40 undefined on input line 485.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 488.
+
+LaTeX Info: Redefining \. on input line 494.
+LaTeX Info: Redefining \% on input line 494.
+[40 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphichs_canny/cpu_usage
+.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+LaTeX Info: Redefining \. on input line 541.
+LaTeX Info: Redefining \% on input line 541.
+[41]
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 545.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 545.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 545.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 549.
+
+
+LaTeX Warning: Reference `fig:Gráfica de tasa de fps del sigue carril basado e
+n canny + hsv' on page 42 undefined on input line 549.
+
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ canny + hsv' on page 42 undefined on input line 549.
+
+<imagenes/cap4/graphics_hsv/fps.pdf, id=642, 1112.60738pt x 555.19254pt>
+File: imagenes/cap4/graphics_hsv/fps.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphics_hsv/fps.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_hsv/fps.pdf  used on input line
+ 555.
+(pdftex.def)             Requested size: 342.10352pt x 170.71652pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<imagenes/cap4/graphics_hsv/cpu_usage.pdf, id=643, 1112.74852pt x 555.19254pt>
+File: imagenes/cap4/graphics_hsv/cpu_usage.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphics_hsv/cpu_usage.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_hsv/cpu_usage.pdf  used on inpu
+t line 562.
+(pdftex.def)             Requested size: 342.14691pt x 170.71652pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 569.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 569.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 569.
+
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ canny' on page 42 undefined on input line 573.
+
+LaTeX Info: Redefining \. on input line 574.
+LaTeX Info: Redefining \% on input line 574.
+[42]
+LaTeX Info: Redefining \. on input line 583.
+LaTeX Info: Redefining \% on input line 583.
+ [43 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_hsv/fps.pdf> <C
+:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_hsv/cpu_usage.pdf>]
+Underfull \hbox (badness 1831) in paragraph at lines 586--587
+[]\OT1/cmr/m/n/12 Este m^^Setodo consiste en un pipeline de varias transformaci
+ones, filtros y
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 597.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 604.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 605.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Package xcolor Warning: Incompatible color definition on input line 609.
+
+
+Package xcolor Warning: Incompatible color definition on input line 609.
+
+
+Package xcolor Warning: Incompatible color definition on input line 609.
+
+
+Package xcolor Warning: Incompatible color definition on input line 609.
+
+
+Package xcolor Warning: Incompatible color definition on input line 609.
+
+
+Package xcolor Warning: Incompatible color definition on input line 609.
+
+
+Package xcolor Warning: Incompatible color definition on input line 609.
+
+
+Package xcolor Warning: Incompatible color definition on input line 609.
+
+
+Package xcolor Warning: Incompatible color definition on input line 613.
+
+
+Package xcolor Warning: Incompatible color definition on input line 613.
+
+
+Package xcolor Warning: Incompatible color definition on input line 613.
+
+
+Package xcolor Warning: Incompatible color definition on input line 613.
+
+
+Package xcolor Warning: Incompatible color definition on input line 613.
+
+
+Package xcolor Warning: Incompatible color definition on input line 613.
+
+
+Package xcolor Warning: Incompatible color definition on input line 613.
+
+
+Package xcolor Warning: Incompatible color definition on input line 613.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+
+Package xcolor Warning: Incompatible color definition on input line 617.
+
+LaTeX Info: Redefining \. on input line 628.
+LaTeX Info: Redefining \% on input line 628.
+[44]
+Overfull \hbox (22.32562pt too wide) in paragraph at lines 638--639
+[][][][][][][][][][][][][][][]  
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 646.
+
+LaTeX Info: Redefining \. on input line 655.
+LaTeX Info: Redefining \% on input line 655.
+[45]
+Overfull \hbox (28.07431pt too wide) in paragraph at lines 664--665
+[][][][][][][][][][][][][][][][]  
+ []
+
+LaTeX Info: Redefining \. on input line 678.
+LaTeX Info: Redefining \% on input line 678.
+[46]
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 695.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 699.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 707.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Package xcolor Warning: Incompatible color definition on input line 716.
+
+
+Overfull \hbox (78.66306pt too wide) in paragraph at lines 718--719
+[][][][][][][][][][][][][][][][][][][][]  
+ []
+
+
+Overfull \hbox (90.16043pt too wide) in paragraph at lines 720--721
+[][][][][][][][][][][][][][][][][][][][]  
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+
+Package xcolor Warning: Incompatible color definition on input line 723.
+
+LaTeX Info: Redefining \. on input line 733.
+LaTeX Info: Redefining \% on input line 733.
+[47]
+Overfull \vbox (43.58803pt too high) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 733.
+LaTeX Info: Redefining \% on input line 733.
+
+[48]
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 739.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 743.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Package xcolor Warning: Incompatible color definition on input line 753.
+
+
+Overfull \vbox (43.58803pt too high) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 791.
+LaTeX Info: Redefining \% on input line 791.
+
+[49]
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+Package xcolor Warning: Incompatible color definition on input line 799.
+
+
+LaTeX Warning: Reference `cod:Pipeline completo de filtrado de carril' on page 
+50 undefined on input line 816.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 844.
+
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ algoritmo sliding window' on page 50 undefined on input line 844.
+
+<imagenes/cap4/graphics_sliding_window/fps.pdf, id=921, 1112.60738pt x 555.1925
+4pt>
+File: imagenes/cap4/graphics_sliding_window/fps.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphics_sliding_window/fps.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_sliding_window/fps.pdf  used on
+ input line 850.
+(pdftex.def)             Requested size: 342.10352pt x 170.71652pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 857.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 857.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 857.
+
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ algoritmo sliding window' on page 50 undefined on input line 857.
+
+LaTeX Info: Redefining \. on input line 858.
+LaTeX Info: Redefining \% on input line 858.
+[50]
+<imagenes/cap4/graphics_sliding_window/cpu_usage.pdf, id=957, 1119.13174pt x 55
+5.19254pt>
+File: imagenes/cap4/graphics_sliding_window/cpu_usage.pdf Graphic file (type pd
+f)
+<use imagenes/cap4/graphics_sliding_window/cpu_usage.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_sliding_window/cpu_usage.pdf  u
+sed on input line 861.
+(pdftex.def)             Requested size: 344.10962pt x 170.71652pt.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 873.
+
+
+LaTeX Warning: Reference `fig:Gráfica de tasa de fps del sigue carril basado e
+n canny' on page 51 undefined on input line 873.
+
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ canny' on page 51 undefined on input line 873.
+
+LaTeX Info: Redefining \. on input line 874.
+LaTeX Info: Redefining \% on input line 874.
+[51 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_sliding_window/f
+ps.pdf> <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_sliding_wind
+ow/cpu_usage.pdf>]
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ canny' on page 52 undefined on input line 878.
+
+
+Package natbib Warning: Citation `sliding_window_lane_detection' on page 52 und
+efined on input line 886.
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 894.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 894.
+
+
+LaTeX Warning: Reference `cod:controlador_PID_visión_artificial' on page 52 un
+defined on input line 894.
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 898.
+
+LaTeX Info: Redefining \. on input line 899.
+LaTeX Info: Redefining \% on input line 899.
+[52]
+
+LaTeX Warning: Reference `fig:Gráfica de tasa de fps del sigue carril basado e
+n deeplearning' on page 53 undefined on input line 920.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 920.
+
+
+LaTeX Warning: Reference `fig:Gráfica de uso de cpu del sigue carril basado en
+ deeplearnig' on page 53 undefined on input line 920.
+
+LaTeX Info: Redefining \. on input line 921.
+LaTeX Info: Redefining \% on input line 921.
+[53]
+<imagenes/cap4/graphics_deeplearning/fps.pdf, id=1043, 1112.60738pt x 555.19254
+pt>
+File: imagenes/cap4/graphics_deeplearning/fps.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphics_deeplearning/fps.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_deeplearning/fps.pdf  used on i
+nput line 924.
+(pdftex.def)             Requested size: 342.10352pt x 170.71652pt.
+<imagenes/cap4/graphics_deeplearning/cpu_usage.pdf, id=1044, 1119.13174pt x 555
+.19254pt>
+File: imagenes/cap4/graphics_deeplearning/cpu_usage.pdf Graphic file (type pdf)
+
+<use imagenes/cap4/graphics_deeplearning/cpu_usage.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_deeplearning/cpu_usage.pdf  use
+d on input line 931.
+(pdftex.def)             Requested size: 344.10962pt x 170.71652pt.
+LaTeX Info: Redefining \. on input line 940.
+LaTeX Info: Redefining \% on input line 940.
+ [54 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_deeplearning/fp
+s.pdf> <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_deeplearning/
+cpu_usage.pdf>]
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 950.
+
+
+LaTeX Warning: Reference `fig:Gráfíca de comparación de los FPS de todos los
+ algoritmos' on page 55 undefined on input line 950.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 950.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 950.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 950.
+
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 950.
+
+<imagenes/cap4/graphics_comparison/fps.pdf, id=1110, 485.30373pt x 383.52283pt>
+
+File: imagenes/cap4/graphics_comparison/fps.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphics_comparison/fps.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_comparison/fps.pdf  used on inp
+ut line 956.
+(pdftex.def)             Requested size: 216.02242pt x 170.71652pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 961.
+LaTeX Info: Redefining \% on input line 961.
+[55]
+<imagenes/cap4/graphics_comparison/route.pdf, id=1116, 1162.65715pt x 597.06387
+pt>
+File: imagenes/cap4/graphics_comparison/route.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphics_comparison/route.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_comparison/route.pdf  used on i
+nput line 969.
+(pdftex.def)             Requested size: 332.44292pt x 170.71652pt.
+
+
+LaTeX Warning: Reference `fig:Gráfica de los tipos movimientos de los PID de t
+odos los algorimtos' on page 56 undefined on input line 976.
+
+
+LaTeX Warning: Reference `fig:Gráfica de la función ecdef de la insensidad de
+ los giros de cada algoritmo' on page 56 undefined on input line 976.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 976.
+
+
+LaTeX Warning: Reference `fig:Gráfica de los tipos movimientos de los PID de t
+odos los algorimtos' on page 56 undefined on input line 976.
+
+
+LaTeX Warning: Reference `fig:Gráfica de la función ecdef de la insensidad de
+ los giros de cada algoritmo' on page 56 undefined on input line 976.
+
+
+Package acronym Warning: Acronym `PID' is not defined on input line 976.
+
+LaTeX Info: Redefining \. on input line 977.
+LaTeX Info: Redefining \% on input line 977.
+[56 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_comparison/fps.p
+df> <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_comparison/route
+.pdf>]
+<imagenes/cap4/graphics_comparison/pid_curling.pdf, id=1202, 1112.74852pt x 555
+.47484pt>
+File: imagenes/cap4/graphics_comparison/pid_curling.pdf Graphic file (type pdf)
+
+<use imagenes/cap4/graphics_comparison/pid_curling.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_comparison/pid_curling.pdf  use
+d on input line 980.
+(pdftex.def)             Requested size: 341.97713pt x 170.71652pt.
+<imagenes/cap4/graphics_comparison/ECDEF.pdf, id=1203, 600.52168pt x 383.38168p
+t>
+File: imagenes/cap4/graphics_comparison/ECDEF.pdf Graphic file (type pdf)
+<use imagenes/cap4/graphics_comparison/ECDEF.pdf>
+Package pdftex.def Info: imagenes/cap4/graphics_comparison/ECDEF.pdf  used on i
+nput line 987.
+(pdftex.def)             Requested size: 267.40999pt x 170.71652pt.
+LaTeX Info: Redefining \. on input line 996.
+LaTeX Info: Redefining \% on input line 996.
+ [57 <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_comparison/pid_
+curling.pdf> <C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/graphics_compari
+son/ECDEF.pdf>]
+
+Package acronym Warning: Acronym `FPS' is not defined on input line 1003.
+
+
+Package acronym Warning: Acronym `IA' is not defined on input line 1011.
+
+LaTeX Info: Redefining \. on input line 1021.
+LaTeX Info: Redefining \% on input line 1021.
+[58]
+!pdfTeX error: pdflatex (file C:/Users/juanc/Desktop/tfg/memoria/imagenes/cap4/
+estados_qlearning.pdf): reading image file failed
+ ==> Fatal error occurred, no output PDF file produced!
