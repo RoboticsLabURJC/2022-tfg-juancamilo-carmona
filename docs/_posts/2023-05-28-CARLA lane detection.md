@@ -1,5 +1,3 @@
-# CARLA Lane detection
-
 In today's post, I'm excited to delve deeper into one of the most critical aspects of autonomous driving: lane detection. The primary idea behind my Final Degree Project was to create a lane detector based on Convolutional Neural Networks (CNN). However, to demonstrate the effectiveness of this method, I designed three other algorithms based on traditional computer vision techniques. I'll discuss each of these in detail before diving into the issues encountered and how I resolved them.
 
 ## HSV color filter
@@ -25,4 +23,4 @@ To mitigate this issue, I spent a lot of time optimizing the code and tuning the
 
 ## Demostration
 The following link will take you to a youtube video where you can see a demostration of the final CNN lane detection 
-https://youtu.be/JNjXhbmbLmg
+[Link to video](https://youtu.be/JNjXhbmbLmg)

@@ -1,5 +1,3 @@
-# CARLA teleop
-
 For this following weeks our task will be to program a simple teleop on ROS2 that can control a vehicle on CARLA. 
 
 ## vehicle launching

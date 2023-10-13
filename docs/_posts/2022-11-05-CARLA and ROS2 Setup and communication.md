@@ -1,5 +1,3 @@
-# CARLA and ROS2 Setup and communication
-
 This first week job has been focused mainly on setting up our hole working enviroment. The main tasks where to install and setup both CARLA and ROS2.
 
 ## CARLA
@@ -15,5 +13,6 @@ As I've mentioned before, ROS2 foxy is the ROS2 distribution we will be working 
 ## carla_to_ros_bridge
 Now we have both ROS2 and CARLA installed, but how do we make them communicate with each other? how can we make CARLA understand rostopics? 
 fortunately, CARLA developers already thought of this problem and on the CARLA main GitHub page there is a repository called carla_to_ros_bridge, this software translates rostopics so that CARLA can understand them. 
-The carla_to_ros_bridge repo can be found here https://github.com/carla-simulator/ros-bridge
-![image](https://github.com/RoboticsLabURJC/2022-tfg-juancamilo-carmona/blob/3a71a2e83a9dd3daf8f02672e98e9a2e3e338010/docs/images/ros-bridge.png)
+The carla_to_ros_bridge repo can be found here [carla_to_ros_bridge](https://github.com/carla-simulator/ros-bridge)
+
+![ros-bridge](https://github.com/RoboticsLabURJC/2022-tfg-juancamilo-carmona/assets/78978326/af450c6f-efde-4e7f-8e35-4a9b027876b8)

@@ -1,4 +1,3 @@
-# Qlearning autopilot
 in a first approach to the use of reinforcement learning for driving our vehicle, I started developing a Q-learning solution. This algorithm provides a novel approach to controlling the vehicle based on the output from our established lane detection system.
 
 Q-learning is a value-based reinforcement learning algorithm used widely in machine learning. This algorithm enables an agent to learn an optimal policy, a mapping of observed environment states to actions, in controlled Markovian domains.
